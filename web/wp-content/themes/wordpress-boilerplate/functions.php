@@ -38,26 +38,6 @@ add_action('widgets_init', function () {
 
 // Filter
 
-add_filter('wp_title', function ($title, $sep) {
-    global $paged, $page;
-
-    if (is_feed()) {
-        return $title;
-    }
-
-    if (is_front_page()) {
-        // Add the site name.
-        $title .= " $sep " . get_bloginfo('title', 'display');
-    }
-
-    // Add a page number if necessary.
-    if ($paged >= 2 || $page >= 2) {
-        $title = "$title $sep " . sprintf(__('Page %s', 'wordpress-boilerplate'), max($paged, $page));
-    }
-
-    return $title;
-}, 100, 2);
-
 // From: http://christianvarga.com/2012/12/how-to-get-submenu-items-from-a-wordpress-menu-based-on-parent-or-sibling/
 add_filter('wp_nav_menu_objects', function ($sorted_menu_items, $args) {
     if (!isset($args->wordpress_boilerplate_submenu)) {
