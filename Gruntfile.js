@@ -4,7 +4,7 @@ module.exports = function (grunt) {
         less: {
             style: {
                 options: {
-                    yuicompress: false
+                    compress: false
                 },
                 src: 'assets/less/style.less',
                 dest: 'web/wp-content/themes/wordpress-boilerplate/style.css'
