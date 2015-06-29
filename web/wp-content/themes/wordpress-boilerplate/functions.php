@@ -3,13 +3,11 @@
 // Actions
 
 add_action('wp_enqueue_scripts', function () {
-    global $wp_scripts;
-
     wp_enqueue_style('wordpress-boilerplate-main', get_template_directory_uri() . '/assets/main.css', array(), md5_file(__DIR__ . '/assets/main.css'));
 
     wp_enqueue_script('wordpress-boilerplate-head', get_template_directory_uri() . '/assets/head.js', array(), md5_file(dirname(__FILE__) . '/assets/head.js'), false);
     wp_enqueue_script('wordpress-boilerplate-ie8', get_template_directory_uri() . '/assets/ie8.js', array(), md5_file(dirname(__FILE__) . '/assets/ie8.js'), false);
-    $wp_scripts->add_data('wordpress-boilerplate-ie8', 'conditional', 'lt IE 9');
+    wp_script_add_data('wordpress-boilerplate-ie8', 'conditional', 'lt IE 9');
     wp_enqueue_script('wordpress-boilerplate-main', get_template_directory_uri() . '/assets/main.js', array('jquery'), md5_file(dirname(__FILE__) . '/assets/main.js'), true);
 });
 
