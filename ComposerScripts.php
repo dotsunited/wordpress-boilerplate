@@ -23,7 +23,22 @@ class ComposerScripts
         rename(__DIR__ . '/web/wp-content/themes/wordpress-boilerplate', __DIR__ . '/web/wp-content/themes/' . $projectIdentifier);
 
         unlink(__DIR__ . '/composer.json');
+        unlink(__DIR__ . '/composer.lock');
+        self::removeDir(__DIR__ . '/vendor');
         unlink(__DIR__ . '/ComposerScripts.php');
+    }
+
+    private static function removeDir($dir)
+    {
+        foreach (glob(rtrim($dir, '\\/') . '/*') as $file) {
+            if (is_dir($file)) {
+                self::removeDir($file);
+            } else {
+                unlink($file);
+            }
+        }
+
+        rmdir($dir);
     }
 
     private static function replaceDir($dir, $projectName, $projectIdentifier)
