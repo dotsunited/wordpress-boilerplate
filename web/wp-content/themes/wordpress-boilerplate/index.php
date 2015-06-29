@@ -20,7 +20,9 @@
         <?php endwhile; ?>
 
         </main>
-        <?php get_sidebar(); ?>
+        <div class="page-content__sidebar" role="complementary">
+            <?php get_sidebar(); ?>
+        </div>
     </div>
 
 <?php get_footer();

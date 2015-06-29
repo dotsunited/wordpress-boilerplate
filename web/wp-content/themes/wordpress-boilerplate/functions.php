@@ -36,14 +36,14 @@ add_action('after_setup_theme', function () {
 add_action('widgets_init', function () {
     register_nav_menu('main', __('Main Menu', 'wordpress-boilerplate'));
 
-    register_sidebar( array(
+    register_sidebar(array(
         'name'          => __('Sidebar', 'wordpress-boilerplate'),
         'id'            => 'sidebar-1',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h3 class="widget-title">',
-        'after_title'   => '</h3>',
-    ) );
+        'before_title'  => '<h2 class="widget__title">',
+        'after_title'   => '</h2>',
+    ));
 });
 
 // Filter
