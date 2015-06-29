@@ -16,11 +16,14 @@ class ComposerScripts
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/README.md', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
 
         self::replaceDir(__DIR__ . '/web/wp-content/themes/wordpress-boilerplate', $projectName, $projectIdentifier);
 
         rename(__DIR__ . '/web/wp-content/themes/wordpress-boilerplate', __DIR__ . '/web/wp-content/themes/' . $projectIdentifier);
+
+        unlink(__DIR__ . '/README.md');
+        rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
 
         unlink(__DIR__ . '/composer.json');
         unlink(__DIR__ . '/composer.lock');

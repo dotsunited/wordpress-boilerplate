@@ -1,7 +1,8 @@
 Wordpress Boilerplate
 ===
 
-Third-party plugins
----
+Create new project with
 
-* Document required third-party plugins
+```bash
+composer create-project dotsunited/wordpress-boilerplate my-project
+```
