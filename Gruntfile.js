@@ -15,13 +15,15 @@ module.exports = function (grunt) {
             watch: webpackWatchConfig
         },
         clean: {
-            assets: ['web/wp-content/themes/wordpress-boilerplate/assets/*']
+            webpack: ['web/wp-content/themes/wordpress-boilerplate/assets/scripts/**/*'],
+            webpack_after: ['web/wp-content/themes/wordpress-boilerplate/assets/scripts/main-critical-css.js']
         },
         imagemin: {
             assets: {
                 expand: true,
                 src: [
-                    'web/wp-content/themes/wordpress-boilerplate/img/**/*.{jpg,jpeg,png,gif}'
+                    'web/wp-content/themes/wordpress-boilerplate/assets/img/**/*.{jpg,jpeg,png,gif,svg}',
+                    'web/favicon.ico'
                 ]
             }
         }
@@ -31,7 +33,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-    grunt.registerTask('watch', ['clean:assets', 'webpack:watch']);
-    grunt.registerTask('build', ['clean:assets', 'webpack:build']);
+    grunt.registerTask('watch', ['clean:webpack', 'webpack:watch']);
+    grunt.registerTask('build', ['clean:webpack', 'webpack:build', 'clean:webpack_after']);
     grunt.registerTask('default', ['build']);
 };

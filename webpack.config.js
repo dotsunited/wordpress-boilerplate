@@ -5,17 +5,14 @@ var autoprefixer = require('autoprefixer-core');
 
 module.exports = {
     entry: {
-        head: "./assets/head",
-        main: "./assets/main",
-        ie8: "./assets/ie8"
-    },
-    externals: {
-        jquery: "jQuery"
+        main: [/*"./assets/webpack-public-path", */"./assets/main"],
+        'main-critical-css': [/*"./assets/webpack-public-path", */"./assets/main/index-critical-css"],
+        ie8:  [/*"./assets/webpack-public-path", */"./assets/ie8"]
     },
     output: {
-        path: path.join(__dirname, "web/wp-content/themes/wordpress-boilerplate/assets"),
-        publicPath: "/wp-content/themes/wordpress-boilerplate/assets/",
-        filename: "[name].js",
+        path: path.join(__dirname, "web/wp-content/themes/wordpress-boilerplate/assets/scripts"),
+        publicPath: "/wp-content/themes/wordpress-boilerplate/assets/scripts/",
+        filename: "[name].js", // append ?[hash] to fix entry chunks not updated correctly
         chunkFilename: "[name].[chunkhash].js"
     },
     module: {
@@ -25,7 +22,7 @@ module.exports = {
 
             { test: /\.(gif|png|jpe?g)$/, loader: "file-loader?name=img/[hash].[ext]!image-webpack" },
 
-            { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?name=fonts/[hash].[ext]&limit=100000&mimetype=application/font-woff" },
+            { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?name=fonts/[hash].[ext]&limit=1&mimetype=application/font-woff" },
             { test: /\.(ttf|eot|svg|woff2)(\?.+)?$/, loader: "file-loader?name=fonts/[hash].[ext]" },
 
             { test: /\.(swf)$/, loader: "file-loader?name=misc/[hash].[ext]" },

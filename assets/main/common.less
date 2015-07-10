@@ -1,4 +1,63 @@
-// Common variables and mixins
+@import '~gee.less';
+
+// -- Base configuration --
+
+@container-max-width: 1200px;
+@container-padding: 10px;
+
+// -- Typography --
+
+@typography-base-font-family: 'Roboto', sans-serif;
+@typography-base-font-size: 16px;
+@typography-base-line-height: 1.5;
+@typography-base-color: #444;
+
+.typography-base-font() {
+    font-family: sans-serif;
+    font-size: @typography-base-font-size;
+    line-height: @typography-base-line-height;
+    color: @typography-base-color;
+
+    .wf-active & {
+        font-family: @typography-base-font-family;
+    }
+}
+
+// -- Menues --
+
+@menu-breakpoint: @container-max-width;
+
+// -- Body --
+@body-breakpoint: @container-max-width;
+@body-max-width: 780px;
+@body-sidebar-width: 350px;
+@body-sidebar-gutter: 40px;
+
+// -- Libraries --
+
+// gee configuration
+@gee-unit-font-family: @typography-base-font-family;
+
+// Overwrite gee mixin for webfont loading
+.gee-unit-font-family(@unit-font-family: @typography-base-font-family) {
+    font-family: sans-serif;
+
+    .wf-active & {
+        font-family: @typography-base-font-family;
+    }
+}
+
+// -- Helper --
+
+.container() {
+    position: relative;
+    width: 100%;
+    max-width: @container-max-width + @container-padding + @container-padding;
+    padding-left: @container-padding;
+    padding-right: @container-padding;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 // Clearfix
 // Source: http://nicolasgallagher.com/micro-clearfix-hack/

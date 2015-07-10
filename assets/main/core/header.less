@@ -1,0 +1,38 @@
+@import "../common";
+
+.header {
+    background: #eee;
+    min-height: 53px;
+}
+
+.header__container {
+    .container();
+}
+
+.header__logo {
+    display: inline-block;
+
+    img {
+        height: 53px;
+    }
+
+    @media (max-width: @menu-breakpoint ) {
+        padding-top: 8px;
+
+        img {
+            height: 35px;
+        }
+    }
+}
+
+.header__navigation {
+    @media (max-width: @menu-breakpoint ) {
+        display: none !important;
+    }
+}
+
+.header__off-canvas-navigation {
+    @media (min-width: (@menu-breakpoint + 1)) {
+        display: none !important;
+    }
+}

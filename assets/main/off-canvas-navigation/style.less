@@ -1,0 +1,67 @@
+@import "~dotsunited-off-canvas-navigation/lib/mixins";
+
+.off-canvas-navigation--open,
+.off-canvas-navigation--open body {
+    overflow: hidden;
+}
+
+.off-canvas-navigation-button {
+    .dotsunited-off-canvas-navigation-button(
+        @color: #333;
+        @color-open: #fff;
+        @ns: off-canvas-navigation
+    );
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 13px;
+
+    > span {
+        width: 36px;
+        height: 24px;
+    }
+}
+
+.off-canvas-navigation-menu {
+    .dotsunited-off-canvas-navigation-menu(
+        @ns: off-canvas-navigation
+    );
+
+    width: 280px;
+    background: #000;
+    color: #fff;
+
+    .off-canvas-navigation--open & {
+        box-shadow: -3px 3px 5px 0 rgba(0, 0, 0, .25);
+    }
+
+    ul {
+        list-style: none;
+        margin: 60px 0 20px 20px;
+        padding: 0;
+
+        > li:first-child {
+            border-top: 1px dotted rgba(255, 255, 255, .15);
+        }
+    }
+
+    a {
+        border-bottom: 1px dotted rgba(255, 255, 255, .15);
+        padding: 10px 10px 10px 20px;
+        display: block;
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            background: rgba(255, 255, 255, .1);
+        }
+    }
+}
+
+.off-canvas-navigation-backdrop {
+    .dotsunited-off-canvas-navigation-backdrop(
+        @ns: off-canvas-navigation
+    );
+}
