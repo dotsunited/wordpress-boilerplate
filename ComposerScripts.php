@@ -15,9 +15,9 @@ class ComposerScripts
         $projectIdentifier = $io->ask('<question>Enter the project identifier (e.g. my-project):</question> ');
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/Gruntfile.json', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/Gruntfile.js', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/webpack.config.json', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
 
         self::replaceDir(__DIR__ . '/web/wp-content/themes/wordpress-boilerplate', $projectName, $projectIdentifier);
