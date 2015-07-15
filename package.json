@@ -1,6 +1,6 @@
 {
   "name": "wordpress-boilerplate",
-  "version": "1.0.0",
+  "version": "3.1.0",
   "author": "Dots United GmbH",
   "dependencies": {
     "Respond.js": "scottjehl/Respond#1.4.2",
