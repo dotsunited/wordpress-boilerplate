@@ -1,0 +1,25 @@
+@import "~dotsunited-off-canvas-navigation/lib/mixins";
+
+.off-canvas-navigation-menu {
+    // Hide until non-critical css is loaded
+    display: none;
+}
+
+.off-canvas-navigation-button {
+    .dotsunited-off-canvas-navigation-button(
+        @color: #333;
+        @color-open: #fff;
+        @ns: off-canvas-navigation
+    );
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 13px;
+
+    > span {
+        width: 36px;
+        height: 24px;
+    }
+}
