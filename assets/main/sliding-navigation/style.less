@@ -1,0 +1,64 @@
+@import "../common";
+@import "~dotsunited-sliding-navigation/lib/mixins";
+
+.sliding-navigation {
+    .dotsunited-sliding-navigation();
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    bottom: 0;
+
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .75);
+
+    li:first-child {
+        border-top: 1px dotted rgba(255, 255, 255, .15);
+    }
+
+    li {
+        .clearfix();
+        border-bottom: 1px dotted rgba(255, 255, 255, .15);
+    }
+
+    a {
+        padding: 12px 10px 12px 20px;
+        display: block;
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            background: rgba(255, 255, 255, .1);
+        }
+    }
+}
+
+.sliding-navigation__open-button {
+    .dotsunited-sliding-navigation-open-button();
+
+    float: right;
+
+    opacity: .75;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.sliding-navigation__back {
+    background: rgba(255, 255, 255, .1);
+    padding: 0 10px;
+}
+
+.sliding-navigation__back-button {
+    .dotsunited-sliding-navigation-back-button();
+
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .75);
+
+    font-size: 85%;
+}

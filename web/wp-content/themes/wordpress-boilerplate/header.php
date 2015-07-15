@@ -23,6 +23,7 @@
                             'theme_location' => 'main',
                             'container' => false,
                             'menu_class' => 'desktop-navigation__list',
+                            'depth' => 1
                         )); ?>
                     </nav>
                 </div>
@@ -34,14 +35,15 @@
 
                     <div aria-hidden="true" class="off-canvas-navigation-backdrop" data-off-canvas-navigation-toggle="#off-canvas-navigation-menu"></div>
 
-                    <nav aria-hidden="true" class="off-canvas-navigation-menu">
-                        <?php wp_nav_menu(array(
-                            'theme_location' => 'main',
-                            'container' => false,
-                            'menu_class' => 'off-canvas-navigation-menu__list',
-                            'depth' => 1,
-                        )); ?>
-                    </nav>
+                    <div aria-hidden="true" class="off-canvas-navigation-menu">
+                        <nav class="sliding-navigation">
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'main',
+                                'container' => false,
+                                'menu_class' => 'off-canvas-navigation-menu__list',
+                            )); ?>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </header>

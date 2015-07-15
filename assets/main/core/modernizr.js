@@ -1,5 +1,5 @@
 /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-csstransforms-csstransforms3d-csstransitions-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
+ * Build: http://modernizr.com/download/#-csstransforms-csstransforms3d-csstransitions-svg-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
  */
 ;
 
@@ -34,6 +34,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
         domPrefixes = omPrefixes.toLowerCase().split(' '),
 
+        ns = {'svg': 'http://www.w3.org/2000/svg'},
 
         tests = {},
         inputs = {},
@@ -223,6 +224,9 @@ window.Modernizr = (function( window, document, undefined ) {
 
 
 
+    tests['svg'] = function() {
+        return !!document.createElementNS && !!document.createElementNS(ns.svg, 'svg').createSVGRect;
+    };
     for ( var feature in tests ) {
         if ( hasOwnProp(tests, feature) ) {
             featureName  = feature.toLowerCase();
@@ -283,7 +287,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     Modernizr.testStyles    = injectElementWithStyles;    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
-    (enableClasses ? ' js ' + classes.join(' ') : '');
+        (enableClasses ? ' js ' + classes.join(' ') : '');
 
     return Modernizr;
 
