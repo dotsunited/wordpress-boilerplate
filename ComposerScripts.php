@@ -14,9 +14,9 @@ class ComposerScripts
         $io = $event->getIO();
 
         $projectIdentifier = isset($args['directory']) ? $args['directory'] : 'my-project';
-        $projectName = ucwords(str_replace('-', ' ', $projectIdentifier));
-
         $projectIdentifier = $io->ask('Enter the project identifier [<comment>' . $projectIdentifier . '</comment>]: ', $projectIdentifier);
+
+        $projectName = ucwords(str_replace('-', ' ', $projectIdentifier));
         $projectName = $io->ask('Enter the project name [<comment>' . $projectName . '</comment>]: ', $projectName);
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
