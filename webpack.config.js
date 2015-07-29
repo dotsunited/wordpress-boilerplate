@@ -5,13 +5,13 @@ var autoprefixer = require('autoprefixer-core');
 
 module.exports = {
     entry: {
-        main: [/*"./assets/webpack-public-path", */"./assets/main"],
-        'main-critical-css': [/*"./assets/webpack-public-path", */"./assets/main/index-critical-css"],
-        ie8:  [/*"./assets/webpack-public-path", */"./assets/ie8"]
+        main: ["./assets/webpack-public-path", "./assets/main"],
+        'main-critical-css': ["./assets/webpack-public-path", "./assets/main/index-critical-css"],
+        ie8:  ["./assets/webpack-public-path", "./assets/ie8"]
     },
     output: {
         path: path.join(__dirname, "web/wp-content/themes/wordpress-boilerplate/assets/scripts"),
-        publicPath: "/wp-content/themes/wordpress-boilerplate/assets/scripts/",
+        //publicPath: "/wp-content/themes/wordpress-boilerplate/assets/scripts/",
         filename: "[name].js", // append ?[hash] to fix entry chunks not updated correctly
         chunkFilename: "[name].[chunkhash].js"
     },
