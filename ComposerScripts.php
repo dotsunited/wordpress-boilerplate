@@ -8,11 +8,16 @@ class ComposerScripts
 {
     public static function postCreateProject(Event $event)
     {
+        $args = $event->getArguments();
+
         /** @var \Composer\IO\IOInterface $io */
         $io = $event->getIO();
 
-        $projectName = $io->ask('<question>Enter the project name (e.g. My Project):</question> ');
-        $projectIdentifier = $io->ask('<question>Enter the project identifier (e.g. my-project):</question> ');
+        $projectIdentifier = isset($args['directory']) ? $args['directory'] : 'my-project';
+        $projectName = ucwords(str_replace('-', ' ', $projectIdentifier));
+
+        $projectIdentifier = $io->ask('Enter the project identifier [<comment>' . $projectIdentifier . '</comment>]: ', $projectIdentifier);
+        $projectName = $io->ask('Enter the project name [<comment>' . $projectName . '</comment>]: ', $projectName);
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/Gruntfile.js', $projectName, $projectIdentifier);
