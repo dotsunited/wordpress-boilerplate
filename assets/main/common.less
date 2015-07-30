@@ -12,15 +12,20 @@
 @typography-base-line-height: 1.5;
 @typography-base-color: #444;
 
-.typography-base-font() {
+.typography-base-font-family() {
     font-family: sans-serif;
+
+    .fonts-loaded & {
+        font-family: @typography-base-font-family;
+    }
+}
+
+.typography-base-font() {
+    .typography-base-font-family();
+
     font-size: @typography-base-font-size;
     line-height: @typography-base-line-height;
     color: @typography-base-color;
-
-    .wf-active & {
-        font-family: @typography-base-font-family;
-    }
 }
 
 // -- Menues --
@@ -28,6 +33,7 @@
 @menu-breakpoint: @container-max-width;
 
 // -- Body --
+
 @body-breakpoint: @container-max-width;
 @body-max-width: 780px;
 @body-sidebar-width: 350px;
@@ -42,7 +48,7 @@
 .gee-unit-font-family(@unit-font-family: @typography-base-font-family) {
     font-family: sans-serif;
 
-    .wf-active & {
+    .fonts-loaded & {
         font-family: @typography-base-font-family;
     }
 }
