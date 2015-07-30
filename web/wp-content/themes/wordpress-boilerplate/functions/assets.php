@@ -22,7 +22,7 @@ add_action('init', function () {
         get_template_directory_uri() . '/assets/scripts/main.' . md5_file(__DIR__ . '/../assets/scripts/main.js') . '.js',
         array(),
         false,
-        true
+        false // Load in head since we add the async attribute with the script_loader_tag filter
     );
 });
 
@@ -49,27 +49,23 @@ add_filter('script_loader_tag', function($tag, $handle) {
 }, 10, 2);
 
 add_action('wp_head', function () {
-    echo '<script>';
-    include __DIR__ . '/../assets/scripts/main-critical.js';
-    echo '</script>';
-    echo '<style>';
-    include __DIR__ . '/../assets/scripts/main-critical.css';
-    echo '</style>' . PHP_EOL;
+?>
+<script><?php include __DIR__ . '/../assets/scripts/main-critical.js' ?></script>
+        <style><?php include __DIR__ . '/../assets/scripts/main-critical.css'; ?></style>
+<?php
 }, -1000);
 
 add_action('wp_footer', function () {
-    $src = get_template_directory_uri() . '/assets/scripts/main.' . md5_file(__DIR__ . '/../assets/scripts/main.css') . '.css';
+    $mainCss = get_template_directory_uri() . '/assets/scripts/main.' . md5_file(__DIR__ . '/../assets/scripts/main.css') . '.css';
 ?>
-
 <script>
-    var el = document.createElement('link');
-    el.rel = 'stylesheet';
-    el.href = '<?php echo $src; ?>';
-    document.getElementsByTagName('head')[0].appendChild(el);
-</script>
-<noscript>
-    <link rel="stylesheet" href="<?php echo $src; ?>">
-</noscript>
-
+            var el = document.createElement('link');
+            el.rel = 'stylesheet';
+            el.href = '<?php echo $mainCss; ?>';
+            (document.head || document.getElementsByTagName('head')[0]).appendChild(el);
+        </script>
+        <noscript>
+            <link rel="stylesheet" href="<?php echo $mainCss; ?>">
+        </noscript>
 <?php
 }, -1000);
