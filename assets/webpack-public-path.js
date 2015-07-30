@@ -1,3 +1,3 @@
-if (!__webpack_public_path__) {
-    __webpack_public_path__ = document.body.getAttribute('data-theme-url') + '/assets/scripts/';
+if (!window.__webpack_public_path__) {
+    window.__webpack_public_path__ = document.documentElement.getAttribute('data-theme-url') + '/assets/scripts/';
 }

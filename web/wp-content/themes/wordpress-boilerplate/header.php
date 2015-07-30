@@ -1,14 +1,14 @@
 <!doctype html>
-<!--[if lt IE 9]>      <html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 9]>         <html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+<!--[if lt IE 9]>      <html class="no-js ie8" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php wp_head(); ?>
     </head>
-    <body <?php body_class(); ?> data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>">
+    <body <?php body_class(); ?>>
         <header class="header">
             <div class="header__container">
                 <a class="header__logo" href="<?php echo esc_attr(get_home_url()); ?>">
