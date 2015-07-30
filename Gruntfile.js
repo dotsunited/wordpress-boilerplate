@@ -15,8 +15,7 @@ module.exports = function (grunt) {
             watch: webpackWatchConfig
         },
         clean: {
-            webpack: ['web/wp-content/themes/wordpress-boilerplate/assets/scripts/**/*'],
-            webpack_after: ['web/wp-content/themes/wordpress-boilerplate/assets/scripts/main-critical-css.js']
+            webpack: ['web/wp-content/themes/wordpress-boilerplate/assets/scripts/**/*']
         },
         imagemin: {
             assets: {
@@ -34,6 +33,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     grunt.registerTask('watch', ['clean:webpack', 'webpack:watch']);
-    grunt.registerTask('build', ['clean:webpack', 'webpack:build', 'clean:webpack_after']);
+    grunt.registerTask('build', ['clean:webpack', 'webpack:build']);
     grunt.registerTask('default', ['build']);
 };

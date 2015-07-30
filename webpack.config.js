@@ -6,7 +6,7 @@ var autoprefixer = require('autoprefixer-core');
 module.exports = {
     entry: {
         main: ["./assets/webpack-public-path", "./assets/main"],
-        'main-critical-css': ["./assets/webpack-public-path", "./assets/main/index-critical-css"],
+        'main-critical': ["./assets/webpack-public-path", "./assets/main/index-critical"],
         ie8:  ["./assets/webpack-public-path", "./assets/ie8"]
     },
     output: {

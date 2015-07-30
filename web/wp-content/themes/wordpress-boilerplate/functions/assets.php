@@ -49,8 +49,11 @@ add_filter('script_loader_tag', function($tag, $handle) {
 }, 10, 2);
 
 add_action('wp_head', function () {
+    echo '<script>';
+    include __DIR__ . '/../assets/scripts/main-critical.js';
+    echo '</script>';
     echo '<style>';
-    include __DIR__ . '/../assets/scripts/main-critical-css.css';
+    include __DIR__ . '/../assets/scripts/main-critical.css';
     echo '</style>' . PHP_EOL;
 }, -1000);
 
