@@ -1,7 +1,7 @@
 <?php
 
 add_action('after_setup_theme', function () {
-    load_theme_textdomain('wordpress-boilerplate', __DIR__ . '/languages');
+    load_theme_textdomain('wordpress-boilerplate', TEMPLATEPATH . '/languages');
 
     /*
 	 * Let WordPress manage the document title.
