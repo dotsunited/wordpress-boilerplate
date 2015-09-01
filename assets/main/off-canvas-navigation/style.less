@@ -5,6 +5,28 @@
     overflow: hidden;
 }
 
+.off-canvas-navigation-button {
+    // Unhide from non-critical css
+    display: block;
+
+    .dotsunited-off-canvas-navigation-button(
+        @color: #333;
+        @color-open: #fff;
+        @ns: off-canvas-navigation
+    );
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 13px;
+
+    > span {
+        width: 36px;
+        height: 24px;
+    }
+}
+
 .off-canvas-navigation-menu {
     // Unhide from non-critical css
     display: block;
