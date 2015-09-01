@@ -21,7 +21,7 @@ add_action('init', function () {
         'jquery',
         get_template_directory_uri() . '/assets/scripts/main.' . md5_file(__DIR__ . '/../assets/scripts/main.js') . '.js',
         array(),
-        false,
+        null,
         false // Load in head since we add the async attribute with the script_loader_tag filter
     );
 });
@@ -31,7 +31,7 @@ add_action('wp_enqueue_scripts', function () {
         'wordpress-boilerplate-ie8',
         get_template_directory_uri() . '/assets/scripts/ie8.' . md5_file(__DIR__ . '/../assets/scripts/ie8.js') . '.js',
         array(),
-        false,
+        null,
         false
     );
     wp_script_add_data('wordpress-boilerplate-ie8', 'conditional', 'lt IE 9');
