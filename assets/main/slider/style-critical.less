@@ -1,0 +1,37 @@
+@import '../common';
+
+.slider {
+    display: block;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 30px;
+
+    @media (max-width: 1024px) {
+        height: 150px;
+    }
+
+    @media (max-width: 480px) {
+        height: 75px;
+    }
+}
+
+.slider__slide {
+    display: block;
+    width: 100%;
+    height: 200px !important;
+
+    background: transparent 50% 50% no-repeat;
+    background-size: cover;
+
+    @media (max-width: 1024px) {
+        height: 150px !important;
+    }
+
+    @media (max-width: 480px) {
+        height: 75px !important;
+    }
+}
+
+.slider__slide:not(:first-child) {
+    display: none;
+}

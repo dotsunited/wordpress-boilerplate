@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+<div class="slider">
+    <div class="slider__slide" style="background-image: url(<?php echo esc_attr(get_template_directory_uri() . '/assets/img/slider/slide1.1.jpg'); ?>)"></div>
+    <div class="slider__slide" style="background-image: url(<?php echo esc_attr(get_template_directory_uri() . '/assets/img/slider/slide2.1.jpg'); ?>)"></div>
+    <div class="slider__slide" style="background-image: url(<?php echo esc_attr(get_template_directory_uri() . '/assets/img/slider/slide3.1.jpg'); ?>)"></div>
+</div>
+
 <div class="body body--sidebar">
     <div class="body__container">
         <main class="body__main">

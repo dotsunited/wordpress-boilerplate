@@ -11,7 +11,8 @@
     "fastclick": "1.0.6",
     "gee.less": "2.0.0",
     "html5shiv": "3.7.3",
-    "jquery": "1.11.3"
+    "jquery": "1.11.3",
+    "slick-carousel": "1.5.8"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
