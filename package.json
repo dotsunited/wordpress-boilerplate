@@ -10,7 +10,7 @@
     "dotsunited-sliding-navigation": "1.0.2",
     "fastclick": "1.0.6",
     "gee.less": "2.0.0",
-    "html5shiv": "3.7.2",
+    "html5shiv": "3.7.3",
     "jquery": "1.11.3"
   },
   "devDependencies": {
