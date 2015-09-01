@@ -4,25 +4,27 @@
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-add_action('init', function () {
-    // Same check as in wp_deregister_script()
-    $current_filter = current_filter();
-    if ((is_admin() && 'admin_enqueue_scripts' !== $current_filter) ||
-        ('wp-login.php' === $GLOBALS['pagenow'] && 'login_enqueue_scripts' !== $current_filter)
-    ) {
+add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
+    if (is_admin()) {
         return;
     }
 
-    // Since our main.js includes jQuery, we register it under the jquery handle.
-    // Note, that it does not contain jquery-migrate! If our theme or a plugin
-    // requires it, it has to be added manually.
-    wp_deregister_script('jquery');
-    wp_register_script(
-        'jquery',
-        get_template_directory_uri() . '/assets/scripts/main.' . md5_file(__DIR__ . '/../assets/scripts/main.js') . '.js',
+    // Re-register jquery-core with proper cache busting
+    $scripts->remove('jquery-core');
+    $scripts->add(
+        'jquery-core',
+        '/wp-includes/js/jquery/jquery.' . md5_file(ABSPATH . '/wp-includes/js/jquery/jquery.js') . '.js',
         array(),
-        null,
-        false // Load in head since we add the async attribute with the script_loader_tag filter
+        null
+    );
+
+    // Remove jquery-migrate by re-registering jquery dependent only on jquery-core
+    $scripts->remove('jquery');
+    $scripts->add(
+        'jquery',
+        false,
+        array('jquery-core'),
+        false
     );
 });
 
@@ -36,17 +38,14 @@ add_action('wp_enqueue_scripts', function () {
     );
     wp_script_add_data('wordpress-boilerplate-ie8', 'conditional', 'lt IE 9');
 
-    // This is now our main.js
-    wp_enqueue_script('jquery');
+    wp_enqueue_script(
+        'wordpress-boilerplate-main',
+        get_template_directory_uri() . '/assets/scripts/main.' . md5_file(__DIR__ . '/../assets/scripts/main.js') . '.js',
+        array(),
+        null,
+        true
+    );
 });
-
-add_filter('script_loader_tag', function($tag, $handle) {
-    if ('jquery' === $handle) {
-        $tag = str_replace('<script', '<script async', $tag);
-    }
-
-    return $tag;
-}, 10, 2);
 
 add_action('wp_head', function () {
 ?>
