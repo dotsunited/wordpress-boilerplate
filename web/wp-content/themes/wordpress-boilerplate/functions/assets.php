@@ -9,15 +9,6 @@ add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
         return;
     }
 
-    // Re-register jquery-core with proper cache busting
-    $scripts->remove('jquery-core');
-    $scripts->add(
-        'jquery-core',
-        '/wp-includes/js/jquery/jquery.' . md5_file(ABSPATH . '/wp-includes/js/jquery/jquery.js') . '.js',
-        array(),
-        null
-    );
-
     // Remove jquery-migrate by re-registering jquery dependent only on jquery-core
     $scripts->remove('jquery');
     $scripts->add(
