@@ -51,8 +51,8 @@ add_action('wp_enqueue_scripts', function () {
 
 add_action('wp_head', function () {
 ?>
-<script><?php include __DIR__ . '/../assets/scripts/main-critical.js' ?></script>
-        <style><?php include __DIR__ . '/../assets/scripts/main-critical.css'; ?></style>
+<script><?php include TEMPLATEPATH . '/assets/scripts/main-critical.js' ?></script>
+        <style><?php include TEMPLATEPATH . '/assets/scripts/main-critical.css'; ?></style>
 <?php
 }, -1000);
 
