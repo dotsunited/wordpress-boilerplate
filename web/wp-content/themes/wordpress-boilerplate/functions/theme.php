@@ -1,5 +1,8 @@
 <?php
 
+// Remove <meta name="generator" content="WordPress x.x.x" />
+remove_action('wp_head', 'wp_generator');
+
 add_action('after_setup_theme', function () {
     load_theme_textdomain('wordpress-boilerplate', TEMPLATEPATH . '/languages');
 
