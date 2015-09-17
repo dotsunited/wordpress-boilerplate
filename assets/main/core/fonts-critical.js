@@ -10,5 +10,5 @@ function checkCookie() {
 
 if (checkCookie()) {
     document.documentElement.className += ' fonts-loaded';
-    document.write('<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">');
+    document.write('<link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">');
 }
