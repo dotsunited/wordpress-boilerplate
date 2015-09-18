@@ -30,28 +30,43 @@ add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
     );
 });
 
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_script(
+        'wordpress-boilerplate-ie8',
+        wordpress_boilerplate_asset('/assets/scripts/ie8.js'),
+        array(),
+        null,
+        false
+    );
+    wp_script_add_data('wordpress-boilerplate-ie8', 'conditional', 'lt IE 9');
+
+    wp_enqueue_script(
+        'wordpress-boilerplate-main',
+        wordpress_boilerplate_asset('/assets/scripts/main.js'),
+        array(),
+        null,
+        true
+    );
+});
+
 add_action('wp_head', function () {
 ?>
 <script><?php include TEMPLATEPATH . '/assets/scripts/main-critical.js' ?></script>
         <style><?php include TEMPLATEPATH . '/assets/scripts/main-critical.css'; ?></style>
-        <!--[if lt IE 9]>
-        <script src="<?= esc_attr(wordpress_boilerplate_asset('/assets/scripts/ie8.js')); ?>"></script>
-        <![endif]-->
-        <script>
-        (function(d) {
-            var c = function(id) {
-                var n = d.getElementById(id), s = d.styleSheets, a;
-                for (var i = 0; i < s.length; i++){
-                    s[i].href && s[i].href === n.href && (a = 1);
-                }
-                a ? n.media='all' : setTimeout(function() { c(id); },0);
-            };
-            var id='main-css',l = d.createElement('link');l.href = <?= json_encode(wordpress_boilerplate_asset('/assets/scripts/main.css')); ?>;l.rel = 'stylesheet';l.media = 'only x';l.id=id;(d.head || d.getElementsByTagName('head')[0]).appendChild(l);c(id);
-            var s = d.createElement('script');s.src = <?= json_encode(wordpress_boilerplate_asset('/assets/scripts/main.js')); ?>;s.async = 1;(d.head || d.getElementsByTagName('head')[0]).appendChild(s);
-        })(document);
+<?php
+}, -1000);
+
+add_action('wp_footer', function () {
+    $mainCss = wordpress_boilerplate_asset('/assets/scripts/main.css');
+?>
+<script>
+            var el = document.createElement('link');
+            el.rel = 'stylesheet';
+            el.href = '<?php echo $mainCss; ?>';
+            (document.head || document.getElementsByTagName('head')[0]).appendChild(el);
         </script>
         <noscript>
-            <link rel="stylesheet" href="<?= esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.css')); ?>">
+            <link rel="stylesheet" href="<?php echo $mainCss; ?>">
         </noscript>
 <?php
 }, -1000);
