@@ -41,18 +41,8 @@ add_action('wp_head', function () {
 }, -1000);
 
 add_action('wp_footer', function () {
-    $mainCss = wordpress_boilerplate_asset('/assets/scripts/main.css');
 ?>
-<script>
-            var l = document.createElement('link');
-            l.rel = 'stylesheet';
-            l.href = <?php echo json_encode($mainCss); ?>;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(l, s);
-        </script>
-        <noscript>
-            <link rel="stylesheet" href="<?php echo esc_attr($mainCss); ?>">
-        </noscript>
+<link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.css')); ?>">
         <script async src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.js')); ?>"></script>
 <?php
 }, -1000);
