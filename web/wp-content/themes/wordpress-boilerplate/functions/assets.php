@@ -30,28 +30,12 @@ add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
     );
 });
 
-add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_script(
-        'wordpress-boilerplate-ie8',
-        wordpress_boilerplate_asset('/assets/scripts/ie8.js'),
-        array(),
-        null,
-        false
-    );
-    wp_script_add_data('wordpress-boilerplate-ie8', 'conditional', 'lt IE 9');
-
-    wp_enqueue_script(
-        'wordpress-boilerplate-main',
-        wordpress_boilerplate_asset('/assets/scripts/main.js'),
-        array(),
-        null,
-        true
-    );
-});
-
 add_action('wp_head', function () {
 ?>
-<script><?php include TEMPLATEPATH . '/assets/scripts/main-critical.js' ?></script>
+<!--[if lt IE 9]>
+        <script src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/ie8.js')); ?>"></script>
+        <![endif]-->
+        <script><?php include TEMPLATEPATH . '/assets/scripts/main-critical.js' ?></script>
         <style><?php include TEMPLATEPATH . '/assets/scripts/main-critical.css'; ?></style>
 <?php
 }, -1000);
@@ -60,13 +44,15 @@ add_action('wp_footer', function () {
     $mainCss = wordpress_boilerplate_asset('/assets/scripts/main.css');
 ?>
 <script>
-            var el = document.createElement('link');
-            el.rel = 'stylesheet';
-            el.href = '<?php echo $mainCss; ?>';
-            (document.head || document.getElementsByTagName('head')[0]).appendChild(el);
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = <?php echo json_encode($mainCss); ?>;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(l, s);
         </script>
         <noscript>
-            <link rel="stylesheet" href="<?php echo $mainCss; ?>">
+            <link rel="stylesheet" href="<?php echo esc_attr($mainCss); ?>">
         </noscript>
+        <script async src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.js')); ?>"></script>
 <?php
 }, -1000);
