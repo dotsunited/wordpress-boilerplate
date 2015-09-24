@@ -361,11 +361,20 @@ FileETag None
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
 RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
 RewriteRule ^(.*) - [E=BASE:%1]
+
+# MULTISITE ## add a trailing slash to /wp-admin
+# MULTISITE #RewriteRule ^([^%{ENV:BASE}]+/)?wp-admin$ %{ENV:BASE}/$1wp-admin/ [R=301,L]
+
 RewriteRule ^index\.php$ - [L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+# MULTISITE #RewriteRule ^ - [L]
+# MULTISITE #RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
+# MULTISITE #RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
 RewriteRule . %{ENV:BASE}/index.php [L]
 </IfModule>
 
