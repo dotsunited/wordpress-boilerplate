@@ -1,3 +1,5 @@
+require('./fonts/fonts.css');
+
 function setCookie() {
     var date = new Date();
     date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
@@ -12,8 +14,6 @@ function checkCookie() {
 function loaded() {
     document.documentElement.className += ' fonts-loaded';
 }
-
-require('./fonts/fonts.css');
 
 if (checkCookie()) {
     loaded();
