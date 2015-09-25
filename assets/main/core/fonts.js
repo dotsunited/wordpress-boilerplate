@@ -1,8 +1,10 @@
 require('./fonts/fonts.css');
 
+var cookieDays = 1;
+
 function setCookie() {
     var date = new Date();
-    date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+    date.setTime(date.getTime() + (cookieDays * 24 * 60 * 60 * 1000));
 
     window.document.cookie = 'fonts-loaded=true; expires=' + date.toGMTString() + '; path=/';
 }
