@@ -362,7 +362,7 @@ FileETag None
   # Filename-based cache busting
 
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.+)\.([a-z0-9]{32})\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
+    RewriteRule ^(.+)\.([a-z0-9]{32})\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp|webmanifest)$ %{ENV:BASE}/$1.$3 [L]
 
   # WordPress
 
