@@ -351,6 +351,7 @@ FileETag None
 
 </IfModule>
 
+# BEGIN WordPress
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
@@ -380,3 +381,4 @@ FileETag None
 
     RewriteRule . %{ENV:BASE}/index.php [L]
 </IfModule>
+# END WordPress
