@@ -351,7 +351,6 @@ FileETag None
 
 </IfModule>
 
-# BEGIN WordPress
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
@@ -364,21 +363,16 @@ FileETag None
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.+)\.([a-z0-9]{32})\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp|webmanifest)$ %{ENV:BASE}/$1.$3 [L]
-
-  # WordPress
-
-    RewriteRule ^index\.php$ - [L]
-
-    # add a trailing slash to /wp-admin
-    # MULTISITE #RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ %{ENV:BASE}/$1wp-admin/ [R=301,L]
-
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^ - [L]
-
-    # MULTISITE #RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) %{ENV:BASE}/$2 [L]
-    # MULTISITE #RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ %{ENV:BASE}/$2 [L]
-
-    RewriteRule . %{ENV:BASE}/index.php [L]
 </IfModule>
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
 # END WordPress
