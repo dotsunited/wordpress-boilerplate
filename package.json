@@ -7,6 +7,7 @@
     "dotsunited-equal-height-blocks": "3.0.1",
     "dotsunited-off-canvas-navigation": "2.0.1",
     "dotsunited-sliding-navigation": "1.0.2",
+    "es5-shim": "4.2.0",
     "fastclick": "1.0.6",
     "fontfaceobserver": "1.5.3",
     "gee.less": "2.0.0",
