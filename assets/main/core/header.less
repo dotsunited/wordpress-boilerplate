@@ -16,7 +16,7 @@
         height: 53px;
     }
 
-    @media (max-width: @menu-breakpoint ) {
+    @media (max-width: @menu-breakpoint) {
         padding-top: 8px;
 
         img {
@@ -26,13 +26,15 @@
 }
 
 .header__navigation {
-    @media (max-width: @menu-breakpoint ) {
+    @media (max-width: @menu-breakpoint) {
         display: none !important;
     }
 }
 
 .header__off-canvas-navigation {
-    @media (min-width: (@menu-breakpoint + 1)) {
+    display: none;
+
+    @media (max-width: @menu-breakpoint + 1) {
         display: none !important;
     }
 }

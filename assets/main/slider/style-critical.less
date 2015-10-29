@@ -16,7 +16,12 @@
 }
 
 .slider__slide {
-    display: block;
+    display: none;
+
+    &:first-child {
+        display: block;
+    }
+
     width: 100%;
     height: 200px !important;
 
@@ -30,8 +35,4 @@
     @media (max-width: 480px) {
         height: 75px !important;
     }
-}
-
-.slider__slide:not(:first-child) {
-    display: none;
 }

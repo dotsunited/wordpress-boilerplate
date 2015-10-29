@@ -2,6 +2,7 @@
 
 @container-max-width: 1200px;
 @container-padding: 10px;
+@container-breakpoint: (@container-max-width + @container-padding + @container-padding + 25); // A little buffer for some browsers
 
 // -- Typography --
 
@@ -29,11 +30,11 @@
 
 // -- Menues --
 
-@menu-breakpoint: @container-max-width;
+@menu-breakpoint: @container-breakpoint;
 
 // -- Body --
 
-@body-breakpoint: @container-max-width;
+@body-breakpoint: @container-breakpoint;
 @body-max-width: 780px;
 @body-sidebar-width: 350px;
 @body-sidebar-gutter: 40px;
@@ -57,12 +58,16 @@
 
 .container() {
     position: relative;
-    width: 100%;
-    max-width: @container-max-width + @container-padding + @container-padding;
+    width: @container-max-width + @container-padding + @container-padding;
     padding-left: @container-padding;
     padding-right: @container-padding;
     margin-left: auto;
     margin-right: auto;
+
+    @media (max-width: @container-breakpoint) {
+        width: 100%;
+        max-width: @container-max-width + @container-padding + @container-padding;
+    }
 }
 
 // Clearfix

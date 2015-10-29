@@ -5,6 +5,8 @@
 }
 
 .body__container {
+    width: @container-max-width;
+
     @media (max-width: @body-breakpoint) {
         width: 100%;
         max-width: @body-max-width;
@@ -15,22 +17,26 @@
 
 .body--sidebar {
     .body__container {
-        @media (min-width: (@body-breakpoint + 1)) {
-            .clearfix();
-        }
+        .clearfix();
     }
 
     .body__main {
-        @media (min-width: (@body-breakpoint + 1)) {
-            float: left;
-            width: ((@container-max-width - @container-padding - @container-padding) - @body-sidebar-width - @body-sidebar-gutter);
+        float: left;
+        width: ((@container-max-width - @container-padding - @container-padding) - @body-sidebar-width - @body-sidebar-gutter);
+
+        @media (max-width: @body-breakpoint) {
+            float: none;
+            width: 100%;
         }
     }
 
     .body__sidebar {
-        @media (min-width: (@body-breakpoint + 1)) {
-            float: right;
-            width: @body-sidebar-width;
+        float: right;
+        width: @body-sidebar-width;
+
+        @media (max-width: @body-breakpoint) {
+            float: none;
+            width: 100%;
         }
     }
 }
