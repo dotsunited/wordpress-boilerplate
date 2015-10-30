@@ -1,0 +1,11 @@
+.grid-icon-create {
+    background-image: url("./button-create.png") !important;
+}
+
+.grid-icon-shadow {
+	background-image: url("./button-shadow.png") !important;
+}
+
+.grid-icon-equalize-height {
+	background-image: url("./button-equal-height.png") !important;
+}

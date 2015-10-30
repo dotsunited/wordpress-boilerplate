@@ -1,4 +1,5 @@
 /node_modules
+/vendor
 /web/wp-admin
 /web/wp-includes
 /web/wp-content/languages
@@ -18,6 +19,6 @@
 /web/sitemap.xml.gz
 /web/xmlrpc.php
 
-!/web/wp-content/plugins/wordpress-boilerplate*
-!/web/wp-content/themes/wordpress-boilerplate*
+!/web/wp-content/plugins/dotsunited-wordpress-plugin-editor-grid
+!/web/wp-content/themes/wordpress-boilerplate
 !/web/.htaccess

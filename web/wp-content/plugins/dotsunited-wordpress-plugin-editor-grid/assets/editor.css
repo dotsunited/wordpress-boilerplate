@@ -1,0 +1,187 @@
+.grid,
+.grid *,
+.grid *:before,
+.grid *:after {
+    box-sizing: border-box;
+}
+
+.grid {
+    margin-bottom: 10px;
+}
+
+.grid-background {
+    background-color: #eee;
+    padding: 10px;
+}
+
+.grid-background.grid  {
+    padding-bottom: 0;
+}
+
+.grid-background-highlight {
+    background-color: #c27386;
+    padding: 10px;
+}
+
+.grid-background-highlight.grid  {
+    padding-bottom: 0;
+}
+
+.grid-shadow {
+    box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+    padding: 10px;
+}
+
+.grid-shadow.grid  {
+    padding-bottom: 0;
+}
+
+.grid-equal-height .grid-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.grid-container {
+    letter-spacing: -.31em;
+    *letter-spacing: normal;
+    *word-spacing: -.43em;
+    text-rendering: optimizespeed;
+    font-family: FreeSans, Arimo, Droid Sans, Helvetica, Arial, sans-serif;
+    width: 102%;
+    margin-left: -2%;
+}
+
+.grid-container, .grid-container .opera-only :-o-prefocus {
+    word-spacing: -.43em
+}
+
+[class*=grid-unit] {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+    font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+
+    margin-left: 2%;
+
+    /* Editor styles */
+
+    border: 1px dotted #ccc;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+[class*=grid-unit] :first-child {
+    margin-top: 0;
+}
+
+[class*=grid-unit] :last-child {
+    margin-bottom: 0;
+}
+
+[class*=grid-unit] img {
+    display: inline-block;
+    width: inherit;
+    max-width: 100%;
+    height: auto;
+}
+
+[class*=grid-unit]:before {
+    font-size: 11px;
+    color: #ccc;
+    position: absolute;
+    top: -3px;
+    right: 1px;
+}
+
+.grid-unit-12 {
+    width: 98%;
+}
+.grid-unit-12:before {
+    content: '12 / 12'
+}
+
+.grid-unit-11 {
+    width: 89.66666667%;
+}
+.grid-unit-11:before {
+    content: '11 / 12'
+}
+
+.grid-unit-10 {
+    width: 81.33333333%;
+}
+.grid-unit-10:before {
+    content: '10 / 12'
+}
+
+.grid-unit-9 {
+    width: 73%;
+}
+.grid-unit-9:before {
+    content: '9 / 12'
+}
+
+.grid-unit-8 {
+    width: 64.66666667%;
+}
+.grid-unit-8:before {
+    content: '8 / 12'
+}
+
+.grid-unit-7 {
+    width: 56.33333333%;
+}
+.grid-unit-7:before {
+    content: '7 / 12'
+}
+
+.grid-unit-6 {
+    width: 48%;
+}
+.grid-unit-6:before {
+    content: '6 / 12'
+}
+
+.grid-unit-5 {
+    width: 39.66666667%;
+}
+.grid-unit-5:before {
+    content: '5 / 12'
+}
+
+.grid-unit-4 {
+    width: 31.33333333%;
+}
+.grid-unit-4:before {
+    content: '4 / 12'
+}
+
+.grid-unit-3 {
+    width: 23%;
+}
+.grid-unit-3:before {
+    content: '3 / 12'
+}
+
+.grid-unit-2 {
+    width: 14.66666667%;
+}
+.grid-unit-2:before {
+    content: '2 / 12'
+}
+
+.grid-unit-1 {
+    width: 6.33333333%;
+}
+.grid-unit-1:before {
+    content: '1 / 12'
+}

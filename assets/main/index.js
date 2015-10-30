@@ -2,5 +2,5 @@ require('./core');
 require('./desktop-navigation');
 require('./off-canvas-navigation');
 require('./sliding-navigation');
-require('./teaser');
+require('./grid');
 require('./slider');

@@ -1,0 +1,68 @@
+@import "../common";
+@import "../../../node_modules/dotsunited-equal-height-blocks/lib/mixins";
+
+.grid {
+    margin-bottom: 20px;
+}
+
+.grid-background {
+    background-color: #eee;
+    padding: 20px;
+
+    &.grid  {
+        padding-bottom: 0;
+    }
+}
+
+.grid-background-highlight {
+    background-color: #c9462a;
+    color: #fff;
+    padding: 20px;
+
+    &.grid  {
+        padding-bottom: 0;
+    }
+}
+
+.grid-shadow {
+    box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+    padding: 20px;
+
+    &.grid  {
+        padding-bottom: 0;
+    }
+}
+
+.grid-equal-height {
+    .grid-container {
+        .dotsunited-equal-height-blocks-container();
+    }
+}
+
+.gee-generate(
+    @gutter: 2%;
+    @class-prefix: grid-;
+    @grid-class: container;
+    @unit-class: unit;
+    @unit-font-family: sans-serif
+);
+
+[class*=grid-unit] {
+    .typography-base-font-family();
+    font-size: 90%;
+}
+
+[class*=grid-unit] :first-child {
+    margin-top: 0;
+}
+
+[class*=grid-unit] :last-child {
+    margin-bottom: 0;
+}
+
+[class*=grid-unit] img {
+    display: inline-block;
+    width: inherit;
+    max-width: 100%;
+    height: auto;
+}
