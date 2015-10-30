@@ -31,3 +31,9 @@ webfonts from Google.
 ```bash
 webfont-dl http://fonts.googleapis.com/css?family=Roboto --out assets/main/core/fonts/fonts.css --font-out=assets/main/core/fonts/ --woff1=link
 ```
+
+License
+-------
+
+Copyright (c) 2015 Dots United GmbH.
+Released under the [MIT](LICENSE?raw=1) license.
