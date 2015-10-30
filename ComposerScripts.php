@@ -40,7 +40,13 @@ class ComposerScripts
 
     private static function removeDir($dir)
     {
-        foreach (glob(rtrim($dir, '\\/') . '/*') as $file) {
+        foreach (glob(rtrim($dir, '\\/') . '/{,.}*', GLOB_BRACE) as $file) {
+            $basename = basename($file);
+
+            if ('.' === $basename || '..' === $basename) {
+                continue;
+            }
+
             if (is_dir($file)) {
                 self::removeDir($file);
             } else {
