@@ -20,6 +20,7 @@ class ComposerScripts
         $projectName = $io->ask('Enter the project name [<comment>' . $projectName . '</comment>]: ', $projectName);
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/composer.json.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/Gruntfile.js', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
@@ -33,7 +34,9 @@ class ComposerScripts
         rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
 
         unlink(__DIR__ . '/composer.json');
+        rename(__DIR__ . '/composer.json.template', __DIR__ . '/composer.json');
         unlink(__DIR__ . '/composer.lock');
+
         self::removeDir(__DIR__ . '/vendor');
         unlink(__DIR__ . '/ComposerScripts.php');
     }
