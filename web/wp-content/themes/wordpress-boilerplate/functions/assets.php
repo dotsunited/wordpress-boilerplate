@@ -60,7 +60,7 @@ function wordpress_boilerplate_asset_embed($path)
 
         // First check also matches protocol-relative urls like //example.com
         if ((isset($url[0])  && '/' === $url[0]) || false !== strpos($url, '://') || 0 === strpos($url, 'data:')) {
-            return $matches[0];;
+            return $matches[0];
         }
 
         return str_replace($url, $targetUrl . '/' . $url, $matches[0]);
