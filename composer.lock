@@ -107,16 +107,16 @@
         },
         {
             "name": "dotsunited/wordpress-plugin-editor-grid",
-            "version": "v0.1.5",
+            "version": "v0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotsunited/wordpress-plugin-editor-grid.git",
-                "reference": "9ea0ce1fe2dfa2cbc1e71e4b62bbc469c6be6dfe"
+                "reference": "b424078dc329c778bbacb5ebd69073b803c8ef52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/9ea0ce1fe2dfa2cbc1e71e4b62bbc469c6be6dfe",
-                "reference": "9ea0ce1fe2dfa2cbc1e71e4b62bbc469c6be6dfe",
+                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/b424078dc329c778bbacb5ebd69073b803c8ef52",
+                "reference": "b424078dc329c778bbacb5ebd69073b803c8ef52",
                 "shasum": ""
             },
             "require": {
@@ -146,7 +146,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2015-11-02 09:35:40"
+            "time": "2015-11-02 14:50:04"
         }
     ],
     "packages-dev": [],
