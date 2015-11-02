@@ -210,7 +210,7 @@
 
             return {
                 type: 'listbox',
-                text: 'Unit size',
+                text: 'Column size',
                 classes: 'btn widget fixed-width',
                 icon: false,
                 onselect: function(e) {},
@@ -246,7 +246,7 @@
         editor.addButton('grid_unit_shadow', grid_shadow_button('.grid-unit'));
 
         editor.addButton('grid_unit_remove', {
-            tooltip: 'Remove unit',
+            tooltip: 'Remove column',
             icon: 'dashicon dashicons-no',
             onclick: function() {
                 var el = $(editor.selection.getNode()).closest('.grid-unit');
@@ -291,7 +291,7 @@
         });
 
         editor.addButton('grid_add_unit', {
-            tooltip: 'Add unit',
+            tooltip: 'Add column',
             icon: 'dashicon dashicons-plus',
             onclick: function() {
                 var el = $(editor.selection.getNode()).closest('.grid-unit');
@@ -388,9 +388,8 @@
             // paragraph under it
             if (keyCode === VK.ENTER) {
                 node = selection.getNode();
-                wrap = dom.getParent(node, '.grid-unit');
 
-                if (!wrap) {
+                if (!editor.dom.hasClass(node, 'grid-unit') && !isEmpty(node)) {
                     return;
                 }
 
@@ -399,7 +398,7 @@
                 spacer = tinymce.Env.ie && tinymce.Env.ie < 11 ? '' : '<br data-mce-bogus="1" />';
                 P = dom.create('p', null, spacer);
 
-                dom.add(wrap, P);
+                dom.add(node, P);
 
                 editor.nodeChanged();
                 selection.setCursorLocation(P, 0);
