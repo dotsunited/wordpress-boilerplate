@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "74690854b85128161697a49270e16b52",
-    "content-hash": "948b87b851eeefbbb9a76cacd8c924f5",
+    "hash": "116af38b1f0a25972e1d6a4c702e5d44",
+    "content-hash": "4b3966fd129a6f984771c3d814159b7c",
     "packages": [
         {
             "name": "composer/installers",
@@ -107,16 +107,16 @@
         },
         {
             "name": "dotsunited/wordpress-plugin-editor-grid",
-            "version": "v0.1.6",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotsunited/wordpress-plugin-editor-grid.git",
-                "reference": "b424078dc329c778bbacb5ebd69073b803c8ef52"
+                "reference": "acdffc1aaf2da621bb3435ca7093619c57f30741"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/b424078dc329c778bbacb5ebd69073b803c8ef52",
-                "reference": "b424078dc329c778bbacb5ebd69073b803c8ef52",
+                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/acdffc1aaf2da621bb3435ca7093619c57f30741",
+                "reference": "acdffc1aaf2da621bb3435ca7093619c57f30741",
                 "shasum": ""
             },
             "require": {
@@ -146,7 +146,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2015-11-02 14:50:04"
+            "time": "2015-11-17 14:11:01"
         }
     ],
     "packages-dev": [],

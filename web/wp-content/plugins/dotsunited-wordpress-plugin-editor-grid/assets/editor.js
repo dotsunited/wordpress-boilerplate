@@ -345,6 +345,28 @@
             icon: 'grid-icon grid-icon-create',
             onclick: function() {
                 grid_create([6, 6]);
+            },
+            onPostRender: function() {
+                var ctrl = this, selector = '.grid';
+
+                function bindStateListener() {
+                    ctrl.disabled(
+                        !!editor.dom.getParent(
+                            editor.selection.getStart(),
+                            selector
+                        )
+                    );
+
+                    editor.selection.selectorChanged(selector, function(state) {
+                        ctrl.disabled(!!state);
+                    });
+                }
+
+                if (editor.initialized) {
+                    bindStateListener();
+                } else {
+                    editor.on('init', bindStateListener);
+                }
             }
         });
 
@@ -366,13 +388,17 @@
         });
 
         editor.on('wptoolbar', function(e) {
-            var el = e.element;
+            var el = e.element, parent;
 
             while (el.getAttribute('data-mce-bogus')) {
                 el = el.parentNode;
             }
 
-            var parent = el.parentNode;
+            parent = el;
+
+            if (!editor.dom.hasClass(parent, 'grid-unit')) {
+                parent = parent.parentNode;
+            }
 
             if (editor.dom.hasClass(parent, 'grid-unit')) {
                 e.toolbar = toolbar;

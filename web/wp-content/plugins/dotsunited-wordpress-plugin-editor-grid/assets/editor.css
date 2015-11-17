@@ -89,9 +89,12 @@
 
 [class*=grid-unit] img {
     display: inline-block;
-    width: inherit;
     max-width: 100%;
     height: auto;
+}
+
+[class*=grid-unit] .aligncenter {
+    display: block;
 }
 
 [class*=grid-unit]:before {
