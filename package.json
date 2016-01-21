@@ -4,16 +4,16 @@
   "author": "Dots United GmbH",
   "license": "MIT",
   "dependencies": {
-    "dotsunited-equal-height-blocks": "3.0.1",
-    "dotsunited-off-canvas-navigation": "2.0.1",
-    "dotsunited-sliding-navigation": "1.0.2",
-    "es5-shim": "4.2.0",
+    "dotsunited-equal-height-blocks": "3.1.0",
+    "dotsunited-off-canvas-navigation": "2.1.0",
+    "dotsunited-sliding-navigation": "1.1.1",
+    "es5-shim": "4.4.1",
     "fastclick": "1.0.6",
-    "fontfaceobserver": "1.5.4",
-    "gee.less": "2.0.0",
+    "fontfaceobserver": "1.6.3",
+    "gee.less": "3.0.0",
     "html5shiv": "3.7.3",
-    "jquery": "1.11.3",
-    "slick-carousel": "1.5.8"
+    "jquery": "1.12.0",
+    "slick-carousel": "1.5.9"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.0",

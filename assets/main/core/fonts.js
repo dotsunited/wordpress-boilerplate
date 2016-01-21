@@ -21,7 +21,7 @@ if (checkCookie()) {
     loaded();
 } else {
     require.ensure(['fontfaceobserver'], function() {
-        require('fontfaceobserver');
+        var FontFaceObserver = require('fontfaceobserver');
 
         var observer = new FontFaceObserver('Roboto');
 
