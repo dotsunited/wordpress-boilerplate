@@ -25,6 +25,11 @@ if (checkCookie()) {
 
         var observer = new FontFaceObserver('Roboto');
 
-        observer.check().then(loaded).then(setCookie);
+        observer
+            .check()
+            .then(loaded)
+            .then(setCookie)
+            .then(null, function(){})
+        ;
     });
 }
