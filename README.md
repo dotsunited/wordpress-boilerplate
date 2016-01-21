@@ -35,5 +35,5 @@ webfont-dl http://fonts.googleapis.com/css?family=Roboto --out assets/main/core/
 License
 ---
 
-Copyright (c) 2015 Dots United GmbH.
+Copyright (c) 2015-2016 Dots United GmbH.
 Released under the [MIT](LICENSE?raw=1) license.
