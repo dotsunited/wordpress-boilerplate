@@ -11,7 +11,7 @@
         <main class="body__main">
             <?php while (have_posts()): the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <time class="post-list__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
+                    <time class="post__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
                         <?php echo get_the_date(); ?>
                     </time>
 
@@ -20,6 +20,12 @@
                             <?php echo the_title(); ?>
                         </a>
                     </h1>
+
+                    <?php if (has_post_thumbnail() && is_singular()): ?>
+                    <div class="post__thumbnail responsive-img">
+                        <?php the_post_thumbnail(); ?>
+                    </div>
+                    <?php endif; ?>
 
                     <?php the_content(); ?>
                 </article>
