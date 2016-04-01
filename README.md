@@ -4,6 +4,8 @@ A barebones, clean and minimalist WordPress Boilerplate, developed at
 [Dots United](https://dotsunited.de/) as a foundation for modern, maintainable
 and lightning fast WordPress based projects.
 
+A Demo is available [here](http://wordpress-boilerplate.dotsunited.de/).
+
 Features
 ---
 
@@ -12,11 +14,6 @@ Features
 * [Composer](https://github.com/composer/composer) enabled
 * Clean, maintainable and scalable project structure
 * No bloat
-
-Demo
----
-
-A Demo is available [here](http://wordpress-boilerplate.dotsunited.de/).
 
 Setup
 ---
