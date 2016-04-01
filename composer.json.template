@@ -1,7 +1,7 @@
 {
     "require": {
         "php": ">=5.3.0",
-        "dotsunited/wordpress-plugin-editor-grid": "~0.1.6"
+        "dotsunited/wordpress-plugin-editor-grid": "~0.2.0"
     },
     "extra": {
         "installer-paths": {
