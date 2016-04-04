@@ -1,6 +1,22 @@
-Wordpress Boilerplate
+The Dots United Wordpress Boilerplate
 ===
+A barebones, clean and minimalist WordPress Boilerplate, developed at
+[Dots United](https://dotsunited.de/) as a foundation for modern, maintainable
+and lightning fast WordPress based projects.
 
+A Demo is available [here](http://wordpress-boilerplate.dotsunited.de/).
+
+Features
+---
+
+* [Maximum possible PageSpeed Insights score](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fwordpress-boilerplate.dotsunited.de%2F&tab=mobile)
+* [Webpack](https://github.com/webpack/webpack) workflow
+* [Composer](https://github.com/composer/composer) enabled
+* Clean, maintainable and scalable project structure
+* No bloat
+
+Setup
+---
 Create new project with
 
 ```bash
