@@ -21,10 +21,7 @@ add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
 
 add_action('wp_head', function () {
 ?>
-<!--[if lt IE 9]>
-        <script src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/ie8.js')); ?>"></script>
-        <![endif]-->
-        <script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.js'); ?></script>
+<script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.js'); ?></script>
         <style><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.css'); ?></style>
 <?php
 }, -1000);

@@ -6,8 +6,7 @@ var autoprefixer = require('autoprefixer');
 module.exports = {
     entry: {
         main: ["./assets/webpack-public-path", "./assets/main"],
-        'main-critical': ["./assets/webpack-public-path", "./assets/main/index-critical"],
-        ie8:  ["./assets/webpack-public-path", "./assets/ie8"]
+        'main-critical': ["./assets/webpack-public-path", "./assets/main/index-critical"]
     },
     output: {
         path: path.join(__dirname, "web/wp-content/themes/wordpress-boilerplate/assets/scripts"),
@@ -27,23 +26,13 @@ module.exports = {
 
             { test: /\.(swf|xap)$/, loader: "file-loader?name=static/[hash].[ext]" },
 
-            // required for modernizr and respond.js, see https://github.com/webpack/webpack/issues/512
-            { test: /modernizr\.js$/, loader: "imports?this=>window!exports?window.Modernizr" },
-            { test: /respond\.js$/, loader: "imports?this=>window" }
+            // required for modernizr, see https://github.com/webpack/webpack/issues/512
+            { test: /modernizr\.js$/, loader: "imports?this=>window!exports?window.Modernizr" }
         ]
     },
     postcss: [
         autoprefixer({
-            browsers: [
-                "Android 2.3",
-                "Android >= 4",
-                "Chrome >= 20",
-                "Firefox >= 24",
-                "Explorer >= 8",
-                "iOS >= 6",
-                "Opera >= 12",
-                "Safari >= 6"
-            ]
+            browsers: ['last 2 versions', 'IE >= 9']
         })
     ],
     plugins: [

@@ -1,6 +1,5 @@
 <!doctype html>
-<!--[if lt IE 9]>      <html class="ie8 no-js no-csstransforms3d no-csstransforms no-csstransitions no-svg" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 9]>         <html class="ie9 no-js no-csstransforms no-csstransitions" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <![endif]-->
+<!--[if lte IE 9]>     <html class="no-js no-csstransforms no-csstransitions" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
@@ -12,9 +11,7 @@
         <header class="header">
             <div class="header__container">
                 <a class="header__logo" href="<?php echo esc_attr(get_home_url()); ?>">
-                    <!--[if lt IE 9]><img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/img/logo-dotsunited.png" alt="<?php esc_attr(get_bloginfo('name', 'display')); ?>"/><![endif]-->
-                    <!--[if gt IE 8]><img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/img/logo-dotsunited.svg" alt="<?php esc_attr(get_bloginfo('name', 'display')); ?>"/><![endif]-->
-                    <!--[if !IE]> --><img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/img/logo-dotsunited.svg" alt="<?php esc_attr(get_bloginfo('name', 'display')); ?>"/><!-- <![endif]-->
+                    <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/img/logo-dotsunited.svg" alt="<?php esc_attr(get_bloginfo('name', 'display')); ?>"/>
                 </a>
 
                 <div class="header__navigation">
