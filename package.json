@@ -13,7 +13,6 @@
     "slick-carousel": "1.6.0"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
     "css-loader": "^0.23.1",
     "exports-loader": "^0.6.3",
     "extend": "^3.0.0",
@@ -27,7 +26,10 @@
     "imports-loader": "^0.6.5",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "postcss-cssnext": "^2.5.2",
+    "postcss-focus": "^1.0.0",
     "postcss-loader": "^0.9.1",
+    "postcss-reporter": "^1.3.3",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

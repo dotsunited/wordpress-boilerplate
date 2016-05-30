@@ -1,7 +1,11 @@
 var path = require("path");
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var autoprefixer = require('autoprefixer');
+
+// PostCSS plugins
+var cssnext = require('postcss-cssnext');
+var postcssFocus = require('postcss-focus');
+var postcssReporter = require('postcss-reporter');
 
 module.exports = {
     entry: {
@@ -16,8 +20,32 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.less$/, loader: ExtractTextPlugin.extract("style", "css!postcss!less") },
-            { test: /\.css$/,  loader: ExtractTextPlugin.extract("style", "css!postcss") },
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                loader: ExtractTextPlugin.extract(
+                    'style',
+                    'css!postcss!less'
+                )
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loader: ExtractTextPlugin.extract(
+                    'style',
+                    'css!postcss'
+                )
+            },
+            {
+                test: /\.less$/,
+                include: /node_modules/,
+                loaders: ['style', 'css', 'less']
+            },
+            {
+                test: /\.css$/,
+                include: /node_modules/,
+                loaders: ['style', 'css']
+            },
 
             { test: /\.(gif|png|jpe?g|svg)(\?.+)?$/, loader: "file?name=static/[hash].[ext]!image-webpack" },
 
@@ -31,8 +59,12 @@ module.exports = {
         ]
     },
     postcss: [
-        autoprefixer({
-            browsers: ['last 2 versions', 'IE >= 9']
+        postcssFocus(),
+        cssnext({
+            browsers: ['last 2 versions', 'IE > 10']
+        }),
+        postcssReporter({
+            clearMessages: true
         })
     ],
     plugins: [
