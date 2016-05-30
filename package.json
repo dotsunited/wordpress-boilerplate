@@ -3,6 +3,9 @@
   "version": "5.2.1",
   "author": "Dots United GmbH",
   "license": "MIT",
+  "scripts": {
+    "build-modernizr": "modernizr -c modernizr-config.json -d assets/main/core/modernizr.js"
+  },
   "dependencies": {
     "dotsunited-equal-height-blocks": "3.1.0",
     "dotsunited-off-canvas-navigation": "2.1.1",
@@ -10,6 +13,7 @@
     "fontfaceobserver": "1.7.1",
     "gee.less": "3.0.0",
     "jquery": "2.2.4",
+    "modernizr": "3.3.1",
     "slick-carousel": "1.6.0"
   },
   "devDependencies": {

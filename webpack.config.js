@@ -9,12 +9,12 @@ var postcssReporter = require('postcss-reporter');
 
 module.exports = {
     entry: {
-        main: ['./assets/webpack-public-path', './assets/main'],
-        'main-critical': ['./assets/webpack-public-path', './assets/main/index-critical']
+        main: [/*'./assets/webpack-public-path', */'./assets/main'],
+        'main-critical': [/*'./assets/webpack-public-path', */'./assets/main/index-critical']
     },
     output: {
         path: path.join(__dirname, 'web/wp-content/themes/wordpress-boilerplate/assets/scripts'),
-        //publicPath: '/wp-content/themes/wordpress-boilerplate/assets/scripts/',
+        publicPath: '/wp-content/themes/wordpress-boilerplate/assets/scripts/',
         filename: '[name].js', // append ?[hash] to fix entry chunks not updated correctly
         chunkFilename: '[name].[chunkhash].js'
     },
