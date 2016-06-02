@@ -11,7 +11,7 @@
         <header class="header">
             <div class="header__container">
                 <a class="header__logo" href="<?php echo esc_attr(get_home_url()); ?>">
-                    <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/img/logo-dotsunited.svg" alt="<?php esc_attr(get_bloginfo('name', 'display')); ?>"/>
+                    <img src="<?php echo esc_attr(get_template_directory_uri()); ?>/assets/img/logo-dotsunited.svg" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"/>
                 </a>
 
                 <div class="header__navigation">
