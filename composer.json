@@ -22,9 +22,6 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "5.x-dev"
-        },
         "installer-paths": {
             "web/wp-content/plugins/{$name}": ["type:wordpress-plugin"]
         }
