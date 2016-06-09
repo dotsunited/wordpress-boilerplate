@@ -4,7 +4,9 @@
   "author": "Dots United GmbH",
   "license": "MIT",
   "scripts": {
-    "build-modernizr": "modernizr -c modernizr-config.json -d assets/main/core/modernizr.js"
+    "build-modernizr": "modernizr -c modernizr-config.json -d assets/main/core/modernizr.js",
+    "favicon-generate": "real-favicon generate assets/favicon/real-favicon-description.json assets/favicon/real-favicon-data.json web/favicons && cp web/favicons/favicon.ico web/favicon.ico && touch web/favicons/favicons.html && real-favicon inject assets/favicon/real-favicon-data.json web/favicons web/favicons/favicons.html",
+    "favicon-check": "real-favicon check-for-update --fail-on-update assets/favicon/real-favicon-data.json"
   },
   "dependencies": {
     "dotsunited-equal-height-blocks": "3.1.0",
@@ -17,6 +19,7 @@
     "slick-carousel": "1.6.0"
   },
   "devDependencies": {
+    "cli-real-favicon": "^0.0.6",
     "css-loader": "^0.23.1",
     "exports-loader": "^0.6.3",
     "extend": "^3.0.0",

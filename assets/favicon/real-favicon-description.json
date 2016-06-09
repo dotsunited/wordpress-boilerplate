@@ -1,0 +1,38 @@
+{
+    "masterPicture": "assets/favicon/favicon-template.svg",
+    "iconsPath": "/favicons",
+    "design": {
+        "ios": {
+            "pictureAspect": "backgroundAndMargin",
+            "backgroundColor": "#f9f9f9",
+            "margin": "14%"
+        },
+        "desktopBrowser": {},
+        "windows": {
+            "pictureAspect": "noChange",
+            "backgroundColor": "#f9f9f9",
+            "onConflict": "override"
+        },
+        "androidChrome": {
+            "pictureAspect": "backgroundAndMargin",
+            "margin": "17%",
+            "backgroundColor": "#f9f9f9",
+            "themeColor": "#cc5036",
+            "manifest": {
+                "name": "Wordpress Boilerplate",
+                "display": "browser",
+                "orientation": "notSet",
+                "onConflict": "override",
+                "declared": true
+            }
+        },
+        "safariPinnedTab": {
+            "pictureAspect": "silhouette",
+            "themeColor": "#cc5036"
+        }
+    },
+    "settings": {
+        "scalingAlgorithm": "Mitchell",
+        "errorOnImageTooSmall": false
+    }
+}
