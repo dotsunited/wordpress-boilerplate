@@ -12,7 +12,7 @@
     "dotsunited-sliding-navigation": "2.0.0",
     "fontfaceobserver": "1.7.1",
     "gee.less": "3.0.0",
-    "jquery": "2.2.4",
+    "jquery": "1.12.4",
     "modernizr": "3.3.1",
     "slick-carousel": "1.6.0"
   },
