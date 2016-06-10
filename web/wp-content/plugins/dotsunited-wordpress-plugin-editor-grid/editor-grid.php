@@ -27,27 +27,24 @@ add_filter('mce_external_plugins', function ($plugins) use ($baseUrl) {
 });
 
 add_filter('mce_buttons_3', function ($buttons, $editor_id) {
-    $editor_ids = apply_filters('grid_editor_ids', array('content'));
+    $editor_ids = apply_filters('wordpress_editor_grid_editor_ids', array('content'));
 
     if (!is_array($editor_ids)) {
         return $buttons;
     }
 
-    if (!in_array($editor_id, $editor_ids)) {
+    if (!in_array($editor_id, $editor_ids, true)) {
         return $buttons;
     }
 
-    array_push(
-        $buttons,
-        'grid_create'
-    );
+    $buttons[] = 'grid_create';
 
     return $buttons;
 }, 1, 2);
 
 add_filter('mce_css', function ($mce_css) use ($baseUrl) {
     $file = apply_filters(
-        'grid_editor_css',
+        'wordpress_editor_grid_editor_css',
         $baseUrl . 'assets/editor.css?ver=' . urlencode(md5_file(__DIR__ . '/assets/editor.css'))
     );
 
@@ -62,7 +59,7 @@ add_action('admin_enqueue_scripts', function () use ($baseUrl) {
     wp_enqueue_script('jquery');
 
     wp_enqueue_style(
-        'grid_buttons',
+        'wordpress_editor_grid_editor_buttons',
         $baseUrl . 'assets/buttons.css',
         array(),
         md5_file(__DIR__ . '/assets/buttons.css')

@@ -3,7 +3,7 @@
         'Create grid': 'Grid erstellen',
         'Shadow': 'Schatten',
         'Style': 'Stil',
-        'No background': 'Kein Hintegrund',
+        'No background': 'Kein Hintergrund',
         'Background': 'Hintergrund',
         'Highlight': 'Highlight',
         'Equalize column heights': 'Spaltenhöhen angleichen',

@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "116af38b1f0a25972e1d6a4c702e5d44",
-    "content-hash": "4b3966fd129a6f984771c3d814159b7c",
+    "hash": "15031efc8312e01c4fc2f2709c7bcd8d",
+    "content-hash": "86d0f0bc058f2cf362f714bc54f39422",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.22",
+            "version": "v1.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046"
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/bd9b14f094c89c8b5804a4e41edeb7853bb85046",
-                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046",
+                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "1.0.0"
+                "composer-plugin-api": "^1.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
@@ -40,8 +40,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -56,12 +56,14 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
                 "Hurad",
+                "ImageCMS",
                 "MODX Evo",
+                "Mautic",
                 "OXID",
                 "SMF",
                 "Thelia",
@@ -103,20 +105,20 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-10-29 23:28:48"
+            "time": "2016-04-13 19:46:30"
         },
         {
             "name": "dotsunited/wordpress-plugin-editor-grid",
-            "version": "v0.2.0",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotsunited/wordpress-plugin-editor-grid.git",
-                "reference": "acdffc1aaf2da621bb3435ca7093619c57f30741"
+                "reference": "f1426ffd2c083b4e35fd21bb0703f19ba59e4d90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/acdffc1aaf2da621bb3435ca7093619c57f30741",
-                "reference": "acdffc1aaf2da621bb3435ca7093619c57f30741",
+                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/f1426ffd2c083b4e35fd21bb0703f19ba59e4d90",
+                "reference": "f1426ffd2c083b4e35fd21bb0703f19ba59e4d90",
                 "shasum": ""
             },
             "require": {
@@ -146,7 +148,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2015-11-17 14:11:01"
+            "time": "2016-06-10 07:21:14"
         }
     ],
     "packages-dev": [],
