@@ -7,6 +7,7 @@
 /web/wp-content/upgrade
 /web/wp-content/themes/*
 /web/wp-content/uploads
+/web/wp-content/debug.log
 /web/wp-content/index.php
 /web/wp-*.php
 /web/.htaccess
