@@ -4,6 +4,8 @@
   "author": "Dots United GmbH",
   "license": "MIT",
   "scripts": {
+    "build": "rimraf web/wp-content/themes/wordpress-boilerplate/assets/scripts && webpack",
+    "watch": "rimraf web/wp-content/themes/wordpress-boilerplate/assets/scripts && webpack --watch --progress",
     "build-modernizr": "modernizr -c modernizr-config.json -d assets/main/core/modernizr.js",
     "favicon-generate": "real-favicon generate assets/favicon/real-favicon-description.json assets/favicon/real-favicon-data.json web/favicons && cp web/favicons/favicon.ico web/favicon.ico && touch web/favicons/favicons.html && real-favicon inject assets/favicon/real-favicon-data.json web/favicons web/favicons/favicons.html",
     "favicon-check": "real-favicon check-for-update --fail-on-update assets/favicon/real-favicon-data.json"
@@ -38,6 +40,7 @@
     "postcss-loader": "^0.9.1",
     "postcss-reporter": "^1.3.3",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
