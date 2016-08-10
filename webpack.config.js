@@ -56,11 +56,7 @@ module.exports = {
             },
 
             {
-                test: /\.(woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loaders: ['file?name=static/[hash].[ext]&mimetype=application/font-woff']
-            },
-            {
-                test: /\.(ttf|eot)(\?.+)?$/,
+                test: /\.(eot|ttf|woff|woff2)(\?.+)?$/,
                 loaders: ['file?name=static/[hash].[ext]']
             },
 
