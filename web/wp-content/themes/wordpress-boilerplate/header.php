@@ -29,13 +29,23 @@
                 </div>
 
                 <div class="header__off-canvas-navigation">
-                    <button aria-hidden="true" class="off-canvas-navigation-button" data-off-canvas-navigation-toggle>
+                    <button
+                        aria-label="Open navigation"
+                        aria-controls="off-canvas-navigation-menu"
+                        aria-expanded="false"
+                        class="off-canvas-navigation-button"
+                        data-off-canvas-navigation-toggle
+                    >
                         <span><span></span></span>
                     </button>
 
-                    <div aria-hidden="true" class="off-canvas-navigation-backdrop" data-off-canvas-navigation-toggle="#off-canvas-navigation-menu"></div>
+                    <div aria-hidden="true" class="off-canvas-navigation-backdrop"></div>
 
-                    <div aria-hidden="true" class="off-canvas-navigation-menu">
+                    <section
+                        id="off-canvas-navigation-menu"
+                        aria-hidden="true"
+                        class="off-canvas-navigation-menu"
+                    >
                         <nav class="sliding-navigation">
                             <?php wp_nav_menu(array(
                                 'theme_location' => 'main',
@@ -43,7 +53,7 @@
                                 'menu_class' => 'off-canvas-navigation-menu__list',
                             )); ?>
                         </nav>
-                    </div>
+                    </section>
                 </div>
             </div>
         </header>

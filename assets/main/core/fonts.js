@@ -20,8 +20,8 @@ function loaded() {
 if (checkCookie()) {
     loaded();
 } else {
-    require.ensure(['fontfaceobserver'], function() {
-        var FontFaceObserver = require('fontfaceobserver');
+    require.ensure(['fontfaceobserver/fontfaceobserver'], function() {
+        var FontFaceObserver = require('fontfaceobserver/fontfaceobserver');
 
         var observer = new FontFaceObserver('Roboto');
 
