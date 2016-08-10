@@ -31,7 +31,7 @@
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-imagemin": "1.0.1",
     "grunt-webpack": "1.0.11",
-    "image-webpack-loader": "1.8.0",
+    "image-webpack-loader": "2.0.0",
     "imports-loader": "0.6.5",
     "less": "2.7.1",
     "less-loader": "2.2.3",
