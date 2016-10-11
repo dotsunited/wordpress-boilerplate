@@ -4,7 +4,7 @@
         return !el.text() && !el.children().not('br').length;
     }
 
-    function grid_create() {
+    function editor_grid_create() {
         var selectedContent = tinyMCE.activeEditor.selection.getContent();
         var children = $('<div>' + selectedContent + '</div>').children('p');
         var contents = [];
@@ -55,7 +55,7 @@
         }
 
         // Insert
-        var content, insert = $('<div class="grid-container"/>');
+        var content, insert = $('<div class="editor-grid-container"/>');
 
         for (var i = 0, l = units.length - 1; i < l; i++) {
             content = '';
@@ -69,7 +69,7 @@
                 content = '<p>' + transColumn.replace('%num%', i + 1) + '</p>';
             }
 
-            insert.append($('<div class="grid-unit grid-unit-' + units[i] + '"/>').append(content));
+            insert.append($('<div class="editor-grid-unit editor-grid-unit-' + units[i] + '"/>').append(content));
         }
 
         content = '<p>' + transColumn.replace('%num%', i + 1) + '</p>';
@@ -79,17 +79,17 @@
         }
 
         // Add last unit
-        insert.append($('<div class="grid-unit grid-unit-' + units[i] + '"/>').append(content));
+        insert.append($('<div class="editor-grid-unit editor-grid-unit-' + units[i] + '"/>').append(content));
 
-        insert = insert.wrap('<div class="grid"/>').parent();
+        insert = insert.wrap('<div class="editor-grid"/>').parent();
 
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, insert.wrap('<div/>').parent().html());
     }
 
-    tinymce.PluginManager.add('grid', function(editor) {
+    tinymce.PluginManager.add('editor_grid', function(editor) {
         var toolbar;
 
-        function grid_style_button(selector) {
+        function editor_grid_style_button(selector) {
             return {
                 type: 'listbox',
                 text: 'Style',
@@ -102,7 +102,7 @@
                         onclick : function() {
                             $(editor.selection.getNode())
                                 .closest(selector)
-                                .removeClass('grid-background grid-background-highlight')
+                                .removeClass('editor-grid-background editor-grid-background-highlight')
                             ;
                         },
                         value: ''
@@ -112,8 +112,8 @@
                         onclick : function() {
                             $(editor.selection.getNode())
                                 .closest(selector)
-                                .removeClass('grid-background-highlight')
-                                .addClass('grid-background')
+                                .removeClass('editor-grid-background-highlight')
+                                .addClass('editor-grid-background')
                             ;
                         },
                         value: 'background'
@@ -123,9 +123,9 @@
                         onclick : function() {
                             $(editor.selection.getNode())
                                 .closest(selector)
-                                .removeClass('grid-background grid-background-highlight')
-                                .removeClass('grid-background')
-                                .addClass('grid-background-highlight')
+                                .removeClass('editor-grid-background editor-grid-background-highlight')
+                                .removeClass('editor-grid-background')
+                                .addClass('editor-grid-background-highlight')
                             ;
                         },
                         value: 'background-highlight'
@@ -143,9 +143,9 @@
 
                         var value = '';
 
-                        if (el.hasClass('grid-background-highlight')) {
+                        if (el.hasClass('editor-grid-background-highlight')) {
                             value = 'background-highlight';
-                        } else if (el.hasClass('grid-background')) {
+                        } else if (el.hasClass('editor-grid-background')) {
                             value = 'background';
                         }
 
@@ -155,10 +155,10 @@
             };
         }
 
-        function grid_shadow_button(selector) {
+        function editor_grid_shadow_button(selector) {
             return {
                 tooltip: 'Shadow',
-                icon: 'grid-icon grid-icon-shadow',
+                icon: 'editor-grid-icon editor-grid-icon-shadow',
                 onclick: function() {
                     var el = $(editor.selection.getNode()).closest(selector);
 
@@ -166,8 +166,8 @@
                         return;
                     }
 
-                    el.toggleClass('grid-shadow');
-                    this.active(el.hasClass('grid-shadow'));
+                    el.toggleClass('editor-grid-shadow');
+                    this.active(el.hasClass('editor-grid-shadow'));
                 },
                 onPostRender: function() {
                     var self = this;
@@ -179,19 +179,19 @@
                             return;
                         }
 
-                        self.active(el.hasClass('grid-shadow'));
+                        self.active(el.hasClass('editor-grid-shadow'));
                     });
                 }
             };
         }
 
-        function grid_size_button(selector, sizes) {
+        function editor_grid_size_button(selector, sizes) {
             var values = [];
             var transSize = tinyMCE.i18n.translate('%size% of %sizes%');
             var allClasses = [];
 
             for (var i = 1; i <= sizes; i++) {
-                allClasses.push('grid-unit-' + i);
+                allClasses.push('editor-grid-unit-' + i);
 
                 values.push({
                     text: transSize.replace('%size%', i).replace('%sizes%', sizes),
@@ -200,11 +200,11 @@
                             $(editor.selection.getNode())
                                 .closest(selector)
                                 .removeClass(allClasses.join(' '))
-                                .addClass('grid-unit-' + i)
+                                .addClass('editor-grid-unit-' + i)
                             ;
                         }
                     })(i),
-                    value: 'grid-unit-' + i
+                    value: 'editor-grid-unit-' + i
                 });
             }
 
@@ -240,26 +240,26 @@
             };
         }
 
-        editor.addButton('grid_unit_size', grid_size_button('.grid-unit', 12));
+        editor.addButton('editor_grid_unit_size', editor_grid_size_button('.editor-grid-unit', 12));
 
-        editor.addButton('grid_unit_style', grid_style_button('.grid-unit'));
-        editor.addButton('grid_unit_shadow', grid_shadow_button('.grid-unit'));
+        editor.addButton('editor_grid_unit_style', editor_grid_style_button('.editor-grid-unit'));
+        editor.addButton('editor_grid_unit_shadow', editor_grid_shadow_button('.editor-grid-unit'));
 
-        editor.addButton('grid_unit_remove', {
+        editor.addButton('editor_grid_unit_remove', {
             tooltip: 'Remove column',
             icon: 'dashicon dashicons-no',
             onclick: function() {
-                var el = $(editor.selection.getNode()).closest('.grid-unit');
+                var el = $(editor.selection.getNode()).closest('.editor-grid-unit');
 
                 if (!el.length) {
                     return;
                 }
 
-                var grid = el.closest('.grid');
+                var grid = el.closest('.editor-grid');
 
                 el.remove();
 
-                if (!grid.find('.grid-unit').length) {
+                if (!grid.find('.editor-grid-unit').length) {
                     grid.remove();
                 }
 
@@ -267,17 +267,17 @@
             }
         });
 
-        editor.addButton('grid_remove', {
+        editor.addButton('editor_grid_remove', {
             tooltip: 'Remove grid',
             icon: 'dashicon dashicons-no',
             onclick: function() {
-                var el = $(editor.selection.getNode()).closest('.grid');
+                var el = $(editor.selection.getNode()).closest('.editor-grid');
 
                 if (!el.length) {
                     return;
                 }
 
-                el.find('.grid-unit').each(function() {
+                el.find('.editor-grid-unit').each(function() {
                     if (isEmpty(this)) {
                         return;
                     }
@@ -290,64 +290,64 @@
             }
         });
 
-        editor.addButton('grid_add_unit', {
+        editor.addButton('editor_grid_add_unit', {
             tooltip: 'Add column',
             icon: 'dashicon dashicons-plus',
             onclick: function() {
-                var el = $(editor.selection.getNode()).closest('.grid-unit');
+                var el = $(editor.selection.getNode()).closest('.editor-grid-unit');
 
                 if (!el.length) {
                     return;
                 }
 
-                var container = el.closest('.grid-container');
+                var container = el.closest('.editor-grid-container');
                 var transColumn = tinyMCE.i18n.translate('Column %num%');
-                var content = '<p>' + transColumn.replace('%num%', container.find('.grid-unit').length + 1) + '</p>';
+                var content = '<p>' + transColumn.replace('%num%', container.find('.editor-grid-unit').length + 1) + '</p>';
 
                 container.append(el.clone().html(content));
             }
         });
 
-        editor.addButton('grid_style', grid_style_button('.grid'));
+        editor.addButton('editor_grid_style', editor_grid_style_button('.editor-grid'));
 
-        editor.addButton('grid_shadow', grid_shadow_button('.grid'));
+        editor.addButton('editor_grid_shadow', editor_grid_shadow_button('.editor-grid'));
 
-        editor.addButton('grid_equal_height', {
+        editor.addButton('editor_grid_equal_height', {
             tooltip: 'Equalize column heights',
-            icon: 'grid-icon grid-icon-equalize-height',
+            icon: 'editor-grid-icon editor-grid-icon-equalize-height',
             onclick: function() {
-                var el = $(editor.selection.getNode()).closest('.grid');
+                var el = $(editor.selection.getNode()).closest('.editor-grid');
 
                 if (!el.length) {
                     return;
                 }
 
-                el.toggleClass('grid-equal-height');
-                this.active(el.hasClass('grid-equal-height'));
+                el.toggleClass('editor-grid-equal-height');
+                this.active(el.hasClass('editor-grid-equal-height'));
             },
             onPostRender: function() {
                 var self = this;
 
                 editor.on('NodeChange', function(event) {
-                    var el = $(event.element).closest('.grid');
+                    var el = $(event.element).closest('.editor-grid');
 
                     if (!el.length) {
                         return;
                     }
 
-                    self.active(el.hasClass('grid-equal-height'));
+                    self.active(el.hasClass('editor-grid-equal-height'));
                 });
             }
         });
 
-        editor.addButton('grid_create', {
+        editor.addButton('editor_grid_create', {
             title: 'Create grid',
-            icon: 'grid-icon grid-icon-create',
+            icon: 'editor-grid-icon editor-grid-icon-create',
             onclick: function() {
-                grid_create([6, 6]);
+                editor_grid_create([6, 6]);
             },
             onPostRender: function() {
-                var ctrl = this, selector = '.grid';
+                var ctrl = this, selector = '.editor-grid';
 
                 function bindStateListener() {
                     ctrl.disabled(
@@ -373,17 +373,17 @@
         // Add toolbar
         editor.once('preinit', function() {
             toolbar = editor.wp._createToolbar([
-                'grid_unit_size',
-                'grid_unit_style',
-                'grid_unit_shadow',
-                'grid_unit_remove',
+                'editor_grid_unit_size',
+                'editor_grid_unit_style',
+                'editor_grid_unit_shadow',
+                'editor_grid_unit_remove',
                 '|',
-                'grid_add_unit',
+                'editor_grid_add_unit',
                 '|',
-                'grid_style',
-                'grid_shadow',
-                'grid_equal_height',
-                'grid_remove'
+                'editor_grid_style',
+                'editor_grid_shadow',
+                'editor_grid_equal_height',
+                'editor_grid_remove'
             ], true);
         });
 
@@ -396,13 +396,13 @@
 
             parent = el;
 
-            if (!editor.dom.hasClass(parent, 'grid-unit')) {
+            if (!editor.dom.hasClass(parent, 'editor-grid-unit')) {
                 parent = parent.parentNode;
             }
 
-            if (editor.dom.hasClass(parent, 'grid-unit')) {
+            if (editor.dom.hasClass(parent, 'editor-grid-unit')) {
                 e.toolbar = toolbar;
-                //e.selection = editor.dom.getParent(parent, '.grid');
+                //e.selection = editor.dom.getParent(parent, '.editor-grid');
                 e.selection = parent;
             }
         });
@@ -421,7 +421,7 @@
             if (keyCode === VK.ENTER) {
                 node = selection.getNode();
 
-                if (!editor.dom.hasClass(node, 'grid-unit') && !isEmpty(node)) {
+                if (!editor.dom.hasClass(node, 'editor-grid-unit') && !isEmpty(node)) {
                     return;
                 }
 
@@ -441,7 +441,7 @@
             if (keyCode === VK.BACKSPACE || keyCode === VK.DELETE) {
                 node = selection.getNode();
 
-                wrap = dom.getParent(node, '.grid-unit');
+                wrap = dom.getParent(node, '.editor-grid-unit');
 
                 if (wrap && (!wrap.children.length || (1 === wrap.children.length && isEmpty(wrap.children[0])))) {
                     dom.events.cancel(event);
@@ -451,9 +451,9 @@
         });
 
         editor.on('NodeChange', function(event) {
-            var el = $(event.element).closest('.grid');
+            var el = $(event.element).closest('.editor-grid');
 
-            if (!el.find('.grid-unit').length) {
+            if (!el.find('.editor-grid-unit').length) {
                 el.remove();
             }
         });

@@ -1,42 +1,42 @@
-.grid,
-.grid *,
-.grid *:before,
-.grid *:after {
+.editor-grid,
+.editor-grid *,
+.editor-grid *:before,
+.editor-grid *:after {
     box-sizing: border-box;
 }
 
-.grid {
+.editor-grid {
     margin-bottom: 10px;
 }
 
-.grid-background {
+.editor-grid-background {
     background-color: #eee;
     padding: 10px;
 }
 
-.grid-background.grid  {
+.editor-grid-background.editor-grid  {
     padding-bottom: 0;
 }
 
-.grid-background-highlight {
+.editor-grid-background-highlight {
     background-color: #c27386;
     padding: 10px;
 }
 
-.grid-background-highlight.grid  {
+.editor-grid-background-highlight.editor-grid  {
     padding-bottom: 0;
 }
 
-.grid-shadow {
+.editor-grid-shadow {
     box-shadow: 0 0 7px rgba(0, 0, 0, .5);
     padding: 10px;
 }
 
-.grid-shadow.grid  {
+.editor-grid-shadow.editor-grid  {
     padding-bottom: 0;
 }
 
-.grid-equal-height .grid-container {
+.editor-grid-equal-height .editor-grid-container {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -46,7 +46,7 @@
     flex-wrap: wrap;
 }
 
-.grid-container {
+.editor-grid-container {
     letter-spacing: -.31em;
     *letter-spacing: normal;
     *word-spacing: -.43em;
@@ -56,7 +56,7 @@
     margin-left: -2%;
 }
 
-.grid-container, .grid-container .opera-only :-o-prefocus {
+.editor-grid-container, .editor-grid-container .opera-only :-o-prefocus {
     word-spacing: -.43em
 }
 
@@ -105,86 +105,86 @@
     right: 1px;
 }
 
-.grid-unit-12 {
+.editor-grid-unit-12 {
     width: 98%;
 }
-.grid-unit-12:before {
+.editor-grid-unit-12:before {
     content: '12 / 12'
 }
 
-.grid-unit-11 {
+.editor-grid-unit-11 {
     width: 89.66666667%;
 }
-.grid-unit-11:before {
+.editor-grid-unit-11:before {
     content: '11 / 12'
 }
 
-.grid-unit-10 {
+.editor-grid-unit-10 {
     width: 81.33333333%;
 }
-.grid-unit-10:before {
+.editor-grid-unit-10:before {
     content: '10 / 12'
 }
 
-.grid-unit-9 {
+.editor-grid-unit-9 {
     width: 73%;
 }
-.grid-unit-9:before {
+.editor-grid-unit-9:before {
     content: '9 / 12'
 }
 
-.grid-unit-8 {
+.editor-grid-unit-8 {
     width: 64.66666667%;
 }
-.grid-unit-8:before {
+.editor-grid-unit-8:before {
     content: '8 / 12'
 }
 
-.grid-unit-7 {
+.editor-grid-unit-7 {
     width: 56.33333333%;
 }
-.grid-unit-7:before {
+.editor-grid-unit-7:before {
     content: '7 / 12'
 }
 
-.grid-unit-6 {
+.editor-grid-unit-6 {
     width: 48%;
 }
-.grid-unit-6:before {
+.editor-grid-unit-6:before {
     content: '6 / 12'
 }
 
-.grid-unit-5 {
+.editor-grid-unit-5 {
     width: 39.66666667%;
 }
-.grid-unit-5:before {
+.editor-grid-unit-5:before {
     content: '5 / 12'
 }
 
-.grid-unit-4 {
+.editor-grid-unit-4 {
     width: 31.33333333%;
 }
-.grid-unit-4:before {
+.editor-grid-unit-4:before {
     content: '4 / 12'
 }
 
-.grid-unit-3 {
+.editor-grid-unit-3 {
     width: 23%;
 }
-.grid-unit-3:before {
+.editor-grid-unit-3:before {
     content: '3 / 12'
 }
 
-.grid-unit-2 {
+.editor-grid-unit-2 {
     width: 14.66666667%;
 }
-.grid-unit-2:before {
+.editor-grid-unit-2:before {
     content: '2 / 12'
 }
 
-.grid-unit-1 {
+.editor-grid-unit-1 {
     width: 6.33333333%;
 }
-.grid-unit-1:before {
+.editor-grid-unit-1:before {
     content: '1 / 12'
 }

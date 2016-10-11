@@ -1,72 +1,72 @@
 @import "../common";
 @import "../../../node_modules/dotsunited-equal-height-blocks/lib/mixins";
 
-.grid {
+.editor-grid {
     margin-bottom: 20px;
 }
 
-.grid-background {
+.editor-grid-background {
     background-color: #eee;
     padding: 20px;
 
-    &.grid  {
+    &.editor-grid  {
         padding-bottom: 0;
     }
 }
 
-.grid-background-highlight {
+.editor-grid-background-highlight {
     background-color: #c9462a;
     color: #fff;
     padding: 20px;
 
-    &.grid  {
+    &.editor-grid  {
         padding-bottom: 0;
     }
 }
 
-.grid-shadow {
+.editor-grid-shadow {
     box-shadow: 0 0 7px rgba(0, 0, 0, .5);
     padding: 20px;
 
-    &.grid  {
+    &.editor-grid  {
         padding-bottom: 0;
     }
 }
 
-.grid-equal-height {
-    .grid-container {
+.editor-grid-equal-height {
+    .editor-grid-container {
         .dotsunited-equal-height-blocks-container();
     }
 }
 
 .gee-generate(
     @gutter: 2%;
-    @class-prefix: grid-;
+    @class-prefix: editor-grid-;
     @grid-class: container;
     @unit-class: unit;
     @unit-font-family: sans-serif
 );
 
-[class*=grid-unit] {
+[class*=editor-grid-unit] {
     .typography-base-font-family();
     font-size: 90%;
 }
 
-[class*=grid-unit] :first-child {
+[class*=editor-grid-unit] :first-child {
     margin-top: 0;
 }
 
-[class*=grid-unit] :last-child {
+[class*=editor-grid-unit] :last-child {
     margin-bottom: 0;
 }
 
-[class*=grid-unit] img {
+[class*=editor-grid-unit] img {
     display: inline-block;
     max-width: 100%;
     height: auto;
 }
 
 // Support for wordpress .aligncenter class added by the editor
-[class*=grid-unit] .aligncenter {
+[class*=editor-grid-unit] .aligncenter {
     display: block;
 }

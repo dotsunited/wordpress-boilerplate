@@ -4,21 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "15031efc8312e01c4fc2f2709c7bcd8d",
-    "content-hash": "86d0f0bc058f2cf362f714bc54f39422",
+    "content-hash": "46f7951c847c08f1332bd11cc5435654",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.25",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804",
                 "shasum": ""
             },
             "require": {
@@ -65,21 +64,26 @@
                 "MODX Evo",
                 "Mautic",
                 "OXID",
+                "Plentymarkets",
+                "RadPHP",
                 "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
                 "aimeos",
                 "annotatecms",
+                "attogram",
                 "bitrix",
                 "cakephp",
                 "chef",
+                "cockpit",
                 "codeigniter",
                 "concrete5",
                 "croogo",
                 "dokuwiki",
                 "drupal",
                 "elgg",
+                "expressionengine",
                 "fuelphp",
                 "grav",
                 "installer",
@@ -96,29 +100,31 @@
                 "piwik",
                 "ppi",
                 "puppet",
+                "reindex",
                 "roundcube",
                 "shopware",
                 "silverstripe",
                 "symfony",
                 "typo3",
                 "wordpress",
+                "yawik",
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-13 19:46:30"
+            "time": "2016-08-13 20:53:52"
         },
         {
             "name": "dotsunited/wordpress-plugin-editor-grid",
-            "version": "v1.0.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotsunited/wordpress-plugin-editor-grid.git",
-                "reference": "f1426ffd2c083b4e35fd21bb0703f19ba59e4d90"
+                "reference": "e107ea5bb16cc381d2971ea3eeffe348e0f17275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/f1426ffd2c083b4e35fd21bb0703f19ba59e4d90",
-                "reference": "f1426ffd2c083b4e35fd21bb0703f19ba59e4d90",
+                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/e107ea5bb16cc381d2971ea3eeffe348e0f17275",
+                "reference": "e107ea5bb16cc381d2971ea3eeffe348e0f17275",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +154,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2016-06-10 07:21:14"
+            "time": "2016-10-10 14:18:53"
         }
     ],
     "packages-dev": [],
