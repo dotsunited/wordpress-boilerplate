@@ -33,6 +33,15 @@ add_action('wp_footer', function () {
 <?php
 }, 1000);
 
+// Support for the Gravity Forms Iframe Add-on plugin
+// https://github.com/cedaro/gravity-forms-iframe
+add_action('gfiframe_head', function () {
+?>
+<style><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.css'); ?></style>
+        <style>body { background-image: none !important; }  .gform_wrapper, .gform_wrapper form {  margin: 0 !important; }</style>
+<?php
+}, -1000);
+
 function wordpress_boilerplate_asset($path)
 {
     $path = ltrim($path, '/');
