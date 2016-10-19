@@ -1,6 +1,6 @@
 <!doctype html>
-<!--[if lte IE 9]>     <html class="no-js no-csstransforms no-csstransitions" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" data-theme-url="<?php echo esc_attr(get_template_directory_uri()); ?>" <?php language_attributes(); ?>> <!--<![endif]-->
+<!--[if lte IE 9]>     <html class="no-js no-csstransforms no-csstransitions" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">

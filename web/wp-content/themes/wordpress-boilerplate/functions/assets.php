@@ -21,7 +21,8 @@ add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
 
 add_action('wp_head', function () {
 ?>
-<script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.js'); ?></script>
+<script>window.__assets_public_path__ = <?php echo json_encode(get_template_directory_uri() . '/assets/scripts/'); ?></script>
+        <script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.js'); ?></script>
         <style><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.css'); ?></style>
 <?php
 }, -1000);
