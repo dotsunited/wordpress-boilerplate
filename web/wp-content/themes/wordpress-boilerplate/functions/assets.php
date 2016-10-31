@@ -27,7 +27,7 @@ add_action('wp_head', function () {
 <?php
 }, -1000);
 
-add_action('wp_footer', function () {
+add_action('wp_footer2', function () {
 ?>
 <link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.css')); ?>">
         <script async src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.js')); ?>"></script>

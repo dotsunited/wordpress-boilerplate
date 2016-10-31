@@ -1,9 +1,14 @@
 <?php get_header(); ?>
 
 <div class="slider">
-    <div class="slider__slide" style="background-image: url(<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide1.jpg')); ?>)"></div>
-    <div class="slider__slide" style="background-image: url(<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide2.jpg')); ?>)"></div>
-    <div class="slider__slide" style="background-image: url(<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide3.jpg')); ?>)"></div>
+    <img class="slider__slide" src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide1.jpg')); ?>" alt="Slide 1">
+
+    <?php // Slide variation with wrapper element ?>
+    <div  class="slider__slide">
+        <img src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide2.jpg')); ?>" alt="Slide 2">
+    </div>
+
+    <img class="slider__slide" src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide3.jpg')); ?>" alt="Slide 3">
 </div>
 
 <div class="body body--sidebar">
