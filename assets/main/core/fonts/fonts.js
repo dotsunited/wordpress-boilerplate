@@ -1,4 +1,5 @@
-require('./fonts/fonts.css');
+require('./fonts.css');
+var shared = require('./fonts-shared');
 
 var cookieDays = 1;
 
@@ -9,17 +10,7 @@ function setCookie() {
     window.document.cookie = 'fonts-loaded=true; expires=' + date.toGMTString() + '; path=/';
 }
 
-function checkCookie() {
-    return ('; ' + document.cookie).split('; fonts-loaded=').length === 2;
-}
-
-function loaded() {
-    document.documentElement.className += ' fonts-loaded';
-}
-
-if (checkCookie()) {
-    loaded();
-} else {
+if (!shared.check()) {
     require.ensure(['fontfaceobserver/fontfaceobserver'], function() {
         var FontFaceObserver = require('fontfaceobserver/fontfaceobserver');
 
@@ -27,7 +18,7 @@ if (checkCookie()) {
 
         observer
             .load()
-            .then(loaded)
+            .then(shared.loaded)
             .then(setCookie)
             .then(null, function(){})
         ;
