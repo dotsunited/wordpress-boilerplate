@@ -1,4 +1,3 @@
-require('./fonts.css');
 var shared = require('./fonts-shared');
 
 var cookieDays = 1;
