@@ -45,7 +45,7 @@ You can use [webfont-dl](https://github.com/mmastrac/webfont-dl) to download
 webfonts from Google.
 
 ```bash
-webfont-dl http://fonts.googleapis.com/css?family=Roboto --out assets/main/core/fonts/fonts.css --font-out=assets/main/core/fonts/ --woff1=link
+webfont-dl http://fonts.googleapis.com/css?family=Roboto --out assets/main/core/fonts/fonts.css --woff1=link --woff2=omit --svg=omit --ttf=omit --eot=omit
 ```
 
 License

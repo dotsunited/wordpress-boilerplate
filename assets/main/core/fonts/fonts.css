@@ -2,13 +2,8 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  /* IE6-8 compat */
-  src: url("roboto-bcd5990bb2551892cddff247dff2db1f2fc66ce6.eot");
   src: local("Roboto"), 
     local("Roboto-Regular"), 
-    url("roboto-940b859e4f02bd3e7cf7b6ce245c197b5470302a.woff") format("woff"), 
-    url("roboto-148fe3b2ffcb825efff40a8378f22125ccf88cb0.svg#Roboto") format("svg"), 
-    url("roboto-bcd5990bb2551892cddff247dff2db1f2fc66ce6.eot") format("embedded-opentype"), 
-    url("roboto-89e7bf27190d62c7b508dc92c7012c1180458f4e.ttf") format("truetype");
+    url("roboto-940b859e4f02bd3e7cf7b6ce245c197b5470302a.woff") format("woff");
 }
 
