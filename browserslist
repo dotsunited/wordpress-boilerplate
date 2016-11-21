@@ -1,2 +1,7 @@
-last 2 versions
-IE >= 9
+Android >= 4
+Chrome >= 20
+Firefox >= 24
+IE >= 11
+iOS >= 8
+Opera >= 12
+Safari >= 8
