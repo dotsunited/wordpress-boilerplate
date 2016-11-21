@@ -77,9 +77,7 @@ module.exports = {
     },
     postcss: [
         postcssFocus(),
-        cssnext({
-            browsers: ['last 2 versions', 'IE >= 9']
-        }),
+        cssnext(),
         postcssReporter({
             clearMessages: true
         })
