@@ -4,7 +4,6 @@
     "setClasses"
   ],
   "feature-detects": [
-    "test/svg",
     "test/css/transforms3d"
   ]
 }
