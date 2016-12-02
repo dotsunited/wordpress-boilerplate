@@ -13,8 +13,8 @@
   "dependencies": {
     "dotsunited-equal-height-blocks": "3.1.0",
     "dotsunited-off-canvas-navigation": "2.4.0",
-    "dotsunited-sliding-navigation": "2.1.1",
-    "fontfaceobserver": "2.0.1",
+    "dotsunited-sliding-navigation": "2.1.2",
+    "fontfaceobserver": "2.0.7",
     "gee.less": "3.0.0",
     "jquery": "1.12.4",
     "modernizr": "3.3.1",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "cli-real-favicon": "0.0.6",
-    "css-loader": "0.23.1",
+    "css-loader": "0.26.1",
     "exports-loader": "0.6.3",
     "extend": "3.0.0",
     "extract-text-webpack-plugin": "1.0.1",
@@ -31,18 +31,18 @@
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-imagemin": "1.0.1",
     "grunt-webpack": "1.0.11",
-    "image-webpack-loader": "2.0.0",
+    "image-webpack-loader": "3.0.0",
     "imports-loader": "0.6.5",
     "less": "2.7.1",
     "less-loader": "2.2.3",
-    "postcss-cssnext": "2.7.0",
+    "postcss-cssnext": "2.9.0",
     "postcss-focus": "1.0.0",
-    "postcss-loader": "0.9.1",
-    "postcss-reporter": "1.4.1",
+    "postcss-loader": "1.1.1",
+    "postcss-reporter": "2.0.0",
     "raw-loader": "0.5.1",
     "rimraf": "2.5.4",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack": "1.13.1"
+    "webpack": "1.13.3"
   }
 }
