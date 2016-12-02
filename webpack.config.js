@@ -9,7 +9,6 @@ var postcssReporter = require('postcss-reporter');
 
 module.exports = {
     target: 'web',
-    stats: false,
     progress: true,
     entry: {
         main: ['./assets/webpack-public-path', './assets/main'],
