@@ -6,7 +6,6 @@
         'No background': 'Без фона',
         'Background': 'Фон',
         'Highlight': 'Подсветка',
-        'Equalize column heights': 'Выровнять высоту столбца',
         'Add column': 'Добавить элемент',
         'Column size': 'Размер блока',
         'Remove grid': 'Удалить сетку',

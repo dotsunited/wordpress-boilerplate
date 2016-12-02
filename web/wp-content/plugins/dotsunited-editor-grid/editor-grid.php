@@ -2,10 +2,10 @@
 /*
 Plugin Name: Dots United WordPress Editor Grid Plugin
 Plugin URI: https://github.com/dotsunited/wordpress-plugin-editor-grid
-Description: Editor extension to create and manage grids.
+Description: WordPress editor extension to create and manage grids.
 License: MIT
 Author: Dots United GmbH
-Version: 2.0.0
+Version: 3.0.0
 Author URI: https://dotsunited.de
 */
 
@@ -21,13 +21,13 @@ add_filter('mce_external_plugins', function ($plugins) use ($baseUrl) {
     }
 
     /* WP 3.9 with tinyMCE 4 */
-    $plugins['editor_grid'] = $baseUrl . 'assets/editor.js?ver=' . urlencode(md5_file(__DIR__ . '/assets/editor.js'));
+    $plugins['dotsunited_editor_grid'] = $baseUrl . 'assets/editor.js?ver=' . urlencode(md5_file(__DIR__ . '/assets/editor.js'));
 
     return $plugins;
 });
 
 add_filter('mce_buttons_3', function ($buttons, $editor_id) {
-    $editor_ids = apply_filters('wordpress_editor_grid_editor_ids', array('content'));
+    $editor_ids = apply_filters('dotsunited_editor_grid_editor_ids', array('content'));
 
     if (!is_array($editor_ids)) {
         return $buttons;
@@ -37,14 +37,14 @@ add_filter('mce_buttons_3', function ($buttons, $editor_id) {
         return $buttons;
     }
 
-    $buttons[] = 'editor_grid_create';
+    $buttons[] = 'dotsunited_editor_grid_create';
 
     return $buttons;
 }, 1, 2);
 
 add_filter('mce_css', function ($mce_css) use ($baseUrl) {
     $file = apply_filters(
-        'wordpress_editor_grid_editor_css',
+        'dotsunited_editor_grid_editor_css',
         $baseUrl . 'assets/editor.css?ver=' . urlencode(md5_file(__DIR__ . '/assets/editor.css'))
     );
 
@@ -59,7 +59,7 @@ add_action('admin_enqueue_scripts', function () use ($baseUrl) {
     wp_enqueue_script('jquery');
 
     wp_enqueue_style(
-        'wordpress_editor_grid_editor_buttons',
+        'dotsunited_editor_grid_editor_buttons',
         $baseUrl . 'assets/buttons.css',
         array(),
         md5_file(__DIR__ . '/assets/buttons.css')

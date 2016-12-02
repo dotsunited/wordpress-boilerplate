@@ -6,7 +6,6 @@
         'No background': 'Kein Hintergrund',
         'Background': 'Hintergrund',
         'Highlight': 'Highlight',
-        'Equalize column heights': 'Spaltenhöhen angleichen',
         'Add column': 'Spalte hinzufügen',
         'Column size': 'Spaltengröße',
         'Remove grid': 'Grid entfernen',

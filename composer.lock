@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "46f7951c847c08f1332bd11cc5435654",
+    "content-hash": "486f2c682798dde88db1cdaf2f0d20f4",
     "packages": [
         {
             "name": "composer/installers",
@@ -111,20 +111,20 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-08-13 20:53:52"
+            "time": "2016-08-13T20:53:52+00:00"
         },
         {
             "name": "dotsunited/wordpress-plugin-editor-grid",
-            "version": "v2.0.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotsunited/wordpress-plugin-editor-grid.git",
-                "reference": "e107ea5bb16cc381d2971ea3eeffe348e0f17275"
+                "reference": "ba0e9233be741acedb299f937210c7b81ebe7f25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/e107ea5bb16cc381d2971ea3eeffe348e0f17275",
-                "reference": "e107ea5bb16cc381d2971ea3eeffe348e0f17275",
+                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/ba0e9233be741acedb299f937210c7b81ebe7f25",
+                "reference": "ba0e9233be741acedb299f937210c7b81ebe7f25",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +133,7 @@
             },
             "type": "wordpress-plugin",
             "extra": {
-                "installer-name": "dotsunited-wordpress-plugin-editor-grid"
+                "installer-name": "dotsunited-editor-grid"
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -146,7 +146,7 @@
                     "homepage": "https://dotsunited.de"
                 }
             ],
-            "description": "Editor extension to create and manage grids.",
+            "description": "WordPress editor extension to create and manage grids.",
             "homepage": "https://github.com/dotsunited/wordpress-plugin-editor-grid",
             "keywords": [
                 "editor",
@@ -154,7 +154,7 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2016-10-10 14:18:53"
+            "time": "2016-12-02T11:46:37+00:00"
         }
     ],
     "packages-dev": [],

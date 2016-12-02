@@ -20,6 +20,6 @@
 /web/sitemap.xml.gz
 /web/xmlrpc.php
 
-!/web/wp-content/plugins/dotsunited-wordpress-plugin-editor-grid
+!/web/wp-content/plugins/dotsunited-editor-grid
 !/web/wp-content/themes/wordpress-boilerplate
 !/web/.htaccess

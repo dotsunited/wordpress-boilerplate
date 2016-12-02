@@ -36,16 +36,6 @@
     padding-bottom: 0;
 }
 
-.editor-grid-equal-height .editor-grid-container {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
 .editor-grid-container {
     letter-spacing: -.31em;
     *letter-spacing: normal;
@@ -54,6 +44,15 @@
     font-family: FreeSans, Arimo, Droid Sans, Helvetica, Arial, sans-serif;
     width: 102%;
     margin-left: -2%;
+
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .editor-grid-container, .editor-grid-container .opera-only :-o-prefocus {

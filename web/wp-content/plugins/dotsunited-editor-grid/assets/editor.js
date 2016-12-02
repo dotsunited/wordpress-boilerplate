@@ -86,7 +86,7 @@
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, insert.wrap('<div/>').parent().html());
     }
 
-    tinymce.PluginManager.add('editor_grid', function(editor) {
+    tinymce.PluginManager.add('dotsunited_editor_grid', function(editor) {
         var toolbar;
 
         function editor_grid_style_button(selector) {
@@ -158,7 +158,7 @@
         function editor_grid_shadow_button(selector) {
             return {
                 tooltip: 'Shadow',
-                icon: 'editor-grid-icon editor-grid-icon-shadow',
+                icon: 'dotsunited-editor-grid-icon dotsunited-editor-grid-icon-shadow',
                 onclick: function() {
                     var el = $(editor.selection.getNode()).closest(selector);
 
@@ -240,12 +240,12 @@
             };
         }
 
-        editor.addButton('editor_grid_unit_size', editor_grid_size_button('.editor-grid-unit', 12));
+        editor.addButton('dotsunited_editor_grid_unit_size', editor_grid_size_button('.editor-grid-unit', 12));
 
-        editor.addButton('editor_grid_unit_style', editor_grid_style_button('.editor-grid-unit'));
-        editor.addButton('editor_grid_unit_shadow', editor_grid_shadow_button('.editor-grid-unit'));
+        editor.addButton('dotsunited_editor_grid_unit_style', editor_grid_style_button('.editor-grid-unit'));
+        editor.addButton('dotsunited_editor_grid_unit_shadow', editor_grid_shadow_button('.editor-grid-unit'));
 
-        editor.addButton('editor_grid_unit_remove', {
+        editor.addButton('dotsunited_editor_grid_unit_remove', {
             tooltip: 'Remove column',
             icon: 'dashicon dashicons-no',
             onclick: function() {
@@ -267,7 +267,7 @@
             }
         });
 
-        editor.addButton('editor_grid_remove', {
+        editor.addButton('dotsunited_editor_grid_remove', {
             tooltip: 'Remove grid',
             icon: 'dashicon dashicons-no',
             onclick: function() {
@@ -290,7 +290,7 @@
             }
         });
 
-        editor.addButton('editor_grid_add_unit', {
+        editor.addButton('dotsunited_editor_grid_add_unit', {
             tooltip: 'Add column',
             icon: 'dashicon dashicons-plus',
             onclick: function() {
@@ -308,41 +308,13 @@
             }
         });
 
-        editor.addButton('editor_grid_style', editor_grid_style_button('.editor-grid'));
+        editor.addButton('dotsunited_editor_grid_style', editor_grid_style_button('.editor-grid'));
 
-        editor.addButton('editor_grid_shadow', editor_grid_shadow_button('.editor-grid'));
+        editor.addButton('dotsunited_editor_grid_shadow', editor_grid_shadow_button('.editor-grid'));
 
-        editor.addButton('editor_grid_equal_height', {
-            tooltip: 'Equalize column heights',
-            icon: 'editor-grid-icon editor-grid-icon-equalize-height',
-            onclick: function() {
-                var el = $(editor.selection.getNode()).closest('.editor-grid');
-
-                if (!el.length) {
-                    return;
-                }
-
-                el.toggleClass('editor-grid-equal-height');
-                this.active(el.hasClass('editor-grid-equal-height'));
-            },
-            onPostRender: function() {
-                var self = this;
-
-                editor.on('NodeChange', function(event) {
-                    var el = $(event.element).closest('.editor-grid');
-
-                    if (!el.length) {
-                        return;
-                    }
-
-                    self.active(el.hasClass('editor-grid-equal-height'));
-                });
-            }
-        });
-
-        editor.addButton('editor_grid_create', {
+        editor.addButton('dotsunited_editor_grid_create', {
             title: 'Create grid',
-            icon: 'editor-grid-icon editor-grid-icon-create',
+            icon: 'dotsunited-editor-grid-icon dotsunited-editor-grid-icon-create',
             onclick: function() {
                 editor_grid_create([6, 6]);
             },
@@ -373,17 +345,16 @@
         // Add toolbar
         editor.once('preinit', function() {
             toolbar = editor.wp._createToolbar([
-                'editor_grid_unit_size',
-                'editor_grid_unit_style',
-                'editor_grid_unit_shadow',
-                'editor_grid_unit_remove',
+                'dotsunited_editor_grid_unit_size',
+                'dotsunited_editor_grid_unit_style',
+                'dotsunited_editor_grid_unit_shadow',
+                'dotsunited_editor_grid_unit_remove',
                 '|',
-                'editor_grid_add_unit',
+                'dotsunited_editor_grid_add_unit',
                 '|',
-                'editor_grid_style',
-                'editor_grid_shadow',
-                'editor_grid_equal_height',
-                'editor_grid_remove'
+                'dotsunited_editor_grid_style',
+                'dotsunited_editor_grid_shadow',
+                'dotsunited_editor_grid_remove'
             ], true);
         });
 
