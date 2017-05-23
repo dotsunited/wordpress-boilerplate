@@ -71,6 +71,10 @@ module.exports = {
             {
                 test: /modernizr\.js$/,
                 loaders: ['imports?this=>window', 'exports?window.Modernizr']
+            },
+            {
+                test: /cssrelpreload\.js$/,
+                loaders: ['imports?this=>window']
             }
         ]
     },

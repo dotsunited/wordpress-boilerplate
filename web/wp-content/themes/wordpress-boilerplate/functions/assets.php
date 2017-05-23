@@ -19,27 +19,25 @@ add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
     );
 });
 
-add_action('wp_head', function () {
+$head = function() {
 ?>
 <script>window.__assets_public_path__ = <?php echo json_encode(get_template_directory_uri() . '/assets/scripts/'); ?></script>
-        <script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.js'); ?></script>
         <style><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.css'); ?></style>
+        <link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.css')); ?>" as="style" onload="this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.css')); ?>"></noscript>
+        <script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.js'); ?></script>
+        <script async defer src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.js')); ?>"></script>
 <?php
-}, -1000);
+};
 
-add_action('wp_footer', function () {
-?>
-<link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.css')); ?>">
-        <script async src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/main.js')); ?>"></script>
-<?php
-}, 1000);
+add_action('wp_head', $head, -1000);
 
 // Support for the Gravity Forms Iframe Add-on plugin
 // https://github.com/cedaro/gravity-forms-iframe
+add_action('gfiframe_head', $head, -1000);
 add_action('gfiframe_head', function () {
 ?>
-<style><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/main-critical.css'); ?></style>
-        <style>body { background-image: none !important; }  .gform_wrapper, .gform_wrapper form {  margin: 0 !important; }</style>
+<style>body { background-image: none !important; }  .gform_wrapper, .gform_wrapper form {  margin: 0 !important; }</style>
 <?php
 }, -1000);
 
