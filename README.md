@@ -23,6 +23,13 @@ Create new project with
 composer create-project dotsunited/wordpress-boilerplate my-project
 ```
 
+Run docker-compose (Wordpress 4.8.1 & latest MySQL server)
+
+```bash
+cd my-project
+docker-compose up --build
+```
+
 Plugins
 ---
 
@@ -47,6 +54,14 @@ webfonts from Google.
 ```bash
 webfont-dl http://fonts.googleapis.com/css?family=Roboto --out assets/main/core/fonts/fonts.css --woff1=link --woff2=omit --svg=omit --ttf=omit --eot=omit
 ```
+
+Docker
+---
+
+- Apache 2.4
+- PHP 7.1
+- MySQL (latest)
+- Wordpress (4.8.1)
 
 License
 ---

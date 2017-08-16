@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/var/www/html/
+    links:
+      - "database"
+
+  database:
+    image: mariadb
+    environment:
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_ROOT_PASSWORD=local
