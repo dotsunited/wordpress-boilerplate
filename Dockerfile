@@ -25,7 +25,7 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-RUN a2enmod rewrite expires
+RUN a2enmod rewrite expires headers mime deflate setenvif
 
 ENV WORDPRESS_VERSION 4.8.1
 ENV WORDPRESS_SHA1 5376cf41403ae26d51ca55c32666ef68b10e35a4
