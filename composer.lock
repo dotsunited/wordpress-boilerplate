@@ -112,49 +112,6 @@
                 "zikula"
             ],
             "time": "2016-08-13T20:53:52+00:00"
-        },
-        {
-            "name": "dotsunited/wordpress-plugin-editor-grid",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dotsunited/wordpress-plugin-editor-grid.git",
-                "reference": "ba0e9233be741acedb299f937210c7b81ebe7f25"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-editor-grid/zipball/ba0e9233be741acedb299f937210c7b81ebe7f25",
-                "reference": "ba0e9233be741acedb299f937210c7b81ebe7f25",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.3.0"
-            },
-            "type": "wordpress-plugin",
-            "extra": {
-                "installer-name": "dotsunited-editor-grid"
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Sorgalla",
-                    "email": "jan.sorgalla@dotsunited.de",
-                    "homepage": "https://dotsunited.de"
-                }
-            ],
-            "description": "WordPress editor extension to create and manage grids.",
-            "homepage": "https://github.com/dotsunited/wordpress-plugin-editor-grid",
-            "keywords": [
-                "editor",
-                "grid",
-                "plugin",
-                "wordpress"
-            ],
-            "time": "2016-12-02T11:46:37+00:00"
         }
     ],
     "packages-dev": [],
