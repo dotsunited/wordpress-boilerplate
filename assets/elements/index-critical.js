@@ -1,1 +1,1 @@
-require('./typography.css');
+import './typography.css';

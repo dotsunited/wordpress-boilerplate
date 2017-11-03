@@ -24,19 +24,22 @@ $manifest = json_decode(file_get_contents(wordpress_boilerplate_asset('/assets/s
 ?>
     <script>window.__assets_public_path__ = <?php echo json_encode(get_template_directory_uri() . '/assets/scripts/'); ?></script>
 	
-	<?php /* Load preload assets */ ?>
+	<?php /* Load and preload fonts */ ?>
     <link rel="preload"
           href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/' . $manifest['static/roboto-2fc9bb16fbfee39e2559e5cbf5f90b225e0a8b92.woff'])); ?>"
           as="font" type="font/woff" crossorigin="anonymous">
     <link rel="preload"
           href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/' . $manifest['static/roboto-7a4ddb6733c33dfe9ec94c82a5e7f5da885f5182.woff'])); ?>"
           as="font" type="font/woff" crossorigin="anonymous">
-    <?php /* Load preload assets */ ?>
+    
+    
+    <?php /* Load and preload assets */ ?>
     <style><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/'. $manifest['main-critical.css']); ?></style>
     <script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/'. $manifest['main-critical.js']); ?></script>
     <link rel="preload" type="text/css" href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/' .  $manifest['main.css'])); ?>" as="style"
           onload="this.rel='stylesheet'">
     <script async defer src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/' . $manifest['main.js'])); ?>"></script>
+    
 <?php
 };
 

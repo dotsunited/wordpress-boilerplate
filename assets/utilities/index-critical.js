@@ -1,2 +1,2 @@
-require('./u-width.css');
-require('./u-display.css');
+import './u-width.css';
+import './u-display.css';

@@ -1,1 +1,1 @@
-require('./header');
+import './header';

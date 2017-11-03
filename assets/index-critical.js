@@ -1,6 +1,6 @@
-require('./rel-preload-as-style-polyfill');
-require('./base/index-critical');
-require('./elements/index-critical');
-require('./objects/index-critical');
-require('./utilities/index-critical');
-require('./components/index-critical');
+import './rel-preload-as-style-polyfill';
+import './base/index-critical';
+import './elements/index-critical';
+import './objects/index-critical';
+import './utilities/index-critical';
+import './components/index-critical';

@@ -1,1 +1,1 @@
-require('./smoothscroll');
+import './smoothscroll';

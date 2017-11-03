@@ -1,2 +1,2 @@
-require('./base.css');
-require('./fonts/index-critical');
+import './base.css';
+import './fonts/index-critical';
