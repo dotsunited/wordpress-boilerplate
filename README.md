@@ -10,7 +10,7 @@ Features
 ---
 
 * [Maximum possible PageSpeed Insights score](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fwordpress-boilerplate.dotsunited.de%2F&tab=mobile)
-* [Webpack](https://github.com/webpack/webpack) workflow
+* [Webpack v.3](https://github.com/webpack/webpack) workflow
 * [Composer](https://github.com/composer/composer) enabled
 * Clean, maintainable and scalable project structure
 * No bloat
