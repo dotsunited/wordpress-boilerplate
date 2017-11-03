@@ -22,4 +22,4 @@
 
 !/web/wp-content/plugins/dotsunited-editor-grid
 !/web/wp-content/themes/wordpress-boilerplate
-!/web/.htaccess
+!/web/.htaccess.dist

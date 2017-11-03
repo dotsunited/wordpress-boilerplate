@@ -27,33 +27,6 @@
                         )); ?>
                     </nav>
                 </div>
-
-                <div class="header__off-canvas-navigation">
-                    <button
-                        aria-label="Open navigation"
-                        aria-controls="off-canvas-navigation-menu"
-                        aria-expanded="false"
-                        class="off-canvas-navigation-button"
-                        data-off-canvas-navigation-toggle
-                    >
-                        <span><span></span></span>
-                    </button>
-
-                    <div aria-hidden="true" class="off-canvas-navigation-backdrop"></div>
-
-                    <section
-                        id="off-canvas-navigation-menu"
-                        aria-hidden="true"
-                        class="off-canvas-navigation-menu"
-                    >
-                        <nav class="sliding-navigation">
-                            <?php wp_nav_menu(array(
-                                'theme_location' => 'main',
-                                'container' => false,
-                                'menu_class' => 'off-canvas-navigation-menu__list',
-                            )); ?>
-                        </nav>
-                    </section>
-                </div>
+                
             </div>
         </header>

@@ -1,0 +1,88 @@
+@import "../variables.css";
+
+.u-display-none {
+    display: none;
+}
+
+.u-display-block {
+    display: block;
+}
+
+@media (--dotsunited-xxl) {
+
+    .u-display-none\@xxl {
+        display: none;
+    }
+
+    .u-display-block\@xxl {
+        display: block;
+    }
+
+}
+
+@media (--dotsunited-xl) {
+
+    .u-display-none\@xl {
+        display: none;
+    }
+
+    .u-display-block\@xl {
+        display: block;
+    }
+
+}
+
+@media (--dotsunited-l) {
+
+    .u-display-none\@l {
+        display: none;
+    }
+
+    .u-display-block\@l {
+        display: block;
+    }
+
+}
+
+@media (--dotsunited-m) {
+
+    .u-display-none\@m {
+        display: none;
+    }
+
+    .u-display-block\@m {
+        display: block;
+    }
+
+}
+
+@media (--dotsunited-ms) {
+
+    .u-display-none\@ms {
+        display: none;
+    }
+
+    .u-display-block\@ms {
+        display: block;
+    }
+
+}
+
+@media (--dotsunited-s) {
+
+    .u-display-none\@s {
+        display: none;
+    }
+
+    .u-display-block\@s {
+        display: block;
+    }
+
+}
+
+/* Custom banner Breakpoint */
+@media(--dotsunited-banner) {
+    .u-display-block\@banner {
+       display: block;
+    }
+}

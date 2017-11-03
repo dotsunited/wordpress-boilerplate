@@ -1,0 +1,23 @@
+@import "../variables.css";
+
+:root {
+
+}
+
+body {
+    font-family: var(--dotsunited-base-font-family);
+    font-size: var(--dotsunited-base-font-size);
+    font-weight: var(--dotsunited-base-font-weight);
+    line-height: var(--dotsunited-base-line-height);
+    color: var(--dotsunited-base-font-color);
+}
+
+
+a {
+    text-decoration: none;
+    transition: 350ms opacity var(--dotsunited-transition-timing-function);
+}
+
+a:hover {
+    opacity: .6;
+}

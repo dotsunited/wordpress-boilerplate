@@ -1,0 +1,63 @@
+:root {
+
+    /* Container Width */
+    /* ---------------------------------------------------*/
+
+    --dotsunited-container-max-width: 1224px;
+    --dotsunited-container-padding: 11px;
+    --dotsunited-container-breakpoint: calc(var(--dotsunited-container-max-width) + var(--dotsunited-container-padding) + var(--dotsunited-container-padding) + 25);
+
+    /* Layout Units */
+    /* ---------------------------------------------------*/
+    --dotsunited-spacing: 11px;
+
+    /* Global Color Board (Referenced by semantic colors) */
+    /* ---------------------------------------------------*/
+
+    --dotsunited-key-color: #C9462A;
+
+
+    /* Typography */
+    /* ---------------------------------------------------*/
+
+    --dotsunited-base-font-family: "Roboto", sans-serif;
+    --dotsunited-base-font-size: 16px;
+    --dotsunited-base-line-height: 1.6;
+    --dotsunited-base-font-weight: 300;
+    --dotsunited-base-font-color: #444;
+
+    /* Media Queries */
+    /* ---------------------------------------------------*/
+
+    @custom-media --dotsunited-banner (max-width: 1646px);
+    @custom-media --dotsunited-max (min-width: 1920px);
+    @custom-media --dotsunited-xxl (max-width: 1240px);
+    @custom-media --dotsunited-xl (max-width: 1024px);
+    @custom-media --dotsunited-l (max-width: 850px);
+    @custom-media --dotsunited-m (max-width: 768px);
+    @custom-media --dotsunited-ms (max-width: 640px);
+    @custom-media --dotsunited-s (max-width: 480px);
+    @custom-media --dotsunited-xs (max-width: 360px);
+    @custom-media --dotsunited-xxs (max-width: 320px);
+
+    /* Transition */
+    /* ---------------------------------------------------*/
+
+    --dotsunited-transition-timing-function: cubic-bezier(0.23, 1, 0.33, 1);
+
+    /* Clearfix Mixin */
+    /* ---------------------------------------------------*/
+
+    --dotsunited-clearfix: {
+        zoom: 1;
+        &:before,
+        &:after {
+            content: " ";
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    };
+
+}

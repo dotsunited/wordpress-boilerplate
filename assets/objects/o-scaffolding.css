@@ -1,0 +1,22 @@
+@import "../variables.css";
+
+.o-scaffolding {
+    max-width: 1224px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.o-scaffolding__container {
+    position: relative;
+    padding: var(--dotsunited-spacing);
+    backface-visibility: hidden;
+
+    @media (--dotsunited-m) {
+        margin: 0;
+    }
+
+    @media (--dotsunited-s) {
+        margin: 0;
+    }
+}
+

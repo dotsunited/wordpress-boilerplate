@@ -1,0 +1,110 @@
+@import "../variables.css";
+
+.o-grid {
+    display: block;
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    /* Force -webkit-flex-wrap and -webkit-flex-direction, autoprefixer seems to forget */
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
+
+    /* Force -webkit-flex, autoprefixer seems to use -webkit-box */
+    display: -webkit-flex;
+
+    /* Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
+    -webkit-justify-content: flex-start;
+    padding: 0;
+}
+
+.o-grid > * {
+    /* IE10 workaround */
+    /* See "Known issues" at http://caniuse.com/#search=flexbox */
+    display: inline-block;
+    flex: 0 0 auto;
+}
+
+/* Gutter Modifier */
+.o-grid--gutter {
+    margin-left: -16px;
+
+    & > * {
+        padding-left: 16px;
+        margin-bottom: 16px;
+    }
+}
+
+/* Grid Grow Modifier */
+
+.o-grid--grow {
+    & > * {
+        flex-grow: 0 !important;
+    }
+}
+
+/* Grid Position Modifier */
+
+.o-grid--left {
+    justify-content: flex-start;
+
+    /* Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
+    -webkit-justify-content: flex-start;
+}
+
+.o-grid--center {
+    justify-content: center;
+
+    /* Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
+    -webkit-justify-content: center;
+}
+
+.o-grid--right {
+    justify-content: flex-end;
+
+    /*Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
+    -webkit-justify-content: flex-end;
+}
+
+/* Wrap Reverse Modifier */
+.o-grid--reverse {
+    flex-wrap: wrap-reverse;
+}
+
+@media (--dotsunited-xxl) {
+    .o-grid--reverse\@xxl {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+@media (--dotsunited-xl) {
+    .o-grid--reverse\@xl {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+@media (--dotsunited-l) {
+    .o-grid--reverse\@l {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+@media (--dotsunited-m) {
+    .o-grid--reverse\@m {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+@media (--dotsunited-s) {
+    .o-grid--reverse\@s {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+@media (--dotsunited-xs) {
+    .o-grid--reverse\@xs {
+        flex-wrap: wrap-reverse;
+    }
+}

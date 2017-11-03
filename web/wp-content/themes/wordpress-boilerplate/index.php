@@ -1,22 +1,8 @@
 <?php get_header(); ?>
 
-<div class="slider">
-    <div  class="slider__slide">
-        <img src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide1.jpg')); ?>" alt="Slide 1">
-    </div>
-
-    <div  class="slider__slide">
-        <img src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide2.jpg')); ?>" alt="Slide 2">
-    </div>
-
-    <div  class="slider__slide">
-        <img src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/img/slider/slide3.jpg')); ?>" alt="Slide 3">
-    </div>
-</div>
-
-<div class="body body--sidebar">
-    <div class="body__container">
-        <main class="body__main">
+<div class="o-scaffolding">
+    <div class="o-scaffolding__container">
+        <main>
             <?php while (have_posts()): the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <time class="post__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
@@ -40,9 +26,6 @@
             <?php endwhile; ?>
 
         </main>
-        <div class="body__sidebar" role="complementary">
-            <?php get_sidebar(); ?>
-        </div>
     </div>
 </div>
 

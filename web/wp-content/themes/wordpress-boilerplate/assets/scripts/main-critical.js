@@ -1,1 +1,269 @@
-!function(e){function t(o){if(n[o])return n[o].exports;var r=n[o]={exports:{},id:o,loaded:!1};return e[o].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var n={};return t.m=e,t.c=n,t.p="/wp-content/themes/wordpress-boilerplate/assets/scripts/",t(0)}(function(e){for(var t in e)if(Object.prototype.hasOwnProperty.call(e,t))switch(typeof e[t]){case"function":break;case"object":e[t]=function(t){var n=t.slice(1),o=e[t[0]];return function(e,t,r){o.apply(this,[e,t,r].concat(n))}}(e[t]);break;default:e[t]=e[e[t]]}return e}([function(e,t,n){n(3),e.exports=n(14)},,function(e,t){e.exports={check:function(){return 2===("; "+document.cookie).split("; fonts-loaded=").length},loaded:function(){document.documentElement.className+=" fonts-loaded"}}},function(e,t,n){n.p=window.__assets_public_path__},,,,function(e,t,n){n(23);var o=n(2);o.check()&&o.loaded()},,function(e,t,n){n(24),n(28),n(27),n(25),n(7)},,function(e,t,n){n(29)},,,function(e,t,n){window.loadCSS=n(35).loadCSS,n(37),n(9),n(11),n(16),n(18)},,[40,31],,[40,33],,,,,function(e,t){},23,23,,23,23,23,,23,,23,,function(e,t,n){(function(e){!function(e){"use strict";var n=function(t,n,o){function r(e){return c.body?e():void setTimeout(function(){r(e)})}function i(){l.addEventListener&&l.removeEventListener("load",i),l.media=o||"all"}var a,c=e.document,l=c.createElement("link");if(n)a=n;else{var u=(c.body||c.getElementsByTagName("head")[0]).childNodes;a=u[u.length-1]}var d=c.styleSheets;l.rel="stylesheet",l.href=t,l.media="only x",r(function(){a.parentNode.insertBefore(l,n?a:a.nextSibling)});var s=function(e){for(var t=l.href,n=d.length;n--;)if(d[n].href===t)return e();setTimeout(function(){s(e)})};return l.addEventListener&&l.addEventListener("load",i),l.onloadcssdefined=s,s(i),l};t.loadCSS=n}("undefined"!=typeof e?e:this)}).call(t,function(){return this}())},,function(e,t){(function(){!function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var o=t[n];"preload"===o.rel&&"style"===o.getAttribute("as")&&(e.loadCSS(o.href,o,o.getAttribute("media")),o.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this)}).call(window)},,,function(e,t,n,o){n(o)}]));
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/wp-content/themes/wordpress-boilerplate/assets/scripts/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(11);
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(12);
+__webpack_require__(13);
+__webpack_require__(17);
+__webpack_require__(19);
+__webpack_require__(22);
+__webpack_require__(25);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.supports = supports;
+exports.polyfill = polyfill;
+function supports(win) {
+    try {
+        return (win || window).document.createElement('link').relList.supports('preload');
+    } catch (e) {
+        return false;
+    }
+}
+
+function polyfill(win) {
+    var w = win || window;
+    var doc = w.document;
+
+    function poly() {
+        var links = w.document.querySelectorAll('link[rel="preload"][as="style"]');
+
+        var _loop = function _loop() {
+            link = links[i];
+
+
+            link.rel = '';
+
+            media = link.getAttribute('media') || 'all';
+            newLink = doc.createElement('link');
+
+
+            function final() {
+                newLink.media = media;
+                newLink.removeEventListener('load', final);
+            }
+
+            newLink.rel = 'stylesheet';
+            newLink.href = link.href;
+            newLink.media = 'only x';
+
+            newLink.addEventListener('load', final);
+
+            link.parentNode.insertBefore(newLink, link.nextSibling || link);
+        };
+
+        for (var i = 0; i < links.length; i++) {
+            var link;
+            var media;
+            var newLink;
+
+            _loop();
+        }
+    }
+
+    poly();
+
+    var run = w.setInterval(poly, 300);
+
+    w.addEventListener('load', function () {
+        poly();
+        w.clearInterval(run);
+    });
+}
+
+if (!supports()) {
+    polyfill();
+}
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(14);
+__webpack_require__(15);
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(16);
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(18);
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(20);
+__webpack_require__(21);
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(23);
+__webpack_require__(24);
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ })
+/******/ ]);
