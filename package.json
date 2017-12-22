@@ -36,7 +36,8 @@
   },
   "dependencies": {
     "jquery": "1.12.4",
-    "promise": "8.0.1"
+    "promise": "8.0.1",
+    "@dotsunited/load-css-polyfill": "1.0.0"
   },
   "devDependencies": {
     "cli-real-favicon": "0.0.6",
