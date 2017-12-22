@@ -56,18 +56,6 @@
 
 }
 
-@media (--dotsunited-ms) {
-
-    .u-display-none\@ms {
-        display: none;
-    }
-
-    .u-display-block\@ms {
-        display: block;
-    }
-
-}
-
 @media (--dotsunited-s) {
 
     .u-display-none\@s {
@@ -78,11 +66,4 @@
         display: block;
     }
 
-}
-
-/* Custom banner Breakpoint */
-@media(--dotsunited-banner) {
-    .u-display-block\@banner {
-       display: block;
-    }
 }

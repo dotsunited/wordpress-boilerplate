@@ -38,12 +38,25 @@ $manifest = json_decode(file_get_contents(wordpress_boilerplate_asset('/assets/s
     <script><?php echo wordpress_boilerplate_asset_embed('/assets/scripts/'. $manifest['main-critical.js']); ?></script>
     <link rel="preload" type="text/css" href="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/' .  $manifest['main.css'])); ?>" as="style"
           onload="this.rel='stylesheet'">
-    <script async defer src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/' . $manifest['main.js'])); ?>"></script>
-    
 <?php
 };
 
 add_action('wp_head', $head, -1000);
+
+$footer = function() {
+	$manifest = json_decode(file_get_contents(wordpress_boilerplate_asset('/assets/scripts/manifest.json')), true);
+	?>
+    <script>window.__assets_public_path__ = <?php echo json_encode(get_template_directory_uri() . '/assets/scripts/'); ?></script>
+	
+	
+	
+	<?php /* Load and preload assets */ ?>
+    <script async defer src="<?php echo esc_attr(wordpress_boilerplate_asset('/assets/scripts/' . $manifest['main.js'])); ?>"></script>
+	
+	<?php
+};
+
+add_action('wp_footer', $footer, -1000);
 
 // Support for the Gravity Forms Iframe Add-on plugin
 // https://github.com/cedaro/gravity-forms-iframe

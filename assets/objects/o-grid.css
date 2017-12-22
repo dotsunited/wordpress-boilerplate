@@ -7,16 +7,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: flex-start;
-
-    /* Force -webkit-flex-wrap and -webkit-flex-direction, autoprefixer seems to forget */
-    -webkit-flex-direction: row;
-    -webkit-flex-wrap: wrap;
-
-    /* Force -webkit-flex, autoprefixer seems to use -webkit-box */
-    display: -webkit-flex;
-
-    /* Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
-    -webkit-justify-content: flex-start;
     padding: 0;
 }
 
@@ -49,23 +39,14 @@
 
 .o-grid--left {
     justify-content: flex-start;
-
-    /* Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
-    -webkit-justify-content: flex-start;
 }
 
 .o-grid--center {
     justify-content: center;
-
-    /* Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
-    -webkit-justify-content: center;
 }
 
 .o-grid--right {
     justify-content: flex-end;
-
-    /*Force -webkit-justify-content, autoprefixer seems to use -webkit-box-pack */
-    -webkit-justify-content: flex-end;
 }
 
 /* Wrap Reverse Modifier */

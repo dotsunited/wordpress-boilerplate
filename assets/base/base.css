@@ -11,13 +11,18 @@
 html, body {
     width: 100%;
     height: 100%;
-    background-color: #F9DBE1;
 }
 
 html {
-   /* font-family: sans-serif; */
+    /* font-family: sans-serif; */
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+    -moz-osx-font-smoothing: grayscale; /* Firefox */
+
+    /* iphone x the notch: https://css-tricks.com/the-notch-and-css/ */
+    padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
 }
 
 body {

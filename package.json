@@ -1,11 +1,11 @@
 {
   "name": "wordpress-boilerplate",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "author": "Dots United GmbH",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf web/assets/scripts && webpack --env=prod",
-    "watch": "rimraf web/scripts && webpack --env=dev --watch --progress",
+    "build": "rimraf web/wp-content/themes/wordpress-boilerplate/assets/scripts && webpack --env=prod",
+    "watch": "rimraf web/wp-content/themes/wordpress-boilerplate/assets/scripts && webpack --env=dev --watch --progress",
     "favicon-generate": "real-favicon generate assets/favicon/real-favicon-description.json assets/favicon/real-favicon-data.json web/favicons && cp web/favicons/favicon.ico web/favicon.ico && touch web/favicons/favicons.html && real-favicon inject assets/favicon/real-favicon-data.json web/favicons web/favicons/favicons.html",
     "favicon-check": "real-favicon check-for-update --fail-on-update assets/favicon/real-favicon-data.json"
   },
@@ -35,35 +35,33 @@
     ]
   },
   "dependencies": {
-    "promise": "8.0.1",
-    "fg-loadcss": "1.3.1",
-    "fontfaceobserver": "2.0.13",
-    "jquery": "1.12.4"
+    "jquery": "1.12.4",
+    "promise": "8.0.1"
   },
   "devDependencies": {
     "cli-real-favicon": "0.0.6",
-    "babel-core": "6.25.0",
-    "babel-loader": "7.1.1",
-    "babel-preset-env": "1.6.0",
-    "@types/node": "8.0.20",
-    "css-loader": "0.28.4",
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.1",
+    "@types/node": "8.5.2",
+    "css-loader": "0.28.7",
     "exports-loader": "0.6.4",
-    "extract-text-webpack-plugin": "3.0.0",
-    "file-loader": "0.11.2",
-    "image-webpack-loader": "3.3.1",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.6",
+    "image-webpack-loader": "3.4.2",
     "imports-loader": "0.7.1",
     "postcss-cssnext": "3.0.2",
-    "postcss-focus": "2.0.0",
-    "postcss-import": "10.0.0",
-    "postcss-loader": "2.0.6",
+    "postcss-focus": "3.0.0",
+    "postcss-import": "11.0.0",
+    "postcss-loader": "2.0.9",
     "postcss-reporter": "5.0.0",
     "postcss-flexbugs-fixes": "3.2.0",
     "cssnano": "3.10.0",
     "raw-loader": "0.5.1",
-    "rimraf": "2.6.1",
-    "style-loader": "0.18.2",
+    "rimraf": "2.6.2",
+    "style-loader": "0.19.1",
     "url-loader": "0.5.9",
-    "webpack": "3.8.1",
+    "webpack": "3.10.0",
     "webpack-assets-manifest": "1.0.0"
   }
 }

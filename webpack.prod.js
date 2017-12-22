@@ -7,8 +7,8 @@ const webpackConfig = {
   target: 'web',
   stats: true,
     entry: {
-      main: [/*'./assets/webpack-public-path', */'./assets/main'],
-      'main-critical': [/*'./assets/webpack-public-path', */'./assets/main/index-critical']
+      main: [/*'./assets/webpack-public-path', */'./assets'],
+      'main-critical': [/*'./assets/webpack-public-path', */'./assets/index-critical']
     },
     output: {
       path: path.join(__dirname, 'web/wp-content/themes/wordpress-boilerplate/assets/scripts'),

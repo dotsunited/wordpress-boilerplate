@@ -1,22 +1,18 @@
 @import "../variables.css";
 
 .o-scaffolding {
-    max-width: 1224px;
+    max-width: var(--dotsunited-container-max-width);
     width: 100%;
     margin: 0 auto;
+    padding: var(--dotsunited-spacing);
 }
 
 .o-scaffolding__container {
     position: relative;
-    padding: var(--dotsunited-spacing);
+    padding: 0;
     backface-visibility: hidden;
 
     @media (--dotsunited-m) {
         margin: 0;
     }
-
-    @media (--dotsunited-s) {
-        margin: 0;
-    }
 }
-
