@@ -1,5 +1,6 @@
 The Dots United Wordpress Boilerplate
 ===
+
 A barebones, clean and minimalist WordPress Boilerplate, developed at
 [Dots United](https://dotsunited.de/) as a foundation for modern, maintainable
 and lightning fast WordPress based projects.
@@ -41,15 +42,11 @@ Webfonts
 It is recommended to use local webfonts and not from external CDN's like
 Google Fonts.
 
-You can use [webfont-dl](https://github.com/mmastrac/webfont-dl) to download
-webfonts from Google.
-
-```bash
-webfont-dl http://fonts.googleapis.com/css?family=Roboto --out assets/main/core/fonts/fonts.css --woff1=link --woff2=omit --svg=omit --ttf=omit --eot=omit
-```
+You can use [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com)
+to download webfonts from Google Fonts.
 
 License
 ---
 
 Copyright (c) 2015-2016 Dots United GmbH.
-Released under the [MIT](LICENSE?raw=1) license.
+Released under the [MIT](LICENSE) license.

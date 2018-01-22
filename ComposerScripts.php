@@ -19,26 +19,26 @@ class ComposerScripts
         $projectName = ucwords(str_replace('-', ' ', $projectIdentifier));
         $projectName = $io->ask('Enter the project name [<comment>' . $projectName . '</comment>]: ', $projectName);
 
+        self::replace(__DIR__ . '/.env.dist', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/composer.json.template', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/Gruntfile.js', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/package-lock.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
 
-        self::replaceDir(__DIR__ . '/web/wp-content/themes/wordpress-boilerplate', $projectName, $projectIdentifier);
+        self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
+        self::replaceDir(__DIR__ . '/public/app/favicons', $projectName, $projectIdentifier);
 
-        rename(__DIR__ . '/web/wp-content/themes/wordpress-boilerplate', __DIR__ . '/web/wp-content/themes/' . $projectIdentifier);
-
-        unlink(__DIR__ . '/README.md');
-        rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
+        rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
         unlink(__DIR__ . '/composer.json');
         rename(__DIR__ . '/composer.json.template', __DIR__ . '/composer.json');
-        unlink(__DIR__ . '/composer.lock');
 
-        self::removeDir(__DIR__ . '/vendor');
         unlink(__DIR__ . '/ComposerScripts.php');
+
+        unlink(__DIR__ . '/README.md');
+        rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
     }
 
     private static function removeDir($dir)

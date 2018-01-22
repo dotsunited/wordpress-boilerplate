@@ -1,11 +1,44 @@
 {
+    "config": {
+        "platform": {
+            "php": "7.1.0"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
     "require": {
-        "php": ">=5.3.0",
-        "dotsunited/wordpress-plugin-editor-grid": "^3.0"
+        "roave/security-advisories": "dev-master",
+        "composer/installers": "^1.4",
+        "johnpbloch/wordpress": "@stable",
+        "oscarotero/env": "^1.1",
+        "vlucas/phpdotenv": "^2.0"
     },
     "extra": {
         "installer-paths": {
-            "web/wp-content/plugins/{$name}": ["type:wordpress-plugin"]
+            "public/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "public/app/plugins/{$name}/": ["type:wordpress-plugin"],
+            "public/app/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "wordpress-install-dir": "public/wp",
+        "composer-update": {
+            "packages": [
+                "johnpbloch/wordpress",
+                "wpackagist-plugin/*",
+                "dotsunited-wordpress-plugin/*"
+            ],
+            "commit": true,
+            "push": true
         }
+    },
+    "scripts": {
+        "dev-server": "php -S localhost:8000 -t public/"
     }
 }
