@@ -3,8 +3,7 @@
 
 node_modules
 
-public/app/*
-!public/app/themes/wordpress-boilerplate
+public/app/uploads/*
 !public/app/uploads/.gitkeep
 
 vendor
