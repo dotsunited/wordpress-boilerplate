@@ -1,12 +1,12 @@
-.composer-update
-.deploy
+/.composer-update
+/.deploy
 
-node_modules
+/node_modules
 
-public/app/uploads/*
-!public/app/uploads/.gitkeep
+/public/app/uploads/*
+!/public/app/uploads/.gitkeep
 
-vendor
-public/wp
+/vendor
+/public/wp
 
-.env
+/.env
