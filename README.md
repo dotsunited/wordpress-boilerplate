@@ -48,5 +48,5 @@ to download webfonts from Google Fonts.
 License
 ---
 
-Copyright (c) 2015-2016 Dots United GmbH.
+Copyright (c) 2015-2018 Dots United GmbH.
 Released under the [MIT](LICENSE) license.
