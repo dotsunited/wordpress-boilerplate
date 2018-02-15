@@ -391,14 +391,25 @@ FileETag None
 
 </IfModule>
 
+# Some rules customized
+#
+# https://github.com/roots/bedrock/issues/325
+# https://discourse.roots.io/t/recommended-subdomain-multisite-nginx-vhost-configuration-with-new-web-layout/1429/12
+# https://gist.github.com/danielbachhuber/9379135
+
 # BEGIN WordPress
-<IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
+
+RewriteRule ^wp-admin/?$ wp/wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^(wp-(content|admin|includes|.*.php).*) wp/$1 [L]
+RewriteRule ^(.*\.php)$ wp/$1 [L]
+RewriteRule . index.php [L]
 
 # END WordPress
