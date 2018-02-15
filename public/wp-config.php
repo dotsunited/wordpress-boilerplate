@@ -29,7 +29,7 @@ define('WP_SITEURL', env('WP_SITEURL') ?: WP_HOME . '/wp');
 
 // ---
 
-define('WP_ALLOW_MULTISITE', env('WP_ALLOW_MULTISITE') ?: true);
+define('WP_ALLOW_MULTISITE', env('WP_ALLOW_MULTISITE') ?: false);
 define('MULTISITE', env('MULTISITE') ?: false);
 
 if (MULTISITE) {
