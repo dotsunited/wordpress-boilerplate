@@ -29,6 +29,7 @@ define('WP_SITEURL', env('WP_SITEURL') ?: WP_HOME . '/wp');
 
 // ---
 
+define('WP_ALLOW_MULTISITE', env('WP_ALLOW_MULTISITE') ?: true);
 define('MULTISITE', env('MULTISITE') ?: false);
 
 if (MULTISITE) {
@@ -37,8 +38,6 @@ if (MULTISITE) {
     define('PATH_CURRENT_SITE', env('PATH_CURRENT_SITE') ?: '/');
     define('SITE_ID_CURRENT_SITE', env('SITE_ID_CURRENT_SITE') ?: 1);
     define('BLOG_ID_CURRENT_SITE', env('BLOG_ID_CURRENT_SITE') ?: 1);
-
-    define('WP_ALLOW_MULTISITE', env('WP_ALLOW_MULTISITE') ?: true);
 
     define('SUNRISE', 'on');
 }
