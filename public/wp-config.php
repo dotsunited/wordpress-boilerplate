@@ -23,6 +23,8 @@ if ('development' === WP_ENV) {
 define('WP_HOME', env('WP_HOME'));
 define('WP_SITEURL', env('WP_SITEURL') ?: WP_HOME . '/wp');
 
+define('WP_DEFAULT_THEME', 'wordpress-boilerplate');
+
 define('WP_CONTENT_DIR', __DIR__ . '/app');
 define('WP_CONTENT_URL', WP_HOME . '/app');
 

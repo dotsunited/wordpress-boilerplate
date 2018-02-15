@@ -27,6 +27,8 @@ class ComposerScripts
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
 
+        self::replace(__DIR__ . '/public/wp-config.php', $projectName, $projectIdentifier);
+
         self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/app/favicons', $projectName, $projectIdentifier);
 
