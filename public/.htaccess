@@ -391,13 +391,12 @@ FileETag None
 
 </IfModule>
 
-# Some rules customized
+# Custom WordPress rewrite rules
 #
 # https://github.com/roots/bedrock/issues/325
 # https://discourse.roots.io/t/recommended-subdomain-multisite-nginx-vhost-configuration-with-new-web-layout/1429/12
 # https://gist.github.com/danielbachhuber/9379135
 
-# BEGIN WordPress
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
@@ -411,5 +410,9 @@ RewriteRule ^ - [L]
 RewriteRule ^(wp-(content|admin|includes|.*.php).*) wp/$1 [L]
 RewriteRule ^(.*\.php)$ wp/$1 [L]
 RewriteRule . index.php [L]
+
+# BEGIN WordPress
+
+# Placeholder in case of automatic rewrite rule addtion by WordPress
 
 # END WordPress
