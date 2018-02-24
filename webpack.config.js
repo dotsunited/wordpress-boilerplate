@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = (env) => {
-    const isDev = env !== 'production';
+    const isDev = env === 'development';
     const targetPath = 'public/app/themes/wordpress-boilerplate/assets';
 
     const config = {
