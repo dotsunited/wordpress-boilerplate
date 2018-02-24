@@ -88,6 +88,11 @@ module.exports = (env) => {
                     'NODE_ENV': isDev ? 'development' : 'production'
                 }
             }),
+            // https://webpack.js.org/guides/caching/#extracting-boilerplate
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'runtime'
+            }),
+            // https://webpack.js.org/guides/caching/#module-identifiers
             new webpack.HashedModuleIdsPlugin(),
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
