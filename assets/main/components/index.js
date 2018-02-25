@@ -1,6 +1,6 @@
 /*
  * Components styles and scripts.
- * Will be loaded asynchronous at the bottom of the page.
+ * Will be loaded deferred in the <head> of the page.
  */
 
 import '../../polyfills';
