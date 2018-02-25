@@ -54,19 +54,13 @@ $head = function() use ($manifest) {
 <link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.css'])); ?>" as="style" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.css'])); ?>"></noscript>
 <script><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-components-critical.js']); ?></script>
+<script defer src="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.js'])); ?>"></script>
 <style><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-utilities.css']); ?></style>
 
 <?php
 };
 
 add_action('wp_head', $head, -1000);
-
-// Load main script in the footer to avoid using DomContentLoaded
-add_action('wp_footer', function() use ($manifest) {
-?>
-<script async src="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.js'])); ?>"></script>
-<?php
-}, 1000);
 
 // Support for the Gravity Forms Iframe Add-on plugin
 // https://github.com/cedaro/gravity-forms-iframe
