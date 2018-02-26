@@ -48,7 +48,7 @@ $head = function() use ($manifest) {
 */
 ?>
 
-<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset('assets/')); ?>;<?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['runtime.js']); ?></script>
+<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset('assets/')); ?>;<?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['runtime.js']); ?><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['shims.js']); ?></script>
 <style><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-base.css']); ?></style>
 <style><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-components-critical.css']); ?></style>
 <link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.css'])); ?>" as="style" onload="this.rel='stylesheet'">

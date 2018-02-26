@@ -10,6 +10,9 @@ module.exports = (env) => {
 
     const config = {
         entry: {
+            'shims': [
+                './assets/shims.js',
+            ],
             'main-base': [
                 './assets/main/base/index.css',
             ],
