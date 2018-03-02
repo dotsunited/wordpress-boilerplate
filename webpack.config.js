@@ -4,11 +4,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
-module.exports = (env) => {
-    const isDev = env === 'development';
+module.exports = () => {
     const targetPath = 'public/app/themes/wordpress-boilerplate/assets';
 
     const config = {
+        mode: 'production',
         entry: {
             'shims': [
                 './assets/shims.js',
@@ -33,6 +33,9 @@ module.exports = (env) => {
             //publicPath: '/app/themes/wordpress-boilerplate/assets/',
             filename: '[name].[chunkhash].js',
             chunkFilename: '[name].[chunkhash].js',
+        },
+        optimization: {
+            runtimeChunk: 'single'
         },
         module: {
             strictExportPresence: true,
@@ -86,25 +89,8 @@ module.exports = (env) => {
         },
         plugins: [
             new CleanWebpackPlugin([targetPath + '/*']),
-            new webpack.DefinePlugin({
-                'process.env': {
-                    'NODE_ENV': isDev ? 'development' : 'production'
-                }
-            }),
-            // https://webpack.js.org/guides/caching/#extracting-boilerplate
-            new webpack.optimize.CommonsChunkPlugin({
-                name: 'runtime'
-            }),
             // https://webpack.js.org/guides/caching/#module-identifiers
             new webpack.HashedModuleIdsPlugin(),
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false,
-                },
-                output: {
-                    comments: false,
-                },
-            }),
             new ExtractTextPlugin('[name].[chunkhash].css'),
             new ManifestPlugin(),
         ]
