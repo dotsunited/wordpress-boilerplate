@@ -3,6 +3,7 @@
   "version": "7.0.0",
   "author": "Dots United GmbH",
   "license": "MIT",
+  "repository": "https://github.com/dotsunited/wordpress-boilerplate.git",
   "scripts": {
     "build": "webpack --progress",
     "watch": "webpack --progress --watch",
