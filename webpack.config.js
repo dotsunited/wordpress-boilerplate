@@ -47,6 +47,17 @@ module.exports = () => {
                             loader: 'babel-loader',
                             options: {
                                 cacheDirectory: true,
+                                babelrc: false,
+                                presets: [
+                                    [
+                                        '@babel/preset-env',
+                                        {
+                                            useBuiltIns: 'entry',
+                                            modules: false,
+                                            debug: true,
+                                        }
+                                    ]
+                                ]
                             },
                         },
                     ],
@@ -63,7 +74,16 @@ module.exports = () => {
                                     minimize: true,
                                 }
                             },
-                            'postcss-loader',
+                            {
+                                loader: 'postcss-loader',
+                                options: {
+                                    plugins: [
+                                        require('postcss-import')(),
+                                        require('postcss-cssnext')(),
+                                        require('postcss-flexbugs-fixes')()
+                                    ]
+                                }
+                            }
                         ],
                     }),
                 },

@@ -16,24 +16,6 @@
     "Firefox ESR",
     "not ie < 10"
   ],
-  "postcss": {
-    "plugins": {
-      "postcss-import": {},
-      "postcss-cssnext": {},
-      "postcss-flexbugs-fixes": {}
-    }
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "entry",
-          "modules": false
-        }
-      ]
-    ]
-  },
   "dependencies": {
     "@dotsunited/load-css-polyfill": "^1.0.0",
     "promise": "^8.0.0"
