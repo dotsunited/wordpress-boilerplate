@@ -16,12 +16,9 @@ module.exports = () => {
             'main-base': [
                 './assets/main/base/index.css',
             ],
-            'main-components-critical': [
-                './assets/webpack-public-path.js',
-                './assets/main/components/index-critical.js',
-            ],
             'main-components': [
                 './assets/webpack-public-path.js',
+                './assets/polyfills',
                 './assets/main/components/index.js',
             ],
             'main-utilities': [
