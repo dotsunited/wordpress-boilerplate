@@ -17,8 +17,8 @@
     "not ie < 10"
   ],
   "dependencies": {
-    "@dotsunited/load-css-polyfill": "^1.0.0",
-    "promise": "^8.0.0"
+    "@babel/polyfill": "^7.0.0-beta.42",
+    "@dotsunited/load-css-polyfill": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.42",
