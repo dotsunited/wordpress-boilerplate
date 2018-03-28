@@ -20,11 +20,13 @@
         }
     ],
     "require": {
-        "roave/security-advisories": "dev-master",
         "composer/installers": "^1.4",
         "johnpbloch/wordpress": "@stable",
         "oscarotero/env": "^1.1",
         "vlucas/phpdotenv": "^2.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "psr-4": {
