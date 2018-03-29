@@ -3,10 +3,15 @@
 
 /node_modules
 
-/public/app/uploads/*
-!/public/app/uploads/.gitkeep
+/public/app/cache
+/public/app/languages
+/public/app/plugins
+/public/app/upgrade
+/public/app/uploads
+/public/app/debug.log
+
+/public/wp
 
 /vendor
-/public/wp
 
 /.env
