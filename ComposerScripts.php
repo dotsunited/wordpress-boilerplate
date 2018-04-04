@@ -44,25 +44,6 @@ class ComposerScripts
         rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
     }
 
-    private static function removeDir($dir)
-    {
-        foreach (glob(rtrim($dir, '\\/') . '/{,.}*', GLOB_BRACE) as $file) {
-            $basename = basename($file);
-
-            if ('.' === $basename || '..' === $basename) {
-                continue;
-            }
-
-            if (is_dir($file)) {
-                self::removeDir($file);
-            } else {
-                unlink($file);
-            }
-        }
-
-        rmdir($dir);
-    }
-
     private static function replaceDir($dir, $projectName, $projectIdentifier)
     {
         foreach (glob(rtrim($dir, '\\/') . '/*') as $file) {
