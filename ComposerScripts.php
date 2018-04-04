@@ -31,7 +31,7 @@ class ComposerScripts
 
         self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
-        self::replaceDir(__DIR__ . '/public/app/favicons', $projectName, $projectIdentifier);
+        self::replaceDir(__DIR__ . '/public/favicons', $projectName, $projectIdentifier);
 
         rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
