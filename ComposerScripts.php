@@ -2,6 +2,11 @@
 
 namespace DotsUnited;
 
+use Composer\Composer;
+use Composer\IO\IOInterface;
+use Composer\Json\JsonFile;
+use Composer\Json\JsonManipulator;
+use Composer\Package\Locker;
 use Composer\Script\Event;
 
 class ComposerScripts
@@ -10,7 +15,6 @@ class ComposerScripts
     {
         $args = $event->getArguments();
 
-        /** @var \Composer\IO\IOInterface $io */
         $io = $event->getIO();
 
         $projectIdentifier = isset($args['directory']) ? $args['directory'] : 'my-project';
@@ -21,7 +25,6 @@ class ComposerScripts
 
         self::replace(__DIR__ . '/.env.dist', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/composer.json.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package-lock.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
@@ -35,13 +38,38 @@ class ComposerScripts
 
         rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
-        unlink(__DIR__ . '/composer.json');
-        rename(__DIR__ . '/composer.json.template', __DIR__ . '/composer.json');
-
-        unlink(__DIR__ . '/ComposerScripts.php');
-
         unlink(__DIR__ . '/README.md');
         rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
+
+        // ---
+
+        $manipulator = new JsonManipulator(
+            file_get_contents(__DIR__ . '/composer.json')
+        );
+
+        $manipulator->removeProperty('name');
+        $manipulator->removeProperty('description');
+        $manipulator->removeProperty('keywords');
+        $manipulator->removeProperty('homepage');
+        $manipulator->removeProperty('license');
+        $manipulator->removeSubNode('require-dev', 'composer/composer');
+        $manipulator->removeProperty('autoload');
+        $manipulator->removeSubNode('scripts', 'post-create-project-cmd');
+
+        file_put_contents(
+            __DIR__ . '/composer.json',
+            $manipulator->getContents()
+        );
+
+        self::updateComposerLock(
+            __DIR__ . '/composer.json',
+            $event->getComposer(),
+            $io
+        );
+
+        // ---
+
+        unlink(__DIR__ . '/ComposerScripts.php');
     }
 
     private static function replaceDir($dir, $projectName, $projectIdentifier)
@@ -74,5 +102,22 @@ class ComposerScripts
         );
 
         file_put_contents($file, $content);
+    }
+
+    private static function updateComposerLock($composerFile, Composer $composer, IOInterface $io)
+    {
+        $lock = substr($composerFile, 0, -4).'lock';
+        $composerJson = file_get_contents($composerFile);
+        $lockFile = new JsonFile($lock, null, $io);
+        $locker = new Locker(
+            $io,
+            $lockFile,
+            $composer->getRepositoryManager(),
+            $composer->getInstallationManager(),
+            $composerJson
+        );
+        $lockData = $locker->getLockData();
+        $lockData['content-hash'] = Locker::getContentHash($composerJson);
+        $lockFile->write($lockData);
     }
 }
