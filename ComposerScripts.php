@@ -29,6 +29,7 @@ class ComposerScripts
 
         self::replace(__DIR__ . '/public/wp-config.php', $projectName, $projectIdentifier);
 
+        self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/app/favicons', $projectName, $projectIdentifier);
 
