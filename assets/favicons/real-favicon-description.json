@@ -19,7 +19,7 @@
             "backgroundColor": "#f9f9f9",
             "themeColor": "#cc5036",
             "manifest": {
-                "name": "Wordpress Boilerplate",
+                "name": "WordPress Boilerplate",
                 "display": "browser",
                 "orientation": "notSet",
                 "onConflict": "override",

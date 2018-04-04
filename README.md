@@ -1,4 +1,4 @@
-The Dots United Wordpress Boilerplate
+The Dots United WordPress Boilerplate
 ===
 
 A barebones, clean and minimalist WordPress Boilerplate, developed at

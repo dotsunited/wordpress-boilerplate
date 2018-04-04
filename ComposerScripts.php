@@ -77,9 +77,9 @@ class ComposerScripts
     {
         $content = file_get_contents($file);
 
-        $content = str_replace(
+        $content = str_ireplace(
             array(
-                'Wordpress Boilerplate',
+                'wordpress boilerplate',
                 'wordpress-boilerplate',
                 'wordpress_boilerplate'
             ),
