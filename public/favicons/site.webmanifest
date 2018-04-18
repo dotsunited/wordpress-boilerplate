@@ -1,5 +1,6 @@
 {
     "name": "WordPress Boilerplate",
+    "short_name": "WordPress Boilerplate",
     "icons": [
         {
             "src": "/favicons/android-chrome-36x36.png",
