@@ -38,6 +38,8 @@ class ComposerScripts
 
         rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
+        unlink(__DIR__ . '/LICENSE');
+
         unlink(__DIR__ . '/README.md');
         rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
 
