@@ -52,7 +52,6 @@
     "scripts": {
         "post-create-project-cmd" : [
             "DotsUnited\\ComposerScripts::postCreateProject"
-        ],
-        "dev-server": "php -S localhost:8000 -t public/"
+        ]
     }
 }
