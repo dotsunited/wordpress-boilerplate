@@ -4,11 +4,6 @@
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-
-// Remove filter from wordpress-mu-domain-mapping plugin which screws up
-// CSS and JS url's for plugins (uses old PLUGINDIR constant)
-remove_filter( 'plugins_url', 'domain_mapping_plugins_uri', 1 );
-
 add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
     if (is_admin()) {
         return;
