@@ -21,6 +21,26 @@ add_action('widgets_init', function () {
     ));
 });
 
+function wordpress_boilerplate_single_post_content($display = true)
+{
+    $post = get_queried_object();
+
+    if (empty($post->post_content)) {
+        return null;
+    }
+
+    $content = $post->post_content;
+
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+
+    if (!$display) {
+        return $content;
+    }
+
+    echo $content;
+}
+
 function wordpress_boilerplate_pagination()
 {
     global $wp_query;
