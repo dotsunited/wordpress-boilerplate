@@ -1,9 +1,5 @@
 <?php
 
-// Remove emoji support
-remove_action('wp_head', 'print_emoji_detection_script', 7);
-remove_action('wp_print_styles', 'print_emoji_styles');
-
 add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
     if (is_admin()) {
         return;

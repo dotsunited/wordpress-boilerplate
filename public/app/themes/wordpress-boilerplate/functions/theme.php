@@ -1,12 +1,7 @@
 <?php
 
-// Remove <meta name="generator" content="WordPress x.x.x" />
-remove_action('wp_head', 'wp_generator');
-
 add_action('after_setup_theme', function () {
     load_theme_textdomain('wordpress-boilerplate', TEMPLATEPATH . '/languages');
-
-    remove_theme_support('automatic-feed-links');
 
     add_theme_support('title-tag');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
