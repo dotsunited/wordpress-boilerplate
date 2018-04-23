@@ -49,4 +49,8 @@ add_action('init', function () {
 
         add_post_type_support('page', 'editor');
     }, -1000);
+
+    add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
+        $wp_customize->remove_control('site_icon');
+    }, 20, 1);
 });
