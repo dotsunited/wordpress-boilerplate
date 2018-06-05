@@ -34,20 +34,15 @@
     },
     "extra": {
         "installer-paths": {
-            "public/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-            "public/app/plugins/{$name}/": ["type:wordpress-plugin"],
-            "public/app/themes/{$name}/": ["type:wordpress-theme"]
-        },
-        "wordpress-install-dir": "public/wp",
-        "composer-update": {
-            "packages": [
-                "johnpbloch/wordpress",
-                "wpackagist-plugin/*",
-                "dotsunited-wordpress-plugin/*"
+            "public/app/mu-plugins/{$name}/": [
+                "type:wordpress-plugin",
+                "type:wordpress-muplugin"
             ],
-            "commit": true,
-            "push": true
-        }
+            "public/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "wordpress-install-dir": "public/wp"
     },
     "scripts": {
         "post-create-project-cmd" : [

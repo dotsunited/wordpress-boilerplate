@@ -1,17 +1,6 @@
-/.composer-update
-/.deploy
+node_modules/
+vendor/
 
-/node_modules
+public/wp/
 
-/public/app/cache
-/public/app/languages
-/public/app/plugins
-/public/app/upgrade
-/public/app/uploads
-/public/app/debug.log
-
-/public/wp
-
-/vendor
-
-/.env
+.env

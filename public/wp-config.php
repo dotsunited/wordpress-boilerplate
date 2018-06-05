@@ -38,20 +38,16 @@ if (MULTISITE) {
     define('PATH_CURRENT_SITE', env('PATH_CURRENT_SITE') ?: '/');
     define('SITE_ID_CURRENT_SITE', env('SITE_ID_CURRENT_SITE') ?: 1);
     define('BLOG_ID_CURRENT_SITE', env('BLOG_ID_CURRENT_SITE') ?: 1);
-
-    define('SUNRISE', 'on');
 }
 
 // ---
 
+define('WPMU_PLUGIN_DIR', __DIR__ . '/app/mu-plugins');
+define('WPMU_PLUGIN_URL', WP_HOME . '/app/mu-plugins');
+
+// ---
+
 define('WP_DEFAULT_THEME', 'wordpress-boilerplate');
-
-define('WP_CONTENT_DIR', __DIR__ . '/app');
-
-// Will be defined in app/sunrise.php for multisite setups
-if (!MULTISITE) {
-    define('WP_CONTENT_URL', WP_HOME . '/app');
-}
 
 // ---
 
