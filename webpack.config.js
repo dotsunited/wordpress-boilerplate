@@ -18,7 +18,7 @@ module.exports = () => {
             ],
             'main-components': [
                 './assets/webpack-public-path.js',
-                './assets/polyfills',
+                '@babel/polyfill',
                 './assets/main/components/index.js',
             ],
             'main-utilities': [
