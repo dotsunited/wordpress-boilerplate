@@ -10,8 +10,8 @@ module.exports = () => {
     const config = {
         mode: 'production',
         entry: {
-            'shims': [
-                './assets/shims.js',
+            'load-css-polyfill': [
+                '@dotsunited/load-css-polyfill/src/auto',
             ],
             'main-base': [
                 './assets/main/base/index.css',
