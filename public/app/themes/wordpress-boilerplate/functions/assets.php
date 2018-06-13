@@ -18,28 +18,22 @@ add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
     );
 });
 
-$manifest = json_decode(
-    file_get_contents(__DIR__.'/../assets/manifest.json'),
-    true
-);
-
-$head = function() use ($manifest) {
+$head = function() {
 ?>
 <?php
 /*
  * Webfont preloading example
 ?>
-<link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/scripts/' . $manifest['roboto.woff'])); ?>" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('roboto.woff')); ?>" as="font" type="font/woff" crossorigin>
 */
 ?>
 
-<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset('assets/')); ?>;</script>
-<script><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['runtime.js']); ?><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['load-css-polyfill.js']); ?></script>
-<style data-href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-base.css'])); ?>"><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-base.css']); ?></style>
-<link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.css'])); ?>" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.css'])); ?>"></noscript>
-<script defer src="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.js'])); ?>"></script>
-<style data-href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-utilities.css'])); ?>"><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-utilities.css']); ?></style>
+<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;<?php echo wordpress_boilerplate_asset_embed_from_manifest('runtime.js'); ?><?php echo wordpress_boilerplate_asset_embed_from_manifest('load-css-polyfill.js'); ?></script>
+<style><?php echo wordpress_boilerplate_asset_embed_from_manifest('main-base.css'); ?></style>
+<link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main-components.css')); ?>" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main-components.css')); ?>"></noscript>
+<script defer src="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main-components.js')); ?>"></script>
+<style><?php echo wordpress_boilerplate_asset_embed_from_manifest('main-utilities.css'); ?></style>
 
 <?php
 };
@@ -55,7 +49,45 @@ add_action('gfiframe_head', function () {
 <?php
 }, -1000);
 
-function wordpress_boilerplate_asset($path)
+unset($head);
+
+function wordpress_boilerplate_asset_url_from_manifest($name)
+{
+    $manifest = wordpress_boilerplate_asset_manifest();
+
+    if (!isset($manifest[$name])) {
+        return null;
+    }
+
+    return wordpress_boilerplate_asset_url('assets/' . $manifest[$name]);
+}
+
+function wordpress_boilerplate_asset_embed_from_manifest($name)
+{
+    $manifest = wordpress_boilerplate_asset_manifest();
+
+    if (!isset($manifest[$name])) {
+        return null;
+    }
+
+    return wordpress_boilerplate_asset_embed('assets/' . $manifest[$name]);
+}
+
+function wordpress_boilerplate_asset_manifest()
+{
+    static $manifest;
+
+    if (!$manifest) {
+        $manifest = json_decode(
+            file_get_contents(__DIR__.'/../assets/manifest.json'),
+            true
+        );
+    }
+
+    return $manifest;
+}
+
+function wordpress_boilerplate_asset_url($path)
 {
     return rtrim(get_template_directory_uri(), '/') . '/' . ltrim($path, '/');
 }
