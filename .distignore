@@ -6,6 +6,7 @@ node_modules
 .idea
 composer.json
 composer.lock
+Makefile
 package.json
 package-lock.json
 webpack.config.js
