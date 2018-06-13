@@ -33,12 +33,13 @@ $head = function() use ($manifest) {
 */
 ?>
 
-<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset('assets/')); ?>;<?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['runtime.js']); ?><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['load-css-polyfill.js']); ?></script>
-<style><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-base.css']); ?></style>
+<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset('assets/')); ?>;</script>
+<script><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['runtime.js']); ?><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['load-css-polyfill.js']); ?></script>
+<style data-href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-base.css'])); ?>"><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-base.css']); ?></style>
 <link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.css'])); ?>" as="style" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.css'])); ?>"></noscript>
 <script defer src="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-components.js'])); ?>"></script>
-<style><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-utilities.css']); ?></style>
+<style data-href="<?php echo esc_attr(wordpress_boilerplate_asset('assets/' . $manifest['main-utilities.css'])); ?>"><?php echo wordpress_boilerplate_asset_embed('assets/' . $manifest['main-utilities.css']); ?></style>
 
 <?php
 };
@@ -83,5 +84,5 @@ function wordpress_boilerplate_asset_embed($path)
     // Handle 'src' values (used in e.g. calls to AlphaImageLoader, which is a proprietary IE filter)
     $content = preg_replace_callback('/\bsrc\s*=\s*(["\']?)(?<url>.*?)(\\1)/i', $rewriteUrl, $content);
 
-    return $content;
+    return trim($content);
 }

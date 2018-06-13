@@ -1,14 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = () => {
+    const mode = 'production';
     const targetPath = 'public/app/themes/wordpress-boilerplate/assets';
 
-    const config = {
-        mode: 'production',
+    return {
+        mode: mode,
         entry: {
             'load-css-polyfill': [
                 '@dotsunited/load-css-polyfill/src/auto',
@@ -61,28 +62,26 @@ module.exports = () => {
                 },
                 {
                     test: /\.css$/,
-                    use: ExtractTextPlugin.extract({
-                        fallback: 'style-loader',
-                        use: [
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    importLoaders: 1,
-                                    minimize: true,
-                                }
-                            },
-                            {
-                                loader: 'postcss-loader',
-                                options: {
-                                    plugins: [
-                                        require('postcss-import')(),
-                                        require('postcss-cssnext')(),
-                                        require('postcss-flexbugs-fixes')()
-                                    ]
-                                }
+                    use: [
+                        mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1,
+                                minimize: true,
                             }
-                        ],
-                    }),
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [
+                                    require('postcss-import')(),
+                                    require('postcss-cssnext')(),
+                                    require('postcss-flexbugs-fixes')()
+                                ]
+                            }
+                        }
+                    ],
                 },
                 {
                     test: /\.(gif|png|jpe?g|svg)$/i,
@@ -108,10 +107,11 @@ module.exports = () => {
             new CleanWebpackPlugin([targetPath + '/*']),
             // https://webpack.js.org/guides/caching/#module-identifiers
             new webpack.HashedModuleIdsPlugin(),
-            new ExtractTextPlugin('[name].[chunkhash].css'),
+            new MiniCssExtractPlugin({
+                filename: '[name].[contenthash].css',
+                chunkFilename: '[name].[contenthash].css',
+            }),
             new ManifestPlugin(),
         ]
     };
-
-    return config;
 };
