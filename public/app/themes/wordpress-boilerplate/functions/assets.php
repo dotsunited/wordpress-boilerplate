@@ -25,12 +25,6 @@ $manifest = json_decode(
 
 $head = function() use ($manifest) {
 ?>
-<?php if (defined('WP_DEBUG') && WP_DEBUG): ?>
-
-<script>
-    delete window.Promise;
-</script>
-<?php endif; ?>
 <?php
 /*
  * Webfont preloading example
