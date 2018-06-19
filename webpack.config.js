@@ -29,8 +29,8 @@ module.exports = () => {
         output: {
             path: path.resolve(__dirname, targetPath),
             //publicPath: '/app/themes/wordpress-boilerplate/assets/',
-            filename: '[name].[chunkhash].js',
-            chunkFilename: '[name].[chunkhash].js',
+            filename: '[name].[contenthash].js',
+            chunkFilename: '[name].[contenthash].js',
         },
         optimization: {
             runtimeChunk: 'single'
