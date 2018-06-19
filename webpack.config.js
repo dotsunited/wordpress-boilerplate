@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = () => {
@@ -71,7 +72,7 @@ module.exports = () => {
                             loader: 'css-loader',
                             options: {
                                 importLoaders: 1,
-                                minimize: true,
+                                minimize: false, // Minification done by the OptimizeCssAssetsPlugin
                             }
                         },
                         {
@@ -113,6 +114,14 @@ module.exports = () => {
             new MiniCssExtractPlugin({
                 filename: '[name].[contenthash].css',
                 chunkFilename: '[name].[contenthash].css',
+            }),
+            new OptimizeCssAssetsPlugin({
+                cssProcessorOptions: {
+                    safe: true,
+                    discardComments: {
+                        removeAll: true,
+                    }
+                },
             }),
             new ManifestPlugin(),
         ]
