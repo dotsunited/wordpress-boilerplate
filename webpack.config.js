@@ -55,6 +55,9 @@ module.exports = () => {
                                             debug: true,
                                         }
                                     ]
+                                ],
+                                plugins: [
+                                    '@babel/plugin-syntax-dynamic-import',
                                 ]
                             },
                         },
