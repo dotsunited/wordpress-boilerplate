@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const PostCSSAssetsPlugin = require('postcss-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = () => {
@@ -72,7 +72,7 @@ module.exports = () => {
                             loader: 'css-loader',
                             options: {
                                 importLoaders: 1,
-                                minimize: false, // Minification done by the OptimizeCssAssetsPlugin
+                                minimize: false, // Minification done by the PostCSSAssetsPlugin
                             }
                         },
                         {
@@ -115,13 +115,16 @@ module.exports = () => {
                 filename: '[name].[contenthash].css',
                 chunkFilename: '[name].[contenthash].css',
             }),
-            new OptimizeCssAssetsPlugin({
-                cssProcessorOptions: {
-                    safe: true,
-                    discardComments: {
-                        removeAll: true,
-                    }
-                },
+            new PostCSSAssetsPlugin({
+                plugins: [
+                    require('cssnano')({
+                        preset: ['default', {
+                            discardComments: {
+                                removeAll: true,
+                            },
+                        }]
+                    }),
+                ],
             }),
             new ManifestPlugin(),
         ]
