@@ -1,0 +1,114 @@
+/*
+ * WordPress Core Styles
+ * https://codex.wordpress.org/CSS#WordPress_Generated_Classes
+ */
+.alignnone {
+    margin: .25rem 1rem 1rem 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 1rem auto;
+}
+
+.alignright {
+    float:right;
+    margin: .25rem 0 1rem 1rem;
+}
+
+.alignleft {
+    float: left;
+    margin: .25rem 1rem 1rem 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: .25rem 0 1rem 1rem;
+}
+
+a img.alignnone {
+    margin: .25rem 1rem 1rem 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: .25rem 1rem 1rem 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: .25rem .25rem .5rem;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: .25rem 1rem 1rem 0;
+}
+
+.wp-caption.alignleft {
+    margin: .25rem 1rem 1rem 0;
+}
+
+.wp-caption.alignright {
+    margin: .25rem 0 1rem 1rem;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption-text {
+    font-size: .875rem;
+    line-height: 1rem;
+}
+
+p.wp-caption-text {
+    margin: 0;
+    padding: 0 .25rem .25rem;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+    background-color: #eee;
+    clip: auto !important;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */
+}
