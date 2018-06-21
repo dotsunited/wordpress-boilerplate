@@ -1,4 +1,23 @@
 :root {
-    --color-red: config('colors.red');
-    --border-radius: config('borderRadius.default');
+    --color-black: config('colors.black');
+    --color-grey-darkest: config('colors.grey-darkest');
+    --color-grey-darker: config('colors.grey-darker');
+    --color-grey-dark: config('colors.grey-dark');
+    --color-grey: config('colors.grey');
+    --color-grey-light: config('colors.grey-light');
+    --color-grey-lighter: config('colors.grey-lighter');
+    --color-grey-lightest: config('colors.grey-lightest');
+    --color-white: config('colors.white');
+
+    --font-sans: config('fonts.sans');
+    --font-serif: config('fonts.serif');
+    --font-mono: config('fonts.mono');
+
+    --border-radius-default: config('borderRadius.default');
+    --shadow-default: config('shadows.default');
 }
+
+@custom-media --screen-sm (min-width: config('screens.sm'));
+@custom-media --screen-md (min-width: config('screens.md'));
+@custom-media --screen-lg (min-width: config('screens.lg'));
+@custom-media --screen-xl (min-width: config('screens.xl'));

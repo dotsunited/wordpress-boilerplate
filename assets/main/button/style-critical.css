@@ -1,5 +1,5 @@
 @import '../variables.css';
 
 .button {
-    background: var(--color-red);
+    background: var(--color-grey);
 }
