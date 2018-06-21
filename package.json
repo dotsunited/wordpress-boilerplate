@@ -11,7 +11,7 @@
     "favicon-check": "real-favicon check-for-update --fail-on-update assets/favicons/real-favicon-data.json"
   },
   "browserslist": [
-    ">1%",
+    "> 1%",
     "last 4 versions",
     "Firefox ESR",
     "not ie < 10"
