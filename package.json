@@ -7,6 +7,11 @@
   "scripts": {
     "build": "webpack --progress",
     "watch": "webpack --progress --watch",
+    "tailwind:preflight": "tailwind build node_modules/tailwindcss/preflight.css -c assets/tailwind/src/config.js -o assets/tailwind/preflight.css",
+    "tailwind:components": "tailwind build node_modules/tailwindcss/components.css -c assets/tailwind/src/config.js -o assets/tailwind/components.css",
+    "tailwind:utilities": "tailwind build node_modules/tailwindcss/utilities.css -c assets/tailwind/src/config.js -o assets/tailwind/utilities.css",
+    "tailwind:variables": "tailwind build assets/tailwind/src/variables.css -c assets/tailwind/src/config.js -o assets/tailwind/variables.css",
+    "tailwind": "npm run tailwind:preflight && npm run tailwind:components && npm run tailwind:utilities && npm run tailwind:variables",
     "favicon-generate": "real-favicon generate assets/favicons/real-favicon-description.json assets/favicons/real-favicon-data.json public/favicons && cp public/favicons/favicon.ico public/favicon.ico && touch public/favicons/favicons.html && real-favicon inject assets/favicons/real-favicon-data.json public/favicons public/favicons/favicons.html",
     "favicon-check": "real-favicon check-for-update --fail-on-update assets/favicons/real-favicon-data.json"
   },
@@ -17,8 +22,7 @@
     "not ie < 10"
   ],
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.51",
-    "@dotsunited/load-css-polyfill": "^1.2.0"
+    "@babel/polyfill": "^7.0.0-beta.51"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
@@ -38,6 +42,7 @@
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.5",
     "style-loader": "^0.21.0",
+    "tailwindcss": "^0.5.3",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.4",
     "webpack-manifest-plugin": "^2.0.3"

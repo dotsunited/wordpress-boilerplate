@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="bg-white antialiased">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,21 +9,17 @@
 
         <?php wp_head(); ?>
     </head>
-    <body <?php body_class(); ?>>
-        <header class="header">
-            <div class="header__container">
-                <a class="header__logo" href="<?php echo esc_attr(get_home_url()); ?>">
-                    <?php echo wordpress_boilerplate_asset_embed('/logo-dotsunited.svg'); ?>
-                </a>
+    <body <?php body_class('bg-white font-sans font-normal text-black leading-normal'); ?>>
+        <header class="container my-8 flex items-center justify-between flex-wrap">
+            <a href="<?php echo esc_attr(get_home_url()); ?>" class="flex items-center flex-no-shrink text-white mr-6">
+                <?php echo wordpress_boilerplate_asset_embed('/logo-dotsunited.svg'); ?>
+            </a>
 
-                <div class="header__navigation">
-                    <nav class="navigation">
-                        <?php wp_nav_menu(array(
-                            'theme_location' => 'main',
-                            'container' => false,
-                            'menu_class' => 'navigation__list'
-                        )); ?>
-                    </nav>
-                </div>
-            </div>
+            <nav class="flex flex-grow items-center">
+                <?php wp_nav_menu(array(
+                    'theme_location' => 'main',
+                    'container' => false,
+                    'items_wrap' => '<ul id="%1$s" class="list-reset flex flex-grow %2$s">%3$s</ul>'
+                )); ?>
+            </nav>
         </header>

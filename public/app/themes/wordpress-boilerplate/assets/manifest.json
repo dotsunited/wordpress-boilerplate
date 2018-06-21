@@ -1,10 +1,7 @@
 {
-  "runtime.js": "runtime.f83005fec22b6eca23f5.js",
-  "main-utilities.css": "main-utilities.6c02889666c0b80fe3de.css",
-  "main-utilities.js": "main-utilities.f8ef6f07d78eba3a87eb.js",
-  "main-components.css": "main-components.ee1fff2f297c56c38235.css",
-  "main-components.js": "main-components.d304356b3a9adfdb056e.js",
-  "main-base.css": "main-base.ab3b22cab862838f7546.css",
-  "main-base.js": "main-base.9277d0a2d099e40b5418.js",
-  "load-css-polyfill.js": "load-css-polyfill.d2239419ad55f322c41b.js"
+  "0.31f8961949313c2fccb5.css": "0.31f8961949313c2fccb5.css",
+  "0.68964872e68b3af44977.js": "0.68964872e68b3af44977.js",
+  "runtime.js": "runtime.590f9de1c12c96967105.js",
+  "main.css": "main.3c711cff5bed3b7e52da.css",
+  "main.js": "main.dda03af889da8795f464.js"
 }

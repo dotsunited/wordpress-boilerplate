@@ -12,19 +12,9 @@ module.exports = () => {
     return {
         mode: mode,
         entry: {
-            'load-css-polyfill': [
-                '@dotsunited/load-css-polyfill/src/auto',
-            ],
-            'main-base': [
-                './assets/main/base/index.css',
-            ],
-            'main-components': [
+            'main': [
                 './assets/webpack-public-path.js',
-                '@babel/polyfill',
-                './assets/main/components/index.js',
-            ],
-            'main-utilities': [
-                './assets/main/utilities/index.css',
+                './assets/main/index.js',
             ],
         },
         output: {

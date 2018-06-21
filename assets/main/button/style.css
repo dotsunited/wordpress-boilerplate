@@ -1,0 +1,5 @@
+@import '../variables.css';
+
+.button {
+    border-radius: var(--border-radius);
+}

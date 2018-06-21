@@ -1,34 +1,32 @@
 <?php get_header(); ?>
 
-<div class="body body--sidebar">
-    <div class="body__container">
-        <main class="body__main">
-        <?php while (have_posts()): the_post(); ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <time class="post__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
-                    <?php echo get_the_date(); ?>
-                </time>
+<div class="container lg:flex">
+    <main class="w-auto lg:w-3/4 mr-8">
+    <?php while (have_posts()): the_post(); ?>
+        <article id="post-<?php the_ID(); ?>" <?php post_class('mb-8'); ?>>
+            <time class="text-xs leading-none text-grey-dark" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
+                <?php echo get_the_date(); ?>
+            </time>
 
-                <h1>
-                    <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr(sprintf(__('Permalink to %s', 'wordpress-boilerplate'), the_title_attribute('echo=0'))); ?>" rel="bookmark">
-                        <?php echo the_title(); ?>
-                    </a>
-                </h1>
+            <h1 class="leading-none mb-4">
+                <a class="no-underline hover:underline text-black" href="<?php the_permalink(); ?>" title="<?php echo esc_attr(sprintf(__('Permalink to %s', 'wordpress-boilerplate'), the_title_attribute('echo=0'))); ?>" rel="bookmark">
+                    <?php echo the_title(); ?>
+                </a>
+            </h1>
 
-            <?php if (has_post_thumbnail() && is_singular()): ?>
-                <div class="post__thumbnail">
-                    <?php the_post_thumbnail(); ?>
-                </div>
-            <?php endif; ?>
+        <?php if (has_post_thumbnail() && is_singular()): ?>
+            <div class="mb-4">
+                <?php the_post_thumbnail(); ?>
+            </div>
+        <?php endif; ?>
 
-                <?php the_content(); ?>
-            </article>
-        <?php endwhile; ?>
+            <?php the_content(); ?>
+        </article>
+    <?php endwhile; ?>
 
-        </main>
+    </main>
 
-        <?php get_sidebar(); ?>
-    </div>
+    <?php get_sidebar(); ?>
 </div>
 
 <?php get_footer();

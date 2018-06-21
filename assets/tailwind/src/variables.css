@@ -1,0 +1,4 @@
+:root {
+    --color-red: config('colors.red');
+    --border-radius: config('borderRadius.default');
+}

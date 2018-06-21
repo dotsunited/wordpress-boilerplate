@@ -28,12 +28,10 @@ $head = function() {
 */
 ?>
 
-<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;<?php echo wordpress_boilerplate_asset_embed_from_manifest('runtime.js'); ?><?php echo wordpress_boilerplate_asset_embed_from_manifest('load-css-polyfill.js'); ?></script>
-<style><?php echo wordpress_boilerplate_asset_embed_from_manifest('main-base.css'); ?></style>
-<link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main-components.css')); ?>" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main-components.css')); ?>"></noscript>
-<script defer src="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main-components.js')); ?>"></script>
-<style><?php echo wordpress_boilerplate_asset_embed_from_manifest('main-utilities.css'); ?></style>
+<script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;</script>
+<script><?php echo wordpress_boilerplate_asset_embed_from_manifest('runtime.js'); ?></script>
+<style><?php echo wordpress_boilerplate_asset_embed_from_manifest('main.css'); ?></style>
+<script async src="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main.js')); ?>"></script>
 
 <?php
 };

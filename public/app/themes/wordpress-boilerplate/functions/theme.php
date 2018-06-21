@@ -14,9 +14,9 @@ add_action('widgets_init', function () {
     register_sidebar(array(
         'name' => __('Sidebar', 'wordpress-boilerplate'),
         'id' => 'sidebar-1',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h2 class="widget__title">',
+        'before_widget' => '<section id="%1$s" class="p-4 mt-8 rounded overflow-hidden bg-grey-lightest text-grey-darker text-base widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="font-bold text-base leading-tight mb-2">',
         'after_title' => '</h2>',
     ));
 });
