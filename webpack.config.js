@@ -26,6 +26,9 @@ module.exports = () => {
         optimization: {
             runtimeChunk: 'single'
         },
+        resolve: {
+            extensions: ['.js', '.css', '.json']
+        },
         module: {
             strictExportPresence: true,
             rules: [
