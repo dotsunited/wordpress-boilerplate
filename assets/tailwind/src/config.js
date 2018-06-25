@@ -78,7 +78,7 @@ let colors = {
   'yellow': '#ffed4a',
   'yellow-light': '#fff382',
   'yellow-lighter': '#fff9c2',
-  'yellow-lightest': '#fcfbeb',*/
+  'yellow-lightest': '#fcfbeb',
 
   'green-darkest': '#0f2f21',
   'green-darker': '#1a4731',
@@ -88,13 +88,13 @@ let colors = {
   'green-lighter': '#a2f5bf',
   'green-lightest': '#e3fcec',
 
-  /*'teal-darkest': '#0d3331',
+  'teal-darkest': '#0d3331',
   'teal-darker': '#20504f',
   'teal-dark': '#38a89d',
   'teal': '#4dc0b5',
   'teal-light': '#64d5ca',
   'teal-lighter': '#a0f0ed',
-  'teal-lightest': '#e8fffe',
+  'teal-lightest': '#e8fffe',*/
 
   'blue-darkest': '#12283a',
   'blue-darker': '#1c3d5a',
@@ -104,7 +104,7 @@ let colors = {
   'blue-lighter': '#bcdefa',
   'blue-lightest': '#eff8ff',
 
-  'indigo-darkest': '#191e38',
+  /*'indigo-darkest': '#191e38',
   'indigo-darker': '#2f365f',
   'indigo-dark': '#5661b3',
   'indigo': '#6574cd',

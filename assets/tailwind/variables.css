@@ -8,6 +8,13 @@
   --color-grey-lighter: #f1f5f8;
   --color-grey-lightest: #f8fafc;
   --color-white: #fff;
+  --color-blue-darkest: #12283a;
+  --color-blue-darker: #1c3d5a;
+  --color-blue-dark: #2779bd;
+  --color-blue: #3490dc;
+  --color-blue-light: #6cb2eb;
+  --color-blue-lighter: #bcdefa;
+  --color-blue-lightest: #eff8ff;
   --font-sans: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --font-serif: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
   --font-mono: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;

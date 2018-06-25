@@ -9,6 +9,14 @@
     --color-grey-lightest: config('colors.grey-lightest');
     --color-white: config('colors.white');
 
+    --color-blue-darkest: config('colors.blue-darkest');
+    --color-blue-darker: config('colors.blue-darker');
+    --color-blue-dark: config('colors.blue-dark');
+    --color-blue: config('colors.blue');
+    --color-blue-light: config('colors.blue-light');
+    --color-blue-lighter: config('colors.blue-lighter');
+    --color-blue-lightest: config('colors.blue-lightest');
+
     --font-sans: config('fonts.sans');
     --font-serif: config('fonts.serif');
     --font-mono: config('fonts.mono');
