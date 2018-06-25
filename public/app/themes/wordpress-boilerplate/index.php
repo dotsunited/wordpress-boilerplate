@@ -8,7 +8,7 @@
                 <?php echo get_the_date(); ?>
             </time>
 
-            <h1 class="leading-none mb-4">
+            <h1 class="leading-none m-0 mb-4">
                 <a class="no-underline hover:underline text-black" href="<?php the_permalink(); ?>" title="<?php echo esc_attr(sprintf(__('Permalink to %s', 'wordpress-boilerplate'), the_title_attribute('echo=0'))); ?>" rel="bookmark">
                     <?php echo the_title(); ?>
                 </a>
