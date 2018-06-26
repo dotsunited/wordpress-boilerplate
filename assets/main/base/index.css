@@ -1,18 +1,10 @@
-@import './variables.css';
-@import 'normalize.css';
+@import '../variables.css';
 
 html {
-    box-sizing: border-box;
     background: var(--color-grey-lighter);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
 }
 
 body {
@@ -23,9 +15,4 @@ body {
 
 a {
     color: var(--color-blue)
-}
-
-img {
-    border: 0;
-    max-width: 100%;
 }
