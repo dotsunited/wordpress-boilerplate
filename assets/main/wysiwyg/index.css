@@ -1,0 +1,45 @@
+.wysiwyg {
+    & blockquote,
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6,
+    & p,
+    & ul,
+    & ol,
+    & pre {
+        margin: 0 0 1rem 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    & sub,
+    & sup {
+        font-size: .5rem;
+    }
+
+    & sub {
+        vertical-align: sub;
+    }
+
+    & sup {
+        vertical-align: super;
+    }
+
+    & cite {
+        font-style: italic;
+    }
+
+    & blockquote {
+        border-left: 4px solid #e6e6e6;
+        padding: .5rem 1rem;
+    }
+
+    & table {
+        width: 100%
+    }
+}

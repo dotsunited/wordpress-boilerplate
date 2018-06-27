@@ -19,8 +19,9 @@
                 <?php the_post_thumbnail(); ?>
             </div>
         <?php endif; ?>
-
-            <?php the_content(); ?>
+            <div class="wysiwyg">
+                <?php the_content(); ?>
+            </div>
         </article>
     <?php endwhile; ?>
 
