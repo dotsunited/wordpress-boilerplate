@@ -8,7 +8,36 @@
  * Author URI: https://dotsunited.de
  */
 
-function mu_plugin_loader_get_plugins()
+namespace DotsUnited\MuPluginLoader;
+
+add_action('muplugins_loaded', function () {
+    foreach (_get_plugins() as $path) {
+        if (\is_readable($path)) {
+            require_once $path;
+        }
+    }
+});
+
+add_action('after_plugin_row_mu-plugin-loader.php', function () {
+    $table = new \WP_Plugins_List_Table;
+
+    foreach (_get_plugins() as $file => $path) {
+        $data = get_plugin_data($path, false);
+
+        $data['Name'] = sprintf(
+            '<small style="display:block;opacity:.5">%s</small>↳ %s',
+            'Must-Use Plugin Loader',
+            $data['Name']
+        );
+
+        $table->single_row([$file, $data]);
+    }
+});
+
+/**
+ * @internal
+ */
+function _get_plugins()
 {
     if (\defined('WP_INSTALLING') && true === WP_INSTALLING) {
         return [];
@@ -24,7 +53,7 @@ function mu_plugin_loader_get_plugins()
 
     $dirs = \glob(WPMU_PLUGIN_DIR . '/*', \GLOB_ONLYDIR);
 
-    $transientKey = mu_plugin_loader_transient_key($dirs);
+    $transientKey = _transient_key($dirs);
 
     $plugins = get_site_transient($transientKey);
 
@@ -57,17 +86,20 @@ function mu_plugin_loader_get_plugins()
     set_site_transient(
         $transientKey,
         $plugins,
-        mu_plugin_loader_transient_expiration()
+        _transient_expiration()
     );
 
     return $plugins;
 }
 
-function mu_plugin_loader_transient_key(array $dirs)
+/**
+ * @internal
+ */
+function _transient_key(array $dirs)
 {
-    $existingKey = get_site_transient('mu_plugin_loader_transient_key');
+    $existingKey = get_site_transient('dotsunited_mu_plugin_loader_transient_key');
 
-    $key = 'mu_plugin_loader_' . md5(implode('', $dirs));
+    $key = 'dotsunited_mu_plugin_loader_' . md5(implode('', $dirs));
 
     if ($existingKey !== $key) {
         if ($existingKey) {
@@ -75,43 +107,22 @@ function mu_plugin_loader_transient_key(array $dirs)
         }
 
         set_site_transient(
-            'mu_plugin_loader_transient_key',
+            'dotsunited_mu_plugin_loader_transient_key',
             $key,
-            mu_plugin_loader_transient_expiration()
+            _transient_expiration()
         );
     }
 
     return $key;
 }
 
-function mu_plugin_loader_transient_expiration()
+/**
+ * @internal
+ */
+function _transient_expiration()
 {
     return apply_filters(
-        'mu_plugin_loader_transient_expiration',
+        'dotsunited_mu_plugin_loader_transient_expiration',
         DAY_IN_SECONDS
     );
 }
-
-add_action('muplugins_loaded', function () {
-    foreach (mu_plugin_loader_get_plugins() as $path) {
-        if (\is_readable($path)) {
-            require_once $path;
-        }
-    }
-});
-
-add_action('after_plugin_row_mu-plugin-loader.php', function () {
-    $table = new WP_Plugins_List_Table;
-
-    foreach (mu_plugin_loader_get_plugins() as $file => $path) {
-        $data = get_plugin_data($path, false);
-
-        $data['Name'] = sprintf(
-            '<small style="display:block;opacity:.5">%s</small>↳ %s',
-            'Must-Use Plugin Loader',
-            $data['Name']
-        );
-
-        $table->single_row([$file, $data]);
-    }
-});
