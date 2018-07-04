@@ -9,7 +9,9 @@
     & p,
     & ul,
     & ol,
-    & pre {
+    & pre,
+    & iframe,
+    & table {
         margin: 0 0 1rem 0;
 
         &:last-child {
@@ -39,7 +41,24 @@
         padding: .5rem 1rem;
     }
 
-    & table {
-        width: 100%
+    & .responsive-iframe,
+    & .responsive-table {
+        margin: 0 0 1rem 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    & .responsive-iframe {
+        & iframe {
+            margin: 0;
+        }
+    }
+
+    & .responsive-table {
+        & table {
+            margin: 0;
+        }
     }
 }
