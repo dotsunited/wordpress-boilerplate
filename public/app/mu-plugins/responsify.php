@@ -61,17 +61,17 @@ function iframes($html)
         $iFrameAttr = \preg_replace('/style="([^"]+)"/iU', '', $matches[1]);
         $iFrameAttr .= '  style="' . $style . 'position:absolute;top:0;left:0;width:100%;height:100%;"';
 
-        $styleAttr = '';
+        $rootStyle = 'width:100%';
 
         if ($width) {
             if (\is_numeric($width)) {
-                $styleAttr = ' style="max-width:' . $width . 'px"';
+                $rootStyle .= ';max-width:' . $width . 'px';
             } elseif ('%' === \substr($width, -1)) {
-                $styleAttr = ' style="max-width:' . $width . '"';
+                $rootStyle .= ';max-width:' . $width;
             }
         }
 
-        return '<div class="responsive-iframe"' . $styleAttr . '><div style="position:relative;padding-bottom:' . $paddingBottom . '%;height:0;overflow:hidden;width:100%;"><iframe' . $iFrameAttr . '></iframe></div></div>';
+        return '<div class="responsive-iframe" style="' . $rootStyle . '"><div style="position:relative;padding-bottom:' . $paddingBottom . '%;height:0;overflow:hidden;width:100%;"><iframe' . $iFrameAttr . '></iframe></div></div>';
     }, $html);
 
     return $html;
@@ -94,17 +94,17 @@ function tables($html)
         $tableAttr = \preg_replace('/style="([^"]+)"/iU', '', $matches[1]);
         $tableAttr .= '  style="' . $style . 'min-width:100%;"';
 
-        $styleAttr = '';
+        $rootStyle = 'width:100%';
 
         if ($width) {
             if (\is_numeric($width)) {
-                $styleAttr = ' style="max-width:' . $width . 'px"';
+                $rootStyle .= ';max-width:' . $width . 'px';
             } elseif ('%' === \substr($width, -1)) {
-                $styleAttr = ' style="max-width:' . $width . '"';
+                $rootStyle .= ';max-width:' . $width;
             }
         }
 
-        return '<div class="responsive-table"' . $styleAttr . '><div style="display:block;overflow-x:auto;width:100%;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar"><table' . $tableAttr . '>' . $matches[2] . '</table></div></div>';
+        return '<div class="responsive-table" style="' . $rootStyle . '"><div style="display:block;overflow-x:auto;width:100%;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar"><table' . $tableAttr . '>' . $matches[2] . '</table></div></div>';
     }, $html);
 
     return $html;
