@@ -519,16 +519,6 @@ ul {
 }
 
 /**
- * Suppress the focus outline on elements that cannot be accessed via keyboard.
- * This prevents an unwanted focus outline from appearing around elements that
- * might still respond to pointer events.
- */
-
-[tabindex="-1"]:focus {
-  outline: none !important;
-}
-
-/**
  * Tailwind custom reset styles
  */
 
@@ -589,6 +579,7 @@ textarea {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 button,
@@ -608,4 +599,8 @@ textarea::placeholder {
 button,
 [role=button] {
   cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
 }
