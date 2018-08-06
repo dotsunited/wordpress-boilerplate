@@ -46,7 +46,6 @@ module.exports = () => {
                                         {
                                             useBuiltIns: 'entry',
                                             modules: false,
-                                            debug: true,
                                         }
                                     ]
                                 ],
