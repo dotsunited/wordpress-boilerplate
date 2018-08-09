@@ -92,9 +92,7 @@ function wordpress_boilerplate_asset_url($path)
 
 function wordpress_boilerplate_asset_embed($path)
 {
-    ob_start();
-    include TEMPLATEPATH . DIRECTORY_SEPARATOR . $path;
-    $content = ob_get_clean();
+    $content = file_get_contents(TEMPLATEPATH . DIRECTORY_SEPARATOR . $path);
 
     $targetUrl = rtrim(get_template_directory_uri(), '/') . '/' . dirname(ltrim($path, '/'));
 
