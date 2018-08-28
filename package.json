@@ -22,28 +22,28 @@
     "not ie < 10"
   ],
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.56"
+    "@babel/polyfill": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.56",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.56",
-    "@babel/preset-env": "^7.0.0-beta.56",
-    "babel-loader": "^8.0.0-beta.4",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
     "clean-webpack-plugin": "^0.1.19",
     "cli-real-favicon": "0.0.6",
     "css-loader": "^1.0.0",
-    "cssnano": "^4.0.5",
-    "file-loader": "^1.1.11",
+    "cssnano": "^4.1.0",
+    "file-loader": "^2.0.0",
     "image-webpack-loader": "^4.3.1",
-    "mini-css-extract-plugin": "^0.4.1",
+    "mini-css-extract-plugin": "^0.4.2",
     "postcss-assets-webpack-plugin": "^3.0.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.0",
-    "postcss-loader": "^2.1.6",
-    "style-loader": "^0.21.0",
-    "tailwindcss": "^0.6.4",
-    "webpack": "^4.16.5",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.0",
+    "tailwindcss": "^0.6.5",
+    "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-manifest-plugin": "^2.0.3"
   }
