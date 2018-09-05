@@ -40,7 +40,7 @@ module.exports = () => {
             strictExportPresence: true,
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.(js|mjs)$/,
                     use: [
                         {
                             loader: 'babel-loader',
