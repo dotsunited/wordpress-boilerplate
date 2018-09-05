@@ -27,7 +27,14 @@ module.exports = () => {
             runtimeChunk: 'single'
         },
         resolve: {
-            extensions: ['.js', '.css', '.json']
+            // Extends the default config by adding the .css extension
+            // to allow index.css entry points.
+            // See https://webpack.js.org/configuration/resolve/#resolve-extensions
+            extensions: ['.wasm', '.mjs', '.js', '.json', '.css'],
+            // Extends the default config by adding the es2015 field
+            // and removes the browser fields.
+            // See https://webpack.js.org/configuration/resolve/#resolve-mainfields
+            mainFields: ['es2015', 'module', 'main']
         },
         module: {
             strictExportPresence: true,
