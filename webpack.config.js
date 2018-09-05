@@ -47,6 +47,7 @@ module.exports = () => {
                             options: {
                                 cacheDirectory: true,
                                 babelrc: false,
+                                highlightCode: true,
                                 presets: [
                                     [
                                         '@babel/preset-env',
