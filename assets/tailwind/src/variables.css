@@ -21,8 +21,8 @@
     --font-serif: config('fonts.serif');
     --font-mono: config('fonts.mono');
 
-    --border-radius-default: config('borderRadius.default');
-    --shadow-default: config('shadows.default');
+    --border-radius: config('borderRadius.default');
+    --shadow: config('shadows.default');
 }
 
 @custom-media --screen-sm (min-width: config('screens.sm'));

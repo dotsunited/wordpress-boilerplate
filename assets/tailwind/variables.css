@@ -18,8 +18,8 @@
   --font-sans: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --font-serif: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
   --font-mono: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --border-radius-default: .25rem;
-  --shadow-default: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  --border-radius: .25rem;
+  --shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
 }
 @custom-media --screen-sm (min-width: 576px);
 @custom-media --screen-md (min-width: 768px);
