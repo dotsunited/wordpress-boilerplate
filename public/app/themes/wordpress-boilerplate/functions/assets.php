@@ -1,13 +1,17 @@
 <?php
 
-$head = function() {
-?>
-<?php
+add_action('wp_head', function() {
 /*
  * Webfont preloading example
 ?>
+
 <link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('roboto.woff')); ?>" as="font" type="font/woff" crossorigin>
+
+<?php
 */
+}, -1000);
+
+add_action('wp_head', function() {
 ?>
 
 <script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;</script>
@@ -16,20 +20,7 @@ $head = function() {
 <script async src="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main.js')); ?>"></script>
 
 <?php
-};
-
-add_action('wp_head', $head, -1000);
-
-// Support for the Gravity Forms Iframe Add-on plugin
-// https://github.com/cedaro/gravity-forms-iframe
-add_action('gfiframe_head', $head, -1000);
-add_action('gfiframe_head', function () {
-?>
-<style>body { background-image: none !important; } .gform_wrapper, .gform_wrapper form { margin: 0 !important; }</style>
-<?php
-}, -1000);
-
-unset($head);
+}, 1000);
 
 function wordpress_boilerplate_asset_url_from_manifest($name)
 {
