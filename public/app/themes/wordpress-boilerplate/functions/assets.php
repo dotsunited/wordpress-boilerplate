@@ -1,23 +1,5 @@
 <?php
 
-add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
-    if (is_admin()) {
-        return;
-    }
-
-    // Remove embed script (https://core.trac.wordpress.org/changeset/35708)
-    $scripts->remove('wp-embed');
-
-    // Remove jquery-migrate by re-registering jquery dependent only on jquery-core
-    $scripts->remove('jquery');
-    $scripts->add(
-        'jquery',
-        false,
-        array('jquery-core'),
-        false
-    );
-});
-
 $head = function() {
 ?>
 <?php
