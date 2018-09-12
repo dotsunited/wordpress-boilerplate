@@ -1,4 +1,6 @@
 .wysiwyg {
+    display: flow-root;
+
     & blockquote,
     & h1,
     & h2,
@@ -15,7 +17,12 @@
     & .responsive-iframe,
     & .responsive-table {
         margin: 0 0 1rem 0;
+    }
 
+    & ul ul,
+    & ul ol,
+    & ol ul,
+    & ol ol {
         &:last-child {
             margin-bottom: 0;
         }
