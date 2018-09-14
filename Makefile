@@ -3,6 +3,8 @@ deps: node_modules vendor
 
 node_modules: package.json package-lock.json
 	npm install
+	# Workaround to prevent always running this target
+	touch node_modules
 
 vendor: composer.json composer.lock
 	composer self-update
