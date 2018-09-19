@@ -72,8 +72,18 @@ function wordpress_boilerplate_asset_embed($path)
     $rewriteUrl = function ($matches) use ($targetUrl) {
         $url = $matches['url'];
 
-        // First check also matches protocol-relative urls like //example.com
-        if ((isset($url[0])  && '/' === $url[0]) || false !== strpos($url, '://') || 0 === strpos($url, 'data:')) {
+        if (!isset($url[0])) {
+            return $matches[0];
+        }
+
+        if (
+            // Also matches protocol-relative urls like //example.com
+            0 === strpos($url, '/') ||
+            // Matches anchors, like clip-path:url(#id) in SVGs
+            0 === strpos($url, '#') ||
+            false !== strpos($url, '://') ||
+            0 === strpos($url, 'data:')
+        ) {
             return $matches[0];
         }
 
