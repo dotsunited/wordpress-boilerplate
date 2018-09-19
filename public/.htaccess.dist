@@ -1,0 +1,25 @@
+# Custom WordPress rewrite rules
+#
+# https://github.com/roots/bedrock/issues/325
+# https://discourse.roots.io/t/recommended-subdomain-multisite-nginx-vhost-configuration-with-new-web-layout/1429/12
+# https://gist.github.com/danielbachhuber/9379135
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+RewriteRule ^wp-admin/?$ wp/wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^(wp-(content|admin|includes|.*.php).*) wp/$1 [L]
+RewriteRule ^(.*\.php)$ wp/$1 [L]
+RewriteRule . index.php [L]
+
+# BEGIN WordPress
+
+# Placeholder for automatic rewrite rule addition by WordPress
+
+# END WordPress

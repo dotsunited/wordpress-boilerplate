@@ -40,15 +40,16 @@ ServerSignature Off
 #
 # https://msdn.microsoft.com/en-us/library/ie/bg182625.aspx#docmode
 # https://blogs.msdn.microsoft.com/ie/2014/04/02/stay-up-to-date-with-enterprise-mode-for-internet-explorer-11/
+# https://msdn.microsoft.com/en-us/library/ff955275.aspx
 
 <IfModule mod_headers.c>
     Header set X-UA-Compatible "IE=edge"
 
     # `mod_headers` cannot match based on the content-type, however,
-    # the `X-UA-Compatible` response header should be send only for
+    # the `X-UA-Compatible` response header should be sent only for
     # HTML documents and not for the other resources.
 
-    <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+    <FilesMatch "\.(appcache|atom|bbaw|bmp|br|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|gz|htc|ic[os]|jpe?g|m?js|json(ld)?|m4[av]|manifest|map|markdown|md|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|wasm|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
@@ -72,10 +73,10 @@ ServerSignature Off
 
   # JavaScript
 
-    # Normalize to standard type.
-    # https://tools.ietf.org/html/rfc4329#section-7.2
+    # Servers should use text/javascript for JavaScript resources.
+    # https://html.spec.whatwg.org/multipage/scripting.html#scriptingLanguages
 
-    AddType application/javascript                      js mjs
+    AddType text/javascript                             js mjs
 
 
   # Manifest files
@@ -102,6 +103,11 @@ ServerSignature Off
     # https://github.com/h5bp/html5-boilerplate/commit/37b5fec090d00f38de64b591bcddcb205aadf8ee
 
     AddType image/x-icon                                cur ico
+
+
+  # WebAssembly
+
+    AddType application/wasm                            wasm
 
 
   # Web fonts
@@ -142,28 +148,73 @@ AddDefaultCharset utf-8
 #
 # https://httpd.apache.org/docs/current/mod/mod_mime.html#addcharset
 
-#<IfModule mod_mime.c>
-#    AddCharset utf-8 .atom \
-#                     .bbaw \
-#                     .css \
-#                     .geojson \
-#                     .ics \
-#                     .js \
-#                     .json \
-#                     .jsonld \
-#                     .manifest \
-#                     .markdown \
-#                     .md \
-#                     .mjs \
-#                     .rdf \
-#                     .rss \
-#                     .topojson \
-#                     .vtt \
-#                     .webapp \
-#                     .webmanifest \
-#                     .xloc \
-#                     .xml
-#</IfModule>
+<IfModule mod_mime.c>
+    AddCharset utf-8 .atom \
+                     .bbaw \
+                     .css \
+                     .geojson \
+                     .ics \
+                     .js \
+                     .json \
+                     .jsonld \
+                     .manifest \
+                     .markdown \
+                     .md \
+                     .mjs \
+                     .rdf \
+                     .rss \
+                     .topojson \
+                     .vtt \
+                     .webapp \
+                     .webmanifest \
+                     .xloc \
+                     .xml
+</IfModule>
+
+# Block access to all hidden files and directories with the exception of
+# the visible content from within the `/.well-known/` hidden directory.
+#
+# These types of files usually contain user preferences or the preserved
+# state of an utility, and can include rather private places like, for
+# example, the `.git` or `.svn` directories.
+#
+# The `/.well-known/` directory represents the standard (RFC 5785) path
+# prefix for "well-known locations" (e.g.: `/.well-known/manifest.json`,
+# `/.well-known/keybase.txt`), and therefore, access to its visible
+# content should not be blocked.
+#
+# https://www.mnot.net/blog/2010/04/07/well-known
+# https://tools.ietf.org/html/rfc5785
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} "!(^|/)\.well-known/([^./]+./?)+$" [NC]
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+
+# Block access to files that can expose sensitive information.
+#
+# By default, block access to backup and source files that may be
+# left by some text editors and can pose a security risk when anyone
+# has access to them.
+#
+# https://feross.org/cmsploit/
+#
+# (!) Update the `<FilesMatch>` regular expression from below to
+# include any files that might end up on your production server and
+# can expose sensitive information about your website. These files may
+# include: configuration files, files that contain metadata about the
+# project (e.g.: project dependencies), build scripts, etc..
+
+<IfModule mod_authz_core.c>
+    <FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|orig|psd|sh|sql|sw[op])|~)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
 
 # Prevent some browsers from MIME-sniffing the response.
 #
@@ -172,9 +223,8 @@ AddDefaultCharset utf-8
 # is serving user-uploaded content or content that could potentially be
 # treated as executable by the browser.
 #
-# https://www.slideshare.net/hasegawayosuke/owasp-hasegawa
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
 # https://blogs.msdn.microsoft.com/ie/2008/07/02/ie8-security-part-v-comprehensive-protection/
-# https://msdn.microsoft.com/en-us/library/ie/gg622941.aspx
 # https://mimesniff.spec.whatwg.org/
 
 <IfModule mod_headers.c>
@@ -188,7 +238,9 @@ AddDefaultCharset utf-8
 <IfModule mod_deflate.c>
 
     # Force compression for mangled `Accept-Encoding` request headers
-    # https://developer.yahoo.com/blogs/ydn/pushing-beyond-gzipping-25601.html
+    #
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
+    # https://calendar.perfplanet.com/2010/pushing-beyond-gzipping/
 
     <IfModule mod_setenvif.c>
         <IfModule mod_headers.c>
@@ -200,11 +252,6 @@ AddDefaultCharset utf-8
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Compress all output labeled with one of the following media types.
-    #
-    # (!) For Apache versions below version 2.3.7 you don't need to
-    # enable `mod_filter` and can remove the `<IfModule mod_filter.c>`
-    # and `</IfModule>` lines as `AddOutputFilterByType` is still in
-    # the core directives.
     #
     # https://httpd.apache.org/docs/current/mod/mod_filter.html#addoutputfilterbytype
 
@@ -219,6 +266,7 @@ AddDefaultCharset utf-8
                                       "application/schema+json" \
                                       "application/vnd.geo+json" \
                                       "application/vnd.ms-fontobject" \
+                                      "application/wasm" \
                                       "application/x-font-ttf" \
                                       "application/x-javascript" \
                                       "application/x-web-app-manifest+json" \
@@ -262,6 +310,7 @@ AddDefaultCharset utf-8
     # the response, and thus, wouldn't be able to understand the
     # content.
     #
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
     # https://httpd.apache.org/docs/current/mod/mod_mime.html#addencoding
 
     <IfModule mod_mime.c>
@@ -272,6 +321,7 @@ AddDefaultCharset utf-8
 
 # Remove `ETags` as resources are sent with far-future expires headers.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
 # https://developer.yahoo.com/performance/rules.html#etags
 # https://tools.ietf.org/html/rfc7232#section-2.3
 
@@ -282,12 +332,14 @@ AddDefaultCharset utf-8
 
 FileETag None
 
-# Serve resources with far-future expires headers.
+# Serve resources with far-future expiration date.
 #
 # (!) If you don't control versioning with filename-based
 # cache busting, you should consider lowering the cache times
 # to something like one week.
 #
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires
 # https://httpd.apache.org/docs/current/mod/mod_expires.html
 
 <IfModule mod_expires.c>
@@ -358,6 +410,11 @@ FileETag None
     ExpiresByType video/webm                            "access plus 1 month"
 
 
+  # WebAssembly
+
+    ExpiresByType application/wasm                      "access plus 1 year"
+
+
   # Web fonts
 
     # Collection
@@ -390,29 +447,3 @@ FileETag None
     ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
 
 </IfModule>
-
-# Custom WordPress rewrite rules
-#
-# https://github.com/roots/bedrock/issues/325
-# https://discourse.roots.io/t/recommended-subdomain-multisite-nginx-vhost-configuration-with-new-web-layout/1429/12
-# https://gist.github.com/danielbachhuber/9379135
-
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-
-RewriteRule ^wp-admin/?$ wp/wp-admin/ [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-RewriteRule ^(wp-(content|admin|includes|.*.php).*) wp/$1 [L]
-RewriteRule ^(.*\.php)$ wp/$1 [L]
-RewriteRule . index.php [L]
-
-# BEGIN WordPress
-
-# Placeholder in case of automatic rewrite rule addtion by WordPress
-
-# END WordPress
