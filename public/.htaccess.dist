@@ -9,6 +9,7 @@ RewriteBase /
 RewriteRule ^index\.php$ - [L]
 
 RewriteRule ^wp-admin/?$ wp/wp-admin/ [R=301,L]
+RewriteRule ^wp/?$ . [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -16,6 +17,7 @@ RewriteRule ^ - [L]
 
 RewriteRule ^(wp-(content|admin|includes|.*.php).*) wp/$1 [L]
 RewriteRule ^(.*\.php)$ wp/$1 [L]
+RewriteRule ^wp/(.*)$ $1 [R=301,L]
 RewriteRule . index.php [L]
 
 # BEGIN WordPress
