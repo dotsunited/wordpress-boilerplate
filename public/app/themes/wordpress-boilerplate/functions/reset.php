@@ -68,7 +68,15 @@ add_action('init', function () {
 
         add_post_type_support('page', 'editor');
     }, -1000);
+    add_filter('gutenberg_can_edit_post', function ($can_edit, $post) {
+        if ((string) $post->ID !== (string) get_option('page_for_posts')) {
+            return $can_edit;
+        }
 
+        return true;
+    }, 1000, 2);
+
+    // -- Remove editing site icon from the customizer --
     add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         $wp_customize->remove_control('site_icon');
     }, 20, 1);
