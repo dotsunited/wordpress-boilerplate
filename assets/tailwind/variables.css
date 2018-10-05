@@ -1,4 +1,8 @@
 :root {
+  --screen-width-sm: 576px;
+  --screen-width-md: 768px;
+  --screen-width-lg: 992px;
+  --screen-width-xl: 1200px;
   --color-black: #22292f;
   --color-grey-darkest: #3d4852;
   --color-grey-darker: #606f7b;

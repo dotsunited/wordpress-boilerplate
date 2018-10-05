@@ -1,4 +1,9 @@
 :root {
+    --screen-width-sm: config('screens.sm');
+    --screen-width-md: config('screens.md');
+    --screen-width-lg: config('screens.lg');
+    --screen-width-xl: config('screens.xl');
+
     --color-black: config('colors.black');
     --color-grey-darkest: config('colors.grey-darkest');
     --color-grey-darker: config('colors.grey-darker');
