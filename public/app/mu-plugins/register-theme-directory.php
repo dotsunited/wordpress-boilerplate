@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Register Theme Directory
  * Plugin URI: https://dotsunited.de
- * Description: Registers app/themes/ as custom theme directory.
+ * Description: Registers <code>app/themes/</code> as custom theme directory.
  * Version: 1.0.0
  * Author: Dots United GmbH
  * Author URI: https://dotsunited.de
@@ -10,48 +10,125 @@
 
 namespace DotsUnited\RegisterThemeDirectory;
 
-/**
- * We need the path of the public/ directory *without* resolving symlinks.
- * WordPress stores the template_root option as absolute path if the theme
- * directory is located outside of the WordPress installation and we need to
- * keep that path stable in cases where directories are symlinked.
+/*
+ * Note: WordPress stores absolute paths for the `template_root` and
+ * `stylesheet_root` options as well as for the `theme_roots` transient if the
+ * theme directory is located outside of the WordPress installation.
+ *
+ * The path is transformed into a relative path with a %WP_HOME_PATH% prefix
+ * before the options are stored and expanded back to an absolute path on
+ * reading.
+ *
+ * This ensures portability for different (symlinked) setups and when the
+ * application is moved to a different location.
  */
-if (isset($_SERVER['DOCUMENT_ROOT']) && '' !== \trim($_SERVER['DOCUMENT_ROOT'])) {
-    // We still need to run the detection logic on $_SERVER['DOCUMENT_ROOT']
-    // because wp-cli sets it to the ABSPATH value which points to wp/
-    $rootDir = $_SERVER['DOCUMENT_ROOT'];
-} elseif (isset($_SERVER['PWD']) && '' !== \trim($_SERVER['PWD'])) {
-    $rootDir = $_SERVER['PWD'];
-} else {
-    $rootDir = __DIR__;
-}
 
-while (!\file_exists($rootDir . '/public')) {
-    $rootDir = \dirname($rootDir);
+register_theme_directory(_get_app_theme_path());
 
-    if ('' === $rootDir || '.' === $rootDir) {
-        break;
-    }
-}
-
-$themeDir = \str_replace('\\', '/', $rootDir) . '/public/app/themes';
-
-if (!\file_exists($themeDir)) {
-    return;
-}
-
-register_theme_directory($themeDir);
-
-/**
- * Hook to fix theme URLs when the theme directory is located outside of the
- * WordPress installation.
- */
-add_filter('theme_root_uri', function ($theme_root_uri) use ($themeDir) {
-    if (0 !== \strpos($theme_root_uri, $themeDir)) {
-        return $theme_root_uri;
+add_filter('pre_update_option_template_root', function ($value) {
+    if (_get_app_theme_path() === $value) {
+        return '%WP_HOME_PATH%/app/themes';
     }
 
-    return home_url('/app/themes');
+    return $value;
 });
 
-unset($rootDir, $themeDir);
+add_filter('pre_update_option_stylesheet_root', function ($value) {
+    if (_get_app_theme_path() === $value) {
+        return '%WP_HOME_PATH%/app/themes';
+    }
+
+    return $value;
+});
+
+add_filter('option_template_root', function ($value) {
+    if (_is_stored_app_theme_path($value)) {
+        return _get_app_theme_path();
+    }
+
+    return $value;
+});
+
+add_filter('option_stylesheet_root', function ($value) {
+    if (_is_stored_app_theme_path($value)) {
+        return _get_app_theme_path();
+    }
+
+    return $value;
+});
+
+add_filter('pre_set_site_transient_theme_roots', function ($value) {
+    if (!\is_array($value)) {
+        return $value;
+    }
+
+    $newValue = [];
+
+    foreach ($value as $theme => $path) {
+        if (_get_app_theme_path() === $path) {
+            $path = '%WP_HOME_PATH%/app/themes';
+        }
+
+        $newValue[$theme] = $path;
+    }
+
+    return $newValue;
+});
+
+add_filter('site_transient_theme_roots', function ($value) {
+    if (!\is_array($value)) {
+        return $value;
+    }
+
+    $newValue = [];
+
+    foreach ($value as $theme => $path) {
+        if (_is_stored_app_theme_path($path)) {
+            $path = _get_app_theme_path();
+        }
+
+        $newValue[$theme] = $path;
+    }
+
+    return $newValue;
+});
+
+add_filter('theme_root_uri', function ($themeRootUri) {
+    if (_get_app_theme_path() === $themeRootUri) {
+        return home_url('/app/themes');
+    }
+
+    return $themeRootUri;
+});
+
+function _get_app_theme_path()
+{
+    static $themePath;
+
+    if (!$themePath) {
+        $themePath = _detect_wp_home_path() . '/app/themes';
+    }
+
+    return $themePath;
+}
+
+function _detect_wp_home_path()
+{
+    $homePath = __DIR__;
+
+    while (!\is_dir($homePath . '/app/themes')) {
+        $homePath = \dirname($homePath);
+
+        if ('' === $homePath || '.' === $homePath) {
+            $homePath = '';
+            break;
+        }
+    }
+
+    return $homePath;
+}
+
+function _is_stored_app_theme_path($path)
+{
+    return '/app/themes' === \str_replace('%WP_HOME_PATH%', '', $path);
+}
