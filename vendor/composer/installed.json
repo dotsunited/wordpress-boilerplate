@@ -122,6 +122,52 @@
         ]
     },
     {
+        "name": "dotsunited-wordpress-plugin/responsify",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dotsunited/wordpress-plugin-responsify.git",
+            "reference": "5f69984e3f703f879921f730d4cb5255091f5377"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-responsify/zipball/5f69984e3f703f879921f730d4cb5255091f5377",
+            "reference": "5f69984e3f703f879921f730d4cb5255091f5377",
+            "shasum": ""
+        },
+        "require": {
+            "composer/installers": "^1.0",
+            "php": "^5.6 || ^7.0"
+        },
+        "time": "2018-09-14T07:49:53+00:00",
+        "type": "wordpress-plugin",
+        "extra": {
+            "installer-name": "dotsunited-responsify"
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jan Sorgalla",
+                "email": "jan.sorgalla@dotsunited.de",
+                "homepage": "https://dotsunited.de"
+            }
+        ],
+        "description": "Automagically responsify HTML elements like iframe's and table's.",
+        "homepage": "https://github.com/dotsunited/wordpress-plugin-responsify",
+        "keywords": [
+            "iframe",
+            "plugin",
+            "responsive",
+            "table",
+            "wordpress"
+        ]
+    },
+    {
         "name": "oscarotero/env",
         "version": "v1.1.0",
         "version_normalized": "1.1.0.0",
@@ -169,6 +215,11 @@
         "name": "roave/security-advisories",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Roave/SecurityAdvisories.git",
+            "reference": "67643fa62d521fb76855b0a4cc9a3de7ba38f85b"
+        },
         "conflict": {
             "3f/pygmentize": "<1.2",
             "adodb/adodb-php": "<5.20.12",

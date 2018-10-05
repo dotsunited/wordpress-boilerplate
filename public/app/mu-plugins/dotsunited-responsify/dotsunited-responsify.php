@@ -1,8 +1,10 @@
 <?php
 /**
- * Plugin Name: Responsify
- * Plugin URI: https://dotsunited.de
- * Description: Makes iframes, tables etc. responsive.
+ * Plugin Name: Dots United Responsify
+ * Plugin URI: https://github.com/dotsunited/wordpress-plugin-responsify
+ * Description: Automagically responsify HTML elements like <code>iframe</code>'s and <code>table</code>'s.
+ * License: MIT
+ * Author: Dots United GmbH
  * Version: 1.0.0
  * Author: Dots United GmbH
  * Author URI: https://dotsunited.de
@@ -61,17 +63,17 @@ function iframes($html)
         $iFrameAttr = \preg_replace('/style="([^"]+)"/iU', '', $matches[1]);
         $iFrameAttr .= '  style="' . $style . 'position:absolute;top:0;left:0;width:100%;height:100%;"';
 
-        $rootStyle = 'width:100%';
+        $styleAttr = '';
 
         if ($width) {
             if (\is_numeric($width)) {
-                $rootStyle .= ';max-width:' . $width . 'px';
+                $styleAttr = ' style="max-width:' . $width . 'px"';
             } elseif ('%' === \substr($width, -1)) {
-                $rootStyle .= ';max-width:' . $width;
+                $styleAttr = ' style="max-width:' . $width . '"';
             }
         }
 
-        return '<div class="responsive-iframe" style="' . $rootStyle . '"><div style="position:relative;padding-bottom:' . $paddingBottom . '%;height:0;overflow:hidden;width:100%;"><iframe' . $iFrameAttr . '></iframe></div></div>';
+        return '<div class="responsify-iframe"' . $styleAttr . '><div style="position:relative;padding-bottom:' . $paddingBottom . '%;height:0;overflow:hidden;width:100%;"><iframe' . $iFrameAttr . '></iframe></div></div>';
     }, $html);
 
     return $html;
@@ -94,17 +96,17 @@ function tables($html)
         $tableAttr = \preg_replace('/style="([^"]+)"/iU', '', $matches[1]);
         $tableAttr .= '  style="' . $style . 'min-width:100%;"';
 
-        $rootStyle = 'width:100%';
+        $styleAttr = '';
 
         if ($width) {
             if (\is_numeric($width)) {
-                $rootStyle .= ';max-width:' . $width . 'px';
+                $styleAttr = ' style="max-width:' . $width . 'px"';
             } elseif ('%' === \substr($width, -1)) {
-                $rootStyle .= ';max-width:' . $width;
+                $styleAttr = ' style="max-width:' . $width . '"';
             }
         }
 
-        return '<div class="responsive-table" style="' . $rootStyle . '"><div style="display:block;overflow-x:auto;width:100%;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar"><table' . $tableAttr . '>' . $matches[2] . '</table></div></div>';
+        return '<div class="responsify-table"' . $styleAttr . '><div style="display:block;overflow-x:auto;width:100%;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar"><table' . $tableAttr . '>' . $matches[2] . '</table></div></div>';
     }, $html);
 
     return $html;

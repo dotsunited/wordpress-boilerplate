@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "045d943a0ef00c2c2d62c766ca0abb1a",
+    "content-hash": "6967c85e57cd0ecbb24900547505b22d",
     "packages": [
         {
             "name": "composer/installers",
@@ -125,6 +125,50 @@
                 "zikula"
             ],
             "time": "2017-12-29T09:13:20+00:00"
+        },
+        {
+            "name": "dotsunited-wordpress-plugin/responsify",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotsunited/wordpress-plugin-responsify.git",
+                "reference": "5f69984e3f703f879921f730d4cb5255091f5377"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotsunited/wordpress-plugin-responsify/zipball/5f69984e3f703f879921f730d4cb5255091f5377",
+                "reference": "5f69984e3f703f879921f730d4cb5255091f5377",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^1.0",
+                "php": "^5.6 || ^7.0"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "installer-name": "dotsunited-responsify"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jan.sorgalla@dotsunited.de",
+                    "homepage": "https://dotsunited.de"
+                }
+            ],
+            "description": "Automagically responsify HTML elements like iframe's and table's.",
+            "homepage": "https://github.com/dotsunited/wordpress-plugin-responsify",
+            "keywords": [
+                "iframe",
+                "plugin",
+                "responsive",
+                "table",
+                "wordpress"
+            ],
+            "time": "2018-09-14T07:49:53+00:00"
         },
         {
             "name": "oscarotero/env",
