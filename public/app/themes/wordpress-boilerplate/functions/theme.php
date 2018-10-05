@@ -21,20 +21,6 @@ add_action('widgets_init', function () {
     ));
 });
 
-function wordpress_boilerplate_partial($slug, array $context = [], $name = null)
-{
-    global $wp_query;
-
-    $wpQueryBackup = $wp_query->query_vars;
-
-    // $wp_query->query_vars will be extract()'ed in load_template()
-    $wp_query->query_vars = ($wp_query->query_vars ?: []) + ['context' => (object) $context];
-
-    get_template_part($slug, $name);
-
-    $wp_query->query_vars = $wpQueryBackup;
-}
-
 function wordpress_boilerplate_single_post_content($display = true)
 {
     $post = get_queried_object();
@@ -64,7 +50,7 @@ function wordpress_boilerplate_pagination()
     }
 
 ?>
-    <nav class="pagination" role="navigation">
+    <nav class="pagination">
         <div class="pagination__prev"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older posts', 'wordpress-boilerplate')); ?></div>
         <div class="pagination__next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&rarr;</span>', 'wordpress-boilerplate')); ?></div>
     </nav>
