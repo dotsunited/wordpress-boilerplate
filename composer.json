@@ -21,9 +21,7 @@
     ],
     "require": {
         "composer/installers": "^1.4",
-        "dotsunited-wordpress-plugin/responsify": "^1.1",
-        "oscarotero/env": "^1.1",
-        "vlucas/phpdotenv": "^2.0"
+        "dotsunited-wordpress-plugin/responsify": "^1.1"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"

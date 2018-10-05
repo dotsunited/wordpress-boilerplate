@@ -10,7 +10,6 @@ class ComposerStaticInit8ea03081d44e1b56345095c9b7f2ebaa
         'D' => 
         array (
             'DotsUnited\\' => 11,
-            'Dotenv\\' => 7,
         ),
         'C' => 
         array (
@@ -23,23 +22,9 @@ class ComposerStaticInit8ea03081d44e1b56345095c9b7f2ebaa
         array (
             0 => __DIR__ . '/../..' . '/',
         ),
-        'Dotenv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
-        ),
-    );
-
-    public static $prefixesPsr0 = array (
-        'E' => 
-        array (
-            'Env' => 
-            array (
-                0 => __DIR__ . '/..' . '/oscarotero/env/src',
-            ),
         ),
     );
 
@@ -48,7 +33,6 @@ class ComposerStaticInit8ea03081d44e1b56345095c9b7f2ebaa
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit8ea03081d44e1b56345095c9b7f2ebaa::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit8ea03081d44e1b56345095c9b7f2ebaa::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit8ea03081d44e1b56345095c9b7f2ebaa::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

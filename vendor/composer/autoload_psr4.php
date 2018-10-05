@@ -7,6 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'DotsUnited\\' => array($baseDir . '/'),
-    'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
 );

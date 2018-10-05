@@ -1,4 +1,4 @@
 node_modules/
 public/wp/
 public/.htaccess
-.env
+public/wp-config.php
