@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@dotsunited/wordpress-boilerplate",
   "version": "7.0.0",
   "author": "Dots United GmbH",
