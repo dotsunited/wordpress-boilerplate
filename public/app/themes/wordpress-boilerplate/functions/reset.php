@@ -25,13 +25,11 @@ add_action('init', function () {
     });
 
     // -- Remove unneeded scripts and styles --
+    remove_action('wp_head', 'wp_oembed_add_host_js');
     add_filter('wp_default_scripts', function (WP_Scripts $scripts) {
         if (is_admin()) {
             return;
         }
-
-        // Remove embed script (https://core.trac.wordpress.org/changeset/35708)
-        $scripts->remove('wp-embed');
 
         // Remove jquery-migrate by re-registering jquery dependent only on jquery-core
         $scripts->remove('jquery');
@@ -49,6 +47,7 @@ add_action('init', function () {
         return '';
     });
     remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'wp_oembed_add_discovery_links');
 
     // -- Remove global comments feed --
     add_filter('feed_links_show_comments_feed', function () {
