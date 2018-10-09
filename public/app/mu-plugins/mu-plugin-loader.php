@@ -52,10 +52,6 @@ function _get_plugins($forceLoad = true)
         return [];
     }
 
-    if (!\function_exists('get_plugin_data')) {
-        require_once ABSPATH . 'wp-admin/includes/plugin.php';
-    }
-
     $dirs = \array_map(
         function ($dir) {
             return \trim(
@@ -77,6 +73,10 @@ function _get_plugins($forceLoad = true)
         if (!empty($plugins)) {
             return $plugins;
         }
+    }
+
+    if (!\function_exists('get_plugin_data')) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
 
     $plugins = [];
