@@ -95,7 +95,7 @@ add_filter('site_transient_theme_roots', function ($value) {
 
 add_filter('theme_root_uri', function ($themeRootUri) {
     if (_get_app_theme_path() === $themeRootUri) {
-        return home_url('/app/themes');
+        return network_home_url('/app/themes');
     }
 
     return $themeRootUri;
