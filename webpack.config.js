@@ -1,12 +1,61 @@
 const path = require('path');
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const PostCSSAssetsPlugin = require('postcss-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const glob = require('glob');
 
-module.exports = () => {
-    const mode = 'production';
+function getAppJsExcludeRegexp() {
+    return new RegExp('node_modules\/(?!domestique|ctrly)');
+}
+
+// Custom PurgeCSS extractor for Tailwind that allows special characters in
+// class names.
+// https://www.purgecss.com/extractors
+class TailwindPurgecssExtractor {
+    static extract(content) {
+        return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+    }
+}
+
+function getStyleLoaders() {
+    return [
+        MiniCssExtractPlugin.loader,
+        {
+            loader: 'css-loader',
+            options: {
+                importLoaders: 1,
+            },
+        },
+        {
+            loader: 'postcss-loader',
+            options: {
+                ident: 'postcss',
+                plugins: [
+                    require('postcss-import')(),
+                    require('postcss-flexbugs-fixes')(),
+                    require('postcss-preset-env')({
+                        stage: 0,
+                        autoprefixer: {
+                            flexbox: 'no-2009',
+                            grid: true,
+                        },
+                        features: {
+                            'custom-properties': {
+                                preserve: false
+                            }
+                        }
+                    }),
+                ]
+            }
+        },
+    ];
+}
+
+module.exports = (env, argv) => {
+    const mode = argv.mode === 'development' ? 'development' : 'production';
     const targetPath = 'public/app/themes/wordpress-boilerplate/assets';
 
     return {
@@ -14,8 +63,13 @@ module.exports = () => {
         entry: {
             'main': [
                 './assets/webpack-public-path.js',
+                './assets/polyfills.js',
                 './assets/main/index.js',
             ],
+            'icons': [
+                './assets/icons/index.css',
+                './assets/icons/symbol-defs.svg',
+            ]
         },
         output: {
             path: path.resolve(__dirname, targetPath),
@@ -24,7 +78,28 @@ module.exports = () => {
             chunkFilename: '[name].[contenthash].js',
         },
         optimization: {
-            runtimeChunk: 'single'
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        output: {
+                            comments: false,
+                        },
+                    },
+                    parallel: true,
+                    cache: true,
+                }),
+                new OptimizeCSSAssetsPlugin({
+                    parser: require('postcss-safe-parser'),
+                    cssProcessorPluginOptions: {
+                        preset: ['default', {
+                            discardComments: {
+                                removeAll: true,
+                            },
+                        }],
+                    },
+                }),
+            ],
+            runtimeChunk: 'single',
         },
         resolve: {
             // Extends the default config by adding the .css extension
@@ -40,70 +115,122 @@ module.exports = () => {
             strictExportPresence: true,
             rules: [
                 {
-                    test: /\.(js|mjs)$/,
-                    use: [
+                    oneOf: [
                         {
-                            loader: 'babel-loader',
-                            options: {
-                                cacheDirectory: true,
-                                babelrc: false,
-                                highlightCode: true,
-                                presets: [
-                                    [
-                                        '@babel/preset-env',
-                                        {
-                                            useBuiltIns: 'entry',
-                                            modules: false,
-                                        }
-                                    ]
-                                ],
-                                plugins: [
-                                    '@babel/plugin-syntax-dynamic-import',
-                                ]
-                            },
-                        },
-                    ],
-                },
-                {
-                    test: /\.css$/,
-                    use: [
-                        mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                importLoaders: 1,
-                                minimize: false, // Minification done by the PostCSSAssetsPlugin
-                            }
+                            test: /\.(js|mjs)$/,
+                            exclude: getAppJsExcludeRegexp(),
+                            use: [
+                                {
+                                    loader: 'babel-loader',
+                                    options: {
+                                        babelrc: false,
+                                        configFile: false,
+                                        compact: true,
+                                        highlightCode: true,
+                                        presets: [
+                                            [
+                                                '@babel/preset-env',
+                                                {
+                                                    useBuiltIns: 'usage',
+                                                    modules: false,
+                                                }
+                                            ]
+                                        ],
+                                        plugins: [
+                                            '@babel/plugin-syntax-dynamic-import',
+                                        ]
+                                    },
+                                },
+                            ],
                         },
                         {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: [
-                                    require('postcss-import')(),
-                                    require('postcss-cssnext')(),
-                                    require('postcss-flexbugs-fixes')()
-                                ]
-                            }
-                        }
-                    ],
-                },
-                {
-                    test: /\.(gif|png|jpe?g|svg)$/i,
-                    use: [
-                        'file-loader',
-                        {
-                            loader: 'image-webpack-loader',
-                            options: {
-                                disable: mode !== 'production',
-                            },
+                            test: /\.(js|mjs)$/,
+                            use: [
+                                {
+                                    loader: 'babel-loader',
+                                    options: {
+                                        babelrc: false,
+                                        configFile: false,
+                                        cacheDirectory: true,
+                                        compact: false,
+                                        highlightCode: true,
+                                        presets: [
+                                            [
+                                                '@babel/preset-env',
+                                                {
+                                                    modules: false,
+                                                }
+                                            ]
+                                        ]
+                                    },
+                                },
+                            ],
                         },
-                    ],
-                },
-                {
-                    test: /\.(woff|woff2|eot|ttf|otf)$/,
-                    use: [
-                        'file-loader',
-                    ],
+                        {
+                            test: /\.css$/,
+                            include: /assets\/tailwind/,
+                            use: getStyleLoaders().concat(!!argv.watch ? [] : [
+                                {
+                                    loader: '@americanexpress/purgecss-loader',
+                                    options: {
+                                        paths: glob.sync(path.join(__dirname, 'public/app/themes') + '/**/*.+(html|php)', {nodir: true}),
+                                        extractors: [
+                                            {
+                                                extractor: TailwindPurgecssExtractor,
+                                                extensions: ['php', 'html'],
+                                            }
+                                        ],
+                                    },
+                                },
+                            ]),
+                        },
+                        {
+                            test: /\.css$/,
+                            use: getStyleLoaders(),
+                        },
+                        {
+                            test: /\.(gif|png|jpe?g|svg)$/i,
+                            use: [
+                                {
+                                    loader: 'file-loader',
+                                    options: {
+                                        name: '[name].[hash:8].[ext]',
+                                        outputPath: 'img/',
+                                    }
+                                },
+                                {
+                                    loader: 'img-loader',
+                                    options: {
+                                        plugins: mode === 'production' && [
+                                            require('imagemin-gifsicle')({
+                                                interlaced: true,
+                                            }),
+                                            require('imagemin-mozjpeg')({
+                                                progressive: true,
+                                                arithmetic: false,
+                                            }),
+                                            require('imagemin-optipng')({
+                                                optimizationLevel: 5,
+                                            }),
+                                            require('imagemin-svgo')({}),
+                                        ]
+                                    }
+                                },
+                            ],
+                        },
+                        {
+                            test: /\.(woff|woff2|eot|ttf|otf)$/,
+                            use: [
+                                {
+                                    loader: 'file-loader',
+                                    options: {
+                                        name: '[name].[hash:8].[ext]',
+                                        outputPath: 'fonts/',
+                                    }
+                                },
+                            ],
+                        },
+                    ]
                 },
             ],
         },
@@ -112,19 +239,8 @@ module.exports = () => {
             // https://webpack.js.org/guides/caching/#module-identifiers
             new webpack.HashedModuleIdsPlugin(),
             new MiniCssExtractPlugin({
-                filename: '[name].[contenthash].css',
-                chunkFilename: '[name].[contenthash].css',
-            }),
-            new PostCSSAssetsPlugin({
-                plugins: [
-                    require('cssnano')({
-                        preset: ['default', {
-                            discardComments: {
-                                removeAll: true,
-                            },
-                        }]
-                    }),
-                ],
+                filename: '[name].[contenthash:8].css',
+                chunkFilename: '[name].[contenthash:8].css',
             }),
             new ManifestPlugin(),
         ]

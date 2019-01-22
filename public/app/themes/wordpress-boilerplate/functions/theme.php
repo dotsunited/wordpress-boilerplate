@@ -56,3 +56,24 @@ function wordpress_boilerplate_pagination()
     </nav>
 <?php
 }
+
+function wordpress_boilerplate_render($slug, array $context = [])
+{
+	$template = locate_template("$slug.php", false, false);
+	
+	if (!$template) {
+		return null;
+	}
+	
+	$render = static function () {
+		\extract(\func_get_arg(1), \EXTR_OVERWRITE);
+		
+		\ob_start();
+		
+		require \func_get_arg(0);
+		
+		return \ob_get_clean();
+	};
+	
+	return \trim($render($template, $context));
+}
