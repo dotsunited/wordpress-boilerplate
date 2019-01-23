@@ -49,31 +49,31 @@ function wordpress_boilerplate_pagination()
         return;
     }
 
-?>
+    ?>
     <nav class="pagination">
         <div class="pagination__prev"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older posts', 'wordpress-boilerplate')); ?></div>
         <div class="pagination__next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&rarr;</span>', 'wordpress-boilerplate')); ?></div>
     </nav>
-<?php
+    <?php
 }
 
 function wordpress_boilerplate_render($slug, array $context = [])
 {
-	$template = locate_template("$slug.php", false, false);
-	
-	if (!$template) {
-		return null;
-	}
-	
-	$render = static function () {
-		\extract(\func_get_arg(1), \EXTR_OVERWRITE);
-		
-		\ob_start();
-		
-		require \func_get_arg(0);
-		
-		return \ob_get_clean();
-	};
-	
-	return \trim($render($template, $context));
+    $template = locate_template("$slug.php", false, false);
+
+    if (!$template) {
+        return null;
+    }
+
+    $render = static function () {
+        \extract(\func_get_arg(1), \EXTR_OVERWRITE);
+
+        \ob_start();
+
+        require \func_get_arg(0);
+
+        return \ob_get_clean();
+    };
+
+    return \trim($render($template, $context));
 }

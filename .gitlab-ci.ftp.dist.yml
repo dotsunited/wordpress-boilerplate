@@ -1,0 +1,21 @@
+deploy_staging:
+  image: dotsunited/git-ftp
+  stage: deploy
+  only:
+    - staging
+  environment:
+    name: staging
+    url: http://wordpress-boilerplate.localhost
+  script:
+    - git ftp push -v --remote-root /wordpress-boilerplate/staging --syncroot public --user $FTP_DEPLOY_USER --passwd $FTP_DEPLOY_PASSWORD $FTP_DEPLOY_HOST
+
+deploy_production:
+  image: dotsunited/git-ftp
+  stage: deploy
+  only:
+    - master
+  environment:
+    name: production
+    url: https://wordpress-boilerplate.localhost
+  script:
+    - git ftp push -v --remote-root /wordpress-boilerplate/production --syncroot public --user $FTP_DEPLOY_USER --passwd $FTP_DEPLOY_PASSWORD $FTP_DEPLOY_HOST

@@ -1,0 +1,29 @@
+before_script:
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+
+deploy_production:
+  image: dotsunited/deployer:1
+  stage: deploy
+  environment:
+    name: production
+    url: https://wordpress-boilerplate.localhost
+  only:
+    - master
+  script:
+    - dep --no-local-build --no-interaction -vvv deploy production
+
+deploy_staging:
+  image: dotsunited/deployer:1
+  stage: deploy
+  environment:
+    name: staging
+    url: http://wordpress-boilerplate.localhost
+  only:
+    - staging
+  script:
+    - dep --no-local-build --no-interaction -vvv deploy staging

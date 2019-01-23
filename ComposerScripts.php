@@ -23,6 +23,18 @@ class ComposerScripts
         $projectName = ucwords(str_replace('-', ' ', $projectIdentifier));
         $projectName = $io->ask('Enter the project name [<comment>' . $projectName . '</comment>]: ', $projectName);
 
+        // --- Add Deployment
+
+        $deployment = $io->ask('Add a deployment type (ssh/ftp/none): ', 'none');
+        self::setupDeployment($deployment, $projectName, $projectIdentifier);
+
+        // --- Add Wordpress
+
+        $withWordpress =$io->ask('Should wordpress be added to the project? (Y/n)', 'Y');
+        self::setupWordpress($withWordpress);
+
+        // ---
+
         self::replace(__DIR__ . '/.env.dist', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
@@ -93,12 +105,14 @@ class ComposerScripts
             array(
                 'wordpress boilerplate',
                 'wordpress-boilerplate',
-                'wordpress_boilerplate'
+                'wordpress_boilerplate',
+                'WordpressBoilerplate',
             ),
             array(
                 $projectName,
                 $projectIdentifier,
-                str_replace('-', '_', $projectIdentifier)
+                str_replace('-', '_', $projectIdentifier),
+                ucfirst(str_replace('-', '', $projectIdentifier))
             ),
             $content
         );
@@ -121,5 +135,49 @@ class ComposerScripts
         $lockData = $locker->getLockData();
         $lockData['content-hash'] = Locker::getContentHash($composerJson);
         $lockFile->write($lockData);
+    }
+
+    private static function setupDeployment($type, $projectName, $projectIdentifier)
+    {
+        switch ($type) {
+            case 'ftp':
+                unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
+                unlink(__DIR__ . '/.deploy.dist.php');
+                rename(__DIR__ . '/.gitlab-ci.ftp.dist.yml', __DIR__ . '/.gitlab-ci.yml');
+                self::replace(__DIR__ . '/.gitlab-ci.yml', $projectName, $projectIdentifier);
+                break;
+            case 'ssh':
+                unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
+                rename(__DIR__ . '/.gitlab-ci.ftp.dist.yml', __DIR__ . '/.gitlab-ci.yml');
+                rename(__DIR__ . '/deploy.dist.php', __DIR__ . '/deploy.php');
+                self::replace(__DIR__ . '/.gitlab-ci.yml', $projectName, $projectIdentifier);
+                self::replace(__DIR__ . '/.deploy.php', $projectName, $projectIdentifier);
+                break;
+            case 'none':
+            default:
+                unlink(__DIR__ . '/.gitlab-ci.ftp.dist.yml');
+                unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
+                unlink(__DIR__ . '/.deploy.dist.php');
+                break;
+        }
+    }
+
+    private static function setupWordpress($withWordpress)
+    {
+        $isYes = ['y', 'yes', 'true'];
+
+        if (!\in_array(\strtolower($withWordpress), $isYes, true)) {
+            return;
+        }
+
+        if (!copy('https://wordpress.org/latest.zip', __DIR__ . '/wordpress.zip')) {
+            return;
+        }
+
+        $zip = new \ZipArchive;
+        if (true === $zip->open(__DIR__ . '/wordpress.zip')) {
+            $zip->extractTo(__DIR__ . '/public/wp');
+            $zip->close();
+        }
     }
 }
