@@ -121,7 +121,7 @@ class ComposerScripts
                 $projectName,
                 $projectIdentifier,
                 str_replace('-', '_', $projectIdentifier),
-                ucfirst(str_replace('-', '', $projectIdentifier))
+                ucwords($projectIdentifier, '-'),
             ),
             $content
         );
