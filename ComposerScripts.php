@@ -30,7 +30,7 @@ class ComposerScripts
 
         // --- Add Wordpress
 
-        $withWordpress =$io->askConfirmation('Should wordpress be added to the project?', false);
+        $withWordpress =$io->askConfirmation('Should wordpress be added to the project? (y/N) ', false);
         self::setupWordpress($withWordpress, $io);
 
         // ---
@@ -177,8 +177,10 @@ class ComposerScripts
 
         $zip = new \ZipArchive;
         if (true === $zip->open(__DIR__ . '/wordpress.zip')) {
-            $zip->extractTo(__DIR__ . '/public/wp', 'wordpress');
+            $zip->extractTo(__DIR__ . '/public');
             $zip->close();
+
+            rename(__DIR__ . '/public/wordpress', __DIR__ . '/public/wp');
         }
 
         unlink(__DIR__ . '/wordpress.zip');
