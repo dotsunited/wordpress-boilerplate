@@ -30,7 +30,7 @@ class ComposerScripts
 
         // --- Add Wordpress
 
-        $withWordpress =$io->askConfirmation('Should wordpress be added to the project? (y/N) ', false);
+        $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (y/N) ', false);
         self::setupWordpress($withWordpress, $io);
 
         // ---
