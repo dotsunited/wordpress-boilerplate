@@ -25,7 +25,7 @@ class ComposerScripts
 
         // --- Add Deployment
 
-        $deployment = $io->ask('Add a deployment type (ssh/ftp/none): ', 'none');
+        $deployment = $io->ask('Add a deployment type (ssh/ftp/NONE): ', 'none');
         self::setupDeployment($deployment, $projectName, $projectIdentifier);
 
         // --- Add Wordpress
