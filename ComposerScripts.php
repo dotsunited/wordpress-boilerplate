@@ -49,6 +49,7 @@ class ComposerScripts
         self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/favicons', $projectName, $projectIdentifier);
 
+        copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
         rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
         rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
