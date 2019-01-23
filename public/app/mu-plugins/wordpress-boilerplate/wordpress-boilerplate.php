@@ -19,7 +19,7 @@ add_action('plugins_loaded', function () {
 	}
 });
 
-function bvn_is_amp_endpoint()
+function wordpress_boilerplate_is_amp_endpoint()
 {
 	return \function_exists('is_amp_endpoint') && is_amp_endpoint();
 }

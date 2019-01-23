@@ -33,7 +33,7 @@ class ComposerScripts
         $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (y/N) ', false);
         self::setupWordpress($withWordpress, $io);
 
-        // ---
+        // --- Replace in files & dirs
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
@@ -49,9 +49,15 @@ class ComposerScripts
         self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/favicons', $projectName, $projectIdentifier);
 
+        // --- Copy/rename files & dirs
+
         copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
+
         rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
+        rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier . '/' . $projectIdentifier . '.php');
         rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
+
+        // --- Cleanup
 
         unlink(__DIR__ . '/LICENSE');
 
