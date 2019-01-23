@@ -25,12 +25,12 @@ class ComposerScripts
 
         // --- Add Deployment
 
-        $deployment = $io->ask('Add a deployment type (ssh/ftp/NONE): ', 'none');
+        $deployment = $io->ask('Add a deployment type (<comment>ssh/ftp/NONE</comment>): ', 'none');
         self::setupDeployment($deployment, $projectName, $projectIdentifier);
 
         // --- Add Wordpress
 
-        $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (y/N) ', false);
+        $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (<comment>y/N</comment>) ', false);
         self::setupWordpress($withWordpress, $io);
 
         // --- Replace in files & dirs
@@ -53,8 +53,8 @@ class ComposerScripts
 
         copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
 
+        rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/app/mu-plugins/wordpress-boilerplate/' . $projectIdentifier . '.php');
         rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
-        rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier . '/' . $projectIdentifier . '.php');
         rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
         // --- Cleanup
