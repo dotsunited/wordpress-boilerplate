@@ -177,8 +177,10 @@ class ComposerScripts
 
         $zip = new \ZipArchive;
         if (true === $zip->open(__DIR__ . '/wordpress.zip')) {
-            $zip->extractTo(__DIR__ . '/public/wp');
+            $zip->extractTo(__DIR__ . '/public/wp', 'wordpress');
             $zip->close();
         }
+
+        unlink(__DIR__ . '/wordpress.zip');
     }
 }
