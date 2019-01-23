@@ -30,19 +30,18 @@ class ComposerScripts
 
         // --- Add Wordpress
 
-        $withWordpress =$io->ask('Should wordpress be added to the project? (Y/n)', 'Y');
-        self::setupWordpress($withWordpress);
+        $withWordpress =$io->askConfirmation('Should wordpress be added to the project?', false);
+        self::setupWordpress($withWordpress, $io);
 
         // ---
 
-        self::replace(__DIR__ . '/.env.dist', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package-lock.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
 
-        self::replace(__DIR__ . '/public/wp-config.php', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
 
         self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
@@ -162,17 +161,19 @@ class ComposerScripts
         }
     }
 
-    private static function setupWordpress($withWordpress)
+    private static function setupWordpress($withWordpress, IOInterface $io)
     {
-        $isYes = ['y', 'yes', 'true'];
-
-        if (!\in_array(\strtolower($withWordpress), $isYes, true)) {
+        if (!$withWordpress) {
             return;
         }
+
+        $io->write('Download latest wordpress version from wordpress.org...');
 
         if (!copy('https://wordpress.org/latest.zip', __DIR__ . '/wordpress.zip')) {
             return;
         }
+
+        $io->write('Extract zip archive...');
 
         $zip = new \ZipArchive;
         if (true === $zip->open(__DIR__ . '/wordpress.zip')) {
