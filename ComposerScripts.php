@@ -40,13 +40,16 @@ class ComposerScripts
         self::replace(__DIR__ . '/package-lock.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/webpack-blocks.config.js', $projectName, $projectIdentifier);
 
         self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
 
         self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
+        self::replaceDir(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/favicons', $projectName, $projectIdentifier);
 
+        rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
         rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
         unlink(__DIR__ . '/LICENSE');
