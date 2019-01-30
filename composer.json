@@ -47,6 +47,6 @@
         "post-create-project-cmd" : [
             "DotsUnited\\ComposerScripts::postCreateProject"
         ],
-        "fix": "php-cs-fixer fix --config php_cs.config"
+        "fix": "php-cs-fixer fix --config .php_cs"
     }
 }
