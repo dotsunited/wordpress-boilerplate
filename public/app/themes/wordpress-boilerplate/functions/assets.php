@@ -31,7 +31,7 @@ function wordpress_boilerplate_asset_svg_icon($name, array $args = [])
     $args = wp_parse_args($args, [
         'class' => '',
         'aria-hidden' => 'true',
-        'role' => 'img'
+        'role' => 'img',
     ]);
 
     $class = 'icon icon-' . $name;

@@ -2,3 +2,4 @@ node_modules/
 public/wp/
 public/.htaccess
 public/wp-config.php
+.php_cs.cache

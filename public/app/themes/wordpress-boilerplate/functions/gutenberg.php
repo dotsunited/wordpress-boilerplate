@@ -7,7 +7,7 @@ add_action('after_setup_theme', function () {
     // Add support for widealign images
     add_theme_support('align-wide');
 
-    // Pass an empty array to remove support for color palettes, eg. for buttons.
+// Pass an empty array to remove support for color palettes, eg. for buttons.
     /*
     add_theme_support('editor-color-palette', [
         [
@@ -106,16 +106,11 @@ add_filter('the_content', function ($content) {
 
 function wordpress_boilerplate_is_gutenberg_preview()
 {
-    return (
-        defined('REST_REQUEST') &&
-        true === REST_REQUEST &&
-        'edit' === $_REQUEST['context']
-    );
+    return defined('REST_REQUEST') && true === REST_REQUEST && 'edit' === $_REQUEST['context'];
 }
 
 function _wordpress_boilerplate_gutenberg_render($slug, array $attributes = [], $previewStyle = '')
 {
-
     if (wordpress_boilerplate_is_gutenberg_preview()) {
         return '<div style="width:100%;' . esc_attr($previewStyle) . '"><img style="display:block;margin:auto;" src="' . get_template_directory_uri() . '/img/block-preview/' . $slug . '.png"></div>';
     }

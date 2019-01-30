@@ -1,7 +1,7 @@
 <?php
-/** @var null|string $className */
+/** @var string|null $className */
 $className = isset($className) ? $className : null;
-/** @var null|string $align */
+/** @var string|null $align */
 $align = isset($align) ? $align : null;
 ?>
 <aside class="<?php echo esc_attr($className); ?> <?php echo esc_attr('align' . $align); ?>">

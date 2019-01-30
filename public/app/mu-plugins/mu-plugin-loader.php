@@ -21,7 +21,7 @@ add_action('muplugins_loaded', function () {
 });
 
 add_action('after_plugin_row_mu-plugin-loader.php', function () {
-    $table = new \WP_Plugins_List_Table;
+    $table = new \WP_Plugins_List_Table();
 
     foreach (_get_plugins(true) as $file) {
         $data = get_plugin_data(

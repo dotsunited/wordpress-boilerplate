@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <?php include __DIR__.'/../../../favicons/favicons.html'; ?>
+        <?php include __DIR__ . '/../../../favicons/favicons.html'; ?>
 
         <?php wp_head(); ?>
     </head>
@@ -21,7 +21,7 @@
                     'depth' => 1,
                     'fallback_cb' => null,
                     'container' => false,
-                    'items_wrap' => '<ul id="%1$s" class="list-reset flex flex-grow %2$s">%3$s</ul>'
+                    'items_wrap' => '<ul id="%1$s" class="list-reset flex flex-grow %2$s">%3$s</ul>',
                 )); ?>
             </nav>
         </header>

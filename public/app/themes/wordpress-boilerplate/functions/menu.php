@@ -46,7 +46,7 @@ function wordpress_boilerplate_find_menu_root($location, $selector, $directParen
     _wp_menu_item_classes_by_context($menuItems);
 
     $sorted_menu_items = array();
-    foreach ((array)$menuItems as $menuItem) {
+    foreach ((array) $menuItems as $menuItem) {
         $sorted_menu_items[$menuItem->menu_order] = $menuItem;
     }
     unset($menuItems);
@@ -70,12 +70,12 @@ function wordpress_boilerplate_find_menu_root_from_items($menuItems, $selector, 
 
     if (!$directParent) {
         $prev_root_id = $root_id;
-        while ($prev_root_id != 0) {
+        while (0 != $prev_root_id) {
             foreach ($menuItems as $menu_item) {
                 if ($menu_item->ID == $prev_root_id) {
                     $prev_root_id = $menu_item->menu_item_parent;
                     // don't set the root_id to 0 if we've reached the top of the menu
-                    if ($prev_root_id != 0) {
+                    if (0 != $prev_root_id) {
                         $root_id = $menu_item->menu_item_parent;
                     }
                     break;

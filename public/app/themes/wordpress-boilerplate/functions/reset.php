@@ -56,7 +56,7 @@ add_action('init', function () {
 
     // -- Re-enable editor on blog homepage --
     add_action('edit_form_after_title', function ($post) {
-        if ((string)$post->ID !== (string)get_option('page_for_posts')) {
+        if ((string) $post->ID !== (string) get_option('page_for_posts')) {
             return;
         }
 
@@ -68,7 +68,7 @@ add_action('init', function () {
         add_post_type_support('page', 'editor');
     }, -1000);
     add_filter('gutenberg_can_edit_post', function ($can_edit, $post) {
-        if ((string)$post->ID !== (string)get_option('page_for_posts')) {
+        if ((string) $post->ID !== (string) get_option('page_for_posts')) {
             return $can_edit;
         }
 
