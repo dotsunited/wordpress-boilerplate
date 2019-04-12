@@ -55,11 +55,11 @@ class WordpressBoilerplatePlugin extends Component {
                     type="sidebar"
                     target="wordpress-boilerplate-plugin-sidebar"
                 >
-                    { __( 'Demo', 'bvn' ) }
+                    { __( 'Demo', 'wordpress-boilerplate' ) }
                 </PluginSidebarMoreMenuItem>
                 <PluginSidebar
                     name="wordpress-boilerplate-plugin-sidebar"
-                    title={ __( 'Demo', 'bvn' ) }
+                    title={ __( 'Demo', 'wordpress-boilerplate' ) }
                 >
                     <Panel>
                         <PanelBody
@@ -70,8 +70,8 @@ class WordpressBoilerplatePlugin extends Component {
                             <PanelRow>
                                 <RichText
                                     value={ wordpress_boilerplate_plugin_text }
-                                    title={ __( 'Demo', 'bvn' ) }
-                                    placeholder={ __('Demo Placeholder', 'bvn') }
+                                    title={ __( 'Demo', 'wordpress-boilerplate' ) }
+                                    placeholder={ __('Demo Placeholder', 'wordpress-boilerplate') }
                                     onChange={ ( value ) => {
                                         updateMeta( { wordpress_boilerplate_plugin_text: value } );
                                     } }

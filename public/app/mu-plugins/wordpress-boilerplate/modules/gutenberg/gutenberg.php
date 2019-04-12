@@ -60,7 +60,7 @@ add_filter('allowed_block_types', function ($current, $post) {
     // Once a block has been allowed, it is not possible to disallow it again as
     // it might be already used in posts!
 
-    // -- bvn Blocks -----------------------------------------------------------
+    // -- Wordpress Boildeprlate Blocks -----------------------------------------------------------
     $current = \array_merge(
         $current,
         [

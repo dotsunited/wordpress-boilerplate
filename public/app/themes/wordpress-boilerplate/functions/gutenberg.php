@@ -11,46 +11,46 @@ add_action('after_setup_theme', function () {
     /*
     add_theme_support('editor-color-palette', [
         [
-            'name' => __('Black', 'bvn'),
+            'name' => __('Black', 'wordpress-boilerplate'),
             'slug' => 'black',
             'color' => '#252427',
         ],
         [
-            'name' => __('Darkest', 'bvn'),
+            'name' => __('Darkest', 'wordpress-boilerplate'),
             'slug' => 'darkerest',
             'color' => '#414549',
         ],
         [
-            'name' => __('Darker', 'bvn'),
+            'name' => __('Darker', 'wordpress-boilerplate'),
             'slug' => 'darker',
             'color' => '#697788',
         ],
         [
-            'name' => __('Dark', 'bvn'),
+            'name' => __('Dark', 'wordpress-boilerplate'),
             'slug' => 'dark',
             'color' => '#676767',
         ],
         [
-            'name' => __('Light', 'bvn'),
+            'name' => __('Light', 'wordpress-boilerplate'),
             'slug' => 'light',
             'color' => '#f1f4fd',
         ],
         [
-            'name' => __('Grey', 'bvn'),
+            'name' => __('Grey', 'wordpress-boilerplate'),
             'slug' => 'grey',
             'color' => '#b8c2cc',
         ],
         [
-            'name' => __('White', 'bvn'),
+            'name' => __('White', 'wordpress-boilerplate'),
             'slug' => 'white',
             'color' => '#fff',
         ],
         [
-            'name' => __('Blue', 'bvn'),
+            'name' => __('Blue', 'wordpress-boilerplate'),
             'slug' => 'blue',
             'color' => '#4a7cf6',
         ],[
-            'name' => __('Blue Dark', 'bvn'),
+            'name' => __('Blue Dark', 'wordpress-boilerplate'),
             'slug' => 'blue-dark',
             'color' => '#0073C0',
         ],

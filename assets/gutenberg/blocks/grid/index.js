@@ -74,7 +74,7 @@ registerBlockType('wordpress-boilerplate/grid', {
                             max={4}
                         />
                         <RangeControl
-                            label={__('Rows', 'bvn')}
+                            label={__('Rows', 'wordpress-boilerplate')}
                             value={rows}
                             onChange={(nextRows) => {
                                 setAttributes({

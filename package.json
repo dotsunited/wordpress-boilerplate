@@ -8,8 +8,8 @@
   "scripts": {
     "build": "webpack --progress",
     "watch": "webpack --progress --watch",
-    "build-blocks": "webpack --config webpack-blocks.config.js --progress",
-    "watch-blocks": "webpack --config webpack-blocks.config.js --progress --mode=development --watch",
+    "build-gutenberg": "webpack --config webpack-blocks.config.js --progress",
+    "watch-gutenberg": "webpack --config webpack-blocks.config.js --progress --mode=development --watch",
     "tailwind:preflight": "tailwind build node_modules/tailwindcss/preflight.css -c assets/tailwind/src/config.js -o assets/tailwind/preflight.css",
     "tailwind:components": "tailwind build node_modules/tailwindcss/components.css -c assets/tailwind/src/config.js -o assets/tailwind/components.css",
     "tailwind:utilities": "tailwind build node_modules/tailwindcss/utilities.css -c assets/tailwind/src/config.js -o assets/tailwind/utilities.css",
