@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 
-import '../tailwind/preflight.css';
+import '../tailwind/base.css';
 
 import './base';
 import './wordpress-core';

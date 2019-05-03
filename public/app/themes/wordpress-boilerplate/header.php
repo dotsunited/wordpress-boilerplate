@@ -11,7 +11,7 @@
     </head>
     <body <?php body_class(); ?>>
         <header class="container py-8 flex items-center justify-between flex-wrap">
-            <a href="<?php echo esc_attr(get_home_url()); ?>" class="flex items-center flex-no-shrink text-white mr-6">
+            <a href="<?php echo esc_attr(get_home_url()); ?>" class="flex items-center flex-shrink-0 text-white mr-6">
                 <?php echo wordpress_boilerplate_asset_embed('/logo-dotsunited.svg'); ?>
             </a>
 
@@ -21,7 +21,7 @@
                     'depth' => 1,
                     'fallback_cb' => null,
                     'container' => false,
-                    'items_wrap' => '<ul id="%1$s" class="list-reset flex flex-grow %2$s">%3$s</ul>',
+                    'items_wrap' => '<ul id="%1$s" class="list-none flex flex-grow %2$s">%3$s</ul>',
                 )); ?>
             </nav>
         </header>

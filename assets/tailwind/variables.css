@@ -1,31 +1,35 @@
 :root {
-  --screen-width-sm: 576px;
+  --screen-width-sm: 640px;
   --screen-width-md: 768px;
-  --screen-width-lg: 992px;
-  --screen-width-xl: 1200px;
-  --color-black: #22292f;
-  --color-grey-darkest: #3d4852;
-  --color-grey-darker: #606f7b;
-  --color-grey-dark: #8795a1;
-  --color-grey: #b8c2cc;
-  --color-grey-light: #dae1e7;
-  --color-grey-lighter: #f1f5f8;
-  --color-grey-lightest: #f8fafc;
+  --screen-width-lg: 1024px;
+  --screen-width-xl: 1280px;
+  --color-black: #000;
+  --color-grey-darkest: #2d3748;
+  --color-grey-darker: #4a5568;
+  --color-grey-dark: #718096;
+  --color-grey: #a0aec0;
+  --color-grey-light: #cbd5e0;
+  --color-grey-lighter: #edf2f7;
+  --color-grey-lightest: #f7fafc;
   --color-white: #fff;
-  --color-blue-darkest: #12283a;
-  --color-blue-darker: #1c3d5a;
-  --color-blue-dark: #2779bd;
-  --color-blue: #3490dc;
-  --color-blue-light: #6cb2eb;
-  --color-blue-lighter: #bcdefa;
-  --color-blue-lightest: #eff8ff;
-  --font-sans: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  --font-serif: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
-  --font-mono: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --border-radius: .25rem;
-  --shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  --color-blue-darkest: #2a4365;
+  --color-blue-darker: #2c5282;
+  --color-blue-dark: #3182ce;
+  --color-blue: #4299e1;
+  --color-blue-light: #63b3ed;
+  --color-blue-lighter: #bee3f8;
+  --color-blue-lightest: #ebf8ff;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --border-radius: 0.25rem;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
-@custom-media --screen-sm (min-width: 576px);
+
+@custom-media --screen-sm (min-width: 640px);
+
 @custom-media --screen-md (min-width: 768px);
-@custom-media --screen-lg (min-width: 992px);
-@custom-media --screen-xl (min-width: 1200px);
+
+@custom-media --screen-lg (min-width: 1024px);
+
+@custom-media --screen-xl (min-width: 1280px);
