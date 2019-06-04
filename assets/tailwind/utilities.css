@@ -1184,6 +1184,14 @@
   background-repeat: repeat-y
 }
 
+.bg-repeat-round {
+  background-repeat: round
+}
+
+.bg-repeat-space {
+  background-repeat: space
+}
+
 .bg-auto {
   background-size: auto
 }
@@ -6609,6 +6617,20 @@
           user-select: text
 }
 
+.select-all {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+      -ms-user-select: all;
+          user-select: all
+}
+
+.select-auto {
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+      -ms-user-select: auto;
+          user-select: auto
+}
+
 .align-baseline {
   vertical-align: baseline
 }
@@ -8085,6 +8107,14 @@
 
   .sm\:bg-repeat-y {
     background-repeat: repeat-y
+  }
+
+  .sm\:bg-repeat-round {
+    background-repeat: round
+  }
+
+  .sm\:bg-repeat-space {
+    background-repeat: space
   }
 
   .sm\:bg-auto {
@@ -13488,6 +13518,20 @@
             user-select: text
   }
 
+  .sm\:select-all {
+    -webkit-user-select: all;
+       -moz-user-select: all;
+        -ms-user-select: all;
+            user-select: all
+  }
+
+  .sm\:select-auto {
+    -webkit-user-select: auto;
+       -moz-user-select: auto;
+        -ms-user-select: auto;
+            user-select: auto
+  }
+
   .sm\:align-baseline {
     vertical-align: baseline
   }
@@ -14965,6 +15009,14 @@
 
   .md\:bg-repeat-y {
     background-repeat: repeat-y
+  }
+
+  .md\:bg-repeat-round {
+    background-repeat: round
+  }
+
+  .md\:bg-repeat-space {
+    background-repeat: space
   }
 
   .md\:bg-auto {
@@ -20368,6 +20420,20 @@
             user-select: text
   }
 
+  .md\:select-all {
+    -webkit-user-select: all;
+       -moz-user-select: all;
+        -ms-user-select: all;
+            user-select: all
+  }
+
+  .md\:select-auto {
+    -webkit-user-select: auto;
+       -moz-user-select: auto;
+        -ms-user-select: auto;
+            user-select: auto
+  }
+
   .md\:align-baseline {
     vertical-align: baseline
   }
@@ -21845,6 +21911,14 @@
 
   .lg\:bg-repeat-y {
     background-repeat: repeat-y
+  }
+
+  .lg\:bg-repeat-round {
+    background-repeat: round
+  }
+
+  .lg\:bg-repeat-space {
+    background-repeat: space
   }
 
   .lg\:bg-auto {
@@ -27248,6 +27322,20 @@
             user-select: text
   }
 
+  .lg\:select-all {
+    -webkit-user-select: all;
+       -moz-user-select: all;
+        -ms-user-select: all;
+            user-select: all
+  }
+
+  .lg\:select-auto {
+    -webkit-user-select: auto;
+       -moz-user-select: auto;
+        -ms-user-select: auto;
+            user-select: auto
+  }
+
   .lg\:align-baseline {
     vertical-align: baseline
   }
@@ -28725,6 +28813,14 @@
 
   .xl\:bg-repeat-y {
     background-repeat: repeat-y
+  }
+
+  .xl\:bg-repeat-round {
+    background-repeat: round
+  }
+
+  .xl\:bg-repeat-space {
+    background-repeat: space
   }
 
   .xl\:bg-auto {
@@ -34126,6 +34222,20 @@
        -moz-user-select: text;
         -ms-user-select: text;
             user-select: text
+  }
+
+  .xl\:select-all {
+    -webkit-user-select: all;
+       -moz-user-select: all;
+        -ms-user-select: all;
+            user-select: all
+  }
+
+  .xl\:select-auto {
+    -webkit-user-select: auto;
+       -moz-user-select: auto;
+        -ms-user-select: auto;
+            user-select: auto
   }
 
   .xl\:align-baseline {
