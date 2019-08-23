@@ -1,26 +1,17 @@
-# Custom WordPress rewrite rules
-#
-# https://github.com/roots/bedrock/issues/325
-# https://discourse.roots.io/t/recommended-subdomain-multisite-nginx-vhost-configuration-with-new-web-layout/1429/12
-# https://gist.github.com/danielbachhuber/9379135
+# HTTP -> HTTPS
+#RewriteEngine On
+#RewriteCond %{HTTPS} off
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
+# NON-WWW -> WWW
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-RewriteRule ^wp-admin/?$ wp/wp-admin/ [R=301,L]
-RewriteRule ^wp/?$ . [R=301,L]
+# WWW -> NON-WWW
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-RewriteRule ^(wp-(content|admin|includes|.*\.php).*) wp/$1 [L]
-RewriteRule ^[_0-9a-zA-Z-]+/(wp-(content|admin|includes).*) wp/$1 [L]
-RewriteRule ^[_0-9a-zA-Z-]+/(.*\.php)$ wp/$1 [L]
-RewriteRule ^(.*\.php)$ wp/$1 [L]
-RewriteRule ^wp/(.*)$ $1 [R=301,L]
-RewriteRule . index.php [L]
+# Redirects
 
 # BEGIN WordPress
 
