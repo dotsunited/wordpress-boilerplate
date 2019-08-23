@@ -45,17 +45,15 @@ class ComposerScripts
         self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
 
         self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
-        self::replaceDir(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate', $projectName, $projectIdentifier);
-        self::replaceDir(__DIR__ . '/public/app/themes', $projectName, $projectIdentifier);
+        self::replaceDir(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', $projectName, $projectIdentifier);
+        self::replaceDir(__DIR__ . '/public/wp-content/themes', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/favicons', $projectName, $projectIdentifier);
 
         // --- Copy/rename files & dirs
 
-        copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
-
-        rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/app/mu-plugins/wordpress-boilerplate/' . $projectIdentifier . '.php');
-        rename(__DIR__ . '/public/app/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
-        rename(__DIR__ . '/public/app/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
+        rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/app/mu-plugins/wordpress-boilerplate/' . $projectIdentifier . '.php');
+        rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
+        rename(__DIR__ . '/public/wp-content/themes/wordpress-boilerplate', __DIR__ . '/public/app/themes/' . $projectIdentifier);
 
         // --- Cleanup
 
@@ -189,10 +187,11 @@ class ComposerScripts
         if (true === $zip->open(__DIR__ . '/wordpress.zip')) {
             $zip->extractTo(__DIR__ . '/public');
             $zip->close();
-
-            rename(__DIR__ . '/public/wordpress', __DIR__ . '/public/wp');
         }
 
+		// TODO: move wordpress (without wp-content) to public (after extract it will be in public/wordpress
+
+		// copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
         unlink(__DIR__ . '/wordpress.zip');
     }
 }

@@ -1,5 +1,10 @@
 node_modules/
-public/wp/
+public/wp-admin/
+public/wp-includes/
+public/index.php
+public/license.txt
+public/readme.html
+public/wp-*.php
+public/xmlrpc.php
 public/.htaccess
 public/wp-config.php
-.php_cs.cache

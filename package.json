@@ -15,8 +15,8 @@
     "tailwind:utilities": "tailwind build node_modules/tailwindcss/utilities.css -c assets/tailwind/src/config.js -o assets/tailwind/utilities.css",
     "tailwind:variables": "tailwind build assets/tailwind/src/variables.css -c assets/tailwind/src/config.js -o assets/tailwind/variables.css",
     "tailwind": "npm run tailwind:base && npm run tailwind:components && npm run tailwind:utilities && npm run tailwind:variables",
-    "makepot-plugin": "cd public/app/mu-plugins/wordpress-boilerplate/ && npx node-wp-i18n makepot --type plugin --domain-path languages",
-    "makepot-theme": "cd public/app/themes/wordpress-boilerplate/ && npx node-wp-i18n makepot --type theme --domain-path languages"
+    "makepot-plugin": "cd public/wp-content/mu-plugins/wordpress-boilerplate/ && npx node-wp-i18n makepot --type plugin --domain-path languages",
+    "makepot-theme": "cd public/wp-content/themes/wordpress-boilerplate/ && npx node-wp-i18n makepot --type theme --domain-path languages"
   },
   "browserslist": [
     "> 1%",
