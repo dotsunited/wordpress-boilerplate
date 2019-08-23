@@ -385,6 +385,7 @@ h3,
 h4,
 h5,
 h6,
+hr,
 figure,
 p,
 pre {
@@ -457,6 +458,14 @@ html {
   border-color: #e2e8f0;
 }
 
+/*
+ * Ensure horizontal rules are visible by default
+ */
+
+hr {
+  border-top-width: 1px;
+}
+
 /**
  * Undo the `border-style: none` reset that Normalize applies to images so that
  * our `border-{width}` utilities have the expected effect.
@@ -477,20 +486,17 @@ textarea {
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 input::-ms-input-placeholder,
 textarea::-ms-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 button,

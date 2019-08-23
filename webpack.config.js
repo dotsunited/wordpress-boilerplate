@@ -173,7 +173,7 @@ module.exports = (env, argv) => {
                                 {
                                     loader: '@americanexpress/purgecss-loader',
                                     options: {
-                                        paths: glob.sync(path.join(__dirname, 'public/app/themes') + '/**/*.+(html|php)', {nodir: true}),
+                                        paths: glob.sync(path.join(__dirname, 'public/wp-content/themes') + '/**/*.+(html|php)', {nodir: true}),
                                         extractors: [
                                             {
                                                 extractor: TailwindPurgecssExtractor,
