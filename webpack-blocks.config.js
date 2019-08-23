@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
         },
         output: {
             path: path.resolve(__dirname, targetPath),
-            publicPath: '/app/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/',
+            publicPath: '/public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/',
             filename: '[name].js',
             chunkFilename: '[name].js',
         },

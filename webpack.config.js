@@ -56,7 +56,7 @@ function getStyleLoaders() {
 
 module.exports = (env, argv) => {
     const mode = argv.mode === 'development' ? 'development' : 'production';
-    const targetPath = 'public/app/themes/wordpress-boilerplate/assets';
+    const targetPath = 'public/wp-content/themes/wordpress-boilerplate/assets';
 
     return {
         mode: mode,
