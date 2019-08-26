@@ -59,7 +59,7 @@ add_action('after_setup_theme', function () {
 }, 11, 0);
 
 // Overwrite gutenberg block assets
-add_filter('the_content', function ($content) {
+// dd_filter('the_content', function ($content) {
     // Replace gutenberg palette color classes with tailwind classes.
     // Make sure to not do concatenation of classes because PurgeCSS must detect
     // the strings here!
@@ -102,7 +102,7 @@ add_filter('the_content', function ($content) {
         'has-no-shadow' => '',
     ]);
     */
-}, 9999);
+// }, 9999);
 
 function wordpress_boilerplate_is_gutenberg_preview()
 {

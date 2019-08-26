@@ -8,3 +8,10 @@ public/wp-*.php
 public/xmlrpc.php
 public/.htaccess
 public/wp-config.php
+public/liesmich.html
+public/wp-content/languages/
+public/wp-content/uploads/
+public/wp-content/upgrade/
+public/wp-content/plugins/
+public/wp-content/updraft/
+public/sr/
