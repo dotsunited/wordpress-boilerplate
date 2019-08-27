@@ -1,0 +1,5 @@
+@import "../../../main/variables.css";
+
+.demo {
+    color: var(--color-white);
+}

@@ -75,3 +75,43 @@ function wordpress_boilerplate_render($slug, array $context = [])
 
     return \trim($render($template, $context));
 }
+
+function wordpress_boilerplate_get_pages($args = '')
+{
+	if (is_array($args)) {
+		$r = &$args;
+	} else {
+		parse_str($args, $r);
+	}
+	
+	$defaults = array('depth' => 1, 'show_date' => '', 'date_format' => get_option('date_format'),
+	                  'child_of' => 0, 'exclude' => '', 'title_li' => __('Pages'), 'echo' => 1, 'authors' => '', 'sort_column' => 'menu_order', );
+	$r = array_merge($defaults, $r);
+	
+	$output = '';
+	$current_page = 0;
+	
+	// sanitize, mostly to keep spaces out
+	$r['exclude'] = preg_replace('[^0-9,]', '', $r['exclude']);
+	
+	// Allow plugins to filter an array of excluded pages
+	$r['exclude'] = implode(',', apply_filters('wp_list_pages_excludes', explode(',', $r['exclude'])));
+	
+	// Query pages.
+	$pages = get_pages($r);
+	
+	return $pages;
+}
+
+/* Example Usage */
+
+/*
+* $args = array(
+*	'child_of' => $post->post_parent,
+*	'post_type' => 'page',
+*	'order' => 'ASC',
+*	'orderby' => 'menu_order',
+*	'depth' => -1,
+* );
+* $page = wordpress_boilerplate_get_pages($args);
+*/
