@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
     const mode = argv.mode === 'development' ? 'development' : 'production';
-    const targetPath = 'public/app/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets';
+    const targetPath = 'public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets';
 
     return {
         mode: mode,
