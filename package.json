@@ -25,7 +25,7 @@
     "not ie < 10"
   ],
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
+    "@babel/polyfill": "^7.6.0",
     "classnames": "^2.2.6",
     "ctrly": "^0.6.0",
     "domestique": "^1.6.0",
@@ -34,10 +34,10 @@
   },
   "devDependencies": {
     "@americanexpress/purgecss-loader": "^1.0.0",
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.6.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.1",
@@ -60,8 +60,8 @@
     "tailwindcss": "^1.1.2",
     "terser-webpack-plugin": "^1.4.1",
     "webapp-webpack-plugin": "^2.7.1",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
     "webpack-manifest-plugin": "^2.0.4"
   }
 }
