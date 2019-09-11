@@ -5,6 +5,8 @@ A barebones, clean and minimalist WordPress Boilerplate, developed at
 [Dots United](https://dotsunited.de/) as a foundation for modern, maintainable
 and lightning fast WordPress based projects.
 
+Gutenberg ready.
+
 A Demo is available [here](http://wordpress-boilerplate.dotsunited.de/).
 
 Features
@@ -13,6 +15,7 @@ Features
 * [Maximum possible PageSpeed Insights score](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fwordpress-boilerplate.dotsunited.de%2F&tab=mobile)
 * [Webpack](https://github.com/webpack/webpack) workflow
 * [Composer](https://github.com/composer/composer) enabled
+* [Tailwindcss](https://github.com/tailwindcss/tailwindcss) enabled
 * Clean, maintainable and scalable project structure
 * No bloat
 
@@ -48,5 +51,5 @@ to download webfonts from Google Fonts.
 License
 ---
 
-Copyright (c) 2015-2018 Dots United GmbH.
+Copyright (c) 2015-2019 Dots United GmbH.
 Released under the [MIT](LICENSE) license.
