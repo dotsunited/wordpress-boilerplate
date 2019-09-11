@@ -5,9 +5,7 @@
 			
 			<article id="post-<?php the_ID(); ?>" <?php post_class('mb-8'); ?>>
 				
-				<h1 class="leading-none m-0 mb-4">
-					404
-				</h1>
+				<?php wordpress_boilerplate_render('template-parts/components/content/404'); ?>
 				
 			</article>
 		
