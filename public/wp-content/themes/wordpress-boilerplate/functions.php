@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../../../../vendor/autoload.php';
-
 include __DIR__ . '/functions/assets.php';
 include __DIR__ . '/functions/gutenberg.php';
 include __DIR__ . '/functions/menu.php';
