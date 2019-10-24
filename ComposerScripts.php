@@ -43,7 +43,7 @@ class ComposerScripts
         self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/webpack-blocks.config.js', $projectName, $projectIdentifier);
 
-        // self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
 
         self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', $projectName, $projectIdentifier);
@@ -55,6 +55,7 @@ class ComposerScripts
         rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate/' . $projectIdentifier . '.php');
         rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
         rename(__DIR__ . '/public/wp-content/themes/wordpress-boilerplate', __DIR__ . '/public/wp-content/themes/' . $projectIdentifier);
+        rename(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
 
         // --- Cleanup
 

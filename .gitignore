@@ -5,6 +5,7 @@ public/index.php
 public/license.txt
 public/readme.html
 public/wp-*.php
+!public/wp-config.dist.php
 public/xmlrpc.php
 public/.htaccess
 public/wp-config.php

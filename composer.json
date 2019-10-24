@@ -21,8 +21,8 @@
   ],
   "require": {
     "composer/installers": "^1.4",
-    "wpmetabox/meta-box": "^5",
-    "dotsunited-wordpress-plugin/responsify": "^1.1"
+    "dotsunited-wordpress-plugin/responsify": "^1.1",
+    "wpmetabox/meta-box": "^5"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
