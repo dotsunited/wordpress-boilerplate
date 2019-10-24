@@ -30,8 +30,9 @@ class ComposerScripts
 
         // --- Add Wordpress
 
-        $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (<comment>y/N</comment>) ', false);
-        self::setupWordpress($withWordpress, $io);
+		// TEMP DISABLED
+        // $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (<comment>y/N</comment>) ', false);
+        // self::setupWordpress($withWordpress, $io);
 
         // --- Replace in files & dirs
 
@@ -42,7 +43,7 @@ class ComposerScripts
         self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/webpack-blocks.config.js', $projectName, $projectIdentifier);
 
-        self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
+        // self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
 
         self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', $projectName, $projectIdentifier);
