@@ -20,7 +20,7 @@ const {
 
 const {
     RichText
-} = wp.editor;
+} = wp.blockEditor;
 
 const {
     withSelect,
