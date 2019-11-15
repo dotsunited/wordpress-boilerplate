@@ -7,8 +7,7 @@ add_action('after_setup_theme', function () {
     // Add support for widealign images
     add_theme_support('align-wide');
 
-// Pass an empty array to remove support for color palettes, eg. for buttons.
-    /*
+	// Pass an empty array to remove support for color palettes, eg. for buttons.
     add_theme_support('editor-color-palette', [
         [
             'name' => __('Black', 'wordpress-boilerplate'),
@@ -55,15 +54,14 @@ add_action('after_setup_theme', function () {
             'color' => '#0073C0',
         ],
     ]);
-    */
 }, 11, 0);
 
 // Overwrite gutenberg block assets
-// dd_filter('the_content', function ($content) {
+add_filter('the_content', function ($content) {
     // Replace gutenberg palette color classes with tailwind classes.
     // Make sure to not do concatenation of classes because PurgeCSS must detect
     // the strings here!
-    /*
+
     return \strtr($content, [
         'has-blue-500-color' => 'text-blue-500',
         'has-blue-600-color' => 'text-blue-600',
@@ -101,8 +99,8 @@ add_action('after_setup_theme', function () {
         'has-shadow-lg' => 'shadow-lg',
         'has-no-shadow' => '',
     ]);
-    */
-// }, 9999);
+
+}, 9999);
 
 function wordpress_boilerplate_is_gutenberg_preview()
 {
@@ -118,7 +116,7 @@ function _wordpress_boilerplate_gutenberg_render($slug, array $attributes = [], 
     return wordpress_boilerplate_render('template-parts/blocks/' . $slug, $attributes);
 }
 
-// demo custom block registration
+// custom block registration
 /*
 register_block_type('wordpress-boilerplate/demo', [
     'attributes' => [
@@ -149,27 +147,18 @@ add_action('enqueue_block_assets', function () {
     wp_dequeue_style('wp-block-library');
 });
 
-// Demo Gutenberg block editor assets
-/*
-add_action('enqueue_block_editor_assets', function () {
+// Gutenberg block editor assets
+add_action( 'init', 'register_custom_block_style' );
 
-    add_action('admin_footer', function () {
-        ?>
-        <script>
-            wp.blocks.registerBlockStyle( 'wordpress-boilerplate/container',
-                { name: 'shadow-none', label: 'No Shadow' }
-            );
-            wp.blocks.registerBlockStyle( 'wordpress-boilerplate/container',
-                { name: 'shadow-md', label: 'Medium Shadow' }
-            );
-            wp.blocks.registerBlockStyle( 'wordpress-boilerplate/container',
-                { name: 'shadow-lg', label: 'Large Shadow' }
-            );
-        </script>
-        <style>
-
-        </style>
-        <?php
-    }, 1000);
-});
-*/
+function register_custom_block_style() {
+	if( ! function_exists( 'register_block_style' ) ) return;
+	
+	register_block_style(
+		'core/group',
+		array(
+			'name'			=> 'gray-400-group',
+			'label'			=> __( 'Gray Group' ),
+			'inline_style'	=> '.wp-block-group.is-style-gray-400-group { background-color: #cbd5e0; }',
+		)
+	);
+};

@@ -12,7 +12,6 @@ add_action('plugins_loaded', function () {
     // Disables custom colors through the color picker
     add_theme_support('disable-custom-colors');
     // Removes custom fot sizes, eg. for paragraphs
-    /*
     add_theme_support('editor-font-sizes', [
         [
             'name' => __('Small'),
@@ -35,7 +34,6 @@ add_action('plugins_loaded', function () {
             'slug' => 'xl',
         ]
     ]);
-    */
     add_theme_support('disable-custom-font-sizes');
 }, 10, 0);
 
@@ -96,6 +94,7 @@ add_filter('allowed_block_types', function ($current, $post) {
             // 'core/audio',
             'core/block',
             'core/button',
+	        'core/group',
             // 'core/categories',
             // 'core/code',
             // 'core/column',
