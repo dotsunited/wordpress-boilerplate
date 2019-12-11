@@ -53,7 +53,7 @@ class ComposerScripts
         // --- Copy/rename files & dirs
 
         rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate/' . $projectIdentifier . '.php');
-        rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/app/mu-plugins/' . $projectIdentifier);
+        rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/wp-content/mu-plugins/' . $projectIdentifier);
         rename(__DIR__ . '/public/wp-content/themes/wordpress-boilerplate', __DIR__ . '/public/wp-content/themes/' . $projectIdentifier);
         rename(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
 
