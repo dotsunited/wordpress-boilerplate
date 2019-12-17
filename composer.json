@@ -6,7 +6,7 @@
   "license": "MIT",
   "config": {
     "platform": {
-      "php": "7.1.0"
+      "php": "7.3.0"
     },
     "preferred-install": {
       "*": "dist"
@@ -31,18 +31,6 @@
     "psr-4": {
       "DotsUnited\\": ""
     }
-  },
-  "extra": {
-    "installer-paths": {
-      "public/app/mu-plugins/{$name}/": [
-        "type:wordpress-plugin",
-        "type:wordpress-muplugin"
-      ],
-      "public/app/themes/{$name}/": [
-        "type:wordpress-theme"
-      ]
-    },
-    "wordpress-install-dir": "public/wp"
   },
   "scripts": {
     "post-create-project-cmd" : [
