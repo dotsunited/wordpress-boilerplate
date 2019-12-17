@@ -32,6 +32,18 @@
       "DotsUnited\\": ""
     }
   },
+  "extra": {
+    "installer-paths": {
+      "public/wp-content/mu-plugins/{$name}/": [
+        "type:wordpress-plugin",
+        "type:wordpress-muplugin"
+      ],
+      "public/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "wordpress-install-dir": "public"
+  },
   "scripts": {
     "post-create-project-cmd" : [
       "DotsUnited\\ComposerScripts::postCreateProject"
