@@ -5,22 +5,22 @@
     --screen-width-xl: theme('screens.xl');
 
     --color-black: theme('colors.black');
-    --color-grey-darkest: theme('colors.gray.800');
-    --color-grey-darker: theme('colors.gray.700');
-    --color-grey-dark: theme('colors.gray.600');
-    --color-grey: theme('colors.gray.500');
-    --color-grey-light: theme('colors.gray.400');
-    --color-grey-lighter: theme('colors.gray.200');
-    --color-grey-lightest: theme('colors.gray.100');
+    --color-gray-800: theme('colors.gray.800');
+    --color-gray-700: theme('colors.gray.700');
+    --color-gray-600: theme('colors.gray.600');
+    --color-gray-500: theme('colors.gray.500');
+    --color-gray-400: theme('colors.gray.400');
+    --color-gray-200: theme('colors.gray.200');
+    --color-gray-100: theme('colors.gray.100');
     --color-white: theme('colors.white');
 
-    --color-blue-darkest: theme('colors.blue.900');
-    --color-blue-darker: theme('colors.blue.800');
-    --color-blue-dark: theme('colors.blue.600');
-    --color-blue: theme('colors.blue.500');
-    --color-blue-light: theme('colors.blue.400');
-    --color-blue-lighter: theme('colors.blue.200');
-    --color-blue-lightest: theme('colors.blue.100');
+    --color-blue-900: theme('colors.blue.900');
+    --color-blue-800: theme('colors.blue.800');
+    --color-blue-600: theme('colors.blue.600');
+    --color-blue-500: theme('colors.blue.500');
+    --color-blue-400: theme('colors.blue.400');
+    --color-blue-200: theme('colors.blue.200');
+    --color-blue-100: theme('colors.blue.100');
 
     --font-sans: theme('fontFamily.sans');
     --font-serif: theme('fontFamily.serif');

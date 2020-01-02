@@ -141,6 +141,9 @@ module.exports = (env, argv) => {
                                         ]
                                     },
                                 },
+                                {
+                                    loader: 'eslint-loader'
+                                },
                             ],
                         },
                         {
@@ -163,6 +166,9 @@ module.exports = (env, argv) => {
                                             ]
                                         ]
                                     },
+                                },
+                                {
+                                    loader: 'eslint-loader'
                                 },
                             ],
                         },
