@@ -132,7 +132,11 @@ module.exports = (env, argv) => {
                                                 '@babel/preset-env',
                                                 {
                                                     useBuiltIns: 'usage',
+                                                    corejs: "3.0.0",
                                                     modules: false,
+                                                    targets: {
+                                                        ie: "11"
+                                                    }
                                                 }
                                             ]
                                         ],
