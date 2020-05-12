@@ -1,0 +1,53 @@
+@import "../variables.css";
+
+.navigation {}
+
+.navigation--desktop {
+    height: 78px;
+    transition: height 155ms ease-in-out;
+
+    & ul {
+
+        & > li {
+            padding: 0;
+
+            & a {
+                color: var(--color-gray-600);
+                display: block;
+                height: 78px;
+                line-height: 78px;
+                font-size: .875rem;
+                font-weight: 400;
+                padding: 0 .75rem;
+                transition: height 155ms ease-in-out, line-height 155ms ease-in-out;
+
+                &:hover {
+                    color: var(--color-blue-500);
+                }
+
+                @media (--screen-xl) {
+                    font-size: .95rem;
+                }
+            }
+        }
+
+        & > li:hover {}
+
+        & > li.current-menu-item,
+        & > li.current_page_item,
+        & > li.current-page-ancestor,
+        & > li.current-menu-ancestor,
+        & > li.current_page_ancestor {
+
+            & > a {
+                color: var(--color-blue-500);
+            }
+
+            & > .navigation__sub-menu {
+                display: block;
+            }
+        }
+
+    }
+
+}

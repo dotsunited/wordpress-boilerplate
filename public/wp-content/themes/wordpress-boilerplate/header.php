@@ -10,18 +10,11 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <header class="container py-8 flex items-center justify-between flex-wrap">
-            <a href="<?php echo esc_attr(get_home_url()); ?>" class="flex items-center flex-shrink-0 text-white mr-6">
-                <?php echo wordpress_boilerplate_asset_embed('/logo-dotsunited.svg'); ?>
-            </a>
+    <header class="bg-white shadow-header z-20 relative lg:fixed lg:top-0 lg:left-0 lg:right-0 w-full">
 
-            <nav class="flex flex-grow items-center">
-                <?php wp_nav_menu(array(
-                    'theme_location' => 'main',
-                    'depth' => 1,
-                    'fallback_cb' => null,
-                    'container' => false,
-                    'items_wrap' => '<ul id="%1$s" class="list-none flex flex-grow %2$s">%3$s</ul>',
-                )); ?>
-            </nav>
-        </header>
+        <div class="mx-auto relative">
+		    <?php echo wordpress_boilerplate_render('template-parts/components/header/desktop', []); ?>
+		    <?php echo wordpress_boilerplate_render('template-parts/components/header/mobile', []); ?>
+        </div>
+
+    </header>

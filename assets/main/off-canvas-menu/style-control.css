@@ -1,0 +1,24 @@
+@import "../variables.css";
+
+.off-canvas-menu__control[aria-expanded='true'] {
+    & .off-canvas-menu__control-icon {
+        & span {
+            top: 50%;
+            transform: translateY(-50%) rotate(135deg);
+            width: 100%;
+            background-color: var(--color-black);
+        }
+
+        &:before {
+            opacity: 0;
+            left: -100%;
+        }
+
+        &:after {
+            top: 50%;
+            transform: translateY(-50%) rotate(-135deg);
+            width: 100%;
+            background-color: var(--color-black);
+        }
+    }
+}

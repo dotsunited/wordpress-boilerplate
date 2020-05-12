@@ -1,0 +1,46 @@
+@import "../variables.css";
+
+.off-canvas-menu__target {
+    -webkit-backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+   overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    & * {
+        -webkit-backface-visibility: hidden;
+    }
+
+    & .off-canvas-menu__wrapper {
+        padding-top: 90px;
+    }
+
+    & .off-canvas-menu__header {
+        height: 54px;
+    }
+}
+
+.off-canvas-menu__target[aria-hidden] {
+    transition: .35s cubic-bezier(.23, 1, .32, 1);
+}
+
+.off-canvas-menu__target[aria-hidden="true"] {
+    visibility: hidden;
+    transition-property: transform, visibility;
+}
+
+.off-canvas-menu__target[aria-hidden="false"] {
+    transform: translate3D(0, 0, 0);
+    visibility: visible;
+    /*
+      This removes the transition from the visibility property when opening
+      the target. Otherwise, elements inside the target aren't focusable.
+    */
+    transition-property: transform;
+}
