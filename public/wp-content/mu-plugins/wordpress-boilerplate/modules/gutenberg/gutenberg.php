@@ -121,6 +121,8 @@ add_filter('allowed_block_types', function ($current, $post) {
             // 'core/shortcode',
             // 'core/spacer',
             // 'core/subhead',
+	        // 'core/social-link',
+	        // 'core/social-links',
             // 'core/table',
             // 'core/text-columns',
             // 'core/verse',

@@ -29,7 +29,7 @@
     
     <?php else: ?>
         
-        <?php wordpress_boilerplate_render('template-parts/components/content/none'); ?>
+        <?php echo wordpress_boilerplate_render('template-parts/components/content/none'); ?>
     
     <?php endif; ?>
     </main>

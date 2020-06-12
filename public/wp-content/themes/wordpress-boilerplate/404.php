@@ -5,7 +5,7 @@
 			
 			<article id="post-<?php the_ID(); ?>" <?php post_class('mb-8'); ?>>
 				
-				<?php wordpress_boilerplate_render('template-parts/components/content/404'); ?>
+				<?php echo wordpress_boilerplate_render('template-parts/components/content/404'); ?>
 				
 			</article>
 		
