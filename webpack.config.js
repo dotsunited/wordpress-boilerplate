@@ -245,6 +245,13 @@ module.exports = (env, argv) => {
             ],
         },
         plugins: [
+            new webpack.ProvidePlugin({
+                // Automtically detect jQuery and $ as free var in modules
+                // and inject the jquery library
+                // This is required by many jquery plugins
+                jQuery: 'jquery',
+                $: 'jquery'
+            }),
             new CleanWebpackPlugin([targetPath + '/*']),
             // https://webpack.js.org/guides/caching/#module-identifiers
             new webpack.HashedModuleIdsPlugin(),

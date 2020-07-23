@@ -65,7 +65,7 @@ add_filter('the_content', function ($content) {
     return \strtr($content, [
         'has-blue-500-color' => 'text-blue-500',
         'has-blue-600-color' => 'text-blue-600',
-        'has-gray-900-color' => 'text-grey-900',
+        'has-gray-900-color' => 'text-gray-900',
         'has-gray-800-color' => 'text-gray-800',
         'has-gray-600-color' => 'text-gray-600',
         'has-gray-400-color' => 'text-gray-400',
