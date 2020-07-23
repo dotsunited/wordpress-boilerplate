@@ -17,14 +17,14 @@ add_filter( 'excerpt_more', 'wordpress_boilerplate_excerpt_more' );
 /*
  * Enable svg media upload
  */
-function spaceunited_mime_types($mimes) {
+function wordpress_boilerplate_mime_types($mimes) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
-add_filter('upload_mimes', 'spaceunited_mime_types');
+add_filter('upload_mimes', 'wordpress_boilerplate_mime_types');
 
 // Bug workaround https://blog.kulturbanause.de/2013/05/svg-dateien-in-die-wordpress-mediathek-hochladen/
-function spaceunited_ignore_upload_ext($checked, $file, $filename, $mimes){
+function wordpress_boilerplate_ignore_upload_ext($checked, $file, $filename, $mimes){
 	
 	if(!$checked['type']){
 		$wp_filetype = wp_check_filetype( $filename, $mimes );
@@ -42,4 +42,4 @@ function spaceunited_ignore_upload_ext($checked, $file, $filename, $mimes){
 	return $checked;
 }
 
-add_filter('wp_check_filetype_and_ext', 'spaceunited_ignore_upload_ext', 10, 4);
+add_filter('wp_check_filetype_and_ext', 'wordpress_boilerplate_ignore_upload_ext', 10, 4);
