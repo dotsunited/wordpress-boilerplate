@@ -1,0 +1,5 @@
+// Styles to improve gutenberg editor view
+
+.block-editor-block-inspector .components-range-control {
+    display: none !important;
+}

@@ -3,5 +3,3 @@ import './category';
 import './plugins';
 import './blocks';
 
-/* Optional Custom Gutenberg Styles */
-import './styles;

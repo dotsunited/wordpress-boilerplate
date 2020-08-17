@@ -1,2 +1,1 @@
-import './grid/item';
-import './grid';
+import './columns';

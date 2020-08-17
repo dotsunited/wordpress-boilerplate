@@ -98,6 +98,16 @@ add_filter('the_content', function ($content) {
         'has-shadow-md' => 'shadow-md',
         'has-shadow-lg' => 'shadow-lg',
         'has-no-shadow' => '',
+
+        'wp-block-columns' => 'wp-block-columns flex flex-row flex-wrap -mx-2',
+
+        'are-vertically-aligned-top' => 'items-start',
+        'are-vertically-aligned-center' => 'items-center',
+        'are-vertically-aligned-bottom' => 'items-end',
+
+        'is-vertically-aligned-center' => 'self-center',
+        'is-vertically-aligned-top' => 'self-start',
+        'is-vertically-aligned-bottom' => 'self-end'
     ]);
 
 }, 9999);

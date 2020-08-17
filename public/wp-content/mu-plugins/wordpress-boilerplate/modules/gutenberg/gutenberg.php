@@ -7,10 +7,16 @@ add_action('plugins_loaded', function () {
 
     // Gutenberg configuration
     // See https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
+	
+	// Remove support for block patterns
+	remove_theme_support( 'core-block-patterns' );
+	
     // Removes color palettes, eg. for buttons
     add_theme_support('editor-color-palette', []);
+    
     // Disables custom colors through the color picker
     add_theme_support('disable-custom-colors');
+    
     // Removes custom fot sizes, eg. for paragraphs
     add_theme_support('editor-font-sizes', [
         [
@@ -61,9 +67,7 @@ add_filter('allowed_block_types', function ($current, $post) {
     // -- Wordpress Boildeprlate Blocks -----------------------------------------------------------
     $current = \array_merge(
         $current,
-        [
-            'wordpress-boilerplate/grid',
-        ]
+        []
     );
 
     // -- Plugin Blocks ----------------------------------------------------------
@@ -98,8 +102,8 @@ add_filter('allowed_block_types', function ($current, $post) {
             // 'core/categories',
 	        // core/calendar,
 	        // 'core/code',
-            // 'core/column',
-            // 'core/columns',
+            'core/column',
+            'core/columns',
             // 'core/cover-image',
             // 'core/embed',
             // 'core/file',
