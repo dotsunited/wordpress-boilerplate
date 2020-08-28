@@ -8,4 +8,5 @@ include __DIR__ . '/functions/theme.php';
 
 /* Optional */
 include __DIR__ . '/functions/widgets.php';
+include __DIR__ . '/functions/admin.php';
 // include __DIR__ . '/functions/helper.php';
