@@ -20,3 +20,13 @@ add_action( 'login_enqueue_scripts', function() {
 	</style>
 	<?php
 });
+
+/**
+ * Hide auto plugin update note
+ */
+add_action('admin_head', 'wordpress_boilerplate_hide_auto_update');
+function wordpress_boilerplate_hide_auto_update() {
+	echo '<style>
+    .column-auto-updates {display: none !important;}
+  </style>';
+}
