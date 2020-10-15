@@ -1,11 +1,10 @@
 {
-  "runtime.js": "runtime.94225d7c434e16356da5.js",
-  "icons.css": "icons.5664e079.css",
-  "icons.js": "icons.10b47030ab1864733454.js",
-  "main.css": "main.27e3443f.css",
-  "main.js": "main.49e5d0c3fb370d9306cd.js",
-  "off-canvas-menu.css": "off-canvas-menu.0ca0f1be.css",
-  "off-canvas-menu.js": "off-canvas-menu.c83223666fbb5fc614be.js",
-  "vendors~off-canvas-menu.js": "vendors~off-canvas-menu.f81a51e3f52eeec4f12a.js",
-  "img/symbol-defs.svg": "img/symbol-defs.b61a4fe8.svg"
+  "main.css": "automain.9ec6779b.css",
+  "main.js": "automain.b9b2367841fbc774b372.js",
+  "icons.css": "autoicons.e25ae78c.css",
+  "icons.js": "autoicons.1c8440fada2e3bca688e.js",
+  "runtime.js": "autoruntime.daf7c072669ec963bc88.js",
+  "off-canvas-menu.css": "autooff-canvas-menu.0b46a61a.css",
+  "off-canvas-menu.js": "autooff-canvas-menu.357ee629aec1ec8ecb81.js",
+  "img/symbol-defs.svg": "autoimg/symbol-defs.b61a4fe8.svg"
 }

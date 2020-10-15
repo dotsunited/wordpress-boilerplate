@@ -13,6 +13,5 @@ body {
     color: var(--color-black);
 }
 
-a {
-    color: var(--color-blue)
-}
+a {}
+
