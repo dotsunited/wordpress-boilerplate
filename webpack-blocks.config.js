@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
@@ -85,7 +85,7 @@ module.exports = (env, argv) => {
             ],
         },
         plugins: [
-            new CleanWebpackPlugin([targetPath + '/*']),
+            new CleanWebpackPlugin(),
             // https://webpack.js.org/guides/caching/#module-identifiers
             new MiniCssExtractPlugin({
                 filename: '[name].css',

@@ -73,7 +73,7 @@ module.exports = (env, argv) => {
         },
         output: {
             path: path.resolve(__dirname, targetPath),
-            //publicPath: '/app/themes/wordpress-boilerplate/assets/',
+            publicPath: '',
             filename: '[name].[contenthash].js',
             chunkFilename: '[name].[contenthash].js',
         },
