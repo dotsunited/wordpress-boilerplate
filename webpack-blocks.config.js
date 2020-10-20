@@ -61,23 +61,24 @@ module.exports = (env, argv) => {
                         {
                             loader: 'postcss-loader',
                             options: {
-                                ident: 'postcss',
-                                plugins: [
-                                    require('postcss-import')(),
-                                    require('postcss-flexbugs-fixes')(),
-                                    require('postcss-preset-env')({
-                                        stage: 0,
-                                        autoprefixer: {
-                                            flexbox: 'no-2009',
-                                            grid: true,
-                                        },
-                                        features: {
-                                            'custom-properties': {
-                                                preserve: false
+                                postcssOptions: {
+                                    plugins: [
+                                        require('postcss-import')(),
+                                        require('postcss-flexbugs-fixes')(),
+                                        require('postcss-preset-env')({
+                                            stage: 0,
+                                            autoprefixer: {
+                                                flexbox: 'no-2009',
+                                                grid: true,
+                                            },
+                                            features: {
+                                                'custom-properties': {
+                                                    preserve: false
+                                                }
                                             }
-                                        }
-                                    }),
-                                ]
+                                        }),
+                                    ]
+                                }
                             }
                         }
                     ],
