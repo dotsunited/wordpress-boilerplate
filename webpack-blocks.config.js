@@ -91,7 +91,6 @@ module.exports = (env, argv) => {
                 filename: '[name].css',
                 chunkFilename: '[name].css',
             }),
-            new webpack.HashedModuleIdsPlugin(),
         ]
     };
 };
