@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@dotsunited/wordpress-boilerplate",
-  "version": "11.1.1",
+  "version": "11.1.2",
   "author": "Dots United GmbH",
   "license": "MIT",
   "repository": "https://github.com/dotsunited/wordpress-boilerplate.git",
