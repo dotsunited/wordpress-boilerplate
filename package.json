@@ -16,7 +16,8 @@
     "tailwind:variables": "tailwind build assets/tailwind/src/variables.css -c assets/tailwind/src/config.js -o assets/tailwind/variables.css",
     "tailwind": "npm run tailwind:base && npm run tailwind:components && npm run tailwind:utilities && npm run tailwind:variables",
     "makepot-plugin": "cd public/wp-content/mu-plugins/wordpress-boilerplate/ && npx node-wp-i18n makepot --type plugin --domain-path languages",
-    "makepot-theme": "cd public/wp-content/themes/wordpress-boilerplate/ && npx node-wp-i18n makepot --type theme --domain-path languages"
+    "makepot-theme": "cd public/wp-content/themes/wordpress-boilerplate/ && npx node-wp-i18n makepot --type theme --domain-path languages",
+    "release": "release-it"
   },
   "browserslist": [
     "> 1%",
@@ -67,6 +68,7 @@
     "postcss-loader": "^4.0.4",
     "postcss-preset-env": "^6.7.0",
     "postcss-safe-parser": "^5.0.2",
+    "release-it": "^14.2.1",
     "style-loader": "^0.23.1",
     "tailwindcss": "^1.9.6",
     "terser-webpack-plugin": "^5.0.3",
