@@ -4,6 +4,6 @@
   },
   "github": {
     "release": true,
-    "tokenRef": "release-it"
+    "tokenRef": "GITHUB_TOKEN"
   }
 }
