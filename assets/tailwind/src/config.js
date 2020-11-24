@@ -803,5 +803,8 @@ module.exports = {
     animation: ['responsive', 'hover', 'group-hover'],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    // https://tailwindcss-custom-forms.netlify.app/
+    require('@tailwindcss/custom-forms'),
+  ],
 }
