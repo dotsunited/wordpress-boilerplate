@@ -36,6 +36,7 @@ function getStyleLoaders() {
                     plugins: [
                         require('postcss-import')(),
                         require('postcss-flexbugs-fixes')(),
+                        require('postcss-focus-within')(),
                         require('postcss-preset-env')({
                             stage: 0,
                             autoprefixer: {
@@ -45,7 +46,8 @@ function getStyleLoaders() {
                             features: {
                                 'custom-properties': {
                                     preserve: false
-                                }
+                                },
+                                'focus-within-pseudo-class': false,
                             }
                         }),
                     ]

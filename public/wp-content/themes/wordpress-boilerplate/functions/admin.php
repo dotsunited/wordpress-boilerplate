@@ -30,3 +30,27 @@ function wordpress_boilerplate_hide_auto_update() {
     .column-auto-updates {display: none !important;}
   </style>';
 }
+
+/**
+ * add order column to admin listing screen for header text
+ */
+// add a column to the post type's admin
+// basically registers the column and sets it's title
+add_filter('manage_page_posts_columns', function ($columns) {
+	$columns['menu_order'] = "Order";
+	return $columns;
+});
+
+// display the column value
+add_action( 'manage_page_posts_custom_column', function ($column_name, $post_id){
+	if ($column_name == 'menu_order') {
+		echo get_post($post_id)->menu_order;
+	}
+}, 10, 2);
+
+// make it sortable
+$menu_order_sortable_on_screen = 'edit-page';
+add_filter('manage_' . $menu_order_sortable_on_screen . '_sortable_columns', function ($columns){
+	$columns['menu_order'] = 'menu_order';
+	return $columns;
+});
