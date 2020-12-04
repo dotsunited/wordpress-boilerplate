@@ -3,8 +3,8 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const glob = require('glob');
 
 function getAppJsExcludeRegexp() {
@@ -90,9 +90,9 @@ module.exports = (env, argv) => {
                     },
                     parallel: true,
                 }),
-                new OptimizeCSSAssetsPlugin({
-                    parser: require('postcss-safe-parser'),
-                    cssProcessorPluginOptions: {
+                new CssMinimizerPlugin({
+                    parallel: true,
+                    minimizerOptions: {
                         preset: ['default', {
                             discardComments: {
                                 removeAll: true,
@@ -260,7 +260,7 @@ module.exports = (env, argv) => {
                 filename: '[name].[contenthash:8].css',
                 chunkFilename: '[name].[contenthash:8].css',
             }),
-            new ManifestPlugin(),
+            new WebpackManifestPlugin()
         ]
     };
 };
