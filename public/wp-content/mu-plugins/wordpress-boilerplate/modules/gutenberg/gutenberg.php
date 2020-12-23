@@ -49,6 +49,16 @@ add_action('enqueue_block_editor_assets', function () {
         plugin_dir_url(__FILE__) . 'blocks/assets/blocks.js',
         ['wp-edit-post']
     );
+	wp_enqueue_script( 'wordpress-boilerplate-gutenberg-embed-blocks-reset-js',
+		plugin_dir_url(__FILE__) . 'blocks/embeds/reset.js',
+		[
+			'wp-blocks',
+			'wp-dom-ready',
+			'wp-edit-post'
+		],
+		'1.0',
+		false
+	);
     wp_enqueue_style(
         'wordpress-boilerplate-gutenberg-blocks-css',
         plugin_dir_url(__FILE__) . '/blocks/assets/blocks.css',
@@ -133,6 +143,7 @@ add_filter('allowed_block_types', function ($current, $post) {
             // 'core/video',
 	        // 'core/social-link',
 	        // 'core/social-links',
+	        // Allow single/disallow single embeds not possible anymore: https://github.com/WordPress/gutenberg/issues/25676
             // 'core-embed/animoto',
             // 'core-embed/cloudup',
             // 'core-embed/collegehumor',
