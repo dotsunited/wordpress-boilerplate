@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <?php include __DIR__ . '../../../favicons/favicons.html'; ?>
+        <?php include __DIR__ . '../../../../favicons/favicons.html'; ?>
 
         <?php wp_head(); ?>
     </head>
