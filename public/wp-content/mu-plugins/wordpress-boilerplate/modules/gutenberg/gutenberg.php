@@ -107,7 +107,7 @@ add_filter('allowed_block_types', function ($current, $post) {
             // 'core/archives',
             // 'core/audio',
             'core/block',
-            'core/button',
+            'core/buttons',
 	        'core/group',
             // 'core/categories',
 	        // core/calendar,
