@@ -51,5 +51,5 @@ to download webfonts from Google Fonts.
 License
 ---
 
-Copyright (c) 2015-2019 Dots United GmbH.
+Copyright (c) 2015-2022 Dots United GmbH.
 Released under the [MIT](LICENSE) license.
