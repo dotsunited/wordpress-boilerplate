@@ -15,4 +15,9 @@ public/wp-content/uploads/
 public/wp-content/upgrade/
 public/wp-content/plugins/
 public/wp-content/updraft/
+public/wp-content/themes/*
+!public/wp-content/themes/wordpress-boilerplate/
 public/sr/
+docker-compose.yml
+dump.sql.gz
+dump.sql

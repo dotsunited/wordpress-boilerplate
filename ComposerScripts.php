@@ -64,6 +64,9 @@ class ComposerScripts
         unlink(__DIR__ . '/README.md');
         rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
 
+        rmdir(__DIR__ . '/.docker');
+        rmdir(__DIR__ . '/.github');
+
         // ---
 
         $manipulator = new JsonManipulator(
@@ -137,7 +140,6 @@ class ComposerScripts
         $locker = new Locker(
             $io,
             $lockFile,
-            $composer->getRepositoryManager(),
             $composer->getInstallationManager(),
             $composerJson
         );

@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  wordpress:
+    image: wordpress
+    restart: on-failure
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      # WORDPRESS_CONFIG_EXTRA: |
+      #  /* Multisite */
+      #  define('WP_ALLOW_MULTISITE', true );
+      #  define('MULTISITE', true);
+      #  define('SUBDOMAIN_INSTALL', false);
+      #  define('DOMAIN_CURRENT_SITE', 'localhost');
+      #  define('PATH_CURRENT_SITE', '/');
+      #  define('SITE_ID_CURRENT_SITE', 1);
+      #  define('BLOG_ID_CURRENT_SITE', 1);
+    volumes:
+      - ./public:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: ghcr.io/dotsunited/wordpress-boilerplate:mysql
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      WORDPRESS_PORT: 8080
+      WORDPRESS_HOST: localhost
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_MULTISITE: 0
+    volumes:
+      - db:/var/lib/mysql
+      # - ./dump.sql.gz:/docker-entrypoint-initdb.d/dump.sql.gz:ro
+      # - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql:ro
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: on-failure
+    ports:
+      - 8090:80
+    environment:
+        PMA_HOST: db
+        PMA_USER: wordpress
+        PMA_PASSWORD: wordpress
+  
+  mailhog:
+    image: mailhog/mailhog
+    restart: on-failure
+    ports:
+      - 1025:1025
+      - 8025:8025
+        
+volumes:
+  db:
