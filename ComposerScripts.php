@@ -64,8 +64,8 @@ class ComposerScripts
         unlink(__DIR__ . '/README.md');
         rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
 
-        rmdir(__DIR__ . '/.docker');
-        rmdir(__DIR__ . '/.github');
+        self::removeDir(__DIR__ . '/.docker');
+        self::removeDir(__DIR__ . '/.github');
 
         // ---
 
@@ -107,6 +107,17 @@ class ComposerScripts
                 self::replace($file, $projectName, $projectIdentifier);
             }
         }
+    }
+    
+    private static function removeDir($dir)
+    {
+        $files = glob($dir . '/*');
+
+        foreach ($files as $file) {
+            is_dir($file) ? self::removeDir($file) : unlink($file);
+        }
+
+        rmdir($dir);
     }
 
     private static function replace($file, $projectName, $projectIdentifier)
