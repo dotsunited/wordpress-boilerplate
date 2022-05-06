@@ -1,0 +1,30 @@
+name: 🐳 Build Docker image on push
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: 🐳 Build Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 🔑 Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🐳 Build Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./.docker/mysql/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/dotsunited/wordpress-boilerplate:mysql
