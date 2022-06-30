@@ -11,6 +11,7 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_TABLE_PREFIX: wp_
       # WORDPRESS_CONFIG_EXTRA: |
       #  /* Multisite */
       #  define('WP_ALLOW_MULTISITE', true );
@@ -51,6 +52,8 @@ services:
         PMA_HOST: db
         PMA_USER: wordpress
         PMA_PASSWORD: wordpress
+        UPLOAD_LIMIT: 2G
+        MEMORY_LIMIT: 1G
   
   mailhog:
     image: mailhog/mailhog
