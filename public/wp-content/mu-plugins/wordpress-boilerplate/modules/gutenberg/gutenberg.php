@@ -66,7 +66,7 @@ add_action('enqueue_block_editor_assets', function () {
     );
 });
 
-add_filter('allowed_block_types', function ($current, $post) {
+add_filter('allowed_block_types_all', function ($current, $context) {
     if (!\is_array($current)) {
         $current = [];
     }
