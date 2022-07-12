@@ -3,6 +3,7 @@ version: "3.8"
 services:
   wordpress:
     image: wordpress
+    user: 1000:1000
     restart: on-failure
     ports:
       - 8080:80
