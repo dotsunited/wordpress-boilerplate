@@ -157,6 +157,12 @@ add_action('enqueue_block_assets', function () {
     wp_dequeue_style('wp-block-library');
 });
 
+add_action( 'enqueue_block_editor_assets', function() {
+	
+	// Enqueue editor UI style.
+	wp_enqueue_style( 'slug-editor-ui-style', get_theme_file_uri( 'vendor/gutenberg/editor-styles.css' ), [], md5_file(get_theme_file_path( 'vendor/gutenberg/editor-styles.css' )) );
+});
+
 // Gutenberg block editor assets
 add_action( 'init', 'register_custom_block_style' );
 
