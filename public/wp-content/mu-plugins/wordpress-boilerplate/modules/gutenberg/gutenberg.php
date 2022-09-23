@@ -44,26 +44,28 @@ add_action('plugins_loaded', function () {
 }, 10, 0);
 
 add_action('enqueue_block_editor_assets', function () {
-    wp_enqueue_script(
-        'wordpress-boilerplate-gutenberg-blocks-js',
-        plugin_dir_url(__FILE__) . 'blocks/assets/blocks.js',
-        ['wp-edit-post']
-    );
-	wp_enqueue_script( 'wordpress-boilerplate-gutenberg-embed-blocks-reset-js',
-		plugin_dir_url(__FILE__) . 'blocks/embeds/reset.js',
-		[
-			'wp-blocks',
-			'wp-dom-ready',
-			'wp-edit-post'
-		],
-		'1.0',
-		false
-	);
-    wp_enqueue_style(
-        'wordpress-boilerplate-gutenberg-blocks-css',
-        plugin_dir_url(__FILE__) . '/blocks/assets/blocks.css',
-        ['wp-edit-post']
-    );
+    if (!wp_script_is('wp-edit-widgets') && !wp_script_is('wp-customize-widgets')) {
+        wp_enqueue_script(
+            'wordpress-boilerplate-gutenberg-blocks-js',
+            plugin_dir_url(__FILE__) . 'blocks/assets/blocks.js',
+            ['wp-edit-post']
+        );
+        wp_enqueue_script( 'wordpress-boilerplate-gutenberg-embed-blocks-reset-js',
+            plugin_dir_url(__FILE__) . 'blocks/embeds/reset.js',
+            [
+                'wp-blocks',
+                'wp-dom-ready',
+                'wp-edit-post'
+            ],
+            '1.0',
+            false
+        );
+        wp_enqueue_style(
+            'wordpress-boilerplate-gutenberg-blocks-css',
+            plugin_dir_url(__FILE__) . '/blocks/assets/blocks.css',
+            ['wp-edit-post']
+        );
+    }
 });
 
 add_filter('allowed_block_types_all', function ($current, $context) {
