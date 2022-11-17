@@ -68,119 +68,116 @@ add_action('enqueue_block_editor_assets', function () {
     }
 });
 
-add_filter('allowed_block_types_all', function ($current, $context) {
-    if (!\is_array($current)) {
-        $current = [];
-    }
+add_filter('allowed_block_types_all', function () {
+    $blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
 
     // Once a block has been allowed, it is not possible to disallow it again as
     // it might be already used in posts!
 
-    // -- Wordpress Boildeprlate Blocks -----------------------------------------------------------
-    $current = \array_merge(
-        $current,
-        []
-    );
+    // Remove all core blocks
+    $allowed = array_filter($blocks, function($key) {
+        return strpos($key, 'core/') !== 0;
+    }, ARRAY_FILTER_USE_KEY);
 
-    // -- Plugin Blocks ----------------------------------------------------------
-    $current = \array_merge(
-        $current,
-        [
-            // --- Dots United Gfiframe Blocks ---------------------------------
+    // List of allowed core blocks
+    $allow = [
+        // 'core/archives',
+        // 'core/audio',
+        // 'core/avatar',
+        'core/block',
+        'core/button',
+        'core/buttons',
+        // 'core/calendar',
+        // 'core/categories',
+        // 'core/code',
+        'core/column',
+        'core/columns',
+        // 'core/comment-author-avatar',
+        // 'core/comment-author-name',
+        // 'core/comment-content',
+        // 'core/comment-date',
+        // 'core/comment-edit-link',
+        // 'core/comment-reply-link',
+        // 'core/comment-template',
+        // 'core/comments',
+        // 'core/comments-pagination',
+        // 'core/comments-pagination-next',
+        // 'core/comments-pagination-numbers',
+        // 'core/comments-pagination-previous',
+        // 'core/comments-title',
+        // 'core/cover',
+        // 'core/embed',
+        // 'core/file',
+        'core/freeform',
+        // 'core/gallery',
+        'core/group',
+        'core/heading',
+        // 'core/home-link',
+        // 'core/html',
+        'core/image',
+        // 'core/latest-comments',
+        // 'core/latest-posts',
+        'core/list',
+        // 'core/list-item',
+        // 'core/loginout',
+        // 'core/media-text',
+        // 'core/missing',
+        'core/more',
+        // 'core/navigation',
+        // 'core/navigation-link',
+        // 'core/navigation-submenu',
+        // 'core/nextpage',
+        // 'core/page-list',
+        'core/paragraph',
+        // 'core/pattern',
+        // 'core/post-author',
+        // 'core/post-author-biography',
+        // 'core/post-author-name',
+        // 'core/post-comment',
+        // 'core/post-comments-count',
+        // 'core/post-comments-form',
+        // 'core/post-comments-link',
+        // 'core/post-content',
+        // 'core/post-date',
+        // 'core/post-excerpt',
+        // 'core/post-featured-image',
+        // 'core/post-navigation-link',
+        // 'core/post-template',
+        // 'core/post-terms',
+        // 'core/post-title',
+        // 'core/preformatted',
+        // 'core/pullquote',
+        // 'core/query',
+        // 'core/query-no-results',
+        // 'core/query-pagination',
+        // 'core/query-pagination-next',
+        // 'core/query-pagination-numbers',
+        // 'core/query-pagination-previous',
+        // 'core/query-title',
+        // 'core/quote',
+        // 'core/read-more',
+        // 'core/rss',
+        // 'core/search',
+        // 'core/separator',
+        // 'core/shortcode',
+        // 'core/site-logo',
+        // 'core/site-tagline',
+        // 'core/site-title',
+        // 'core/social-link',
+        // 'core/social-links',
+        // 'core/spacer',
+        // 'core/table',
+        // 'core/table-of-contents',
+        // 'core/tag-cloud',
+        // 'core/template-part',
+        // 'core/term-description',
+        // 'core/text-columns',
+        // 'core/verse',
+        // 'core/video',
+    ];
 
-            'dotsunited-gfiframe/core',
-        ]
-    );
+    // Merge allowed blocks
+    $allowed = array_merge(array_keys($allowed), $allow);
 
-    // -- Core Blocks ----------------------------------------------------------
-    //
-    // Core block list:
-    //
-    //    var list = wp.blocks.getBlockTypes().map(function(block) {
-    //        return "'" + block.name + "',";
-    //    }).sort();
-    //
-    //    console.log(list.join("\n"));
-    //
-    // See: https://github.com/WordPress/gutenberg/tree/1d95916c1979f426f98ae8239fc3b87cc8aed440/packages/block-library/src
-    $current = \array_merge(
-        $current,
-        [
-            // 'core/archives',
-            // 'core/audio',
-            'core/block',
-            'core/buttons',
-	        'core/group',
-            // 'core/categories',
-	        // core/calendar,
-	        // 'core/code',
-            'core/column',
-            'core/columns',
-            // 'core/cover-image',
-            // 'core/embed',
-            // 'core/file',
-            'core/freeform', // Classic editor
-            // 'core/gallery',
-            'core/heading',
-            // 'core/html',
-            'core/image',
-            // 'core/latest-comments',
-            // 'core/latest-posts',
-            'core/list',
-            'core/more',
-            // 'core/nextpage',
-            'core/paragraph',
-            // 'core/preformatted',
-            // 'core/pullquote',
-            // 'core/quote',
-            // 'core/separator',
-            // 'core/shortcode',
-            // 'core/spacer',
-            // 'core/subhead',
-	        // 'core/social-link',
-	        // 'core/social-links',
-            // 'core/table',
-            // 'core/text-columns',
-            // 'core/verse',
-            // 'core/video',
-	        // 'core/social-link',
-	        // 'core/social-links',
-	        // Allow single/disallow single embeds not possible anymore: https://github.com/WordPress/gutenberg/issues/25676
-            // 'core-embed/animoto',
-            // 'core-embed/cloudup',
-            // 'core-embed/collegehumor',
-            // 'core-embed/dailymotion',
-            // 'core-embed/facebook',
-            // 'core-embed/flickr',
-            // 'core-embed/funnyordie',
-            // 'core-embed/hulu',
-            // 'core-embed/imgur',
-            // 'core-embed/instagram',
-            // 'core-embed/issuu',
-            // 'core-embed/kickstarter',
-            // 'core-embed/meetup-com',
-            // 'core-embed/mixcloud',
-            // 'core-embed/photobucket',
-            // 'core-embed/polldaddy',
-            // 'core-embed/reddit',
-            // 'core-embed/reverbnation',
-            // 'core-embed/screencast',
-            // 'core-embed/scribd',
-            // 'core-embed/slideshare',
-            // 'core-embed/smugmug',
-            // 'core-embed/soundcloud',
-            // 'core-embed/speaker',
-            // 'core-embed/spotify',
-            // 'core-embed/ted',
-            // 'core-embed/tumblr',
-            // 'core-embed/twitter',
-            // 'core-embed/videopress',
-            // 'core-embed/vimeo',
-            // 'core-embed/wordpress',
-            // 'core-embed/wordpress-tv',
-            // 'core-embed/youtube',
-        ]
-    );
-
-    return $current;
+    return $allowed;
 }, 10, 2);
