@@ -48,7 +48,8 @@ add_action('enqueue_block_editor_assets', function () {
         wp_enqueue_script(
             'wordpress-boilerplate-gutenberg-blocks-js',
             plugin_dir_url(__FILE__) . 'blocks/assets/blocks.js',
-            ['wp-edit-post']
+            ['wp-edit-post'],
+            md5_file(plugin_dir_path(__FILE__) . 'blocks/assets/blocks.js')
         );
         wp_enqueue_script( 'wordpress-boilerplate-gutenberg-embed-blocks-reset-js',
             plugin_dir_url(__FILE__) . 'blocks/embeds/reset.js',
@@ -57,13 +58,14 @@ add_action('enqueue_block_editor_assets', function () {
                 'wp-dom-ready',
                 'wp-edit-post'
             ],
-            '1.0',
+            md5_file(plugin_dir_path(__FILE__) . 'blocks/embeds/reset.js'),
             false
         );
         wp_enqueue_style(
             'wordpress-boilerplate-gutenberg-blocks-css',
             plugin_dir_url(__FILE__) . '/blocks/assets/blocks.css',
-            ['wp-edit-post']
+            ['wp-edit-post'],
+            md5_file(plugin_dir_path(__FILE__) . '/blocks/assets/blocks.css')
         );
     }
 });
