@@ -1,6 +1,13 @@
-version: "3.8"
+version: "3.9"
+
+x-common-variables: &commonEnv
+  WORDPRESS_TABLE_PREFIX: wp_
+  WORDPRESS_PORT: 8080
+  WORDPRESS_HOST: localhost
+  WORDPRESS_MULTISITE: 0
 
 services:
+
   wordpress:
     image: wordpress
     user: 1000:1000
@@ -8,20 +15,25 @@ services:
     ports:
       - 8080:80
     environment:
+      <<: *commonEnv
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_TABLE_PREFIX: wp_
-      # WORDPRESS_CONFIG_EXTRA: |
-      #  /* Multisite */
-      #  define('WP_ALLOW_MULTISITE', true );
-      #  define('MULTISITE', true);
-      #  define('SUBDOMAIN_INSTALL', false);
-      #  define('DOMAIN_CURRENT_SITE', 'localhost:8080');
-      #  define('PATH_CURRENT_SITE', '/');
-      #  define('SITE_ID_CURRENT_SITE', 1);
-      #  define('BLOG_ID_CURRENT_SITE', 1);
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Debugging */
+        define('WP_DEBUG', false);
+        define('WP_DEBUG_LOG', false);
+        define('WP_DEBUG_DISPLAY', false);
+        @ini_set('display_errors', 0);
+      # /* Multisite */
+      # define('WP_ALLOW_MULTISITE', true );
+      # define('MULTISITE', true);
+      # define('SUBDOMAIN_INSTALL', false);
+      # define('DOMAIN_CURRENT_SITE', 'localhost:8080');
+      # define('PATH_CURRENT_SITE', '/');
+      # define('SITE_ID_CURRENT_SITE', 1);
+      # define('BLOG_ID_CURRENT_SITE', 1);
     volumes:
       - ./public:/var/www/html
     depends_on:
@@ -32,37 +44,49 @@ services:
     command: mysqld --default-authentication-plugin=mysql_native_password
     restart: on-failure
     environment:
+      <<: *commonEnv
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
-      WORDPRESS_PORT: 8080
-      WORDPRESS_HOST: localhost
-      WORDPRESS_TABLE_PREFIX: wp_
-      WORDPRESS_MULTISITE: 0
     volumes:
       - db:/var/lib/mysql
       # - ./dump.sql.gz:/docker-entrypoint-initdb.d/dump.sql.gz:ro
       # - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql:ro
-
-  phpmyadmin:
-    image: phpmyadmin
-    restart: on-failure
-    ports:
-      - 8090:80
-    environment:
-        PMA_HOST: db
-        PMA_USER: wordpress
-        PMA_PASSWORD: wordpress
-        UPLOAD_LIMIT: 2G
-        MEMORY_LIMIT: 1G
   
-  mailhog:
-    image: mailhog/mailhog
-    restart: on-failure
-    ports:
-      - 1025:1025
-      - 8025:8025
+  #######################################
+  # OPTIONAL CONTAINERS
+  #######################################
+
+  # phpmyadmin:
+  #   image: phpmyadmin
+  #   restart: on-failure
+  #   ports:
+  #     - 8090:80
+  #   environment:
+  #       PMA_HOST: db
+  #       PMA_USER: wordpress
+  #       PMA_PASSWORD: wordpress
+  #       UPLOAD_LIMIT: 2G
+  #       MEMORY_LIMIT: 1G
+
+  # mailhog:
+  #   image: mailhog/mailhog
+  #   restart: on-failure
+  #   ports:
+  #     - 1025:1025
+  #     - 8025:8025
+
+  # search-replace:
+  #   image: foxylion/search-replace-db
+  #   restart: on-failure
+  #   ports:
+  #     - 8060:80
+  #   environment:
+  #     DB_HOST: 'db'
+  #     DB_USER: 'wordpress'
+  #     DB_PASS: 'wordpress'
+  #     DB_NAME: 'wordpress'
         
 volumes:
   db:
