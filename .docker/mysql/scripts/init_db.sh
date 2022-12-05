@@ -28,8 +28,8 @@ get_url_path () {
 #######################################
 set_wordpress_admin_user () {
 	user_exists=$(
-    mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
-    SELECT COUNT(1) FROM ${WORDPRESS_TABLE_PREFIX}users WHERE user_login = 'dotsunited';
+	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+	SELECT COUNT(1) FROM ${WORDPRESS_TABLE_PREFIX}users WHERE user_login = 'dotsunited';
 	EOF
 	)
 
@@ -50,28 +50,26 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 	# Initialize WordPress multisite database.
 	set_wordpress_admin_user
 
-    mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 	UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET domain = '${WORDPRESS_HOST}:${WORDPRESS_PORT}';
 	UPDATE ${WORDPRESS_TABLE_PREFIX}site SET domain = '${WORDPRESS_HOST}:${WORDPRESS_PORT}';
 	EOF
 
-    while read -r line; do
-		if [[ "$line" =~ "$WORDPRESS_TABLE_PREFIX"([0-9]+_)?options ]]; then
-			siteurl=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $line WHERE option_name = 'siteurl'")
-			home=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $line WHERE option_name = 'home'")
+	while read -r line; do
+		siteurl=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $line WHERE option_name = 'siteurl'")
+		home=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $line WHERE option_name = 'home'")
 
-			mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
-			UPDATE $line SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$(get_url_path "$siteurl")' WHERE option_name = 'siteurl';
-			UPDATE $line SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$(get_url_path "$home")' WHERE option_name = 'home';
-			EOF
-		fi
-	done < <(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '"$MYSQL_DATABASE"'")
+		mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+		UPDATE $line SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$(get_url_path "$siteurl")' WHERE option_name = 'siteurl';
+		UPDATE $line SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$(get_url_path "$home")' WHERE option_name = 'home';
+		EOF
+	done < <(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME REGEXP '^${WORDPRESS_TABLE_PREFIX}(?:[0-9]+_)?options$'")
 else
 	# Initialize WordPress basic database.
 	set_wordpress_admin_user
 
-    mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
-    UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}' WHERE option_name = 'siteurl';
-    UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}' WHERE option_name = 'home';
+	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}' WHERE option_name = 'siteurl';
+	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}' WHERE option_name = 'home';
 	EOF
 fi
