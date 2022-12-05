@@ -1,3 +1,4 @@
 FROM mysql:latest
 
-ADD .docker/mysql/scripts /docker-entrypoint-initdb.d
+# Add scripts
+ADD ./scripts /docker-entrypoint-initdb.d
