@@ -3,7 +3,7 @@
 add_action('widgets_init', function () {
 	
 	register_sidebar([
-		'name' => _x('Footer Sidebar 1', 'footer sidebar 1', 'wordpress_boilerplate'),
+		'name' => _x('Footer Sidebar 1', 'footer sidebar 1', 'wordpress-boilerplate'),
 		'id' => 'footer-1',
 		'before_widget' => '<div id="%1$s" class="w-full mb-6 %2$s">',
 		'after_widget' => '</div>',
