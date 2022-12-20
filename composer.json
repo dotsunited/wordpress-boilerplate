@@ -6,7 +6,7 @@
   "license": "MIT",
   "config": {
     "platform": {
-      "php": "7.3.0"
+      "php": "8.1"
     },
     "preferred-install": {
       "*": "dist"
