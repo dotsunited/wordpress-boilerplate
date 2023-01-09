@@ -21,10 +21,32 @@ Features
 
 Setup
 ---
+
 Create new project with
 
 ```bash
 composer create-project dotsunited/wordpress-boilerplate my-project
+```
+
+Docker
+---
+
+Copy the `docker-compose.yml.dist` to `docker-compose.yml` and
+adjust the environment variables to your needs.
+
+You can add a database dump with the filename `dump.sql.gz` or `dump.sql` which will be imported on the first run. Additionally a new user with the following credentials will be automatically added:
+
+```bash
+Username: `localAdmin`
+Password: ´localPassword´
+```
+
+> ⚠️ Remember to remove or change the credentials in a production environment!
+
+Start the docker containers with
+
+```bash
+docker composer up -d
 ```
 
 Plugins
