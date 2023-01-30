@@ -136,7 +136,7 @@ class ComposerScripts
                 $projectName,
                 $projectIdentifier,
                 str_replace('-', '_', $projectIdentifier),
-                ucwords($projectIdentifier, '-'),
+                str_replace('-', '', ucwords($projectIdentifier, '-')),
             ),
             $content
         );
