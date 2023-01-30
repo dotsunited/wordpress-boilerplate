@@ -71,7 +71,7 @@
     "postcss-loader": "^4.3.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-safe-parser": "^5.0.2",
-    "release-it": "^14.12.1",
+    "release-it": "^15.6.0",
     "style-loader": "^0.23.1",
     "tailwindcss": "2.1.4",
     "terser-webpack-plugin": "^5.3.3",
