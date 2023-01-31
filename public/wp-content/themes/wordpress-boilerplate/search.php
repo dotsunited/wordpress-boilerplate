@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container lg:flex">
+<div class="container lg:flex mt-16">
     <main class="w-auto lg:w-3/4 mr-8">
     <?php if ( have_posts() ) :  ?>
 

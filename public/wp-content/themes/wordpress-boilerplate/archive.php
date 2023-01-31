@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container lg:flex">
+<div class="container lg:flex mt-16">
     <main class="w-auto lg:w-3/4 mr-8">
     <?php while (have_posts()): the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class('mb-8'); ?>>
