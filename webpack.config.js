@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -147,9 +148,6 @@ module.exports = (env, argv) => {
                                         ]
                                     },
                                 },
-                                {
-                                    loader: 'eslint-loader'
-                                },
                             ],
                         },
                         {
@@ -172,9 +170,6 @@ module.exports = (env, argv) => {
                                             ]
                                         ]
                                     },
-                                },
-                                {
-                                    loader: 'eslint-loader'
                                 },
                             ],
                         },
@@ -260,7 +255,8 @@ module.exports = (env, argv) => {
                 filename: '[name].[contenthash:8].css',
                 chunkFilename: '[name].[contenthash:8].css',
             }),
-            new WebpackManifestPlugin()
+            new WebpackManifestPlugin(),
+            new ESLintPlugin()
         ]
     };
 };
