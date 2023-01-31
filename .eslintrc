@@ -11,8 +11,7 @@
   "ignorePatterns": [
     "webpack.config.js",
     "webpack-blocks.config.js",
-    "webpack-public-path.js",
-    "assets/tailwind/src/config.js"
+    "webpack-public-path.js"
   ],
   "rules": {
     "max-len": [

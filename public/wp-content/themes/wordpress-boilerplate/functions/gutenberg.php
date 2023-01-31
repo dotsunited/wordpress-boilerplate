@@ -10,46 +10,46 @@ add_action('after_setup_theme', function () {
 	// Pass an empty array to remove support for color palettes, eg. for buttons.
     add_theme_support('editor-color-palette', [
         [
-            'name' => __('Black', 'wordpress-boilerplate'),
+            'name' => __('Black', 'upgrade-boilerplate'),
             'slug' => 'black',
             'color' => '#252427',
         ],
         [
-            'name' => __('Darkest', 'wordpress-boilerplate'),
+            'name' => __('Darkest', 'upgrade-boilerplate'),
             'slug' => 'gray-900',
             'color' => '#414549',
         ],
         [
-            'name' => __('Darker', 'wordpress-boilerplate'),
+            'name' => __('Darker', 'upgrade-boilerplate'),
             'slug' => 'gray-800',
             'color' => '#697788',
         ],
         [
-            'name' => __('Dark', 'wordpress-boilerplate'),
+            'name' => __('Dark', 'upgrade-boilerplate'),
             'slug' => 'gray-600',
             'color' => '#676767',
         ],
         [
-            'name' => __('Light', 'wordpress-boilerplate'),
+            'name' => __('Light', 'upgrade-boilerplate'),
             'slug' => 'gray-400',
             'color' => '#f1f4fd',
         ],
         [
-            'name' => __('Grey', 'wordpress-boilerplate'),
+            'name' => __('Grey', 'upgrade-boilerplate'),
             'slug' => 'gray-500',
             'color' => '#b8c2cc',
         ],
         [
-            'name' => __('White', 'wordpress-boilerplate'),
+            'name' => __('White', 'upgrade-boilerplate'),
             'slug' => 'white',
             'color' => '#fff',
         ],
         [
-            'name' => __('Blue', 'wordpress-boilerplate'),
+            'name' => __('Blue', 'upgrade-boilerplate'),
             'slug' => 'blue-500',
             'color' => '#4a7cf6',
         ],[
-            'name' => __('Blue Dark', 'wordpress-boilerplate'),
+            'name' => __('Blue Dark', 'upgrade-boilerplate'),
             'slug' => 'blue-600',
             'color' => '#0073C0',
         ],
@@ -65,28 +65,28 @@ add_filter('the_content', function ($content) {
     return \strtr($content, [
         'has-blue-500-color' => 'text-blue-500',
         'has-blue-600-color' => 'text-blue-600',
-        'has-gray-900-color' => 'text-gray-900',
-        'has-gray-800-color' => 'text-gray-800',
-        'has-gray-600-color' => 'text-gray-600',
-        'has-gray-400-color' => 'text-gray-400',
+        'has-slate-900-color' => 'text-slate-900',
+        'has-slate-800-color' => 'text-slate-800',
+        'has-slate-600-color' => 'text-slate-600',
+        'has-slate-400-color' => 'text-slate-400',
         'has-white-color' => 'text-white',
         'has-black-color' => 'text-black',
 
         'has-blue-600-background-color' => 'bg-blue-600',
         'has-blue-500-background-color' => 'bg-blue-500',
-        'has-gray-900-background-color' => 'bg-gray-900',
-        'has-gray-800-background-color' => 'bg-gray-800',
-        'has-gray-600-background-color' => 'bg-gray-600',
-        'has-gray-400-background-color' => 'bg-gray-400',
+        'has-slate-900-background-color' => 'bg-slate-900',
+        'has-slate-800-background-color' => 'bg-slate-800',
+        'has-slate-600-background-color' => 'bg-slate-600',
+        'has-slate-400-background-color' => 'bg-slate-400',
         'has-white-background-color' => 'bg-white',
         'has-black-background-color' => 'bg-black',
 
         'has-blue-600-border-color' => 'border-blue-600 border-t border-b',
         'has-blue-500-border-color' => 'border-blue-500 border-t border-b',
-        'has-gray-900-border-color' => 'border-gray-900 border-t border-b',
-        'has-gray-800-border-color' => 'border-gray-800 border-t border-b',
-        'has-gray-600-border-color' => 'border-gray-600 border-t border-b',
-        'has-gray-400-border-color' => 'border-gray-400 border-t border-b',
+        'has-slate-900-border-color' => 'border-slate-900 border-t border-b',
+        'has-slate-800-border-color' => 'border-slate-800 border-t border-b',
+        'has-slate-600-border-color' => 'border-slate-600 border-t border-b',
+        'has-slate-400-border-color' => 'border-slate-400 border-t border-b',
         'has-white-border-color' => 'border-white border-t border-b',
         'has-black-border-color' => 'border-black border-t border-b',
 
@@ -172,9 +172,9 @@ function register_custom_block_style() {
 	register_block_style(
 		'core/group',
 		array(
-			'name'			=> 'gray-400-group',
+			'name'			=> 'slate-400-group',
 			'label'			=> __( 'Gray Group' ),
-			'inline_style'	=> '.wp-block-group.is-style-gray-400-group { background-color: #cbd5e0; }',
+			'inline_style'	=> '.wp-block-group.is-style-slate-400-group { background-color: #cbd5e0; }',
 		)
 	);
 };

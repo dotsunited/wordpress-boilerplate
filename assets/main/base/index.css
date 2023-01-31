@@ -1,17 +1,14 @@
-@import '../variables.css';
-
 html {
-    background: var(--color-gray-400);
+    background: theme(colors.slate.300);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
 }
 
 body {
-    background: var(--color-white);
-    font-family: var(--font-sans);
-    color: var(--color-black);
+    background: theme(colors.white);
+    font-family: theme(fontFamily.sans);
+    color: theme(colors.black);
 }
 
 a {}
-

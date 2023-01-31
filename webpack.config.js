@@ -6,19 +6,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
-const glob = require('glob');
 
 function getAppJsExcludeRegexp() {
     return new RegExp('node_modules\/(?!domestique|ctrly)');
-}
-
-// Custom PurgeCSS extractor for Tailwind that allows special characters in
-// class names.
-// https://www.purgecss.com/extractors
-class TailwindPurgecssExtractor {
-    static extract(content) {
-        return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
-    }
 }
 
 function getStyleLoaders() {
@@ -36,6 +26,8 @@ function getStyleLoaders() {
                 postcssOptions: {
                     plugins: [
                         require('postcss-import')(),
+                        require('tailwindcss/nesting')(),
+                        require('tailwindcss')(),
                         require('postcss-flexbugs-fixes')(),
                         require('postcss-focus-within')(),
                         require('postcss-preset-env')({
@@ -172,24 +164,6 @@ module.exports = (env, argv) => {
                                     },
                                 },
                             ],
-                        },
-                        {
-                            test: /\.css$/,
-                            include: /assets\/tailwind/,
-                            use: getStyleLoaders().concat(!!argv.watch ? [] : [
-                                {
-                                    loader: '@americanexpress/purgecss-loader',
-                                    options: {
-                                        paths: glob.sync(path.join(__dirname, 'public/wp-content/themes') + '/**/*.+(html|php)', {nodir: true}),
-                                        extractors: [
-                                            {
-                                                extractor: TailwindPurgecssExtractor,
-                                                extensions: ['php', 'html'],
-                                            }
-                                        ],
-                                    },
-                                },
-                            ]),
                         },
                         {
                             test: /\.css$/,

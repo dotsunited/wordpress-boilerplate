@@ -1,5 +1,3 @@
-@import "../variables.css";
-
 .off-canvas-menu__target {
     -webkit-backface-visibility: hidden;
     -webkit-overflow-scrolling: touch;

@@ -6,7 +6,7 @@
     
         <?php while (have_posts()): the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('mb-8'); ?>>
-                <time class="text-xs leading-none text-gray-600" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
+                <time class="text-xs leading-none text-slate-600" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
                     <?php echo get_the_date(); ?>
                 </time>
     
