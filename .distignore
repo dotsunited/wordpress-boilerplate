@@ -10,3 +10,4 @@ Makefile
 package.json
 package-lock.json
 webpack.config.js
+docker-compose.dist.yml
