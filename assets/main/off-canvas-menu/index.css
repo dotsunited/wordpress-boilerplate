@@ -2,10 +2,6 @@
     display: block;
     z-index: 9;
 
-    & button {
-        z-index: 99999999999999;
-    }
-
     @media screen(md) {
         display: none;
     }
@@ -18,9 +14,15 @@
     justify-content: center;
     width: 48px;
     height: 48px;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .off-canvas-menu__control--open {
+    margin-top: 2px;
     margin-right: .5rem;
 }
 
@@ -75,9 +77,8 @@
     transform: translate3d(100%, 0, 0);
     box-shadow: 0 0 5px 0 rgba(118, 118, 118, 1);
     background-color: theme(colors.slate.100);
-    z-index: 1000;
 }
 
-.off-canvas-menu__target:not([aria-hidden]):focus-within {
+.off-canvas-menu[aria-hidden="false"] > .off-canvas-menu__target {
     transform: translate3d(0, 0, 0);
 }

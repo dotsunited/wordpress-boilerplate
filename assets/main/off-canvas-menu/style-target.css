@@ -3,7 +3,7 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 
-   overflow: hidden;
+    overflow: hidden;
     width: 100%;
     height: 100%;
 
@@ -24,21 +24,30 @@
     }
 }
 
-.off-canvas-menu__target[aria-hidden] {
-    transition: .35s cubic-bezier(.23, 1, .32, 1);
+.off-canvas-menu[aria-hidden="true"] {
+    & > .off-canvas-menu__target {
+        visibility: hidden;
+        transition-property: transform, visibility;
+    }
+
+    & + .off-canvas-background {
+        pointer-events: none;
+        --tw-bg-opacity: 0;
+    }
 }
 
-.off-canvas-menu__target[aria-hidden="true"] {
-    visibility: hidden;
-    transition-property: transform, visibility;
-}
+.off-canvas-menu[aria-hidden="false"] {
+    & > .off-canvas-menu__target {
+        transform: translate3D(0, 0, 0);
+        visibility: visible;
+        /*
+        This removes the transition from the visibility property when opening
+        the target. Otherwise, elements inside the target aren't focusable.
+        */
+        transition-property: transform;
+    }
 
-.off-canvas-menu__target[aria-hidden="false"] {
-    transform: translate3D(0, 0, 0);
-    visibility: visible;
-    /*
-      This removes the transition from the visibility property when opening
-      the target. Otherwise, elements inside the target aren't focusable.
-    */
-    transition-property: transform;
+    & + .off-canvas-background {
+        --tw-bg-opacity: 99;
+    }
 }

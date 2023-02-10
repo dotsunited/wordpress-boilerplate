@@ -4,19 +4,18 @@
             top: 50%;
             transform: translateY(-50%) rotate(135deg);
             width: 100%;
-            background-color: theme(colors.black);
+            background-color: theme(colors.slate.600);
         }
 
         &:before {
             opacity: 0;
-            left: -100%;
         }
 
         &:after {
             top: 50%;
             transform: translateY(-50%) rotate(-135deg);
             width: 100%;
-            background-color: theme(colors.black);
+            background-color: theme(colors.slate.600);
         }
     }
 }
