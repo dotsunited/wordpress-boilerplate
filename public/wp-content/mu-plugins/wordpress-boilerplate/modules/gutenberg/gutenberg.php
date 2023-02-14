@@ -120,7 +120,7 @@ add_filter('allowed_block_types_all', function () {
         // 'core/latest-comments',
         // 'core/latest-posts',
         'core/list',
-        // 'core/list-item',
+        'core/list-item',
         // 'core/loginout',
         // 'core/media-text',
         // 'core/missing',
