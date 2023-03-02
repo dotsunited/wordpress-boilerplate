@@ -1,5 +1,5 @@
-vendor/
-node_modules/
+/vendor/
+/node_modules/
 public/wp-admin/
 public/wp-includes/
 public/index.php
