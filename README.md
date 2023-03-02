@@ -31,8 +31,7 @@ composer create-project dotsunited/wordpress-boilerplate my-project
 Docker
 ---
 
-Copy the `docker-compose.yml.dist` to `docker-compose.yml` and
-adjust the environment variables to your needs.
+Adjust the docker-compose.yml to your needs using a `docker-compose.override.yml` file (https://docs.docker.com/compose/extends/).
 
 You can add a database dump with the filename `dump.sql.gz` or `dump.sql` which will be imported on the first run. Additionally a new user with the following credentials will be automatically added:
 
