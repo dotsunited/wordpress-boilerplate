@@ -6,8 +6,9 @@ node_modules
 .idea
 composer.json
 composer.lock
-Makefile
 package.json
 package-lock.json
+tailwind.config.js
+webpack-blocks.config.js
 webpack.config.js
-docker-compose.dist.yml
+docker-compose.yml
