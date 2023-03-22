@@ -13,7 +13,7 @@ deploy_production:
     name: production
     url: https://wordpress-boilerplate.localhost
   only:
-    - master
+    - main
   script:
     - dep --no-local-build --no-interaction -vvv deploy production
 
