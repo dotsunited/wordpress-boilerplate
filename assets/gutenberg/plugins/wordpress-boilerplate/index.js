@@ -1,6 +1,6 @@
 import './editor.css';
 
-const {
+/* const {
     __
 } = wp.i18n;
 
@@ -113,4 +113,4 @@ const render = compose( [
 export default wp.plugins.registerPlugin('wordpress-boilerplate-gutenberg-plugin', {
     icon: 'admin-tools',
     render
-});
+}); */
