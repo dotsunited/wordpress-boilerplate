@@ -61,4 +61,23 @@
         border-left: 4px solid #e6e6e6;
         padding: .5rem 1rem;
     }
+
+    & .wp-block-embed {
+        &.alignfull,
+        &.alignwide {
+            & .wp-block-embed__wrapper {
+                position: relative;
+                padding-top: 56.257%;
+                width: 100%;
+        
+                & > iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
 }
