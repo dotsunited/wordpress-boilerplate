@@ -9,6 +9,7 @@ module.exports = (env, argv) => {
 
     return {
         mode: mode,
+        cache: true,
         bail: true,
         entry: {
             'blocks': [

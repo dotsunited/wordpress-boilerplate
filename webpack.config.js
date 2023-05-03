@@ -56,6 +56,7 @@ module.exports = (env, argv) => {
 
     return {
         mode: mode,
+        cache: true,
         entry: {
             'main': [
                 './assets/webpack-public-path.js',
