@@ -171,14 +171,11 @@ module.exports = (env, argv) => {
                         },
                         {
                             test: /\.(gif|png|jpe?g|svg)$/i,
+                            type: 'asset/resource',
+                            generator: {
+                                filename: 'img/[name].[hash:8][ext]',
+                            },
                             use: [
-                                {
-                                    loader: 'file-loader',
-                                    options: {
-                                        name: '[name].[hash:8].[ext]',
-                                        outputPath: 'img/',
-                                    }
-                                },
                                 {
                                     loader: 'img-loader',
                                     options: {
@@ -201,15 +198,10 @@ module.exports = (env, argv) => {
                         },
                         {
                             test: /\.(woff|woff2|eot|ttf|otf)$/,
-                            use: [
-                                {
-                                    loader: 'file-loader',
-                                    options: {
-                                        name: '[name].[hash:8].[ext]',
-                                        outputPath: 'fonts/',
-                                    }
-                                },
-                            ],
+                            type: 'asset/resource',
+                            generator: {
+                                filename: 'fonts/[name].[hash:8][ext]',
+                            },
                         },
                     ]
                 },
