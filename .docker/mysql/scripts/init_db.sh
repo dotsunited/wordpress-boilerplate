@@ -56,6 +56,7 @@ add_wordpress_admin_user () {
 
 	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 	INSERT INTO ${WORDPRESS_TABLE_PREFIX}users (ID, user_login, user_pass, user_nicename, user_email, user_status, display_name) VALUES (${next_user_id}, 'localAdmin', '\$P\$BirrwinnX1hAdJpwPuyWKzqXrl3LZ31', 'localAdmin', 'localadmin@wordpress.local', 0, 'localAdmin');
+	INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, 'nickname', 'localAdmin');
 	INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, 'wp_capabilities', 'a:1:{s:13:"administrator";b:1;}');
 	INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, 'wp_user_level', 10);
 	EOF
