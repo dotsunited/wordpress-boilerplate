@@ -22,6 +22,25 @@ get_url_path () {
 	fi
 }
 
+
+#######################################
+# Extract blog id.
+# Arguments:
+#   table name
+# Outputs:
+#   id
+#######################################
+get_blog_id() {
+	id="$(echo $1 | sed -e 's/wp_\([0-9]\+\)_options/\1/')"
+
+	if [ "wp_options" = "$id" ]; then
+		echo 1
+	else
+		echo $id
+	fi
+}
+
+
 #######################################
 # Add local WordPress admin user
 # 
@@ -51,15 +70,55 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 	UPDATE ${WORDPRESS_TABLE_PREFIX}site SET domain = '${WORDPRESS_HOST}:${WORDPRESS_PORT}';
 	EOF
 
+	blogs=()
+
 	while read -r line; do
-		siteurl=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $line WHERE option_name = 'siteurl'")
-		home=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $line WHERE option_name = 'home'")
+		blogs+=( "$line" )
+		echo "Found blog: ${line/%"_options"}"
+	done < <(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME REGEXP '^${WORDPRESS_TABLE_PREFIX}(?:[0-9]+_)?options$'")
+
+	echo "Found ${#blogs[@]} blogs in total."
+
+	for blog in "${blogs[@]}"; do
+		id=$(get_blog_id "$blog")
+		siteurl=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $blog WHERE option_name = 'siteurl'")
+		home=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $blog WHERE option_name = 'home'")
+        path_found=false
+
+        while read -d, -r pair; do
+            IFS='=' read -r key val <<<"$pair"
+
+            if [ "$key" = "$id" ]; then
+                echo "Using path $val for blog with id $id."
+
+                path_found=true
+                path="/$val"
+                blogpath="/$val/"
+
+                break
+            fi
+        done <<<"$WORDPRESS_MULTISITE_PATHS,"
+
+        if [ "$path_found" = false ]; then
+            echo "No configuration for blog with id $id found. Using default path."
+
+            if [ "1" = "$id" ]; then
+                path=""
+                blogpath="/"
+            else
+                path="/$id"
+                blogpath="/$id/"
+            fi
+        fi
+
+		echo "Updating blog with id $id from $siteurl to http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$path)"
 
 		mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
-		UPDATE $line SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$(get_url_path "$siteurl")' WHERE option_name = 'siteurl';
-		UPDATE $line SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$(get_url_path "$home")' WHERE option_name = 'home';
+	    UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET path = '$blogpath' WHERE blog_id = $id;
+		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$path' WHERE option_name = 'siteurl';
+		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$path' WHERE option_name = 'home';
 		EOF
-	done < <(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME REGEXP '^${WORDPRESS_TABLE_PREFIX}(?:[0-9]+_)?options$'")
+	done
 else
 	# Initialize WordPress basic database.
 	add_wordpress_admin_user

@@ -33,7 +33,19 @@ Docker
 
 Adjust the docker-compose.yml to your needs using a `docker-compose.override.yml` file (https://docs.docker.com/compose/extends/).
 
-You can add a database dump with the filename `dump.sql.gz` or `dump.sql` which will be imported on the first run. Additionally a new user with the following credentials will be automatically added:
+Multisite subfolders can be be configured by setting the `WORDPRESS_MULTISITE_PATHS` environment variable to e.g. `2=blog2,3=blog3`, resulting in the following urls:
+
+* http://localhost:8080/
+* http://localhost:8080/blog2/
+* http://localhost:8080/blog3/
+
+If nothing is set, the id of the corresponding blog will be used as a path, resulting in the following urls:
+
+* http://localhost:8080/
+* http://localhost:8080/2/
+* http://localhost:8080/3/
+
+You can add a database dump with the filename `dump.sql.gz` or `dump.sql` which will be imported on the first run. A new user with the following credentials will be automatically added:
 
 ```bash
 Username: `localAdmin`

@@ -5,6 +5,7 @@ x-common-variables: &commonEnv
   WORDPRESS_PORT: 8080
   WORDPRESS_HOST: localhost
   WORDPRESS_MULTISITE: 0
+  # WORDPRESS_MULTISITE_PATHS: 2=blog2,3=blog3
 
 services:
 
