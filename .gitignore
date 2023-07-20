@@ -19,6 +19,6 @@ public/wp-content/updraft/
 public/wp-content/themes/*
 !public/wp-content/themes/wordpress-boilerplate/
 public/sr/
-docker-compose.override.yml
-dump.sql.gz
-dump.sql
+docker-compose.*.yml
+/*.sql.gz
+/*.sql
