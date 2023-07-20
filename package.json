@@ -15,10 +15,10 @@
     "release": "release-it"
   },
   "browserslist": [
-    "> 1%",
-    "last 4 versions",
+    "> 0.5%",
+    "last 2 versions",
     "Firefox ESR",
-    "not ie < 10"
+    "not dead"
   ],
   "dependencies": {
     "classnames": "^2.3.2",
