@@ -27,6 +27,9 @@ services:
         define('WP_DEBUG_LOG', false);
         define('WP_DEBUG_DISPLAY', false);
         @ini_set('display_errors', 0);
+      # /* Sentry */
+      # define( 'WP_SENTRY_PHP_DSN', '___DSN___' );
+      # define( 'WP_SENTRY_ENV', 'development' );
       # /* Multisite */
       # define('WP_ALLOW_MULTISITE', true );
       # define('MULTISITE', true);

@@ -63,6 +63,8 @@ docker composer up -d
 Plugins
 ---
 
+If you uncommented sentry lines in `docker-compose.yml` install [WP Sentry](https://wordpress.org/plugins/wp-sentry-integration/)
+
 Be careful when using plugins which depend on jQuery.
 
 Gravity Forms for example will enqueue jquery once a form is embedded into a
