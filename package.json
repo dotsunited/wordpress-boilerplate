@@ -56,7 +56,7 @@
     "imagemin-svgo": "^9.0.0",
     "img-loader": "^4.0.0",
     "mini-css-extract-plugin": "^2.7.6",
-    "postcss": "^8.4.26",
+    "postcss": "^8.4.31",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-focus-within": "^8.0.0",
     "postcss-import": "^15.1.0",
