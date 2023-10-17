@@ -1,0 +1,4 @@
+FROM mysql:5.7-debian
+
+# Add scripts
+ADD .docker/db/scripts /docker-entrypoint-initdb.d

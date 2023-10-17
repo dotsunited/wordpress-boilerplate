@@ -1,0 +1,4 @@
+FROM mariadb:11
+
+# Add scripts
+ADD .docker/db/scripts /docker-entrypoint-initdb.d

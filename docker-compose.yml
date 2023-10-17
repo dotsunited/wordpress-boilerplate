@@ -44,7 +44,7 @@ services:
       - db
 
   db:
-    image: ghcr.io/dotsunited/wordpress-boilerplate:mysql
+    image: ghcr.io/dotsunited/wordpress-boilerplate-db:mysql
     command: mysqld --default-authentication-plugin=mysql_native_password
     restart: on-failure
     ports:

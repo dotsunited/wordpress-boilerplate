@@ -1,32 +1,51 @@
-name: 🐳 Build Docker image on push
+name: 🐳 Build Docker images on push
 
 on:
   push:
     branches:
-    - master
+      - master
     paths:
-    - '.docker/mysql/**'
+      - '.docker/db/**'
 
 jobs:
   build:
-    name: 🐳 Build Docker image
+    name: 🐳 Build Docker images
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dockerfile: ./.docker/db/Dockerfile.mariadb11
+            tags: |
+              ghcr.io/dotsunited/wordpress-boilerplate-db:latest
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mariadb
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mariadb11
+          - dockerfile: ./.docker/db/Dockerfile.mysql8
+            tags: |
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mysql
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mysql8
+          - dockerfile: ./.docker/db/Dockerfile.mysql57
+            tags: |
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mysql5
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mysql5.7
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: 🚚 Get latest code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: 🔑 Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🐳 Build Docker image
-        uses: docker/build-push-action@v3
+      - name: 🐳 Build and push Docker images
+        uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./.docker/mysql/Dockerfile
+          file: ${{ matrix.dockerfile }}
           push: true
-          tags: |
-            ghcr.io/dotsunited/wordpress-boilerplate:mysql
+          tags: ${{ matrix.tags }}
