@@ -72,8 +72,8 @@ services:
         UPLOAD_LIMIT: 2G
         MEMORY_LIMIT: 1G
 
-  mailhog:
-    image: mailhog/mailhog
+  mailpit:
+    image: axllent/mailpit
     restart: on-failure
     ports:
       - 1025:1025
