@@ -17,6 +17,9 @@ add_action('plugins_loaded', function () {
     // Disables custom colors through the color picker
     add_theme_support('disable-custom-colors');
     
+    // Add support for borders
+    add_theme_support('border');
+    
     // Removes custom fot sizes, eg. for paragraphs
     add_theme_support('editor-font-sizes', [
         [
