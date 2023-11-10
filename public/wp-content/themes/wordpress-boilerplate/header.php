@@ -13,8 +13,8 @@
     <header class="bg-white shadow-lg z-20 sticky top-0 left-0 right-0 w-full">
 
         <div class="mx-auto relative">
-		    <?php echo wordpress_boilerplate_render('template-parts/components/header/desktop', []); ?>
-		    <?php echo wordpress_boilerplate_render('template-parts/components/header/mobile', []); ?>
+		    <?= wordpress_boilerplate_render('template-parts/components/header/desktop', []); ?>
+		    <?= wordpress_boilerplate_render('template-parts/components/header/mobile', []); ?>
         </div>
 
     </header>

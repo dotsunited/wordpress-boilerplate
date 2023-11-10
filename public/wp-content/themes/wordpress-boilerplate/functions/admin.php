@@ -12,7 +12,7 @@ add_action( 'login_enqueue_scripts', function() {
             padding: 0;
             width: 228px;
 
-            background-image: url(<?php echo wordpress_boilerplate_asset_url('vendor/images/logo-dotsunited.svg'); ?>);
+            background-image: url(<?= wordpress_boilerplate_asset_url('vendor/images/logo-dotsunited.svg'); ?>);
             background-size: 228px 52px;
             background-repeat: no-repeat;
             background-position: center;

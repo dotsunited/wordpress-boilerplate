@@ -5,7 +5,7 @@ add_action('wp_head', function () {
      * Webfont preloading example
     ?>
 
-    <link rel="preload" href="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('roboto.woff')); ?>" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('roboto.woff')); ?>" as="font" type="font/woff" crossorigin>
 
     <?php
     */
@@ -14,10 +14,10 @@ add_action('wp_head', function () {
 add_action('wp_head', function () {
     ?>
 
-    <script>window.__assets_public_path__ = <?php echo json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;</script>
-    <script><?php echo wordpress_boilerplate_asset_embed_from_manifest('runtime.js'); ?></script>
-    <style><?php echo wordpress_boilerplate_asset_embed_from_manifest('main.css'); ?></style>
-    <script async src="<?php echo esc_attr(wordpress_boilerplate_asset_url_from_manifest('main.js')); ?>"></script>
+    <script>window.__assets_public_path__ = <?= json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;</script>
+    <script><?= wordpress_boilerplate_asset_embed_from_manifest('runtime.js'); ?></script>
+    <style><?= wordpress_boilerplate_asset_embed_from_manifest('main.css'); ?></style>
+    <script async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('main.js')); ?>"></script>
 
     <?php
 }, 1000);

@@ -11,7 +11,7 @@
 
 <ul>
 	<li><a href="javascript:history.back()" title="<?php _e('Back to previous page', 'wordpress-boilerplate'); ?>"><?php _e('Back', 'wordpress-boilerplate'); ?></a> <?php _e('to previous page', 'wordpress-boilerplate'); ?></li>
-	<li><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php _e('Visit frontpage', 'wordpress-boilerplate'); ?>"><?php _e('Visit frontpage', 'wordpress-boilerplate'); ?></a></li>
+	<li><a href="<?= esc_url(home_url('/')); ?>" title="<?php _e('Visit frontpage', 'wordpress-boilerplate'); ?>"><?php _e('Visit frontpage', 'wordpress-boilerplate'); ?></a></li>
 	<li><?php _e('Find the correct page out of the navigation.', 'wordpress-boilerplate'); ?></li>
 	<li>
 		<?php _e('Try the search function', 'wordpress-boilerplate'); ?>
