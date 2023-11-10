@@ -88,7 +88,7 @@ function wordpress_boilerplate_asset_url($path)
     return rtrim(get_template_directory_uri(), '/') . '/' . ltrim($path, '/');
 }
 
-function wordpress_boilerplate_asset_embed($path)
+function wordpress_boilerplate_asset_embed($path, $class = '')
 {
     $path = _wordpress_boilerplate_asset_normalize_path($path);
 
@@ -121,6 +121,9 @@ function wordpress_boilerplate_asset_embed($path)
     $content = preg_replace_callback('/@import (?!url\()(\'|"|)(?<url>[^\'"\)\n\r]*)\1;?/', $rewriteUrl, $content);
     // Handle 'src' values (used in e.g. calls to AlphaImageLoader, which is a proprietary IE filter)
     $content = preg_replace_callback('/\bsrc\s*=\s*(["\']?)(?<url>.*?)(\\1)/i', $rewriteUrl, $content);
+
+    // Add class to SVG
+    $content = preg_replace('/<svg/', '<svg class="' . $class . '"', $content);
 
     return trim($content);
 }
