@@ -63,33 +63,6 @@ add_filter('the_content', function ($content) {
     // the strings here!
 
     return \strtr($content, [
-        'has-blue-500-color' => 'text-blue-500',
-        'has-blue-600-color' => 'text-blue-600',
-        'has-slate-900-color' => 'text-slate-900',
-        'has-slate-800-color' => 'text-slate-800',
-        'has-slate-600-color' => 'text-slate-600',
-        'has-slate-400-color' => 'text-slate-400',
-        'has-white-color' => 'text-white',
-        'has-black-color' => 'text-black',
-
-        'has-blue-600-background-color' => 'bg-blue-600',
-        'has-blue-500-background-color' => 'bg-blue-500',
-        'has-slate-900-background-color' => 'bg-slate-900',
-        'has-slate-800-background-color' => 'bg-slate-800',
-        'has-slate-600-background-color' => 'bg-slate-600',
-        'has-slate-400-background-color' => 'bg-slate-400',
-        'has-white-background-color' => 'bg-white',
-        'has-black-background-color' => 'bg-black',
-
-        'has-blue-600-border-color' => 'border-blue-600 border-t border-b',
-        'has-blue-500-border-color' => 'border-blue-500 border-t border-b',
-        'has-slate-900-border-color' => 'border-slate-900 border-t border-b',
-        'has-slate-800-border-color' => 'border-slate-800 border-t border-b',
-        'has-slate-600-border-color' => 'border-slate-600 border-t border-b',
-        'has-slate-400-border-color' => 'border-slate-400 border-t border-b',
-        'has-white-border-color' => 'border-white border-t border-b',
-        'has-black-border-color' => 'border-black border-t border-b',
-
         'has-sm-font-size' => 'text-sm',
         'has-base-font-size' => 'text-base',
         'has-lg-font-size' => 'text-lg',
