@@ -1,9 +1,9 @@
 {
-  "git": {
-    "commitMessage": "Release v${version}"
-  },
-  "github": {
-    "release": true,
-    "tokenRef": "GITHUB_TOKEN"
-  }
+    "git": {
+        "commitMessage": "Release v${version}"
+    },
+    "github": {
+        "release": true,
+        "tokenRef": "GITHUB_TOKEN"
+    }
 }

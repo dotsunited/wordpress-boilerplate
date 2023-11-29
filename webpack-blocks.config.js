@@ -12,10 +12,10 @@ module.exports = (env, argv) => {
         cache: true,
         bail: true,
         entry: {
-            'blocks': [
+            blocks: [
                 './assets/polyfills.js',
                 './assets/gutenberg/index.js'
-            ]
+            ],
         },
         output: {
             path: path.resolve(__dirname, targetPath),
@@ -37,14 +37,17 @@ module.exports = (env, argv) => {
                                         '@babel/preset-env',
                                         {
                                             modules: false,
-                                        }
-                                    ]
+                                        },
+                                    ],
                                 ],
                                 plugins: [
-                                    ['@babel/plugin-transform-react-jsx', {
-                                        'pragma': 'wp.element.createElement'
-                                    }]
-                                ]
+                                    [
+                                        '@babel/plugin-transform-react-jsx',
+                                        {
+                                            pragma: 'wp.element.createElement',
+                                        },
+                                    ],
+                                ],
                             },
                         },
                     ],
@@ -74,14 +77,14 @@ module.exports = (env, argv) => {
                                             },
                                             features: {
                                                 'custom-properties': {
-                                                    preserve: false
-                                                }
-                                            }
+                                                    preserve: false,
+                                                },
+                                            },
                                         }),
-                                    ]
-                                }
-                            }
-                        }
+                                    ],
+                                },
+                            },
+                        },
                     ],
                 },
             ],
@@ -93,6 +96,6 @@ module.exports = (env, argv) => {
                 filename: '[name].css',
                 chunkFilename: '[name].css',
             }),
-        ]
+        ],
     };
 };

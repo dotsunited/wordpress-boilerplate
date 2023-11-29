@@ -1,5 +1,6 @@
 /vendor/
 /node_modules/
+
 public/wp-admin/
 public/wp-includes/
 public/index.php
@@ -19,6 +20,7 @@ public/wp-content/updraft/
 public/wp-content/themes/*
 !public/wp-content/themes/wordpress-boilerplate/
 public/sr/
+
 docker-compose.*.yml
 /*.sql.gz
 /*.sql

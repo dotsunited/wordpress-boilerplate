@@ -38,14 +38,14 @@ function getStyleLoaders() {
                             },
                             features: {
                                 'custom-properties': {
-                                    preserve: false
+                                    preserve: false,
                                 },
                                 'focus-within-pseudo-class': false,
-                            }
+                            },
                         }),
-                    ]
-                }
-            }
+                    ],
+                },
+            },
         },
     ];
 }
@@ -58,15 +58,15 @@ module.exports = (env, argv) => {
         mode: mode,
         cache: true,
         entry: {
-            'main': [
+            main: [
                 './assets/webpack-public-path.js',
                 './assets/polyfills.js',
                 './assets/main/index.js',
             ],
-            'icons': [
+            icons: [
                 './assets/icons/index.css',
                 './assets/icons/symbol-defs.svg',
-            ]
+            ],
         },
         output: {
             path: path.resolve(__dirname, targetPath),
@@ -87,11 +87,14 @@ module.exports = (env, argv) => {
                 new CssMinimizerPlugin({
                     parallel: true,
                     minimizerOptions: {
-                        preset: ['default', {
-                            discardComments: {
-                                removeAll: true,
+                        preset: [
+                            'default',
+                            {
+                                discardComments: {
+                                    removeAll: true,
+                                },
                             },
-                        }],
+                        ],
                     },
                 }),
             ],
@@ -105,7 +108,7 @@ module.exports = (env, argv) => {
             // Extends the default config by adding the es2015 field
             // and removes the browser fields.
             // See https://webpack.js.org/configuration/resolve/#resolve-mainfields
-            mainFields: ['es2015', 'module', 'main']
+            mainFields: ['es2015', 'module', 'main'],
         },
         module: {
             strictExportPresence: true,
@@ -128,17 +131,17 @@ module.exports = (env, argv) => {
                                                 '@babel/preset-env',
                                                 {
                                                     useBuiltIns: 'entry',
-                                                    corejs: "3.0.0",
+                                                    corejs: '3.0.0',
                                                     modules: false,
                                                     targets: {
-                                                        ie: "11"
-                                                    }
-                                                }
-                                            ]
+                                                        ie: '11',
+                                                    },
+                                                },
+                                            ],
                                         ],
                                         plugins: [
                                             '@babel/plugin-syntax-dynamic-import',
-                                        ]
+                                        ],
                                     },
                                 },
                             ],
@@ -159,9 +162,9 @@ module.exports = (env, argv) => {
                                                 '@babel/preset-env',
                                                 {
                                                     modules: false,
-                                                }
-                                            ]
-                                        ]
+                                                },
+                                            ],
+                                        ],
                                     },
                                 },
                             ],
@@ -192,8 +195,8 @@ module.exports = (env, argv) => {
                                                 optimizationLevel: 5,
                                             }),
                                             require('imagemin-svgo')({}),
-                                        ]
-                                    }
+                                        ],
+                                    },
                                 },
                             ],
                         },
@@ -204,7 +207,7 @@ module.exports = (env, argv) => {
                                 filename: 'fonts/[name].[hash:8][ext]',
                             },
                         },
-                    ]
+                    ],
                 },
             ],
         },
@@ -214,7 +217,7 @@ module.exports = (env, argv) => {
                 // and inject the jquery library
                 // This is required by many jquery plugins
                 jQuery: 'jquery',
-                $: 'jquery'
+                $: 'jquery',
             }),
             new CleanWebpackPlugin(),
             // https://webpack.js.org/guides/caching/#module-identifiers
@@ -223,7 +226,7 @@ module.exports = (env, argv) => {
                 chunkFilename: '[name].[contenthash:8].css',
             }),
             new WebpackManifestPlugin(),
-            new ESLintPlugin()
-        ]
+            new ESLintPlugin(),
+        ],
     };
 };
