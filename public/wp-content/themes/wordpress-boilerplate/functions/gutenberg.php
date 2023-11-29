@@ -10,46 +10,46 @@ add_action('after_setup_theme', function () {
 	// Pass an empty array to remove support for color palettes, eg. for buttons.
     add_theme_support('editor-color-palette', [
         [
-            'name' => __('Black', 'upgrade-boilerplate'),
+            'name' => __('Black', 'wordpress-boilerplate'),
             'slug' => 'black',
             'color' => '#252427',
         ],
         [
-            'name' => __('Darkest', 'upgrade-boilerplate'),
+            'name' => __('Darkest', 'wordpress-boilerplate'),
             'slug' => 'gray-900',
             'color' => '#414549',
         ],
         [
-            'name' => __('Darker', 'upgrade-boilerplate'),
+            'name' => __('Darker', 'wordpress-boilerplate'),
             'slug' => 'gray-800',
             'color' => '#697788',
         ],
         [
-            'name' => __('Dark', 'upgrade-boilerplate'),
+            'name' => __('Dark', 'wordpress-boilerplate'),
             'slug' => 'gray-600',
             'color' => '#676767',
         ],
         [
-            'name' => __('Light', 'upgrade-boilerplate'),
+            'name' => __('Light', 'wordpress-boilerplate'),
             'slug' => 'gray-400',
             'color' => '#f1f4fd',
         ],
         [
-            'name' => __('Grey', 'upgrade-boilerplate'),
+            'name' => __('Grey', 'wordpress-boilerplate'),
             'slug' => 'gray-500',
             'color' => '#b8c2cc',
         ],
         [
-            'name' => __('White', 'upgrade-boilerplate'),
+            'name' => __('White', 'wordpress-boilerplate'),
             'slug' => 'white',
             'color' => '#fff',
         ],
         [
-            'name' => __('Blue', 'upgrade-boilerplate'),
+            'name' => __('Blue', 'wordpress-boilerplate'),
             'slug' => 'blue-500',
             'color' => '#4a7cf6',
         ],[
-            'name' => __('Blue Dark', 'upgrade-boilerplate'),
+            'name' => __('Blue Dark', 'wordpress-boilerplate'),
             'slug' => 'blue-600',
             'color' => '#0073C0',
         ],
