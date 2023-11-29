@@ -9,6 +9,9 @@ add_action('after_setup_theme', function () {
 	
 	// Disable auto plugin update
 	add_filter( 'auto_update_plugin', '__return_false' );
+
+    // Disable theme editor
+    define('DISALLOW_FILE_EDIT', true);
 });
 
 add_action('widgets_init', function () {
