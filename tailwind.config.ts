@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
+import defaultTheme from 'tailwindcss/defaultTheme';
 import { CSSRuleObject } from 'tailwindcss/types/config';
 
 export default {
@@ -11,7 +12,11 @@ export default {
             center: true,
             padding: '1rem',
         },
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+            },
+        },
     },
     safelist: [
         // Add Gutenberg color utility classes to safelist

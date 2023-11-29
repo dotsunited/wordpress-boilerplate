@@ -1,8 +1,8 @@
 import './style.css';
 
 // import '@babel/polyfill';
-// import './fonts'; ** enable custom @font-face **
 
+import './fonts';
 import './base';
 import './wordpress-core';
 import './wysiwyg';

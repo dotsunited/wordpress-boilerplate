@@ -1,0 +1,1 @@
+import './inter/index.css';
