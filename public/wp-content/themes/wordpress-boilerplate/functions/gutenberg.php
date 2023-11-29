@@ -58,7 +58,6 @@ add_action('after_setup_theme', function () {
 
 // Overwrite gutenberg block assets
 add_filter('the_content', function ($content) {
-    // Replace gutenberg palette color classes with tailwind classes.
     // Make sure to not do concatenation of classes because PurgeCSS must detect
     // the strings here!
 
@@ -67,20 +66,6 @@ add_filter('the_content', function ($content) {
         'has-base-font-size' => 'text-base',
         'has-lg-font-size' => 'text-lg',
         'has-xl-font-size' => 'text-xl',
-
-        'has-shadow-md' => 'shadow-md',
-        'has-shadow-lg' => 'shadow-lg',
-        'has-no-shadow' => '',
-
-        'wp-block-columns' => 'wp-block-columns flex flex-row flex-wrap -mx-2',
-
-        'are-vertically-aligned-top' => 'items-start',
-        'are-vertically-aligned-center' => 'items-center',
-        'are-vertically-aligned-bottom' => 'items-end',
-
-        'is-vertically-aligned-center' => 'self-center',
-        'is-vertically-aligned-top' => 'self-start',
-        'is-vertically-aligned-bottom' => 'self-end'
     ]);
 
 }, 9999);
