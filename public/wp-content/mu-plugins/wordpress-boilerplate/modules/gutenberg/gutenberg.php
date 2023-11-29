@@ -111,8 +111,10 @@ add_filter('allowed_block_types_all', function () {
         // 'core/comments-pagination-previous',
         // 'core/comments-title',
         // 'core/cover',
+        // 'core/details',
         // 'core/embed',
         // 'core/file',
+        // 'core/footnotes',
         'core/freeform',
         // 'core/gallery',
         'core/group',
@@ -122,6 +124,7 @@ add_filter('allowed_block_types_all', function () {
         'core/image',
         // 'core/latest-comments',
         // 'core/latest-posts',
+        // 'core/legacy-widget',
         'core/list',
         'core/list-item',
         // 'core/loginout',
@@ -133,6 +136,7 @@ add_filter('allowed_block_types_all', function () {
         // 'core/navigation-submenu',
         // 'core/nextpage',
         // 'core/page-list',
+        // 'core/page-list-item',
         'core/paragraph',
         // 'core/pattern',
         // 'core/post-author',
@@ -179,6 +183,7 @@ add_filter('allowed_block_types_all', function () {
         // 'core/text-columns',
         // 'core/verse',
         // 'core/video',
+        // 'core/widget-group',
     ];
 
     // Merge allowed blocks
