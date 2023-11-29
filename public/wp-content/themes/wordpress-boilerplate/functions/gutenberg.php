@@ -7,6 +7,9 @@ add_action('after_setup_theme', function () {
     // Add support for widealign images
     add_theme_support('align-wide');
 
+    // Add support for link color
+    add_theme_support('link-color');
+
 	// Pass an empty array to remove support for color palettes, eg. for buttons.
     add_theme_support('editor-color-palette', [
         [
