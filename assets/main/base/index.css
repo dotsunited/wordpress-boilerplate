@@ -1,14 +1,7 @@
 html {
-    background: theme(colors.slate.300);
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
+    @apply bg-slate-300 antialiased leading-normal;
 }
 
 body {
-    background: theme(colors.white);
-    font-family: theme(fontFamily.sans);
-    color: theme(colors.black);
+    @apply bg-white font-sans text-black;
 }
-
-a {}
