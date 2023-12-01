@@ -21,6 +21,7 @@
         "not dead"
     ],
     "dependencies": {
+        "@wordpress/block-library": "^8.24.0",
         "classnames": "^2.3.2",
         "core-js": "^3.33.3",
         "ctrly": "^0.7.0",

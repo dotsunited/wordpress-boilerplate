@@ -40,6 +40,11 @@
             }
         ],
         "import/extensions": "off",
+        "import/no-extraneous-dependencies": ["error", {
+            "devDependencies": false,
+            "optionalDependencies": false,
+            "peerDependencies": false
+        }],
         "import/no-unresolved": "off",
         "object-shorthand": "off",
         "no-param-reassign": ["error", { "props": false }],

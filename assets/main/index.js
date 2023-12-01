@@ -1,10 +1,16 @@
-import './style.css';
+// Import WordPress block library styles
+import '@wordpress/block-library/build-style/common.css';
+import '@wordpress/block-library/build-style/style.css';
+import '@wordpress/block-library/build-style/theme.css';
 
-// import '@babel/polyfill';
+// Import Tailwind CSS directives
+import './tailwind.css';
 
+// Import fonts
 import './fonts';
+
+// Import components
 import './base';
-import './wordpress-core';
 import './wysiwyg';
 import './navigation';
 import './off-canvas-menu';
