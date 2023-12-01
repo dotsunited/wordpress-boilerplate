@@ -27,6 +27,11 @@ add_action('after_setup_theme', function () {
             'color' => '#ffffff',
         ],
         [
+            'name' => __('Zinc 50', 'wordpress-boilerplate'),
+            'slug' => 'zinc-50',
+            'color' => '#fafafa',
+        ],
+        [
             'name' => __('Zinc 100', 'wordpress-boilerplate'),
             'slug' => 'zinc-100',
             'color' => '#f4f4f5',
@@ -40,6 +45,41 @@ add_action('after_setup_theme', function () {
             'name' => __('Zinc 300', 'wordpress-boilerplate'),
             'slug' => 'zinc-300',
             'color' => '#d4d4d8',
+        ],
+        [
+            'name' => __('Zinc 400', 'wordpress-boilerplate'),
+            'slug' => 'zinc-400',
+            'color' => '#a1a1aa',
+        ],
+        [
+            'name' => __('Zinc 500', 'wordpress-boilerplate'),
+            'slug' => 'zinc-500',
+            'color' => '#71717a',
+        ],
+        [
+            'name' => __('Zinc 600', 'wordpress-boilerplate'),
+            'slug' => 'zinc-600',
+            'color' => '#52525b',
+        ],
+        [
+            'name' => __('Zinc 700', 'wordpress-boilerplate'),
+            'slug' => 'zinc-700',
+            'color' => '#3f3f46',
+        ],
+        [
+            'name' => __('Zinc 800', 'wordpress-boilerplate'),
+            'slug' => 'zinc-800',
+            'color' => '#27272a',
+        ],
+        [
+            'name' => __('Zinc 900', 'wordpress-boilerplate'),
+            'slug' => 'zinc-900',
+            'color' => '#18181b',
+        ],
+        [
+            'name' => __('Zinc 950', 'wordpress-boilerplate'),
+            'slug' => 'zinc-950',
+            'color' => '#09090b',
         ],
         [
             'name' => __('Black', 'wordpress-boilerplate'),
