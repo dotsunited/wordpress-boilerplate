@@ -10,6 +10,10 @@ add_action('after_setup_theme', function () {
     // Add support for link color
     add_theme_support('link-color');
 
+    // Disable support for gradients
+    add_theme_support('editor-gradient-presets', []);
+    add_theme_support('disable-custom-gradients', true);
+
     // Pass an empty array to remove support for color palettes, eg. for buttons.
     add_theme_support('editor-color-palette', [
         [
