@@ -12,22 +12,20 @@ add_action('wp_head', function () {
 }, -1000);
 
 add_action('wp_head', function () {
-    ?>
-
+?>
     <script>window.__assets_public_path__ = <?= json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;</script>
     <script><?= wordpress_boilerplate_asset_embed_from_manifest('runtime.js'); ?></script>
     <style><?= wordpress_boilerplate_asset_embed_from_manifest('main.css'); ?></style>
     <script async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('main.js')); ?>"></script>
 
-    <?php
+<?php
 }, 1000);
 
 add_action('wp_footer', function () {
     echo wordpress_boilerplate_asset_embed_from_manifest('img/symbol-defs.svg');
 }, 1000);
 
-function wordpress_boilerplate_asset_svg_icon($name, array $args = [])
-{
+function wordpress_boilerplate_asset_svg_icon($name, array $args = []) {
     $args = wp_parse_args($args, [
         'class' => '',
         'aria-hidden' => 'true',
@@ -47,8 +45,7 @@ function wordpress_boilerplate_asset_svg_icon($name, array $args = [])
     return '<svg class="' . esc_attr($class) . '" aria-hidden="' . esc_attr($args['aria-hidden']) . '" role="' . esc_attr($args['role']) . '"> <use href="#icon-' . esc_html($name) . '" xlink:href="#icon-' . esc_html($name) . '"></use> </svg>';
 }
 
-function wordpress_boilerplate_asset_url_from_manifest($name)
-{
+function wordpress_boilerplate_asset_url_from_manifest($name) {
     $manifest = wordpress_boilerplate_asset_manifest();
 
     if (!isset($manifest[$name])) {
@@ -58,8 +55,7 @@ function wordpress_boilerplate_asset_url_from_manifest($name)
     return wordpress_boilerplate_asset_url('assets/' . $manifest[$name]);
 }
 
-function wordpress_boilerplate_asset_embed_from_manifest($name)
-{
+function wordpress_boilerplate_asset_embed_from_manifest($name) {
     $manifest = wordpress_boilerplate_asset_manifest();
 
     if (!isset($manifest[$name])) {
@@ -69,8 +65,7 @@ function wordpress_boilerplate_asset_embed_from_manifest($name)
     return wordpress_boilerplate_asset_embed('assets/' . $manifest[$name]);
 }
 
-function wordpress_boilerplate_asset_manifest()
-{
+function wordpress_boilerplate_asset_manifest() {
     static $manifest;
 
     if (!$manifest) {
@@ -83,13 +78,11 @@ function wordpress_boilerplate_asset_manifest()
     return $manifest;
 }
 
-function wordpress_boilerplate_asset_url($path)
-{
+function wordpress_boilerplate_asset_url($path) {
     return rtrim(get_template_directory_uri(), '/') . '/' . ltrim($path, '/');
 }
 
-function wordpress_boilerplate_asset_embed($path, $class = '')
-{
+function wordpress_boilerplate_asset_embed($path, $class = '') {
     $path = _wordpress_boilerplate_asset_normalize_path($path);
 
     $content = file_get_contents(TEMPLATEPATH . DIRECTORY_SEPARATOR . $path);
@@ -128,8 +121,7 @@ function wordpress_boilerplate_asset_embed($path, $class = '')
     return trim($content);
 }
 
-function _wordpress_boilerplate_asset_normalize_path($path)
-{
+function _wordpress_boilerplate_asset_normalize_path($path) {
     $themeUri = get_template_directory_uri();
     $uriPath = parse_url($themeUri, \PHP_URL_PATH);
 

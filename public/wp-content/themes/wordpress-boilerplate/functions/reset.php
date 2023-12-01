@@ -36,7 +36,7 @@ add_action('init', function () {
         $scripts->add(
             'jquery',
             false,
-            array('jquery-core'),
+            ['jquery-core'],
             false
         );
     });

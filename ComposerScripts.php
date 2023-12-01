@@ -30,7 +30,7 @@ class ComposerScripts
 
         // --- Add Wordpress
 
-		// TEMP DISABLED
+        // TEMP DISABLED
         // $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (<comment>y/N</comment>) ', false);
         // self::setupWordpress($withWordpress, $io);
 
@@ -110,7 +110,7 @@ class ComposerScripts
             }
         }
     }
-    
+
     private static function removeDir($dir)
     {
         $files = glob($dir . '/*');
@@ -127,18 +127,18 @@ class ComposerScripts
         $content = file_get_contents($file);
 
         $content = str_ireplace(
-            array(
+            [
                 'wordpress boilerplate',
                 'wordpress-boilerplate',
                 'wordpress_boilerplate',
                 'WordpressBoilerplate',
-            ),
-            array(
+            ],
+            [
                 $projectName,
                 $projectIdentifier,
                 str_replace('-', '_', $projectIdentifier),
                 str_replace('-', '', ucwords($projectIdentifier, '-')),
-            ),
+            ],
             $content
         );
 
@@ -147,7 +147,7 @@ class ComposerScripts
 
     private static function updateComposerLock($composerFile, Composer $composer, IOInterface $io)
     {
-        $lock = substr($composerFile, 0, -4).'lock';
+        $lock = substr($composerFile, 0, -4) . 'lock';
         $composerJson = file_get_contents($composerFile);
         $lockFile = new JsonFile($lock, null, $io);
         $locker = new Locker(
@@ -206,9 +206,9 @@ class ComposerScripts
             $zip->close();
         }
 
-		// TODO: move wordpress (without wp-content) to public (after extract it will be in public/wordpress
+        // TODO: move wordpress (without wp-content) to public (after extract it will be in public/wordpress
 
-		// copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
+        // copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
         unlink(__DIR__ . '/wordpress.zip');
     }
 }

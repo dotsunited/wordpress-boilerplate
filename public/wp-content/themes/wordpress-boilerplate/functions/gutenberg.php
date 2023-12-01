@@ -10,7 +10,7 @@ add_action('after_setup_theme', function () {
     // Add support for link color
     add_theme_support('link-color');
 
-	// Pass an empty array to remove support for color palettes, eg. for buttons.
+    // Pass an empty array to remove support for color palettes, eg. for buttons.
     add_theme_support('editor-color-palette', [
         [
             'name' => __('Transparent', 'wordpress-boilerplate'),
@@ -61,16 +61,13 @@ add_filter('the_content', function ($content) {
         'has-lg-font-size' => 'text-lg',
         'has-xl-font-size' => 'text-xl',
     ]);
-
 }, 9999);
 
-function wordpress_boilerplate_is_gutenberg_preview()
-{
+function wordpress_boilerplate_is_gutenberg_preview() {
     return defined('REST_REQUEST') && true === REST_REQUEST && 'edit' === $_REQUEST['context'];
 }
 
-function _wordpress_boilerplate_gutenberg_render($slug, array $attributes = [], $previewStyle = '')
-{
+function _wordpress_boilerplate_gutenberg_render($slug, array $attributes = [], $previewStyle = '') {
     if (wordpress_boilerplate_is_gutenberg_preview()) {
         return '<div style="width:100%;' . esc_attr($previewStyle) . '"><img style="display:block;margin:auto;" src="' . get_template_directory_uri() . '/img/block-preview/' . $slug . '.png"></div>';
     }
@@ -110,24 +107,23 @@ add_action('enqueue_block_assets', function () {
     // wp_dequeue_style('wp-block-library');
 });
 
-add_action( 'enqueue_block_editor_assets', function() {
-
-	// Enqueue editor UI style.
-	wp_enqueue_style( 'slug-editor-ui-style', get_theme_file_uri( 'vendor/gutenberg/editor-styles.css' ), [], md5_file(get_theme_file_path( 'vendor/gutenberg/editor-styles.css' )) );
+add_action('enqueue_block_editor_assets', function () {
+    // Enqueue editor UI style.
+    wp_enqueue_style('slug-editor-ui-style', get_theme_file_uri('vendor/gutenberg/editor-styles.css'), [], md5_file(get_theme_file_path('vendor/gutenberg/editor-styles.css')));
 });
 
 // Gutenberg block editor assets
-add_action( 'init', 'register_custom_block_style' );
+add_action('init', 'register_custom_block_style');
 
 function register_custom_block_style() {
-	if( ! function_exists( 'register_block_style' ) ) return;
+    if (!function_exists('register_block_style')) return;
 
-	register_block_style(
-		'core/group',
-		array(
-			'name'			=> 'zinc-300-group',
-			'label'			=> __( 'Zinc 300 Group' ),
-			'inline_style'	=> '.wp-block-group.is-style-zinc-300-group { background-color: #d4d4d8; }',
-		)
-	);
+    register_block_style(
+        'core/group',
+        [
+            'name'            => 'zinc-300-group',
+            'label'           => __('Zinc 300 Group'),
+            'inline_style'    => '.wp-block-group.is-style-zinc-300-group { background-color: #d4d4d8; }',
+        ]
+    );
 };

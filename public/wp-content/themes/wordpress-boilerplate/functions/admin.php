@@ -70,7 +70,7 @@ function add_admin_menu_separator($position) {
         if (substr($section[2], 0, 9) == 'separator')
             $index++;
         if ($offset >= $position) {
-            $menu[$position] = array('', 'read', "separator{$index}", '', 'wp-menu-separator');
+            $menu[$position] = ['', 'read', "separator{$index}", '', 'wp-menu-separator'];
 
             break;
         }

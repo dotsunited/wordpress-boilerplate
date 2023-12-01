@@ -7,19 +7,19 @@ add_action('plugins_loaded', function () {
 
     // Gutenberg configuration
     // See https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
-	
-	// Remove support for block patterns
-	remove_theme_support( 'core-block-patterns' );
-	
+
+    // Remove support for block patterns
+    remove_theme_support('core-block-patterns');
+
     // Removes color palettes, eg. for buttons
     add_theme_support('editor-color-palette', []);
-    
+
     // Disables custom colors through the color picker
     add_theme_support('disable-custom-colors');
-    
+
     // Add support for borders
     add_theme_support('border');
-    
+
     // Removes custom fot sizes, eg. for paragraphs
     add_theme_support('editor-font-sizes', [
         [
@@ -54,7 +54,8 @@ add_action('enqueue_block_editor_assets', function () {
             ['wp-edit-post'],
             md5_file(plugin_dir_path(__FILE__) . 'blocks/assets/blocks.js')
         );
-        wp_enqueue_script( 'wordpress-boilerplate-gutenberg-embed-blocks-reset-js',
+        wp_enqueue_script(
+            'wordpress-boilerplate-gutenberg-embed-blocks-reset-js',
             plugin_dir_url(__FILE__) . 'blocks/embeds/reset.js',
             [
                 'wp-blocks',
@@ -80,7 +81,7 @@ add_filter('allowed_block_types_all', function () {
     // it might be already used in posts!
 
     // Remove all core blocks
-    $allowed = array_filter($blocks, function($key) {
+    $allowed = array_filter($blocks, function ($key) {
         return strpos($key, 'core/') !== 0;
     }, ARRAY_FILTER_USE_KEY);
 

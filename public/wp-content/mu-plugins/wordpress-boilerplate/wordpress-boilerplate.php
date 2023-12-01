@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Wordpress Boilerplate
  * Description: The main Wordpress Boilerplate plugin.
@@ -17,7 +18,6 @@ add_action('plugins_loaded', function () {
     }
 });
 
-function wordpress_boilerplate_is_amp_endpoint()
-{
+function wordpress_boilerplate_is_amp_endpoint() {
     return \function_exists('is_amp_endpoint') && is_amp_endpoint();
 }
