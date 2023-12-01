@@ -13,16 +13,13 @@ add_action('wp_head', function () {
 
 add_action('wp_head', function () {
 ?>
-    <script>window.__assets_public_path__ = <?= json_encode(wordpress_boilerplate_asset_url('assets/')); ?>;</script>
-    <script><?= wordpress_boilerplate_asset_embed_from_manifest('runtime.js'); ?></script>
-    <style><?= wordpress_boilerplate_asset_embed_from_manifest('main.css'); ?></style>
-    <script async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('main.js')); ?>"></script>
-
+    <style><?= wordpress_boilerplate_asset_embed_from_manifest('assets/main/index.js', 'css'); ?></style>
+    <script type="module" async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('assets/main/index.js')); ?>"></script>
 <?php
 }, 1000);
 
 add_action('wp_footer', function () {
-    echo wordpress_boilerplate_asset_embed_from_manifest('img/symbol-defs.svg');
+    echo wordpress_boilerplate_asset_embed_from_manifest('assets/icons/img/symbol-defs.svg');
 }, 1000);
 
 function wordpress_boilerplate_asset_svg_icon($name, array $args = []) {
@@ -45,24 +42,28 @@ function wordpress_boilerplate_asset_svg_icon($name, array $args = []) {
     return '<svg class="' . esc_attr($class) . '" aria-hidden="' . esc_attr($args['aria-hidden']) . '" role="' . esc_attr($args['role']) . '"> <use href="#icon-' . esc_html($name) . '" xlink:href="#icon-' . esc_html($name) . '"></use> </svg>';
 }
 
-function wordpress_boilerplate_asset_url_from_manifest($name) {
+function wordpress_boilerplate_asset_url_from_manifest($name, $type = 'file') {
     $manifest = wordpress_boilerplate_asset_manifest();
 
     if (!isset($manifest[$name])) {
         return null;
     }
 
-    return wordpress_boilerplate_asset_url('assets/' . $manifest[$name]);
+    return wordpress_boilerplate_asset_url('assets/' . $manifest[$name][$type]);
 }
 
-function wordpress_boilerplate_asset_embed_from_manifest($name) {
+function wordpress_boilerplate_asset_embed_from_manifest($name, $type = 'file') {
     $manifest = wordpress_boilerplate_asset_manifest();
 
     if (!isset($manifest[$name])) {
         return null;
     }
 
-    return wordpress_boilerplate_asset_embed('assets/' . $manifest[$name]);
+    if (is_array($manifest[$name][$type])) {
+        return wordpress_boilerplate_asset_embed('assets/' . $manifest[$name][$type][0]);
+    }
+
+    return wordpress_boilerplate_asset_embed('assets/' . $manifest[$name][$type]);
 }
 
 function wordpress_boilerplate_asset_manifest() {
@@ -70,7 +71,7 @@ function wordpress_boilerplate_asset_manifest() {
 
     if (!$manifest) {
         $manifest = json_decode(
-            file_get_contents(__DIR__ . '/../assets/manifest.json'),
+            file_get_contents(__DIR__ . '/../assets/.vite/manifest.json'),
             true
         );
     }

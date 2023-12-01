@@ -1,0 +1,90 @@
+{
+  "_ctrly.u0PsaQiZ.js": {
+    "file": "js/ctrly.u0PsaQiZ.js"
+  },
+  "_vendor.LRFSOuOa.js": {
+    "file": "js/vendor.LRFSOuOa.js"
+  },
+  "assets/icons/index.css": {
+    "file": "css/icons.BtACTgHv.css",
+    "isEntry": true,
+    "src": "assets/icons/index.css"
+  },
+  "assets/icons/symbol-defs.svg": {
+    "file": "js/symbolDefs.w40geAFS.js",
+    "isEntry": true,
+    "src": "assets/icons/symbol-defs.svg"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-100.woff2": {
+    "file": "inter-v13-latin-100.hMcCt04e.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-100.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-200.woff2": {
+    "file": "inter-v13-latin-200.SfZ_bgVM.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-200.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-300.woff2": {
+    "file": "inter-v13-latin-300.CHA_qmA3.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-300.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-500.woff2": {
+    "file": "inter-v13-latin-500.JFocBHQx.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-500.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-600.woff2": {
+    "file": "inter-v13-latin-600.dkrH7PHm.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-600.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-700.woff2": {
+    "file": "inter-v13-latin-700.ts3xWOyE.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-700.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-800.woff2": {
+    "file": "inter-v13-latin-800.JnU3jSsi.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-800.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-900.woff2": {
+    "file": "inter-v13-latin-900.q9Lx9Ocb.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-900.woff2"
+  },
+  "assets/main/fonts/inter/inter-v13-latin-regular.woff2": {
+    "file": "inter-v13-latin-regular.U9R_j0_y.woff2",
+    "src": "assets/main/fonts/inter/inter-v13-latin-regular.woff2"
+  },
+  "assets/main/index.js": {
+    "assets": [
+      "inter-v13-latin-100.hMcCt04e.woff2",
+      "inter-v13-latin-200.SfZ_bgVM.woff2",
+      "inter-v13-latin-300.CHA_qmA3.woff2",
+      "inter-v13-latin-regular.U9R_j0_y.woff2",
+      "inter-v13-latin-500.JFocBHQx.woff2",
+      "inter-v13-latin-600.dkrH7PHm.woff2",
+      "inter-v13-latin-700.ts3xWOyE.woff2",
+      "inter-v13-latin-800.JnU3jSsi.woff2",
+      "inter-v13-latin-900.q9Lx9Ocb.woff2"
+    ],
+    "css": [
+      "css/main.gejnqiab.css"
+    ],
+    "dynamicImports": [
+      "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
+    ],
+    "file": "js/main.R5m0oQ3p.js",
+    "imports": [
+      "_vendor.LRFSOuOa.js"
+    ],
+    "isEntry": true,
+    "src": "assets/main/index.js"
+  },
+  "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu": {
+    "css": [
+      "css/off-canvas-menu.JUOuksh-.css"
+    ],
+    "file": "js/off-canvas-menu.blAeFtJJ.js",
+    "imports": [
+      "_ctrly.u0PsaQiZ.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
+  }
+}

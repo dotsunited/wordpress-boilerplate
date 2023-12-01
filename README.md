@@ -11,7 +11,7 @@ A Demo is available [here](http://wordpress-boilerplate.dotsunited.de/).
 ## Features
 
 - [Maximum possible PageSpeed Insights score](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fwordpress-boilerplate.dotsunited.de%2F&tab=mobile)
-- [Webpack](https://github.com/webpack/webpack) workflow
+- [Vite](https://github.com/vitejs/vite) workflow
 - [Composer](https://github.com/composer/composer) enabled
 - [Tailwindcss](https://github.com/tailwindcss/tailwindcss) enabled
 - Clean, maintainable and scalable project structure

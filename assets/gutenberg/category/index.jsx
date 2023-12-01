@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 const { getCategories, setCategories } = wp.blocks;
 
 setCategories([
