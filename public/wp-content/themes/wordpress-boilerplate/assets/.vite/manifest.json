@@ -2,8 +2,8 @@
   "_ctrly.u0PsaQiZ.js": {
     "file": "js/ctrly.u0PsaQiZ.js"
   },
-  "_vendor.LRFSOuOa.js": {
-    "file": "js/vendor.LRFSOuOa.js"
+  "_vendor.AE9WDIha.js": {
+    "file": "js/vendor.AE9WDIha.js"
   },
   "assets/icons/index.css": {
     "file": "css/icons.BtACTgHv.css",
@@ -69,9 +69,9 @@
     "dynamicImports": [
       "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
     ],
-    "file": "js/main.R5m0oQ3p.js",
+    "file": "js/main.eMs4urio.js",
     "imports": [
-      "_vendor.LRFSOuOa.js"
+      "_vendor.AE9WDIha.js"
     ],
     "isEntry": true,
     "src": "assets/main/index.js"
