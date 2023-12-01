@@ -1,13 +1,14 @@
+# Dependencies
 /vendor/
 /node_modules/
 
+# WordPress
 public/wp-admin/
 public/wp-includes/
 public/index.php
 public/license.txt
 public/readme.html
 public/wp-*.php
-!public/wp-config.dist.php
 public/xmlrpc.php
 public/.htaccess
 public/wp-config.php
@@ -15,12 +16,13 @@ public/liesmich.html
 public/wp-content/languages/
 public/wp-content/uploads/
 public/wp-content/upgrade/
+public/wp-content/upgrade-temp-backup/
 public/wp-content/plugins/
 public/wp-content/updraft/
 public/wp-content/themes/*
 !public/wp-content/themes/wordpress-boilerplate/
-public/sr/
 
+# Docker
 docker-compose.*.yml
 /*.sql.gz
 /*.sql
