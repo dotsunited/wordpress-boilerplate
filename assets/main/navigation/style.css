@@ -1,33 +1,27 @@
 .navigation {}
 
 .navigation--desktop {
-    transition: height 155ms ease-in-out;
+    @apply transition-[height] duration-150 ease-in-out;
 
     & ul {
 
         & > li {
-            padding: 0;
+            @apply p-0;
 
             & a {
-                display: block;
-                font-size: .875rem;
-                font-weight: 400;
-                padding: 0 .75rem;
-                transition: height 155ms ease-in-out, line-height 155ms ease-in-out;
-
-                @apply text-zinc-500;
+                @apply
+                    block text-sm font-normal text-zinc-500 px-3
+                    transition-[height,line-height] duration-150 ease-in-out;
 
                 &:hover {
                     @apply text-dotsunited-red-500;
                 }
 
                 @media screen(xl) {
-                    font-size: .95rem;
+                    @apply text-base;
                 }
             }
         }
-
-        & > li:hover {}
 
         & > li.current-menu-item,
         & > li.current_page_item,
@@ -40,10 +34,8 @@
             }
 
             & > .navigation__sub-menu {
-                display: block;
+                @apply block;
             }
         }
-
     }
-
 }

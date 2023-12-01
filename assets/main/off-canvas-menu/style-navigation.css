@@ -1,112 +1,65 @@
 .off-canvas-menu__navigation {
-    margin: 8px auto 1rem;
-    width: 100%;
-    max-width: 440px;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    @apply w-full max-w-md mt-2 mb-4 mx-auto px-4;
 
     & .sub-menu,
     & .sub-menu:focus {
-        outline: 0 !important;
+        @apply !outline-none;
     }
 
     & > ul {
-        list-style: none;
-        padding: 0;
-
-        & li {
-            margin: 0;
-        }
-
-        & a {
-        }
-    }
-
-    & > ul {
-        padding: 0;
+        @apply list-none p-0;
 
         & > li {
-            position: relative;
-            padding: 0 1rem 0 0;
-
-            @apply border-b-2 border-b-zinc-400;
+            @apply relative pr-4 border-b-2 border-b-zinc-400;
 
             & > a {
-                display: block;
-                width: calc(100% - 48px);
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 1rem;
-                line-height: 1rem;
-                padding: 1rem 0;
+                @apply block w-[calc(100%_-_48px)] text-base font-semibold leading-4 no-underline py-4;
             }
         }
 
+        & li {
+            @apply m-0;
+        }
+
         & > li:first-child {
-            border-top: 0;
+            @apply border-t-0;
         }
 
         & > li:last-child {
-            border-bottom: 0;
+            @apply border-b-0;
 
             & > a {
-                pointer-events: auto;
+                @apply pointer-events-auto;
             }
         }
 
         & > .menu-item-has-children {
             & > button {
-                position: absolute;
-                right: 0;
-                top: 0;
-                display: block;
-                content: '';
-                cursor: pointer;
-                width: 48px;
-                height: 3rem;
-                background: transparent;
-                font-size: 1.5rem;
-                line-height: 1;
-                text-align: center;
+                @apply content-[''] block absolute top-0 right-0 w-12 h-12 text-2xl leading-none text-center cursor-pointer bg-transparent;
 
                 & .icon {
-                    margin: 0 auto;
-                    transition: transform .15s ease-in-out;
-                    transform: rotate(90deg);
+                    @apply mx-auto transform rotate-90 transition-transform duration-150 ease-in-out;
                 }
 
                 &[aria-expanded="true"] {
                     & .icon {
-                        transform: rotate(-90deg);
+                        @apply transform -rotate-90;
                     }
                 }
             }
 
             & .sub-menu {
-                list-style-type: none;
-                padding-left: 0;
-                padding-bottom: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: all .3s ease-in-out;
+                @apply max-h-0 list-none pl-0 pb-0 overflow-hidden transition-all duration-300 ease-in-out;
 
                 &[aria-hidden="false"] {
-                    padding-bottom: 0.75rem;
-                    max-height: 100vh;
+                    @apply max-h-screen pb-3;
                 }
 
                 & > li {
-                    padding: .25rem 0 .25rem 0;
-
-                    & > a {
-                    }
+                    @apply py-1;
 
                     & a {
-                        display: block;
-                        text-decoration: none;
-                        font-size: .875rem;
-                        font-weight: normal;
-                        padding: .25rem 0.25rem;
+                        @apply block text-sm font-normal no-underline p-1;
                     }
                 }
 
@@ -134,16 +87,10 @@
     }
 
     & .off-canvas-menu__submenu-control {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #D3D3D3;
-        border-left: 2px solid #e5e5e5;
+        @apply flex items-center justify-center text-zinc-400 border-l-2 border-zinc-300;
 
         & svg.icon {
-            width: .7rem;
-            color: #D3D3D3;
+            @apply w-3;
         }
     }
-
 }
