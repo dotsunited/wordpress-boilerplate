@@ -1,7 +1,13 @@
 html {
-    @apply bg-slate-300 antialiased leading-normal;
+    @apply bg-zinc-300 antialiased leading-normal;
 }
 
 body {
-    @apply bg-white font-sans text-black;
+    @apply bg-zinc-100 text-black font-sans;
+}
+
+.admin-bar {
+    & header {
+        @apply sm:top-[46px] md:top-[32px] -mb-10 sm:mb-0;
+    }
 }

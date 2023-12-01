@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 	
-	<div class="container lg:flex mt-12">
-		<main class="w-auto lg:w-3/4 mr-8">
+	<div class="container grid grid-cols-1 lg:grid-cols-4 gap-8 my-16">
+		<main class="col-span-full lg:col-span-3">
 			
 			<article id="post-<?php the_ID(); ?>" <?php post_class('mb-8'); ?>>
 				

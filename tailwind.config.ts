@@ -16,6 +16,13 @@ export default {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                dotsunited: {
+                    red: {
+                        500: '#c9462a',
+                    },
+                },
+            },
         },
     },
     safelist: [
@@ -68,6 +75,6 @@ export default {
             }, []);
 
             addUtilities(utilities);
-        })
-    ]
+        }),
+    ],
 } satisfies Config;

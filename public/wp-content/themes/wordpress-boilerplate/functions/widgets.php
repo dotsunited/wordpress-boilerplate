@@ -61,6 +61,6 @@ class wordpress_boilerplate_widget_menu_walker extends Walker_Nav_Menu
 		
 		$output = \implode('class="', $parts) . 'class="mb-1 ' . $last;
 		
-		$output = \str_replace('<a', '<a class="text-slate-300"', $output);
+		$output = \str_replace('<a', '<a class="text-zinc-300"', $output);
 	}
 }

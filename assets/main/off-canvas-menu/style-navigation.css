@@ -27,8 +27,9 @@
 
         & > li {
             position: relative;
-            border-bottom: 2px solid theme(colors.slate.400);
             padding: 0 1rem 0 0;
+
+            @apply border-b-2 border-b-zinc-400;
 
             & > a {
                 display: block;
@@ -115,7 +116,7 @@
                 & > li.current-page-ancestor {
 
                     & > a {
-                        color: theme(colors.blue.500);
+                        @apply text-dotsunited-red-500;
                     }
                 }
             }
@@ -127,7 +128,7 @@
         & > li.current-page-ancestor {
 
             & > a {
-                color: theme(colors.blue.500);
+                @apply text-dotsunited-red-500;
             }
         }
     }

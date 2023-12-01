@@ -4,7 +4,8 @@
             top: 50%;
             transform: translateY(-50%) rotate(135deg);
             width: 100%;
-            background-color: theme(colors.slate.600);
+
+            @apply bg-zinc-600;
         }
 
         &:before {
@@ -15,7 +16,8 @@
             top: 50%;
             transform: translateY(-50%) rotate(-135deg);
             width: 100%;
-            background-color: theme(colors.slate.600);
+
+            @apply bg-zinc-600;
         }
     }
 }

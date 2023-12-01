@@ -1,7 +1,6 @@
 .navigation {}
 
 .navigation--desktop {
-    height: 78px;
     transition: height 155ms ease-in-out;
 
     & ul {
@@ -10,17 +9,16 @@
             padding: 0;
 
             & a {
-                color: theme(colors.slate.500);
                 display: block;
-                height: 78px;
-                line-height: 78px;
                 font-size: .875rem;
                 font-weight: 400;
                 padding: 0 .75rem;
                 transition: height 155ms ease-in-out, line-height 155ms ease-in-out;
 
+                @apply text-zinc-500;
+
                 &:hover {
-                    color: theme(colors.blue.500);
+                    @apply text-dotsunited-red-500;
                 }
 
                 @media screen(xl) {
@@ -38,7 +36,7 @@
         & > li.current_page_ancestor {
 
             & > a {
-                color: theme(colors.blue.500);
+                @apply text-dotsunited-red-500;
             }
 
             & > .navigation__sub-menu {
