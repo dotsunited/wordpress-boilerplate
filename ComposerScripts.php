@@ -28,7 +28,7 @@ class ComposerScripts
         $deployment = $io->ask('Add a deployment type (<comment>ssh/ftp/NONE</comment>): ', 'none');
         self::setupDeployment($deployment, $projectName, $projectIdentifier);
 
-        // --- Add Wordpress
+        // --- Add WordPress
 
         // TEMP DISABLED
         // $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (<comment>y/N</comment>) ', false);

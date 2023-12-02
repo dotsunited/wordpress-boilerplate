@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name: Wordpress Boilerplate
- * Description: The main Wordpress Boilerplate plugin.
+ * Plugin Name: WordPress Boilerplate
+ * Description: The main WordPress Boilerplate plugin.
  * License: MIT
  * Version: 13.4.0
  * Author: Dots United GmbH

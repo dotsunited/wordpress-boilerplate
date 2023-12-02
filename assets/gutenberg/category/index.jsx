@@ -5,7 +5,7 @@ const { getCategories, setCategories } = wp.blocks;
 setCategories([
     {
         slug: 'wordpress-boilerplate',
-        title: 'Wordpress Boilerplate',
+        title: 'WordPress Boilerplate',
     },
     ...getCategories().filter(({ slug }) => slug !== 'wordpress-boilerplate'),
 ]);
