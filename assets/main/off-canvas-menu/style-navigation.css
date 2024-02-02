@@ -35,7 +35,7 @@
 
         & > .menu-item-has-children {
             & > button {
-                @apply content-[''] block absolute top-0 right-0 w-12 h-12 text-2xl leading-none text-center cursor-pointer bg-transparent;
+                @apply content-[''] block absolute top-0 right-0 size-12 text-2xl leading-none text-center cursor-pointer bg-transparent;
 
                 & .icon {
                     @apply mx-auto transform rotate-90 transition-transform duration-150 ease-in-out;
