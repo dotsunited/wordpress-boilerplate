@@ -1,0 +1,7 @@
+.wp-block-image {
+    @apply my-4;
+
+    & .lightbox-trigger {
+        @apply z-10;
+    } 
+}

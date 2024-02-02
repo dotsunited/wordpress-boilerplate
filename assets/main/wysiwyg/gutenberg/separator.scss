@@ -1,0 +1,9 @@
+.wp-block-separator {
+    @apply my-4 border-b;
+
+    &.has-background {
+        &:not(.is-style-wide):not(.is-style-dots) {
+            @apply h-px;
+        }
+    }
+}

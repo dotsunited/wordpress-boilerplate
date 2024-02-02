@@ -1,4 +1,6 @@
-.wysiwyg {
+@import url("./gutenberg/_index.scss");
+
+.wysiwyg {    
     @apply flow-root;
 
     & blockquote,
@@ -51,14 +53,6 @@
 
     & sup {
         @apply align-super;
-    }
-
-    & cite {
-        @apply italic;
-    }
-
-    & blockquote {
-        @apply border-l-4 border-zinc-200 py-2 px-4;
     }
 
     & .wp-block-embed {

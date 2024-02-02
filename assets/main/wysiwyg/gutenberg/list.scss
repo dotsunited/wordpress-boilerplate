@@ -1,0 +1,22 @@
+ul {
+    @apply list-disc list-inside;
+
+    & ul {
+        @apply list-[circle];
+    }
+}
+
+ol {
+    @apply list-decimal list-inside;
+
+    & ul {
+        @apply list-[circle];
+    }
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    @apply ml-4;
+}

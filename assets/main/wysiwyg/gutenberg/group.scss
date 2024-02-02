@@ -1,0 +1,37 @@
+.wp-block-group {
+    @apply my-4;
+
+    &.has-background {
+        @apply p-0;
+    }
+
+    &.is-layout-constrained {
+        @apply mx-auto;
+    }
+
+    &.is-nowrap {
+        @apply flex-nowrap;
+    }
+
+    &.is-vertical {
+        @apply flex-col items-start;
+    }
+
+    &.is-horizontal {}
+
+    &.is-content-justification-left {
+        @apply justify-start;
+    }
+
+    &.is-content-justification-center {
+        @apply justify-center;
+    }
+
+    &.is-content-justification-right {
+        @apply justify-end;
+    }
+
+    &.is-content-justification-stretch {
+        @apply justify-stretch;
+    }
+}

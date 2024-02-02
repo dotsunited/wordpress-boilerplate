@@ -1,0 +1,27 @@
+> * {
+    @apply mt-4 mb-0;
+}
+
+.is-layout-flex {
+    @apply flex flex-wrap items-center gap-4;
+}
+
+.has-small-font-size {
+    @apply text-sm;
+}
+
+.has-medium-font-size {
+    @apply text-base text-black;
+}
+
+.has-large-font-size {
+    @apply text-2xl;
+}
+
+.has-x-large-font-size {
+    @apply text-3xl;
+}
+
+.has-xx-large-font-size {
+    @apply text-5xl;
+}

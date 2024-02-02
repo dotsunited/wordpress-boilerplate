@@ -1,0 +1,11 @@
+.wp-block-quote {
+    @apply border-l-4 border-zinc-200 my-4 py-2 px-4;
+
+    & > p {
+        @apply font-serif;
+    }
+
+    & > cite {
+        @apply text-sm italic;
+    }
+}

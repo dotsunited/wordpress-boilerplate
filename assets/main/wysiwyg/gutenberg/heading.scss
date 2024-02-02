@@ -1,0 +1,27 @@
+.wp-block-heading {
+    @apply font-serif;
+}
+
+h1.wp-block-heading {
+    @apply text-5xl;
+}
+
+h2.wp-block-heading {
+    @apply text-3xl;
+}
+
+h3.wp-block-heading {
+    @apply text-2xl;
+}
+
+h4.wp-block-heading {
+    @apply text-xl;
+}
+
+h5.wp-block-heading {
+    @apply text-lg;
+}
+
+h6.wp-block-heading {
+    @apply text-base text-black;
+}

@@ -1,0 +1,15 @@
+.wp-block-pullquote {
+    @apply border-none mx-8 my-4 p-12;
+
+    & blockquote {
+        @apply flex flex-col gap-12;
+
+        & > p {
+            @apply font-serif text-4xl leading-normal italic mb-6;
+        }
+
+        & cite {
+            @apply normal-case text-base text-black;
+        }
+    }
+}
