@@ -2,8 +2,8 @@
   "_ctrly.u0PsaQiZ.js": {
     "file": "js/ctrly.u0PsaQiZ.js"
   },
-  "_vendor.AE9WDIha.js": {
-    "file": "js/vendor.AE9WDIha.js"
+  "_vendor.NiSvAkA7.js": {
+    "file": "js/vendor.NiSvAkA7.js"
   },
   "assets/icons/index.css": {
     "file": "css/icons.BtACTgHv.css",
@@ -64,14 +64,14 @@
       "inter-v13-latin-900.q9Lx9Ocb.woff2"
     ],
     "css": [
-      "css/main.gejnqiab.css"
+      "css/main.iDdKxeBW.css"
     ],
     "dynamicImports": [
       "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
     ],
-    "file": "js/main.eMs4urio.js",
+    "file": "js/main.13g6YlCN.js",
     "imports": [
-      "_vendor.AE9WDIha.js"
+      "_vendor.NiSvAkA7.js"
     ],
     "isEntry": true,
     "src": "assets/main/index.js"
