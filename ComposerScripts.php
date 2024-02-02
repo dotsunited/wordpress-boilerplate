@@ -28,12 +28,6 @@ class ComposerScripts
         $deployment = $io->ask('Add a deployment type (<comment>ssh/ftp/NONE</comment>): ', 'none');
         self::setupDeployment($deployment, $projectName, $projectIdentifier);
 
-        // --- Add WordPress
-
-        // TEMP DISABLED
-        // $withWordpress = $io->askConfirmation('Should wordpress be added to the project? (<comment>y/N</comment>) ', false);
-        // self::setupWordpress($withWordpress, $io);
-
         // --- Replace in files & dirs
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
@@ -183,31 +177,5 @@ class ComposerScripts
                 unlink(__DIR__ . '/deploy.dist.php');
                 break;
         }
-    }
-
-    private static function setupWordpress($withWordpress, IOInterface $io)
-    {
-        if (!$withWordpress) {
-            return;
-        }
-
-        $io->write('Download latest wordpress version from wordpress.org...');
-
-        if (!copy('https://wordpress.org/latest.zip', __DIR__ . '/wordpress.zip')) {
-            return;
-        }
-
-        $io->write('Extract zip archive...');
-
-        $zip = new \ZipArchive;
-        if (true === $zip->open(__DIR__ . '/wordpress.zip')) {
-            $zip->extractTo(__DIR__ . '/public');
-            $zip->close();
-        }
-
-        // TODO: move wordpress (without wp-content) to public (after extract it will be in public/wordpress
-
-        // copy(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
-        unlink(__DIR__ . '/wordpress.zip');
     }
 }
