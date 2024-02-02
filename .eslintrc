@@ -7,11 +7,6 @@
         "browser": true,
         "node": true
     },
-    "ignorePatterns": [
-        "webpack.config.js",
-        "webpack-blocks.config.js",
-        "webpack-public-path.js"
-    ],
     "rules": {
         "max-len": [
             1,

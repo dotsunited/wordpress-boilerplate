@@ -38,11 +38,10 @@ class ComposerScripts
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/package-lock.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/tailwind.config.js', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/webpack.config.js', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/webpack-blocks.config.js', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/tailwind.config.ts', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/vite.config.ts', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/vite-gutenberg.config.ts', $projectName, $projectIdentifier);
 
         self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
 
