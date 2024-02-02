@@ -9,7 +9,7 @@
     "license": "MIT",
     "config": {
         "platform": {
-            "php": "8.2"
+            "php": "8.3"
         },
         "preferred-install": {
             "*": "dist"
@@ -26,8 +26,8 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.4",
-        "wpackagist-plugin/meta-box": "^5.6"
+        "composer/installers": "^2.2",
+        "wpackagist-plugin/meta-box": "^5.9"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
