@@ -33,7 +33,7 @@ You can add a database dump with the filename `dump.sql.gz` or `dump.sql` which 
 
 ```bash
 Username: `localAdmin`
-Password: ´localPassword´
+Password: `localPassword`
 ```
 
 > ⚠️ Remember to remove or change the credentials in a production environment!
