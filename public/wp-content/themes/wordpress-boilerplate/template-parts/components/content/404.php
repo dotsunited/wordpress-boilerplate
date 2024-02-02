@@ -15,6 +15,7 @@
     <li><?php _e('Find the correct page out of the navigation.', 'wordpress-boilerplate'); ?></li>
     <li>
         <?php _e('Try the search function', 'wordpress-boilerplate'); ?>
-        <?php get_search_form(); ?>
     </li>
 </ul>
+
+<?php get_search_form(); ?>

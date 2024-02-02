@@ -64,12 +64,12 @@
       "inter-v13-latin-900.q9Lx9Ocb.woff2"
     ],
     "css": [
-      "css/main.wih9g9Dy.css"
+      "css/main.gegXG_GR.css"
     ],
     "dynamicImports": [
       "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
     ],
-    "file": "js/main.Wtz-CNFl.js",
+    "file": "js/main.Wa-OOvtE.js",
     "imports": [
       "_vendor.NiSvAkA7.js"
     ],
@@ -86,5 +86,41 @@
     ],
     "isDynamicEntry": true,
     "src": "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
+  },
+  "inter-v13-latin-100.woff2": {
+    "file": "inter-v13-latin-100.hMcCt04e.woff2",
+    "src": "inter-v13-latin-100.woff2"
+  },
+  "inter-v13-latin-200.woff2": {
+    "file": "inter-v13-latin-200.SfZ_bgVM.woff2",
+    "src": "inter-v13-latin-200.woff2"
+  },
+  "inter-v13-latin-300.woff2": {
+    "file": "inter-v13-latin-300.CHA_qmA3.woff2",
+    "src": "inter-v13-latin-300.woff2"
+  },
+  "inter-v13-latin-500.woff2": {
+    "file": "inter-v13-latin-500.JFocBHQx.woff2",
+    "src": "inter-v13-latin-500.woff2"
+  },
+  "inter-v13-latin-600.woff2": {
+    "file": "inter-v13-latin-600.dkrH7PHm.woff2",
+    "src": "inter-v13-latin-600.woff2"
+  },
+  "inter-v13-latin-700.woff2": {
+    "file": "inter-v13-latin-700.ts3xWOyE.woff2",
+    "src": "inter-v13-latin-700.woff2"
+  },
+  "inter-v13-latin-800.woff2": {
+    "file": "inter-v13-latin-800.JnU3jSsi.woff2",
+    "src": "inter-v13-latin-800.woff2"
+  },
+  "inter-v13-latin-900.woff2": {
+    "file": "inter-v13-latin-900.q9Lx9Ocb.woff2",
+    "src": "inter-v13-latin-900.woff2"
+  },
+  "inter-v13-latin-regular.woff2": {
+    "file": "inter-v13-latin-regular.U9R_j0_y.woff2",
+    "src": "inter-v13-latin-regular.woff2"
   }
 }
