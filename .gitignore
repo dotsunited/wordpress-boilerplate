@@ -2,6 +2,9 @@
 /vendor/
 /node_modules/
 
+# Vite
+vite.config.ts.*
+
 # WordPress
 public/wp-admin/
 public/wp-includes/

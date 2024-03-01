@@ -6,6 +6,7 @@ import { CSSRuleObject } from 'tailwindcss/types/config';
 export default {
     content: [
         './public/wp-content/themes/wordpress-boilerplate/**/*.+(html|php)',
+        './assets/main/**/*.+(css|scss|js|ts|jsx|tsx)',
     ],
     theme: {
         container: {
@@ -33,48 +34,40 @@ export default {
     ],
     plugins: [
         // Add Gutenberg color utility classes
-        plugin(function ({ addUtilities, config }) {
+        plugin(({ addUtilities, config }) => {
             const colors = config('theme.colors');
 
-            const utilities: { [key: string]: CSSRuleObject }[] = Object.keys(colors).reduce((acc: { [key: string]: CSSRuleObject }[], key) => {
-                const value = colors[key];
+            const generateUtilities = (colors: { [key: string]: string | { [key: string]: string } }): { [key: string]: CSSRuleObject }[] => {
+                const utilities: { [key: string]: CSSRuleObject }[] = [];
 
-                if (typeof value === 'string') {
-                    acc.push({
-                        [`.has-${key}-color`]: { 'color': value },
-                        [`.has-${key}-background-color`]: { 'background-color': value },
-                        [`.has-${key}-border-color`]: { 'border-color': value },
-                    });
-                } else if (typeof value === 'object') {
-                    Object.keys(value).forEach(subKey => {
-                        const subValue = value[subKey];
+                const generateUtility = (prefix: string, value: string | { [key: string]: string }) => {
+                    if (typeof value === 'string') {
+                        utilities.push({
+                            [`.has-${prefix}-color`]: { 'color': value },
+                            [`.has-${prefix}-background-color`]: { 'background-color': value },
+                            [`.has-${prefix}-border-color`]: { 'border-color': value },
+                        });
+                    } else if (typeof value === 'object') {
+                        Object.keys(value).forEach(subKey => {
+                            const subValue = value[subKey];
+                            const subPrefix = `${prefix}-${subKey}`;
 
-                        if (typeof subValue === 'string') {
-                            acc.push({
-                                [`.has-${key}-${subKey}-color`]: { 'color': subValue },
-                                [`.has-${key}-${subKey}-background-color`]: { 'background-color': subValue },
-                                [`.has-${key}-${subKey}-border-color`]: { 'border-color': subValue },
-                            });
-                        } else if (typeof subValue === 'object') {
-                            Object.keys(subValue).forEach(subSubKey => {
-                                const subSubValue = subValue[subSubKey];
+                            generateUtility(subPrefix, subValue);
+                        });
+                    }
+                };
 
-                                if (typeof subSubValue === 'string') {
-                                    acc.push({
-                                        [`.has-${key}-${subKey}-${subSubKey}-color`]: { 'color': subSubValue },
-                                        [`.has-${key}-${subKey}-${subSubKey}-background-color`]: { 'background-color': subSubValue },
-                                        [`.has-${key}-${subKey}-${subSubKey}-border-color`]: { 'border-color': subSubValue },
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
+                Object.keys(colors).forEach(key => {
+                    const value = colors[key];
+                    generateUtility(key, value);
+                });
 
-                return acc;
-            }, []);
+                return utilities;
+            };
+
+            const utilities = generateUtilities(colors);
 
             addUtilities(utilities);
-        }),
+        })
     ],
 } satisfies Config;
