@@ -4,7 +4,7 @@ import '@wordpress/block-library/build-style/style.css';
 import '@wordpress/block-library/build-style/theme.css';
 
 // Import Tailwind CSS directives
-import './tailwind.css';
+import './tailwind.scss';
 
 // Import fonts
 import './fonts';
