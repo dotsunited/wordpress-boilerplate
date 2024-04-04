@@ -25,21 +25,21 @@
         "not dead"
     ],
     "dependencies": {
-        "@wordpress/block-library": "^8.29.0",
+        "@wordpress/block-library": "^8.32.0",
         "ctrly": "^0.7.0",
         "domestique": "^1.7.0"
     },
     "devDependencies": {
-        "autoprefixer": "^10.4.17",
+        "autoprefixer": "^10.4.19",
         "eslint": "^8.57.0",
         "eslint-config-airbnb": "^19.0.4",
-        "lightningcss": "^1.24.0",
-        "postcss": "^8.4.35",
+        "lightningcss": "^1.24.1",
+        "postcss": "^8.4.38",
         "release-it": "^17.1.1",
-        "sass": "^1.71.1",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5.3.3",
-        "vite": "^5.1.4",
+        "sass": "^1.74.1",
+        "tailwindcss": "^3.4.3",
+        "typescript": "^5.4.3",
+        "vite": "^5.2.8",
         "vite-plugin-webpackchunkname": "^1.0.1"
     }
 }
