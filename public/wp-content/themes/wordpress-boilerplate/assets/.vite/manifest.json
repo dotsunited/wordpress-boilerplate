@@ -52,7 +52,7 @@
     "src": "assets/main/fonts/inter/inter-v13-latin-regular.woff2"
   },
   "assets/main/index.js": {
-    "file": "js/main.2s1LAWX4.js",
+    "file": "js/main.Djy0IIJz.js",
     "src": "assets/main/index.js",
     "isEntry": true,
     "imports": [
@@ -62,7 +62,7 @@
       "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
     ],
     "css": [
-      "css/main.CySV1tIy.css"
+      "css/main.CfKMe4G7.css"
     ],
     "assets": [
       "inter-v13-latin-100.CExwK3Th.woff2",
