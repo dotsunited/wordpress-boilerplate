@@ -1,0 +1,10 @@
+.eslintrc
+.git-ftp-ignore
+.gitignore
+.gitlab-ci.yml
+.release-it.json
+bun.lockb
+docker-compose.yml
+package.json
+*.config.cjs
+*.config.ts
