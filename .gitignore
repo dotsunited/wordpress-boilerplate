@@ -16,6 +16,7 @@ public/xmlrpc.php
 public/.htaccess
 public/wp-config.php
 public/liesmich.html
+public/wp-content/cache/
 public/wp-content/languages/
 public/wp-content/uploads/
 public/wp-content/upgrade/
