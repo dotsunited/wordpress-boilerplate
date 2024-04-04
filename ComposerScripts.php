@@ -37,8 +37,6 @@ class ComposerScripts
         self::replace(__DIR__ . '/vite.config.ts', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/vite-gutenberg.config.ts', $projectName, $projectIdentifier);
 
-        self::replace(__DIR__ . '/public/wp-config.dist.php', $projectName, $projectIdentifier);
-
         self::replaceDir(__DIR__ . '/assets', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', $projectName, $projectIdentifier);
         self::replaceDir(__DIR__ . '/public/wp-content/themes', $projectName, $projectIdentifier);
@@ -50,7 +48,6 @@ class ComposerScripts
         rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php', __DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate/' . $projectIdentifier . '.php');
         rename(__DIR__ . '/public/wp-content/mu-plugins/wordpress-boilerplate', __DIR__ . '/public/wp-content/mu-plugins/' . $projectIdentifier);
         rename(__DIR__ . '/public/wp-content/themes/wordpress-boilerplate', __DIR__ . '/public/wp-content/themes/' . $projectIdentifier);
-        rename(__DIR__ . '/public/wp-config.dist.php', __DIR__ . '/public/wp-config.php');
 
         // --- Cleanup
 
