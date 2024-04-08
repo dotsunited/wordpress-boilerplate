@@ -14,10 +14,11 @@ jobs:
       uses: actions/checkout@v2
       
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
+        protocol: ${{ vars.FTP_PROTOCOL }}
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ${{ secrets.FTP_PATH }}
-        local-dir: ${{ secrets.LOCAL_PATH }}
+        server-dir: ${{ vars.FTP_PATH }}
+        local-dir: ${{ vars.LOCAL_PATH }}
