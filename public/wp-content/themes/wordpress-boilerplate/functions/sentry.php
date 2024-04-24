@@ -39,9 +39,14 @@ if (class_exists('\Sentry\Options') && class_exists('\Sentry\Event')) {
                     continue;
                 }
     
-                // Check if the filename contains the path to the plugins directory
-                if ( $strContainsHelper( $file, '/wp-content/plugins/' ) ) {
-                    return null;
+                // Check if the filename contains any of the paths
+                $pluginPaths = [
+                    '/wp-content/plugins/'
+                ];
+                foreach ( $pluginPaths as $pluginPath ) {
+                    if ( $strContainsHelper( $file, $pluginPath ) ) {
+                        return null;
+                    }
                 }
             }
 
