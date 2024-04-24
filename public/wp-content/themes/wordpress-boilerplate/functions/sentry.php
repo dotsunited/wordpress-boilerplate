@@ -3,6 +3,11 @@
 if (class_exists('\Sentry\Options') && class_exists('\Sentry\Event')) {
     add_filter('wp_sentry_options', function (\Sentry\Options $options) {
         $options->setBeforeSendCallback( function ( \Sentry\Event $event ) {
+            // Only apply filtering logic for warnings
+            if ($event->getLevel() !== \Sentry\Severity::warning()) {
+                return $event;
+            }
+
             $exceptions = $event->getExceptions();
     
             // No exceptions in the event? Send the event to Sentry, it's most likely a log message
