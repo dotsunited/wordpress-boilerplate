@@ -3,6 +3,11 @@
 if (class_exists('\Sentry\Options') && class_exists('\Sentry\Event')) {
     add_filter('wp_sentry_options', function (\Sentry\Options $options) {
         $options->setBeforeSendCallback( function ( \Sentry\Event $event ) {
+            // Only apply filtering logic for warnings
+            if ($event->getLevel() !== \Sentry\Severity::warning()) {
+                return $event;
+            }
+
             $exceptions = $event->getExceptions();
     
             // No exceptions in the event? Send the event to Sentry, it's most likely a log message
@@ -34,9 +39,14 @@ if (class_exists('\Sentry\Options') && class_exists('\Sentry\Event')) {
                     continue;
                 }
     
-                // Check if the filename contains the path to the plugins directory
-                if ( $strContainsHelper( $file, '/wp-content/plugins/' ) ) {
-                    return null;
+                // Check if the filename contains any of the paths
+                $pluginPaths = [
+                    '/wp-content/plugins/'
+                ];
+                foreach ( $pluginPaths as $pluginPath ) {
+                    if ( $strContainsHelper( $file, $pluginPath ) ) {
+                        return null;
+                    }
                 }
             }
 
