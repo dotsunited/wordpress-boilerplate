@@ -1,9 +1,11 @@
 {
   "_ctrly.BjJxFZm9.js": {
-    "file": "js/ctrly.BjJxFZm9.js"
+    "file": "js/ctrly.BjJxFZm9.js",
+    "name": "ctrly"
   },
-  "_vendor.BLotvweF.js": {
-    "file": "js/vendor.BLotvweF.js"
+  "_vendor.DyDGoheb.js": {
+    "file": "js/vendor.DyDGoheb.js",
+    "name": "vendor"
   },
   "assets/icons/index.css": {
     "file": "css/icons.G0AJOAe_.css",
@@ -11,9 +13,8 @@
     "isEntry": true
   },
   "assets/icons/symbol-defs.svg": {
-    "file": "js/symbolDefs.l0sNRNKZ.js",
-    "src": "assets/icons/symbol-defs.svg",
-    "isEntry": true
+    "file": "img/symbol-defs.BOUjkr-L.svg",
+    "src": "assets/icons/symbol-defs.svg"
   },
   "assets/main/fonts/inter/inter-v13-latin-100.woff2": {
     "file": "inter-v13-latin-100.CExwK3Th.woff2",
@@ -52,17 +53,18 @@
     "src": "assets/main/fonts/inter/inter-v13-latin-regular.woff2"
   },
   "assets/main/index.js": {
-    "file": "js/main.Djy0IIJz.js",
+    "file": "js/main.Cr2-mGV7.js",
+    "name": "main",
     "src": "assets/main/index.js",
     "isEntry": true,
     "imports": [
-      "_vendor.BLotvweF.js"
+      "_vendor.DyDGoheb.js"
     ],
     "dynamicImports": [
       "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu"
     ],
     "css": [
-      "css/main.CfKMe4G7.css"
+      "css/main.FAys7y78.css"
     ],
     "assets": [
       "inter-v13-latin-100.CExwK3Th.woff2",
@@ -78,6 +80,7 @@
   },
   "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu": {
     "file": "js/off-canvas-menu.DDdqsju5.js",
+    "name": "off-canvas-menu",
     "src": "assets/main/off-canvas-menu/setup.js?chunkName=off-canvas-menu",
     "isDynamicEntry": true,
     "imports": [
