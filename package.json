@@ -12,9 +12,9 @@
         "watch": "vite build --watch",
         "build:gutenberg": "vite build -c vite-gutenberg.config.ts",
         "watch:gutenberg": "vite build --watch -c vite-gutenberg.config.ts",
-        "lint": "eslint --ext .js,.jsx,.ts,.tsx ./assets",
+        "lint:ec": "ec",
+        "lint:es": "eslint --ext .js,.jsx,.ts,.tsx ./assets",
         "release": "release-it",
-        "translate": "npm run translate:theme && npm run translate:plugin",
         "translate:theme": "cd public/wp-content/themes/wordpress-boilerplate/ && npx node-wp-i18n makepot --type theme --domain-path languages",
         "translate:plugin": "cd public/wp-content/mu-plugins/wordpress-boilerplate/ && npx node-wp-i18n makepot --type plugin --domain-path languages"
     },
@@ -31,6 +31,7 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.4.19",
+        "editorconfig-checker": "^5.1.5",
         "eslint": "^8.57.0",
         "eslint-config-airbnb": "^19.0.4",
         "lightningcss": "^1.24.1",
