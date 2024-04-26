@@ -96,8 +96,8 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 	add_wordpress_admin_user $next_user_id
 
 	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
-	UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET domain = '${WORDPRESS_HOST}:${WORDPRESS_PORT}';
-	UPDATE ${WORDPRESS_TABLE_PREFIX}site SET domain = '${WORDPRESS_HOST}:${WORDPRESS_PORT}';
+	UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET domain = '${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}';
+	UPDATE ${WORDPRESS_TABLE_PREFIX}site SET domain = '${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}';
 	EOF
 
 	site_admins=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT meta_value FROM ${WORDPRESS_TABLE_PREFIX}sitemeta WHERE meta_key = 'site_admins'")
@@ -157,8 +157,8 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 
 		mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 		UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET path = '$blogpath' WHERE blog_id = $id;
-		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}${path}' WHERE option_name = 'siteurl';
-		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}${path}' WHERE option_name = 'home';
+		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}${path}' WHERE option_name = 'siteurl';
+		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}${path}' WHERE option_name = 'home';
 		EOF
 	done
 else
@@ -166,7 +166,7 @@ else
 	add_wordpress_admin_user $next_user_id
 
 	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
-	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}' WHERE option_name = 'siteurl';
-	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}:${WORDPRESS_PORT}' WHERE option_name = 'home';
+	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}' WHERE option_name = 'siteurl';
+	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}' WHERE option_name = 'home';
 	EOF
 fi
