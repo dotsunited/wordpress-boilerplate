@@ -62,7 +62,7 @@ get_next_user_id() {
 
 #######################################
 # Add local WordPress admin user
-# 
+#
 # Username: $WORDPRESS_ADMIN_USER
 # Password: ´localPassword´
 #######################################

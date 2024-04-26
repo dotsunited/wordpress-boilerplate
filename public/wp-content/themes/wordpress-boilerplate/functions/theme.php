@@ -118,11 +118,11 @@ function wordpress_boilerplate_get_pages($args = '') {
 
 /*
 * $args = [
-*	'child_of' => $post->post_parent,
-*	'post_type' => 'page',
-*	'order' => 'ASC',
-*	'orderby' => 'menu_order',
-*	'depth' => -1,
+*   'child_of' => $post->post_parent,
+*   'post_type' => 'page',
+*   'order' => 'ASC',
+*   'orderby' => 'menu_order',
+*   'depth' => -1,
 * ];
 * $page = wordpress_boilerplate_get_pages($args);
 */
@@ -134,11 +134,11 @@ add_action('template_redirect', 'wordpress_boilerplate_remove_wp_archives');
 
 // Remove archives
 function wordpress_boilerplate_remove_wp_archives(){
-	//If we are on category or tag or date or author archive
-	if( is_category() || is_tag() || is_date() || is_author() ) {
-		global $wp_query;
-		$wp_query->set_404(); //set to 404 not found page
-	}
+    //If we are on category or tag or date or author archive
+    if( is_category() || is_tag() || is_date() || is_author() ) {
+        global $wp_query;
+        $wp_query->set_404(); //set to 404 not found page
+    }
 }
 
 /**
@@ -146,12 +146,12 @@ function wordpress_boilerplate_remove_wp_archives(){
 *
 add_action( 'template_redirect', 'canada_attachment_redirect', 10 );
 function canada_attachment_redirect() {
-	if( is_attachment() ) {
-		// $url = wp_get_attachment_url( get_queried_object_id() );
-		// wp_redirect( $url, 301 );
-		global $wp_query;
-		$wp_query->set_404(); //set to 404 not found page
-	}
-	return;
+    if( is_attachment() ) {
+        // $url = wp_get_attachment_url( get_queried_object_id() );
+        // wp_redirect( $url, 301 );
+        global $wp_query;
+        $wp_query->set_404(); //set to 404 not found page
+    }
+    return;
 }
 */

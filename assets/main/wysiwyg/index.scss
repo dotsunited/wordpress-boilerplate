@@ -1,6 +1,6 @@
 @import url("./gutenberg/_index.scss");
 
-.wysiwyg {    
+.wysiwyg {
     @apply flow-root;
 
     & blockquote,
@@ -60,7 +60,7 @@
         &.alignwide {
             & .wp-block-embed__wrapper {
                 @apply w-full relative pt-[56.257%];
-        
+
                 & > iframe {
                     @apply w-full h-full absolute top-0 left-0;
                 }

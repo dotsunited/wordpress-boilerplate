@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '.docker/db/**'
+      - ".docker/db/**"
 
 jobs:
   build:
