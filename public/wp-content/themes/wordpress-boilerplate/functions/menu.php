@@ -102,6 +102,17 @@ class wordpress_boilerplate_mega_menu_walker extends Walker_Nav_Menu {
             $output .= "\n$indent<ul class='sub-menu container'>\n";
         }
     }
+
+    function end_lvl(&$output, $depth = 0, $args = []) {
+        $indent = str_repeat("\t", $depth);
+        if (0 === $depth) {
+            $output .= "$indent</ul>\n";
+            $output .= "$indent</div>\n";
+            $output .= "$indent</div>\n";
+        } else {
+            $output .= "$indent</ul>\n";
+        }
+    }
 }
 
 
