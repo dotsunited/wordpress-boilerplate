@@ -25,6 +25,7 @@ public/wp-content/plugins/
 public/wp-content/updraft/
 public/wp-content/themes/*
 !public/wp-content/themes/wordpress-boilerplate/
+public/wp-content/themes/wordpress-boilerplate/assets/
 
 # Docker
 docker-compose.*.yml
