@@ -22,6 +22,7 @@ public/wp-content/uploads/
 public/wp-content/upgrade/
 public/wp-content/upgrade-temp-backup/
 public/wp-content/plugins/
+public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/
 public/wp-content/updraft/
 public/wp-content/themes/*
 !public/wp-content/themes/wordpress-boilerplate/
