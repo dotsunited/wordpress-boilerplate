@@ -8,6 +8,14 @@ export MYSQL_PWD="$MYSQL_PASSWORD"
 # Set variables.
 export WORDPRESS_ADMIN_USER="localAdmin"
 
+# Check if the database is MySQL.
+export IS_MYSQL=$(mysql --version 2>/dev/null | grep -i mysql)
+
+# Use MySQL if it's the database, otherwise use MariaDB.
+export DB_COMMAND=$(if [ -z "$IS_MYSQL" ]; then echo "mariadb"; else echo "mysql"; fi)
+echo "Detected database: $DB_COMMAND"
+
+
 #######################################
 # Extract URL path.
 # Arguments:
@@ -51,7 +59,7 @@ get_blog_id() {
 #######################################
 get_next_user_id() {
 	next_user_id=$(
-	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+	$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 	SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = '${MYSQL_DATABASE}' AND TABLE_NAME = '${WORDPRESS_TABLE_PREFIX}users';
 	EOF
 	)
@@ -73,7 +81,7 @@ add_wordpress_admin_user () {
 	if [ -z "$2" ]; then
 		echo "Adding wordpress admin user to main blog."
 
-		mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+		$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}users (ID, user_login, user_pass, user_nicename, user_email, user_status, display_name) VALUES (${next_user_id}, '${WORDPRESS_ADMIN_USER}', '\$P\$BirrwinnX1hAdJpwPuyWKzqXrl3LZ31', '${WORDPRESS_ADMIN_USER}', '${WORDPRESS_ADMIN_USER}@wordpress.local', 0, '${WORDPRESS_ADMIN_USER}');
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, 'nickname', '${WORDPRESS_ADMIN_USER}');
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}capabilities', 'a:1:{s:13:"administrator";b:1;}');
@@ -82,7 +90,7 @@ add_wordpress_admin_user () {
 	else
 		echo "Adding wordpress admin user to blog with id $2."
 
-		mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+		$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}${blog_id}_capabilities', 'a:1:{s:13:"administrator";b:1;}');
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}${blog_id}_user_level', 10);
 		EOF
@@ -95,12 +103,12 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 	# Initialize WordPress multisite database.
 	add_wordpress_admin_user $next_user_id
 
-	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+	$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 	UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET domain = '${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}';
 	UPDATE ${WORDPRESS_TABLE_PREFIX}site SET domain = '${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}';
 	EOF
 
-	site_admins=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT meta_value FROM ${WORDPRESS_TABLE_PREFIX}sitemeta WHERE meta_key = 'site_admins'")
+	site_admins=$($DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT meta_value FROM ${WORDPRESS_TABLE_PREFIX}sitemeta WHERE meta_key = 'site_admins'")
 
 	# TODO: Add user 'localAdmin' to site_admins
 	# a:([0-9]+):{(?:i:([0-9]+);s:[0-9]+:\"\w+\";)+(})
@@ -112,14 +120,14 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 	while read -r line; do
 		blogs+=( "$line" )
 		echo "Found blog: ${line/%"_options"}"
-	done < <(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME REGEXP '^${WORDPRESS_TABLE_PREFIX}(?:[0-9]+_)?options$'")
+	done < <($DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME REGEXP '^${WORDPRESS_TABLE_PREFIX}(?:[0-9]+_)?options$'")
 
 	echo "Found ${#blogs[@]} blogs in total."
 
 	for blog in "${blogs[@]}"; do
 		id=$(get_blog_id "$blog")
-		siteurl=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $blog WHERE option_name = 'siteurl'")
-		home=$(mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $blog WHERE option_name = 'home'")
+		siteurl=$($DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $blog WHERE option_name = 'siteurl'")
+		home=$($DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT option_value FROM $blog WHERE option_name = 'home'")
 		path_found=false
 
 		# Add wordpress admin user to blog.
@@ -155,7 +163,7 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 
 		echo "Updating blog with id $id from $siteurl to http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$path)"
 
-		mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+		$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 		UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET path = '$blogpath' WHERE blog_id = $id;
 		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}${path}' WHERE option_name = 'siteurl';
 		UPDATE $blog SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}${path}' WHERE option_name = 'home';
@@ -165,7 +173,7 @@ else
 	# Initialize WordPress basic database.
 	add_wordpress_admin_user $next_user_id
 
-	mysql -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
+	$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}' WHERE option_name = 'siteurl';
 	UPDATE ${WORDPRESS_TABLE_PREFIX}options SET option_value = 'http://${WORDPRESS_HOST}${WORDPRESS_PORT:+:${WORDPRESS_PORT}}' WHERE option_name = 'home';
 	EOF
