@@ -13,7 +13,7 @@
         "build:gutenberg": "vite build -c vite-gutenberg.config.ts",
         "watch:gutenberg": "vite build --watch -c vite-gutenberg.config.ts",
         "lint:ec": "ec",
-        "lint:es": "eslint --ext .js,.jsx,.ts,.tsx ./assets",
+        "lint:es": "eslint ./assets --ext .js,.jsx,.ts,.tsx",
         "release": "release-it",
         "translate:theme": "cd public/wp-content/themes/wordpress-boilerplate/ && npx node-wp-i18n makepot --type theme --domain-path languages",
         "translate:plugin": "cd public/wp-content/mu-plugins/wordpress-boilerplate/ && npx node-wp-i18n makepot --type plugin --domain-path languages"
@@ -30,10 +30,14 @@
         "domestique": "^1.7.0"
     },
     "devDependencies": {
+        "@types/bun": "latest",
+        "@typescript-eslint/eslint-plugin": "^7.8.0",
+        "@typescript-eslint/parser": "^7.8.0",
         "autoprefixer": "^10.4.19",
         "editorconfig-checker": "^5.1.5",
         "eslint": "^8.57.0",
         "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-airbnb-typescript": "^18.0.0",
         "lightningcss": "^1.24.1",
         "postcss": "^8.4.38",
         "release-it": "^17.2.1",
