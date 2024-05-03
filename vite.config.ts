@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import { manualChunksPlugin } from 'vite-plugin-webpackchunkname';
 
 export default defineConfig({
     publicDir: false,
@@ -32,6 +31,5 @@ export default defineConfig({
         },
         cssMinify: 'lightningcss',
         outDir: './public/wp-content/themes/wordpress-boilerplate/assets',
-    },
-    plugins: [manualChunksPlugin()],
+    }
 });
