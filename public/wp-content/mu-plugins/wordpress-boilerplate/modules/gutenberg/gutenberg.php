@@ -85,7 +85,8 @@ add_filter('allowed_block_types_all', function () {
         return strpos($key, 'core/') !== 0;
     }, ARRAY_FILTER_USE_KEY);
 
-    // List of allowed core blocks
+    // List of allowed core blocks, uncomment to allow
+    // For a list of all core blocks see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/core-blocks.md
     $allow = [
         // 'core/archives',
         // 'core/audio',
@@ -116,6 +117,10 @@ add_filter('allowed_block_types_all', function () {
         'core/embed',
         // 'core/file',
         // 'core/footnotes',
+        // 'core/form',
+        // 'core/form-input',
+        // 'core/form-submission-notification',
+        // 'core/form-submit-button',
         'core/freeform',
         // 'core/gallery',
         'core/group',
@@ -154,6 +159,7 @@ add_filter('allowed_block_types_all', function () {
         // 'core/post-navigation-link',
         // 'core/post-template',
         // 'core/post-terms',
+        // 'core/post-time-to-read',
         // 'core/post-title',
         // 'core/preformatted',
         'core/pullquote',
