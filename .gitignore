@@ -1,34 +1,54 @@
-# Dependencies
+### Composer ###
 /vendor/
+
+### Node ###
 /node_modules/
 
-# Vite
-vite.config.ts.*
+### Vite ###
+/vite.config.ts.*
 
-# WordPress
-public/wp-admin/
-public/wp-includes/
-public/index.php
-public/license.txt
-public/readme.html
-public/wp-*.php
-public/xmlrpc.php
-public/.htaccess
-public/wp-config.php
-public/liesmich.html
-public/wp-content/cache/
-public/wp-content/languages/
-public/wp-content/uploads/
-public/wp-content/upgrade/
-public/wp-content/upgrade-temp-backup/
-public/wp-content/plugins/
-public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/
-public/wp-content/updraft/
-public/wp-content/themes/*
-!public/wp-content/themes/wordpress-boilerplate/
-public/wp-content/themes/wordpress-boilerplate/assets/
-
-# Docker
-docker-compose.*.yml
+### Docker ###
+/docker-compose.*.yml
 /*.sql.gz
 /*.sql
+
+### WordPress ###
+# Core
+/public/wp-admin/
+/public/index.php
+/public/wp-content/languages/
+/public/wp-content/plugins/index.php
+/public/wp-content/themes/index.php
+/public/wp-includes/
+/public/index.php
+/public/license.txt
+/public/readme.html
+/public/wp-*.php
+/public/xmlrpc.php
+
+# Configuration
+/public/wp-config.php
+
+# Uploads
+/public/wp-content/uploads/
+
+# Log files
+*.log
+
+# Plugins
+/public/wp-content/plugins/
+/public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/
+
+# Themes
+/public/wp-content/themes/*
+!/public/wp-content/themes/wordpress-boilerplate/
+/public/wp-content/themes/wordpress-boilerplate/assets/
+
+# htaccess
+/public/.htaccess
+
+# Misc
+/public/wp-content/cache/
+/public/wp-content/upgrade/
+/public/wp-content/upgrade-temp-backup/
+/public/wp-content/updraft/
