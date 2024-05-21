@@ -5,7 +5,7 @@
         @apply inline-block;
 
         & .wp-element-button {
-            @apply inline-block px-4 py-2 rounded-none no-underline bg-dotsunited-red-500 text-white text-sm font-medium;
+            @apply inline-block px-4 py-2 rounded-none no-underline bg-dotsunited-red-600 text-white text-sm font-medium;
 
             &:hover {
                 @apply bg-zinc-900;
