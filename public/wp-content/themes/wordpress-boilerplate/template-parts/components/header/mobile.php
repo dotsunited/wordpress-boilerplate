@@ -1,7 +1,7 @@
 <div class="w-full mx-auto px-4 py-2 flex md:hidden flex-row flex-wrap items-center justify-between">
     <div class="w-full flex flex-row gap-4 justify-between items-center overflow-hidden">
         <a href="<?= esc_attr(get_home_url()); ?>" title="Back to frontpage" class="inline-block">
-            <span class="screen-reader-text"><?= _x('Click here to go back to frontpage', 'logo', 'wordpress-boilerplate'); ?></span>
+            <span class="screen-reader-text"><?= _x('Back to frontpage', 'logo', 'wordpress-boilerplate'); ?></span>
             <?= wordpress_boilerplate_asset_embed('/vendor/images/logo-dotsunited.svg', 'w-36'); ?>
         </a>
 
