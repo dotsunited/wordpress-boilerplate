@@ -1,0 +1,217 @@
+# <!=Copyright (C) 2024 Dots United GmbH
+# This file is distributed under the same license as the wordpress-boilerplate package.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: wordpress-boilerplate 13.4.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/theme/wordpress-boilerplate\n"
+"POT-Creation-Date: 2024-05-14 11:25:20+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: node-wp-i18n 1.2.7\n"
+
+#: archive.php:12 search.php:19
+msgid "Permalink to %s"
+msgstr ""
+
+#: functions/gutenberg.php:20
+msgid "Transparent"
+msgstr ""
+
+#: functions/gutenberg.php:25
+msgid "White"
+msgstr ""
+
+#: functions/gutenberg.php:30
+msgid "Zinc 50"
+msgstr ""
+
+#: functions/gutenberg.php:35
+msgid "Zinc 100"
+msgstr ""
+
+#: functions/gutenberg.php:40
+msgid "Zinc 200"
+msgstr ""
+
+#: functions/gutenberg.php:45
+msgid "Zinc 300"
+msgstr ""
+
+#: functions/gutenberg.php:50
+msgid "Zinc 400"
+msgstr ""
+
+#: functions/gutenberg.php:55
+msgid "Zinc 500"
+msgstr ""
+
+#: functions/gutenberg.php:60
+msgid "Zinc 600"
+msgstr ""
+
+#: functions/gutenberg.php:65
+msgid "Zinc 700"
+msgstr ""
+
+#: functions/gutenberg.php:70
+msgid "Zinc 800"
+msgstr ""
+
+#: functions/gutenberg.php:75
+msgid "Zinc 900"
+msgstr ""
+
+#: functions/gutenberg.php:80
+msgid "Zinc 950"
+msgstr ""
+
+#: functions/gutenberg.php:85
+msgid "Black"
+msgstr ""
+
+#: functions/gutenberg.php:90
+msgid "Red 500"
+msgstr ""
+
+#: functions/gutenberg.php:169
+msgid "Zinc 300 Group"
+msgstr ""
+
+#: functions/theme.php:18
+msgid "Main Menu"
+msgstr ""
+
+#: functions/theme.php:21
+msgid "Sidebar"
+msgstr ""
+
+#: functions/theme.php:56
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: functions/theme.php:57
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: functions/theme.php:95
+msgid "Pages"
+msgstr ""
+
+#: search.php:8
+msgid "Search results for:"
+msgstr ""
+
+#: template-parts/components/content/404.php:1
+msgid "Sorry, that page does not exist."
+msgstr ""
+
+#: template-parts/components/content/404.php:3
+msgid "The page you want to access does not exist, which may have these reasons:"
+msgstr ""
+
+#: template-parts/components/content/404.php:6
+msgid "You made a typo when entering the web address."
+msgstr ""
+
+#: template-parts/components/content/404.php:7
+msgid "You clicked on a link that is not correct."
+msgstr ""
+
+#: template-parts/components/content/404.php:10
+msgid "What can you do? There are several options..."
+msgstr ""
+
+#: template-parts/components/content/404.php:13
+msgid "Back to previous page"
+msgstr ""
+
+#: template-parts/components/content/404.php:13
+msgid "Back"
+msgstr ""
+
+#: template-parts/components/content/404.php:13
+msgid "to previous page"
+msgstr ""
+
+#: template-parts/components/content/404.php:14
+msgid "Visit frontpage"
+msgstr ""
+
+#: template-parts/components/content/404.php:15
+msgid "Find the correct page out of the navigation."
+msgstr ""
+
+#: template-parts/components/content/404.php:17
+msgid "Try the search function"
+msgstr ""
+
+#: template-parts/components/content/none.php:6
+#. translators: 1: link to WP admin new post page.
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/components/content/none.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/components/content/none.php:20
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "wordpress-boilerplate"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress-boilerplate.de"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WordPress Boilerplate Theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Dots United GmbH"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://dotsunited.de"
+msgstr ""
+
+#: functions/menu.php:147
+msgctxt "button"
+msgid "Open submenu"
+msgstr ""
+
+#: template-parts/components/header/mobile.php:10
+#: template-parts/components/header/mobile.php:12
+msgctxt "button"
+msgid "Open navigation"
+msgstr ""
+
+#: template-parts/components/header/mobile.php:19
+#: template-parts/components/header/mobile.php:21
+msgctxt "button"
+msgid "Close navigation"
+msgstr ""
+
+#: functions/widgets.php:5
+msgctxt "footer sidebar 1"
+msgid "Footer Sidebar 1"
+msgstr ""
+
+#: template-parts/components/header/desktop.php:2
+#: template-parts/components/header/desktop.php:3
+#: template-parts/components/header/mobile.php:4
+msgctxt "logo"
+msgid "Go back to frontpage"
+msgstr ""
