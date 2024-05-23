@@ -5,17 +5,17 @@ msgstr ""
 "Project-Id-Version: wordpress-boilerplate 13.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wordpress-"
 "boilerplate\n"
-"POT-Creation-Date: 2023-12-02 02:46:30+00:00\n"
-"PO-Revision-Date: 2023-12-02 03:53+0100\n"
+"POT-Creation-Date: 2024-05-14 11:25:20+00:00\n"
+"PO-Revision-Date: 2024-05-14 13:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE@formal\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.3\n"
 
-#: archive.php:12 index.php:13 page.php:12 search.php:18 single.php:12
+#: archive.php:12 search.php:19
 msgid "Permalink to %s"
 msgstr "Permalink zu %s"
 
@@ -167,16 +167,16 @@ msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"Leider gibt es keine Übereinstimmung mit Ihren Suchbegriffen. Bitte "
-"versuche Sie es mit anderen Stichwörtern erneut."
+"Leider gibt es keine Übereinstimmung mit Ihren Suchbegriffen. Bitte versuche "
+"Sie es mit anderen Stichwörtern erneut."
 
 #: template-parts/components/content/none.php:20
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Es scheint, dass wir nicht finden können, wonach Sie suchen. Vielleicht "
-"kann die Suche helfen."
+"Es scheint, dass wir nicht finden können, wonach Sie suchen. Vielleicht kann "
+"die Suche helfen."
 
 #. Theme Name of the plugin/theme
 msgid "wordpress-boilerplate"
@@ -198,7 +198,7 @@ msgstr ""
 msgid "https://dotsunited.de"
 msgstr ""
 
-#: functions/menu.php:136
+#: functions/menu.php:147
 msgctxt "button"
 msgid "Open submenu"
 msgstr "Open submenu"
@@ -224,5 +224,5 @@ msgstr "Footer Sidebar 1"
 #: template-parts/components/header/desktop.php:3
 #: template-parts/components/header/mobile.php:4
 msgctxt "logo"
-msgid "Click here to go back to frontpage"
+msgid "Go back to frontpage"
 msgstr "Klicken Sie hier, um zur Startseite zurückzukehren"
