@@ -8,6 +8,7 @@ module.exports = {
         browser: true,
         node: true,
     },
+    ignorePatterns: [".eslintrc.cjs"],
     rules: {
         "max-len": [
             1,
@@ -18,6 +19,8 @@ module.exports = {
             },
         ],
         "padded-blocks": "off",
+        "@typescript-eslint/return-await": "off",
+        "@typescript-eslint/no-use-before-define": "off",
         "@typescript-eslint/indent": ["error", 4],
         indent: [
             "error",
@@ -41,7 +44,7 @@ module.exports = {
         "import/no-extraneous-dependencies": [
             "error",
             {
-                devDependencies: false,
+                devDependencies: true,
                 optionalDependencies: false,
                 peerDependencies: false,
             },
