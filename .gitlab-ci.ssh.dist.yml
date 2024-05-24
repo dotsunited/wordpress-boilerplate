@@ -6,24 +6,20 @@ before_script:
   - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-deploy_production:
+deploy:
+  stage: 🚀 Deploy
   image: dotsunited/deployer:1
-  stage: deploy
-  environment:
-    name: production
-    url: https://wordpress-boilerplate.localhost
   only:
     - main
-  script:
-    - dep --no-local-build --no-interaction -vvv deploy production
-
-deploy_staging:
-  image: dotsunited/deployer:1
-  stage: deploy
-  environment:
-    name: staging
-    url: http://wordpress-boilerplate.localhost
-  only:
     - staging
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+      environment:
+        name: production
+        url: $CI_ENVIRONMENT_URL
+    - if: '$CI_COMMIT_REF_NAME == "staging"'
+      environment:
+        name: staging
+        url: $CI_ENVIRONMENT_URL
   script:
-    - dep --no-local-build --no-interaction -vvv deploy staging
+    - dep --no-local-build --no-interaction -vvv deploy $CI_ENVIRONMENT_NAME

@@ -1,21 +1,62 @@
-deploy_staging:
-  image: dotsunited/git-ftp
-  stage: deploy
-  only:
-    - staging
-  environment:
-    name: staging
-    url: http://wordpress-boilerplate.localhost
-  script:
-    - git ftp push -v --auto-init --remote-root /wordpress-boilerplate/staging --syncroot public --user $FTP_DEPLOY_USER --passwd $FTP_DEPLOY_PASSWORD $FTP_DEPLOY_HOST
+stages:
+  - 🧹 Lint
+  - 🚧 Build
+  - 🚀 Deploy
 
-deploy_production:
-  image: dotsunited/git-ftp
-  stage: deploy
+lint:
+  stage: 🧹 Lint
+  image: imbios/bun-node:latest-20-debian
   only:
     - main
-  environment:
-    name: production
-    url: https://wordpress-boilerplate.localhost
+    - staging
+  allow_failure: true
   script:
-    - git ftp push -v --auto-init --remote-root /wordpress-boilerplate/production --syncroot public --user $FTP_DEPLOY_USER --passwd $FTP_DEPLOY_PASSWORD $FTP_DEPLOY_HOST
+    - bun i --frozen-lockfile --cache-dir .bun --prefer-offline
+    - bun run lint:ec
+    - bun run lint:es
+  cache:
+    - key:
+        files:
+          - bun.lockb
+      paths:
+        - .bun/
+
+build:
+  stage: 🚧 Build
+  image: oven/bun:1
+  only:
+    - main
+    - staging
+  script:
+    - bun i --frozen-lockfile --cache-dir .bun --prefer-offline
+    - bun run build
+    - bun run build:gutenberg
+  cache:
+    - key:
+        files:
+          - bun.lockb
+      paths:
+        - .bun/
+      policy: pull
+  artifacts:
+    paths:
+        - public/wp-content/themes/wordpress-boilerplate/assets/
+        - public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/
+
+deploy:
+  stage: 🚀 Deploy
+  image: dotsunited/git-ftp:1
+  only:
+    - main
+    - staging
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+      environment:
+        name: production
+        url: $CI_ENVIRONMENT_URL
+    - if: '$CI_COMMIT_REF_NAME == "staging"'
+      environment:
+        name: staging
+        url: $CI_ENVIRONMENT_URL
+  script:
+    - git ftp push -v --auto-init --remote-root $FTP_PATH --syncroot $LOCAL_PATH --user $FTP_USER --passwd $FTP_PASSWORD $FTP_HOST

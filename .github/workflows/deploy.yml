@@ -2,16 +2,70 @@ name: 🚀 Deploy on push
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main, staging ]
 
 jobs:
-  deploy:
-    name: 🎉 Deploy
+  lint:
+    name: 🧹 Lint
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: 📦 Install dependencies
+        run: bun i --frozen-lockfile --prefer-offline
+
+      - name: 🧹 Lint
+        continue-on-error: true
+        run: |
+          bun run lint:ec
+          bun run lint:es
+
+  build:
+    name: 🚧 Build
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: 📦 Install dependencies
+        run: bun i --frozen-lockfile --prefer-offline
+
+      - name: 🚧 Build assets
+        run: |
+          bun run build
+          bun run build:gutenberg
+
+      - name: 💾 Cache build assets
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./public/wp-content/themes/wordpress-boilerplate/assets
+            ./public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets
+          key: ${{ runner.os }}-build-${{ github.sha }}
+
+  deploy:
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 💾 Restore build assets
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./public/wp-content/themes/wordpress-boilerplate/assets
+            ./public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets
+          key: ${{ runner.os }}-build-${{ github.sha }}
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
