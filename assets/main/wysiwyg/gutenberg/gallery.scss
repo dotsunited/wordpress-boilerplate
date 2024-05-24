@@ -1,14 +1,20 @@
 .wp-block-gallery {
     @apply my-4;
 
+    &.has-nested-images {
+        & figure.wp-block-image {
+            & > a[data-pswp-width] {
+                @apply cursor-zoom-in;
+            }
+        }
+    }
+
     @screen sm {
         &.has-nested-images {
             &.columns-default {
-                & figure {
-                    &.wp-block-image {
-                        &:not(#individual-image) {
-                            width: calc(33.33% - 1.5rem * 0.6666666667);
-                        }
+                & figure.wp-block-image {
+                    &:not(#individual-image) {
+                        width: calc(33.33% - 1.5rem * 0.6666666667);
                     }
                 }
             }

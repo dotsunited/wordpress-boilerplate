@@ -9,8 +9,11 @@ import './tailwind.scss';
 // Import fonts
 import './fonts';
 
-// Import components
+// Import main components
 import './base';
 import './wysiwyg';
+
+// Import components
 import './navigation';
 import './off-canvas-menu';
+import './photoswipe';

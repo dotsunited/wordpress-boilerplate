@@ -27,7 +27,8 @@
     "dependencies": {
         "@wordpress/block-library": "^8.35.0",
         "ctrly": "^0.7.0",
-        "domestique": "^1.7.0"
+        "domestique": "^1.7.0",
+        "photoswipe": "^5.4.3"
     },
     "devDependencies": {
         "@types/bun": "^1.1.3",

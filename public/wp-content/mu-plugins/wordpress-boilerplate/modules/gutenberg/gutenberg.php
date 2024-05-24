@@ -167,7 +167,7 @@ add_filter('allowed_block_types_all', function () {
         // 'core/form-submission-notification',
         // 'core/form-submit-button',
         'core/freeform',
-        // 'core/gallery',
+        'core/gallery',
         'core/group',
         'core/heading',
         // 'core/home-link',
