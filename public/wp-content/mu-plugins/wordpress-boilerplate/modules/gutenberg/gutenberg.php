@@ -141,7 +141,7 @@ add_filter('allowed_block_types_all', function () {
         'core/buttons',
         // 'core/calendar',
         // 'core/categories',
-        // 'core/code',
+        'core/code',
         'core/column',
         'core/columns',
         // 'core/comment-author-avatar',
