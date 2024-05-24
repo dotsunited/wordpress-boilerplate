@@ -15,5 +15,25 @@
                 @apply bg-zinc-900;
             }
         }
+
+        &:not(.is-style-outline) {
+            & .wp-element-button {
+                @apply py-2.5;
+            }
+        }
+
+        &.is-style-outline {
+            & .wp-element-button {
+                @apply border-2 border-dotsunited-red-600 text-dotsunited-red-600 bg-transparent;
+
+                &:hover {
+                    @apply bg-black text-white border-black;
+                }
+
+                &:active {
+                    @apply bg-black text-white border-black;
+                }
+            }
+        }
     }
 }
