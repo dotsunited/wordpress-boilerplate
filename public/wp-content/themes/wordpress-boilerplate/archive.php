@@ -9,7 +9,7 @@
                 </time>
 
                 <h2 class="leading-none">
-                    <a class="no-underline hover:underline font-serif text-3xl text-black" href="<?php the_permalink(); ?>" title="<?= esc_attr(sprintf(__('Permalink to %s', 'wordpress-boilerplate'), the_title_attribute('echo=0'))); ?>" rel="bookmark">
+                    <a class="no-underline hover:underline font-serif font-medium text-2xl md:text-3xl xl:text-4xl text-black" href="<?php the_permalink(); ?>" title="<?= esc_attr(sprintf(__('Permalink to %s', 'wordpress-boilerplate'), the_title_attribute('echo=0'))); ?>" rel="bookmark">
                         <?= the_title(); ?>
                     </a>
                 </h2>

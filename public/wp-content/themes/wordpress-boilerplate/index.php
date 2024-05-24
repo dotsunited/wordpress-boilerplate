@@ -9,7 +9,7 @@
                         <?= get_the_date(); ?>
                     </time>
 
-                    <h1 class="font-serif text-5xl text-black leading-none m-0 mb-4">
+                    <h1 class="font-serif font-medium text-3xl md:text-4xl xl:text-5xl text-black leading-none m-0 mb-4">
                         <?= the_title(); ?>
                     </h1>
 

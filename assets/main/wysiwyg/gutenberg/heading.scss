@@ -1,27 +1,27 @@
 .wp-block-heading {
-    @apply font-serif;
+    @apply font-serif font-medium;
 }
 
 h1.wp-block-heading {
-    @apply text-5xl;
+    @apply text-3xl md:text-4xl xl:text-5xl;
 }
 
 h2.wp-block-heading {
-    @apply text-3xl;
+    @apply text-2xl md:text-3xl xl:text-4xl;
 }
 
 h3.wp-block-heading {
-    @apply text-2xl;
+    @apply text-xl md:text-2xl xl:text-3xl;
 }
 
 h4.wp-block-heading {
-    @apply text-xl;
+    @apply text-lg md:text-xl xl:text-2xl;
 }
 
 h5.wp-block-heading {
-    @apply text-lg;
+    @apply text-base md:text-lg xl:text-xl;
 }
 
 h6.wp-block-heading {
-    @apply text-base text-black;
+    @apply text-base xl:text-lg;
 }
