@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "name": "@dotsunited/wordpress-boilerplate",
-    "version": "13.4.0",
+    "version": "13.5.0",
     "author": "Dots United GmbH",
     "license": "MIT",
     "repository": "https://github.com/dotsunited/wordpress-boilerplate.git",
