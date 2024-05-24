@@ -1,0 +1,19 @@
+form.search-form {
+    @apply flex gap-4;
+
+    & input.search-field {
+        @apply inline-block px-4 py-1.5 text-base;
+    }
+
+    & input.search-submit {
+        @apply inline-block px-4 py-2 rounded-none no-underline bg-dotsunited-red-600 text-white text-sm font-medium cursor-pointer;
+
+        &:hover {
+            @apply bg-zinc-900;
+        }
+
+        &:active {
+            @apply bg-zinc-900;
+        }
+    }
+}
