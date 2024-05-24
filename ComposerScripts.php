@@ -26,11 +26,19 @@ class ComposerScripts
         // --- Add Deployment
 
         $deployment = $io->ask('Add a deployment type (<comment>ssh/ftp/NONE</comment>): ', 'none');
-        self::setupDeployment($deployment, $projectName, $projectIdentifier);
+
+        if ($deployment === 'ftp') {
+            $platform = $io->ask('Enter the platform (<comment>github/GITLAB</comment>): ', 'gitlab');
+        } else {
+            $platform = 'none';
+        }
+
+        self::setupDeployment($deployment, $platform, $projectName, $projectIdentifier);
 
         // --- Replace in files & dirs
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
+        self::replace(__DIR__ . '/.git-ftp-include', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/tailwind.config.ts', $projectName, $projectIdentifier);
@@ -57,7 +65,6 @@ class ComposerScripts
         rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
 
         self::removeDir(__DIR__ . '/.docker');
-        self::removeDir(__DIR__ . '/.github');
 
         // ---
 
@@ -151,14 +158,23 @@ class ComposerScripts
         $lockFile->write($lockData);
     }
 
-    private static function setupDeployment($type, $projectName, $projectIdentifier)
+    private static function setupDeployment($type, $platform, $projectName, $projectIdentifier)
     {
         switch ($type) {
             case 'ftp':
-                unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
-                unlink(__DIR__ . '/deploy.dist.php');
-                rename(__DIR__ . '/.gitlab-ci.ftp.dist.yml', __DIR__ . '/.gitlab-ci.yml');
-                self::replace(__DIR__ . '/.gitlab-ci.yml', $projectName, $projectIdentifier);
+                if ($platform === 'github') {
+                    unlink(__DIR__ . '/.gitlab-ci.ftp.dist.yml');
+                    unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
+                    unlink(__DIR__ . '/deploy.dist.php');
+                    unlink(__DIR__ . '/.github/workflows/docker.yml');
+                    self::replace(__DIR__ . '/.github/workflows/deploy.yml', $projectName, $projectIdentifier);
+                } else {
+                    unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
+                    unlink(__DIR__ . '/deploy.dist.php');
+                    rename(__DIR__ . '/.gitlab-ci.ftp.dist.yml', __DIR__ . '/.gitlab-ci.yml');
+                    self::replace(__DIR__ . '/.gitlab-ci.yml', $projectName, $projectIdentifier);
+                    self::removeDir(__DIR__ . '/.github');
+                }
                 break;
             case 'ssh':
                 unlink(__DIR__ . '/.gitlab-ci.ftp.dist.yml');
@@ -166,12 +182,14 @@ class ComposerScripts
                 rename(__DIR__ . '/deploy.dist.php', __DIR__ . '/deploy.php');
                 self::replace(__DIR__ . '/.gitlab-ci.yml', $projectName, $projectIdentifier);
                 self::replace(__DIR__ . '/deploy.php', $projectName, $projectIdentifier);
+                self::removeDir(__DIR__ . '/.github');
                 break;
             case 'none':
             default:
                 unlink(__DIR__ . '/.gitlab-ci.ftp.dist.yml');
                 unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
                 unlink(__DIR__ . '/deploy.dist.php');
+                self::removeDir(__DIR__ . '/.github');
                 break;
         }
     }
