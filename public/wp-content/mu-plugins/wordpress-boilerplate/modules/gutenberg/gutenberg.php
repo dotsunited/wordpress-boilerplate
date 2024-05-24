@@ -20,27 +20,72 @@ add_action('plugins_loaded', function () {
     // Add support for borders
     add_theme_support('border');
 
-    // Removes custom fot sizes, eg. for paragraphs
+    // Removes custom font sizes, eg. for paragraphs
     add_theme_support('editor-font-sizes', [
         [
+            'name' => __('Extra Small'),
+            'size' => '.75rem',
+            'slug' => 'xs',
+        ],
+        [
             'name' => __('Small'),
-            'size' => 16,
+            'size' => '.875rem',
             'slug' => 'sm',
         ],
         [
-            'name' => __('Normal'),
-            'size' => 18,
+            'name' => __('Base'),
+            'size' => '1rem',
             'slug' => 'base',
         ],
         [
             'name' => __('Large'),
-            'size' => 21,
+            'size' => '1.125rem',
             'slug' => 'lg',
         ],
         [
             'name' => __('Extra Large'),
-            'size' => 24,
+            'size' => '1.25rem',
             'slug' => 'xl',
+        ],
+        [
+            'name' => __('2x Large'),
+            'size' => '1.5rem',
+            'slug' => '2xl',
+        ],
+        [
+            'name' => __('3x Large'),
+            'size' => '1.875rem',
+            'slug' => '3xl',
+        ],
+        [
+            'name' => __('4x Large'),
+            'size' => '2.25rem',
+            'slug' => '4xl',
+        ],
+        [
+            'name' => __('5x Large'),
+            'size' => '3rem',
+            'slug' => '5xl',
+        ],
+        [
+            'name' => __('6x Large'),
+            'size' => '3.75rem',
+            'slug' => '6xl',
+        ],
+        [
+            'name' => __('7x Large'),
+            'size' => '4.5rem',
+            'slug' => '7xl',
+        ],
+        [
+            'name' => __('8x Large'),
+            'size' => '6rem',
+            'slug' => '8xl',
+        ],
+        [
+            'name' => __('9x Large'),
+            'size' => '9rem',
+            'slug' => '9xl',
         ]
     ]);
     add_theme_support('disable-custom-font-sizes');

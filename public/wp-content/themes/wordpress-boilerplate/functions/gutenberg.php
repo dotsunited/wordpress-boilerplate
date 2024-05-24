@@ -144,19 +144,6 @@ add_action('after_setup_theme', function () {
     ]);
 }, 11, 0);
 
-// Overwrite gutenberg block assets
-add_filter('the_content', function ($content) {
-    // Make sure to not do concatenation of classes because PurgeCSS must detect
-    // the strings here!
-
-    return \strtr($content, [
-        'has-sm-font-size' => 'text-sm',
-        'has-base-font-size' => 'text-base',
-        'has-lg-font-size' => 'text-lg',
-        'has-xl-font-size' => 'text-xl',
-    ]);
-}, 9999);
-
 function wordpress_boilerplate_is_gutenberg_preview() {
     return defined('REST_REQUEST') && true === REST_REQUEST && 'edit' === $_REQUEST['context'];
 }
