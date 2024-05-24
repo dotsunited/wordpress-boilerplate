@@ -3,7 +3,7 @@
  * Plugin Name: Wordpress Boilerplate
  * Description: The main Wordpress Boilerplate plugin.
  * License: MIT
- * Version: 13.4.0
+ * Version: 13.5.0
  * Author: Dots United GmbH
  * Author URI: https://dotsunited.de
  */
