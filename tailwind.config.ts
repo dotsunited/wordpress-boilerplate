@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 import defaultTheme from 'tailwindcss/defaultTheme';
-import { CSSRuleObject } from 'tailwindcss/types/config';
+import type { CSSRuleObject } from 'tailwindcss/types/config';
 
 export default {
     content: [
@@ -41,25 +41,23 @@ export default {
         // Add Gutenberg color utility classes to safelist
         { pattern: /^has-[\w-]+-background-color$/ },
         { pattern: /^has-[\w-]+-color$/ },
-        { pattern: /^has-[\w-]+-border-color$/ }
+        { pattern: /^has-[\w-]+-border-color$/ },
     ],
     plugins: [
         // Add Gutenberg color utility classes
         plugin(({ addUtilities, config }) => {
-            const colors = config('theme.colors');
-
-            const generateUtilities = (colors: { [key: string]: string | { [key: string]: string } }): { [key: string]: CSSRuleObject }[] => {
+            const generateUtilities = (colors: Config) => {
                 const utilities: { [key: string]: CSSRuleObject }[] = [];
 
                 const generateUtility = (prefix: string, value: string | { [key: string]: string }) => {
                     if (typeof value === 'string') {
                         utilities.push({
-                            [`.has-${prefix}-color`]: { 'color': value },
+                            [`.has-${prefix}-color`]: { color: value },
                             [`.has-${prefix}-background-color`]: { 'background-color': value },
                             [`.has-${prefix}-border-color`]: { 'border-color': value },
                         });
                     } else if (typeof value === 'object') {
-                        Object.keys(value).forEach(subKey => {
+                        Object.keys(value).forEach((subKey) => {
                             const subValue = value[subKey];
                             const subPrefix = `${prefix}-${subKey}`;
 
@@ -68,7 +66,7 @@ export default {
                     }
                 };
 
-                Object.keys(colors).forEach(key => {
+                Object.keys(colors).forEach((key) => {
                     const value = colors[key];
                     generateUtility(key, value);
                 });
@@ -76,9 +74,10 @@ export default {
                 return utilities;
             };
 
+            const colors = config('theme.colors');
             const utilities = generateUtilities(colors);
 
             addUtilities(utilities);
-        })
+        }),
     ],
 } satisfies Config;

@@ -14,19 +14,6 @@ add_action('after_setup_theme', function () {
     define('DISALLOW_FILE_EDIT', true);
 });
 
-add_action('widgets_init', function () {
-    register_nav_menu('main', __('Main Menu', 'wordpress-boilerplate'));
-
-    register_sidebar([
-        'name' => __('Sidebar', 'wordpress-boilerplate'),
-        'id' => 'sidebar-1',
-        'before_widget' => '<section id="%1$s" class="wysiwyg first:mt-14 overflow-hidden bg-zinc-200 text-grey-darker text-base p-4 widget %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h2 class="font-bold text-base leading-tight mb-2">',
-        'after_title' => '</h2>',
-    ]);
-});
-
 function wordpress_boilerplate_single_post_content($display = true) {
     $post = get_queried_object();
 

@@ -17,7 +17,3 @@ add_action('plugins_loaded', function () {
         load_plugin_textdomain('wordpress-boilerplate', false, 'wordpress-boilerplate/languages');
     }
 });
-
-function wordpress_boilerplate_is_amp_endpoint() {
-    return \function_exists('is_amp_endpoint') && is_amp_endpoint();
-}

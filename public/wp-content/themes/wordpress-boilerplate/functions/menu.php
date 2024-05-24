@@ -1,5 +1,9 @@
 <?php
 
+add_action('widgets_init', function () {
+    register_nav_menu('main', __('Main Menu', 'wordpress-boilerplate'));
+});
+
 // From: http://christianvarga.com/2012/12/how-to-get-submenu-items-from-a-wordpress-menu-based-on-parent-or-sibling/
 add_filter('wp_nav_menu_objects', function ($sorted_menu_items, $args) {
     if (!isset($args->wordpress_boilerplate_submenu)) {

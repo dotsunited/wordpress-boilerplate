@@ -2,7 +2,16 @@
 
 add_action('widgets_init', function () {
     register_sidebar([
-        'name' => _x('Footer Sidebar 1', 'footer sidebar 1', 'wordpress-boilerplate'),
+        'name' => __('Sidebar', 'wordpress-boilerplate'),
+        'id' => 'sidebar-1',
+        'before_widget' => '<section id="%1$s" class="wysiwyg first:mt-14 overflow-hidden bg-zinc-200 text-grey-darker text-base p-4 widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="font-bold text-base leading-tight mb-2">',
+        'after_title' => '</h2>',
+    ]);
+
+    register_sidebar([
+        'name' => __('Footer', 'wordpress-boilerplate'),
         'id' => 'footer-1',
         'before_widget' => '<div id="%1$s" class="w-full mb-6 %2$s">',
         'after_widget' => '</div>',

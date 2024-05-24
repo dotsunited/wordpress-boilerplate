@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // https://github.com/WordPress/gutenberg/issues/25676#issuecomment-701680893
 wp.domReady(() => {
     wp.blocks.unregisterBlockVariation('core/embed', 'amazon-kindle');
