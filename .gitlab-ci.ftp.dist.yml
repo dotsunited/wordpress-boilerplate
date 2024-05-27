@@ -46,17 +46,14 @@ build:
 deploy:
   stage: 🚀 Deploy
   image: dotsunited/git-ftp:1
-  only:
-    - main
-    - staging
   rules:
     - if: '$CI_COMMIT_REF_NAME == "main"'
-      environment:
-        name: production
-        url: $CI_ENVIRONMENT_URL
+      variables:
+        DEPLOY_ENV: production
     - if: '$CI_COMMIT_REF_NAME == "staging"'
-      environment:
-        name: staging
-        url: $CI_ENVIRONMENT_URL
+      variables:
+        DEPLOY_ENV: staging
+  environment:
+    name: $DEPLOY_ENV
   script:
     - git ftp push -v --auto-init --remote-root $FTP_PATH --syncroot $LOCAL_PATH --user $FTP_USER --passwd $FTP_PASSWORD $FTP_HOST

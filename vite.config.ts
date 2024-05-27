@@ -31,5 +31,5 @@ export default defineConfig({
         },
         cssMinify: 'lightningcss',
         outDir: './public/wp-content/themes/wordpress-boilerplate/assets',
-    }
+    },
 });
