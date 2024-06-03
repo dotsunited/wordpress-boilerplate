@@ -1,4 +1,4 @@
-<div class="mb-8">
+<div class="wysiwyg mb-8">
     <?php if (is_home() && current_user_can('publish_posts')) :
         printf(
             '<p>' . wp_kses(
