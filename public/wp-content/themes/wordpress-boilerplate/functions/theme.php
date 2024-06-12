@@ -7,8 +7,9 @@ add_action('after_setup_theme', function () {
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption']);
     add_theme_support('post-thumbnails');
 
-    // Disable auto plugin update
+    // Disable auto updates
     add_filter('auto_update_plugin', '__return_false');
+    add_filter('auto_update_theme', '__return_false');
 
     // Disable theme editor
     define('DISALLOW_FILE_EDIT', true);
