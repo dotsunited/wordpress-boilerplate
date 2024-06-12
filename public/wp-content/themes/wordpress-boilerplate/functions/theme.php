@@ -15,6 +15,13 @@ add_action('after_setup_theme', function () {
     define('DISALLOW_FILE_EDIT', true);
 });
 
+// Disable auto updates test
+add_filter('site_status_tests', function ($tests) {
+    unset($tests['direct']['plugin_theme_auto_updates']);
+
+    return $tests;
+}, 20);
+
 function wordpress_boilerplate_single_post_content($display = true) {
     $post = get_queried_object();
 

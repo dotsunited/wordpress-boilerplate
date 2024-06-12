@@ -23,13 +23,14 @@ add_action('login_enqueue_scripts', function () {
 });
 
 /**
- * Hide auto update notes
+ * Hide auto update notes & checkbox
  */
 add_action('admin_head', 'wordpress_boilerplate_hide_auto_update');
 function wordpress_boilerplate_hide_auto_update() {
     echo '<style>
     .column-auto-updates {display: none !important;}
     .theme-info .theme-autoupdate {display: none !important;}
+    .metabox-prefs > label:has(#auto-updates-hide) {display: none !important;}
     </style>';
 }
 
