@@ -7,20 +7,9 @@ add_action('after_setup_theme', function () {
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption']);
     add_theme_support('post-thumbnails');
 
-    // Disable auto updates
-    add_filter('auto_update_plugin', '__return_false');
-    add_filter('auto_update_theme', '__return_false');
-
     // Disable theme editor
     define('DISALLOW_FILE_EDIT', true);
 });
-
-// Disable auto updates test
-add_filter('site_status_tests', function ($tests) {
-    unset($tests['direct']['plugin_theme_auto_updates']);
-
-    return $tests;
-}, 20);
 
 function wordpress_boilerplate_single_post_content($display = true) {
     $post = get_queried_object();

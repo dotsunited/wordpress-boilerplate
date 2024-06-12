@@ -8,6 +8,7 @@
  * Author: Dots United GmbH
  * Author URI: https://dotsunited.de
  */
+require_once __DIR__ . '/modules/auto-updates/auto-updates.php';
 require_once __DIR__ . '/modules/gutenberg/gutenberg.php';
 
 add_action('plugins_loaded', function () {

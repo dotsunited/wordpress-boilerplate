@@ -59,6 +59,8 @@ docker compose up -d
 
 ## Plugins
 
+> ℹ️ Automatic updates for plugins & themes are disabled by default. You can enable them by removing or commenting the corresponding module in `wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php`.
+
 If you uncommented sentry lines in `docker-compose.yml` install [WP Sentry](https://wordpress.org/plugins/wp-sentry-integration/)
 
 Be careful when using plugins which depend on jQuery.
