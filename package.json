@@ -25,27 +25,27 @@
         "not dead"
     ],
     "dependencies": {
-        "@wordpress/block-library": "^9.1.0",
+        "@wordpress/block-library": "^9.2.0",
         "ctrly": "^0.7.0",
         "domestique": "^1.7.0",
         "photoswipe": "^5.4.4"
     },
     "devDependencies": {
-        "@types/bun": "^1.1.5",
-        "@types/node": "^20.14.8",
-        "@typescript-eslint/eslint-plugin": "^7.13.1",
-        "@typescript-eslint/parser": "^7.13.1",
+        "@types/bun": "^1.1.6",
+        "@types/node": "^20.14.9",
+        "@typescript-eslint/eslint-plugin": "^7.15.0",
+        "@typescript-eslint/parser": "^7.15.0",
         "autoprefixer": "^10.4.19",
         "editorconfig-checker": "^5.1.8",
         "eslint": "^8.57.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^18.0.0",
         "lightningcss": "^1.25.1",
-        "postcss": "^8.4.38",
-        "release-it": "^17.4.0",
+        "postcss": "^8.4.39",
+        "release-it": "^17.4.1",
         "sass": "^1.77.6",
         "tailwindcss": "^3.4.4",
-        "typescript": "^5.5.2",
-        "vite": "^5.3.1"
+        "typescript": "^5.5.3",
+        "vite": "^5.3.3"
     }
 }
