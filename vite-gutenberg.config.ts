@@ -6,7 +6,7 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                main: './assets/gutenberg/index.js',
+                main: './assets/gutenberg/index.ts',
             },
             output: {
                 entryFileNames: 'blocks.js',

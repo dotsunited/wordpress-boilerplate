@@ -1,7 +1,7 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
-export function setup(gallery) {
+export function setup(gallery: HTMLElement) {
     const items = gallery.querySelectorAll('a');
 
     let isValid = true;

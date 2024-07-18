@@ -13,8 +13,8 @@ add_action('wp_head', function () {
 
 add_action('wp_head', function () {
 ?>
-    <style><?= wordpress_boilerplate_asset_embed_from_manifest('assets/main/index.js', 'css'); ?></style>
-    <script type="module" async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('assets/main/index.js')); ?>"></script>
+    <style><?= wordpress_boilerplate_asset_embed_from_manifest('assets/main/index.ts', 'css'); ?></style>
+    <script type="module" async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('assets/main/index.ts')); ?>"></script>
 <?php
 }, 1000);
 

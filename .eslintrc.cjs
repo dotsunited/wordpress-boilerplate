@@ -8,7 +8,11 @@ module.exports = {
         browser: true,
         node: true,
     },
-    ignorePatterns: [".eslintrc.cjs"],
+    ignorePatterns: [
+        ".eslintrc.cjs",
+        "public/wp-content/themes/wordpress-boilerplate/assets/",
+        "public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/",
+    ],
     rules: {
         "max-len": [
             1,
