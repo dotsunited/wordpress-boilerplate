@@ -17,7 +17,7 @@
                     @apply text-dotsunited-red-600;
                 }
 
-                @media screen(xl) {
+                @screen xl {
                     @apply text-base;
                 }
             }

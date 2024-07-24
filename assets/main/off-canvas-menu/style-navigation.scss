@@ -3,7 +3,7 @@
 
     & .sub-menu,
     & .sub-menu:focus {
-        @apply !outline-none;
+        @apply outline-none #{!important};
     }
 
     & > ul {

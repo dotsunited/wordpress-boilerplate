@@ -8,7 +8,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: './assets/main',
-                icons: './assets/icons/index.css',
+                icons: './assets/icons/index.scss',
                 symbolDefs: './assets/icons/symbol-defs.svg',
             },
             output: {

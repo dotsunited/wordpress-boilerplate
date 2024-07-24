@@ -1,7 +1,7 @@
 .off-canvas-menu {
     @apply block z-[9];
 
-    @media screen(md) {
+    @screen md {
         @apply hidden;
     }
 }
