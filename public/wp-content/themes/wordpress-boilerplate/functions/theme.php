@@ -102,8 +102,12 @@ function wordpress_boilerplate_get_pages($args = '') {
 add_filter('render_block', function ($block_content, $block) {
     if ('core/gallery' === $block['blockName']) {
         $dom = new DOMDocument();
-        $dom->loadHTML($block_content);
+        $dom->loadHTML($block_content, LIBXML_NOERROR);
         $images = $dom->getElementsByTagName('a');
+
+        if (!$images->length) {
+            return $block_content;
+        }
 
         foreach ($images as $image) {
             if (strpos($image->getAttribute('href'), 'wp-content') === false) {
@@ -112,10 +116,14 @@ add_filter('render_block', function ($block_content, $block) {
 
             $img = $image->getElementsByTagName('img')->item(0);
             $full_size_path = get_attached_file($img->getAttribute('data-id'));
-            $size = getimagesize($full_size_path);
 
-            $image->setAttribute('data-pswp-width', $size[0]);
-            $image->setAttribute('data-pswp-height', $size[1]);
+            if ($full_size_path) {
+                $size = getimagesize($full_size_path);
+
+                $image->setAttribute('data-pswp-width', $size[0]);
+                $image->setAttribute('data-pswp-height', $size[1]);
+            }
+
             $image->setAttribute('data-cropped', 'true');
 
             // add button to open image in lightbox
@@ -139,7 +147,7 @@ add_filter('render_block', function ($block_content, $block) {
             $svg->appendChild($path);
             $button->appendChild($svg);
 
-            $image->insertBefore($button, $image->nextSibling);
+            $image->appendChild($button);
             $image->parentNode->setAttribute('class', $image->parentNode->getAttribute('class') . ' wp-lightbox-container');
         }
 
