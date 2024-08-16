@@ -1,6 +1,6 @@
 import { ready } from 'domestique';
 
-const init = () => {
+ready(() => {
     const galleries = document.querySelectorAll('.wp-block-gallery') as NodeListOf<HTMLElement>;
 
     if (!galleries) {
@@ -12,8 +12,4 @@ const init = () => {
             module.setup(gallery);
         });
     });
-};
-
-ready(() => {
-    init();
 });
