@@ -31,15 +31,12 @@
         "photoswipe": "^5.4.4"
     },
     "devDependencies": {
+        "@antfu/eslint-config": "^3.7.1",
         "@types/bun": "^1.1.9",
         "@types/node": "^20.16.5",
-        "@typescript-eslint/eslint-plugin": "^7.18.0",
-        "@typescript-eslint/parser": "^7.18.0",
         "autoprefixer": "^10.4.20",
         "editorconfig-checker": "^5.1.8",
-        "eslint": "^8.57.1",
-        "eslint-config-airbnb": "^19.0.4",
-        "eslint-config-airbnb-typescript": "^18.0.0",
+        "eslint": "^9.10.0",
         "lightningcss": "^1.27.0",
         "postcss": "^8.4.47",
         "release-it": "^17.6.0",

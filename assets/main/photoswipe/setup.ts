@@ -17,7 +17,7 @@ export function setup(gallery: HTMLElement) {
     }
 
     const lightbox = new PhotoSwipeLightbox({
-        gallery: gallery,
+        gallery,
         children: 'a',
         pswpModule: () => import('photoswipe'),
     });

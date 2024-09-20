@@ -1,5 +1,6 @@
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable no-unused-vars */
 /* eslint no-undef: 0 */
-/* eslint react/react-in-jsx-scope: 0 */
 
 const { Path, SVG } = wp.components;
 
@@ -178,7 +179,6 @@ M29.6,34V14h4.1v20H29.6z M34.8,34V14h4.1v20H34.8z M13.2,34H9.1V14h4.1V34z"
  *
  * @param {object} element
  * @param {object} blockType
- * @param {object} attributes
  *
  * @return The element.
  */
@@ -188,7 +188,7 @@ function modifyGetSaveContentExtraProps(element, blockType) {
         return element;
     }
 
-    // Return the cloumns block with div wrapper.
+    // Return the columns block with div wrapper.
     return <div className="px-2">{element}</div>;
 }
 

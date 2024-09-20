@@ -1,7 +1,9 @@
 import { ready } from 'domestique';
 
 ready(() => {
-    const galleries = document.querySelectorAll('.wp-block-gallery') as NodeListOf<HTMLElement>;
+    const galleries = document.querySelectorAll(
+        '.wp-block-gallery',
+    ) as NodeListOf<HTMLElement>;
 
     if (!galleries) {
         return;

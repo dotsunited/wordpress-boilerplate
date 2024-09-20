@@ -1,4 +1,4 @@
-/* Optional Gutenberg Blocks, Categorys and Plugins */
+/* Optional Gutenberg Blocks, Categories and Plugins */
 import './category';
 import './plugins';
 import './blocks';
