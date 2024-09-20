@@ -1,11 +1,15 @@
 {
-    "private": true,
-    "type": "module",
     "name": "@dotsunited/wordpress-boilerplate",
+    "type": "module",
     "version": "14.0.4",
+    "private": true,
+    "description": "A barebones, clean and minimalist WordPress Boilerplate.",
     "author": "Dots United GmbH",
     "license": "MIT",
-    "repository": "https://github.com/dotsunited/wordpress-boilerplate.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dotsunited/wordpress-boilerplate.git"
+    },
     "scripts": {
         "dev": "vite",
         "build": "vite build",
