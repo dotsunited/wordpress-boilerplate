@@ -25,27 +25,27 @@
         "not dead"
     ],
     "dependencies": {
-        "@wordpress/block-library": "^9.3.0",
+        "@wordpress/block-library": "^9.8.2",
         "ctrly": "^0.7.0",
         "domestique": "^1.7.0",
         "photoswipe": "^5.4.4"
     },
     "devDependencies": {
-        "@types/bun": "^1.1.6",
-        "@types/node": "^20.14.11",
-        "@typescript-eslint/eslint-plugin": "^7.16.1",
-        "@typescript-eslint/parser": "^7.16.1",
-        "autoprefixer": "^10.4.19",
+        "@types/bun": "^1.1.9",
+        "@types/node": "^20.16.5",
+        "@typescript-eslint/eslint-plugin": "^7.18.0",
+        "@typescript-eslint/parser": "^7.18.0",
+        "autoprefixer": "^10.4.20",
         "editorconfig-checker": "^5.1.8",
-        "eslint": "^8.57.0",
+        "eslint": "^8.57.1",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^18.0.0",
-        "lightningcss": "^1.25.1",
-        "postcss": "^8.4.39",
+        "lightningcss": "^1.27.0",
+        "postcss": "^8.4.47",
         "release-it": "^17.6.0",
-        "sass": "^1.77.8",
-        "tailwindcss": "^3.4.6",
-        "typescript": "^5.5.3",
-        "vite": "^5.3.4"
+        "sass": "^1.79.2",
+        "tailwindcss": "^3.4.12",
+        "typescript": "^5.6.2",
+        "vite": "^5.4.6"
     }
 }
