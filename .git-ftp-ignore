@@ -5,7 +5,6 @@
 .git-ftp-include
 .gitignore
 .gitlab-ci.yml
-.release-it.json
 bun.lockb
 docker-compose.yml
 package.json
