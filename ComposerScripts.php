@@ -38,8 +38,6 @@ class ComposerScripts
         // --- Replace in files & dirs
 
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/.git-ftp-include', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/.eslintrc.cjs', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/tailwind.config.ts', $projectName, $projectIdentifier);

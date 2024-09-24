@@ -45,7 +45,7 @@ build:
 
 deploy:
   stage: 🚀 Deploy
-  image: dotsunited/git-ftp:1
+  image: ghcr.io/dotsunited/ftp-deploy:latest
   rules:
     - if: '$CI_COMMIT_REF_NAME == "main"'
       variables:
@@ -56,4 +56,17 @@ deploy:
   environment:
     name: $DEPLOY_ENV
   script:
-    - git ftp push -v --auto-init --remote-root $FTP_PATH --syncroot $LOCAL_PATH --user $FTP_USER --passwd $FTP_PASSWORD $FTP_HOST
+    - |
+      set -f
+      EXCLUDE_PARAMS=""
+      while IFS= read -r line; do
+        EXCLUDE_PARAMS="$EXCLUDE_PARAMS --exclude $line"
+      done < .ftp-deploy-ignore
+      ftp-deploy \
+        --server-dir $SERVER_DIR \
+        --local-dir $LOCAL_DIR \
+        --server $FTP_SERVER \
+        --protocol $FTP_PROTOCOL \
+        --username $FTP_USERNAME \
+        --password $FTP_PASSWORD \
+        $EXCLUDE_PARAMS
