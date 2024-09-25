@@ -8,16 +8,12 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{js,jsx,ts,tsx}]
-quote_type = single
-
 [*.sh]
 indent_size = 1
 indent_style = tab
 
 [*.yml]
 indent_size = 2
-indent_style = space
 
 [*.{htaccess,htaccess.dist,lockb,mo,pot}]
 charset = unset
