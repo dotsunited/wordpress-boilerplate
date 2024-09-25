@@ -38,7 +38,7 @@
         "@types/bun": "^1.1.10",
         "@types/node": "^20.16.7",
         "autoprefixer": "^10.4.20",
-        "editorconfig-checker": "^6.0.0",
+        "editorconfig-checker": "^5.1.9",
         "eslint": "^9.11.1",
         "lightningcss": "^1.27.0",
         "postcss": "^8.4.47",
