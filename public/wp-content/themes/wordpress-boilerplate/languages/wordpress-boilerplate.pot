@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: wordpress-boilerplate 14.0.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/wordpress-boilerplate\n"
-"POT-Creation-Date: 2024-05-14 11:25:20+00:00\n"
+"POT-Creation-Date: 2024-09-25 12:12:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,31 +75,79 @@ msgid "Black"
 msgstr ""
 
 #: functions/gutenberg.php:90
+msgid "Red 50"
+msgstr ""
+
+#: functions/gutenberg.php:95
+msgid "Red 100"
+msgstr ""
+
+#: functions/gutenberg.php:100
+msgid "Red 200"
+msgstr ""
+
+#: functions/gutenberg.php:105
+msgid "Red 300"
+msgstr ""
+
+#: functions/gutenberg.php:110
+msgid "Red 400"
+msgstr ""
+
+#: functions/gutenberg.php:115
 msgid "Red 500"
 msgstr ""
 
-#: functions/gutenberg.php:169
+#: functions/gutenberg.php:120
+msgid "Red 600"
+msgstr ""
+
+#: functions/gutenberg.php:125
+msgid "Red 700"
+msgstr ""
+
+#: functions/gutenberg.php:130
+msgid "Red 800"
+msgstr ""
+
+#: functions/gutenberg.php:135
+msgid "Red 900"
+msgstr ""
+
+#: functions/gutenberg.php:140
+msgid "Red 950"
+msgstr ""
+
+#: functions/gutenberg.php:206
 msgid "Zinc 300 Group"
 msgstr ""
 
-#: functions/theme.php:18
+#: functions/menu.php:4
 msgid "Main Menu"
 msgstr ""
 
-#: functions/theme.php:21
-msgid "Sidebar"
-msgstr ""
-
-#: functions/theme.php:56
+#: functions/theme.php:40
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: functions/theme.php:57
+#: functions/theme.php:41
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: functions/theme.php:95
+#: functions/theme.php:79
 msgid "Pages"
+msgstr ""
+
+#: functions/theme.php:134
+msgid "Enlarge image"
+msgstr ""
+
+#: functions/widgets.php:5
+msgid "Sidebar"
+msgstr ""
+
+#: functions/widgets.php:14
+msgid "Footer"
 msgstr ""
 
 #: search.php:8
@@ -187,7 +235,7 @@ msgstr ""
 msgid "https://dotsunited.de"
 msgstr ""
 
-#: functions/menu.php:147
+#: functions/menu.php:151
 msgctxt "button"
 msgid "Open submenu"
 msgstr ""
@@ -204,14 +252,9 @@ msgctxt "button"
 msgid "Close navigation"
 msgstr ""
 
-#: functions/widgets.php:5
-msgctxt "footer sidebar 1"
-msgid "Footer Sidebar 1"
-msgstr ""
-
 #: template-parts/components/header/desktop.php:2
 #: template-parts/components/header/desktop.php:3
 #: template-parts/components/header/mobile.php:4
 msgctxt "logo"
-msgid "Go back to frontpage"
+msgid "Back to frontpage"
 msgstr ""

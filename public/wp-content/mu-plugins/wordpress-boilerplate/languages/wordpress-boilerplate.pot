@@ -1,33 +1,69 @@
-# Copyright (C) 2023 Dots United GmbH
+# Copyright (C) 2024 Dots United GmbH
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPress Boilerplate 13.4.0\n"
+"Project-Id-Version: WordPress Boilerplate 14.0.4\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wordpress-boilerplate\n"
-"POT-Creation-Date: 2023-12-02 02:40:27+00:00\n"
+"POT-Creation-Date: 2024-09-25 12:12:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: node-wp-i18n 1.2.7\n"
 
 #: modules/gutenberg/gutenberg.php:26
-msgid "Small"
+msgid "Extra Small"
 msgstr ""
 
 #: modules/gutenberg/gutenberg.php:31
-msgid "Normal"
+msgid "Small"
 msgstr ""
 
 #: modules/gutenberg/gutenberg.php:36
-msgid "Large"
+msgid "Base"
 msgstr ""
 
 #: modules/gutenberg/gutenberg.php:41
+msgid "Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:46
 msgid "Extra Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:51
+msgid "2x Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:56
+msgid "3x Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:61
+msgid "4x Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:66
+msgid "5x Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:71
+msgid "6x Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:76
+msgid "7x Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:81
+msgid "8x Large"
+msgstr ""
+
+#: modules/gutenberg/gutenberg.php:86
+msgid "9x Large"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
