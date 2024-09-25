@@ -26,8 +26,8 @@
         }
     ],
     "require": {
-        "composer/installers": "^2.2",
-        "wpackagist-plugin/meta-box": "^5.9"
+        "composer/installers": "^2.3",
+        "wpackagist-plugin/meta-box": "^5.10"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
