@@ -15,7 +15,7 @@ export default defineConfig({
                 entryFileNames: 'js/[name].[hash].js',
                 chunkFileNames: 'js/[name].[hash].js',
                 assetFileNames: ({ name }) => {
-                    if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {
+                    if (/\.(?:gif|jpe?g|png|svg)$/.test(name ?? '')) {
                         return 'img/[name].[hash].[ext]';
                     }
 
@@ -31,5 +31,12 @@ export default defineConfig({
         },
         cssMinify: 'lightningcss',
         outDir: './public/wp-content/themes/wordpress-boilerplate/assets',
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler',
+            },
+        },
     },
 });

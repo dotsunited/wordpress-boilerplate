@@ -18,4 +18,11 @@ export default defineConfig({
         cssMinify: 'lightningcss',
         outDir: './public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets',
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler',
+            },
+        },
+    },
 });

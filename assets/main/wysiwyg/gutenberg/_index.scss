@@ -1,18 +1,20 @@
+@use "sass:meta";
+
 .wysiwyg {
-    @import "./base.scss";
-    @import "./buttons.scss";
-    @import "./code.scss";
-    @import "./columns.scss";
-    @import "./embed.scss";
-    @import "./gallery.scss";
-    @import "./group.scss";
-    @import "./heading.scss";
-    @import "./image.scss";
-    @import "./link.scss";
-    @import "./list.scss";
-    @import "./paragraph.scss";
-    @import "./pullquote.scss";
-    @import "./quote.scss";
-    @import "./search-form.scss";
-    @import "./separator.scss";
+    @include meta.load-css("base.scss");
+    @include meta.load-css("buttons.scss");
+    @include meta.load-css("code.scss");
+    @include meta.load-css("columns.scss");
+    @include meta.load-css("embed.scss");
+    @include meta.load-css("gallery.scss");
+    @include meta.load-css("group.scss");
+    @include meta.load-css("heading.scss");
+    @include meta.load-css("image.scss");
+    @include meta.load-css("link.scss");
+    @include meta.load-css("list.scss");
+    @include meta.load-css("paragraph.scss");
+    @include meta.load-css("pullquote.scss");
+    @include meta.load-css("quote.scss");
+    @include meta.load-css("search-form.scss");
+    @include meta.load-css("separator.scss");
 }
