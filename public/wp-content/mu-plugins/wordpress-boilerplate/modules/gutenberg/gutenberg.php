@@ -17,10 +17,13 @@ add_action('plugins_loaded', function () {
     // Disables custom colors through the color picker
     add_theme_support('disable-custom-colors');
 
-    // Add support for borders
+    // Enable support for excerpts on pages
+    add_post_type_support('page', 'excerpt');
+
+    // Enable support for borders
     add_theme_support('border');
 
-    // Removes custom font sizes, eg. for paragraphs
+    // Set custom font sizes
     add_theme_support('editor-font-sizes', [
         [
             'name' => __('Extra Small'),
