@@ -1,7 +1,7 @@
 .off-canvas-menu__control[aria-expanded='true'] {
     & .off-canvas-menu__control-icon {
         & span {
-            @apply w-full top-1/2 transform -translate-y-1/2 rotate-[135deg] bg-zinc-600;
+            @apply w-full top-1/2 transform -translate-y-1/2 rotate-[45deg];
         }
 
         &:before {
@@ -9,7 +9,7 @@
         }
 
         &:after {
-            @apply w-full top-1/2 transform -translate-y-1/2 -rotate-[135deg] bg-zinc-600;
+            @apply w-full top-1/2 transform -translate-y-1/2 -rotate-[45deg];
         }
     }
 }
