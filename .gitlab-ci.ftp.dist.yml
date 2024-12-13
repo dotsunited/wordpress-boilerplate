@@ -5,7 +5,7 @@ stages:
 
 lint:
   stage: 🧹 Lint
-  image: imbios/bun-node:latest-20-debian
+  image: imbios/bun-node:latest-22-debian
   only:
     - main
     - staging
