@@ -1,7 +1,18 @@
 <?php
 
 add_action('after_setup_theme', function () {
-    load_theme_textdomain('wordpress-boilerplate', TEMPLATEPATH . '/languages');
+    if (!load_theme_textdomain('wordpress-boilerplate', TEMPLATEPATH . '/languages')) {
+        // skip if locale is 'en_US', because the theme is in English by default
+        if (get_locale() === 'en_US') {
+            return;
+        }
+
+        add_action('admin_notices', function () {
+            echo '<div class="error"><p>' . sprintf(__('The theme "%s" could not find any language files.', 'wordpress-boilerplate'), 'wordpress-boilerplate') . '</p></div>';
+        });
+
+        error_log('wordpress-boilerplate: No language files found');
+    }
 
     add_theme_support('title-tag');
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption']);
