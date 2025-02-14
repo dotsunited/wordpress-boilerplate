@@ -17,7 +17,7 @@ lint:
   cache:
     - key:
         files:
-          - bun.lockb
+          - bun.lock
       paths:
         - .bun/
 
@@ -34,7 +34,7 @@ build:
   cache:
     - key:
         files:
-          - bun.lockb
+          - bun.lock
       paths:
         - .bun/
       policy: pull

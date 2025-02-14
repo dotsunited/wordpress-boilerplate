@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="container <?= is_active_sidebar('sidebar-1') ? '' : 'max-w-screen-xl'; ?> grid grid-cols-1 lg:grid-cols-4 gap-16 my-16">
+<main class="container <?= is_active_sidebar('sidebar-1') ? '' : 'max-w-(--breakpoint-xl)'; ?> grid grid-cols-1 lg:grid-cols-4 gap-16 my-16">
     <div class="col-span-full <?= is_active_sidebar('sidebar-1') ? 'lg:col-span-3' : 'lg:col-span-4'; ?>">
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('mb-8'); ?>>

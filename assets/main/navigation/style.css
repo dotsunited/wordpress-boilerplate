@@ -1,3 +1,5 @@
+@import '../tailwindcss/config.css';
+
 .navigation {}
 
 .navigation--desktop {
@@ -17,7 +19,7 @@
                     @apply text-dotsunited-red-600;
                 }
 
-                @screen xl {
+                @media (--screen-xl) {
                     @apply text-base;
                 }
             }

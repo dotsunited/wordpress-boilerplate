@@ -1,4 +1,6 @@
-@import url("./gutenberg/_index.scss");
+@import '../tailwindcss/config.css';
+
+@import './gutenberg/_index.css';
 
 .wysiwyg {
     @apply flow-root;

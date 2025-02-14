@@ -9,7 +9,7 @@
         }
     }
 
-    @screen sm {
+    @media (--screen-sm) {
         &.has-nested-images {
             &.columns-default {
                 & figure.wp-block-image {

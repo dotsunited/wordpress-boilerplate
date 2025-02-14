@@ -13,7 +13,7 @@ docs/**
 .gitignore
 .gitlab-ci.yml
 .nvmrc
-bun.lockb
+bun.lock
 composer.{json,lock}
 docker-compose.yml
 package.json

@@ -1,0 +1,18 @@
+.wysiwyg {
+    @import './base.css';
+    @import './buttons.css';
+    @import './code.css';
+    @import './columns.css';
+    @import './embed.css';
+    @import './gallery.css';
+    @import './group.css';
+    @import './heading.css';
+    @import './image.css';
+    @import './link.css';
+    @import './list.css';
+    @import './paragraph.css';
+    @import './pullquote.css';
+    @import './quote.css';
+    @import './search-form.css';
+    @import './separator.css';
+}

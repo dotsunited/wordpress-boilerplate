@@ -1,9 +1,11 @@
+@import '../tailwindcss/config.css';
+
 .off-canvas-menu__navigation {
     @apply w-full max-w-md mt-2 mb-4 mx-auto px-4;
 
     & .sub-menu,
     & .sub-menu:focus {
-        @apply outline-none #{!important};
+        @apply outline-hidden!;
     }
 
     & > ul {

@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -8,7 +9,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: './assets/main',
-                icons: './assets/icons/index.scss',
+                icons: './assets/icons/index.css',
                 symbolDefs: './assets/icons/symbol-defs.svg',
             },
             output: {
@@ -33,10 +34,14 @@ export default defineConfig({
         outDir: './public/wp-content/themes/wordpress-boilerplate/assets',
     },
     css: {
-        preprocessorOptions: {
-            scss: {
-                api: 'modern-compiler',
+        transformer: 'lightningcss',
+        lightningcss: {
+            drafts: {
+                customMedia: true,
             },
         },
     },
+    plugins: [
+        tailwindcss(),
+    ],
 });

@@ -1,2 +1,2 @@
-import './inter/index.scss';
-import './source-serif-4/index.scss';
+import './inter/index.css';
+import './source-serif-4/index.css';

@@ -1,10 +1,10 @@
 import ctrly from 'ctrly/src/ctrly';
 import { ready } from 'domestique';
 
-import './style.scss';
-import './style-control.scss';
-import './style-target.scss';
-import './style-navigation.scss';
+import './style.css';
+import './style-control.css';
+import './style-target.css';
+import './style-navigation.css';
 
 ready(() => {
     ctrly({

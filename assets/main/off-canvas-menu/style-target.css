@@ -1,3 +1,5 @@
+@import '../tailwindcss/config.css';
+
 .off-canvas-menu__target {
     -webkit-backface-visibility: hidden;
     -webkit-overflow-scrolling: touch;
@@ -20,13 +22,11 @@
 
 .off-canvas-menu[aria-hidden="true"] {
     & > .off-canvas-menu__target {
-        transition-property: transform, visibility;
-
         @apply visible;
     }
 
     & + .off-canvas-background {
-        @apply bg-opacity-0 pointer-events-none;
+        @apply bg-black/0 pointer-events-none;
     }
 }
 
@@ -34,14 +34,9 @@
     & > .off-canvas-menu__target {
         transform: translate3D(0, 0, 0);
         visibility: visible;
-        /*
-        This removes the transition from the visibility property when opening
-        the target. Otherwise, elements inside the target aren't focusable.
-        */
-        transition-property: transform;
     }
 
     & + .off-canvas-background {
-        @apply bg-opacity-[99]
+        @apply bg-black/99
     }
 }

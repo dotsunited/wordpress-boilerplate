@@ -1,4 +1,4 @@
-<h1 class="wp-block-heading lg:!mb-8"><?php _e('Sorry, that page does not exist.', 'wordpress-boilerplate'); ?></h1>
+<h1 class="wp-block-heading lg:mb-8!"><?php _e('Sorry, that page does not exist.', 'wordpress-boilerplate'); ?></h1>
 
 <p class="font-bold"><?php _e('The page you want to access does not exist, which may have these reasons:', 'wordpress-boilerplate'); ?></p>
 

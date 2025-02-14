@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+@source '../../../public/wp-content/themes/wordpress-boilerplate';
+@source './safelist.txt';
+
+@plugin './wp-utilities.ts';
+
+@theme {
+    --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif: 'Source Serif 4', ui-serif, Georgia, Cambria, 'Times New Roman',
+        Times, serif;
+
+    --color-dotsunited-red-50: #fdf5ef;
+    --color-dotsunited-red-100: #f9e7db;
+    --color-dotsunited-red-200: #f2ccb6;
+    --color-dotsunited-red-300: #eaaa87;
+    --color-dotsunited-red-400: #e17e56;
+    --color-dotsunited-red-500: #da5e35;
+    --color-dotsunited-red-600: #c9462a;
+    --color-dotsunited-red-700: #a93525;
+    --color-dotsunited-red-800: #872d25;
+    --color-dotsunited-red-900: #6d2721;
+    --color-dotsunited-red-950: #3b120f;
+}
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+@custom-media --screen-sm (width >=theme(--breakpoint-sm));
+@custom-media --screen-md (width >=theme(--breakpoint-md));
+@custom-media --screen-lg (width >=theme(--breakpoint-lg));
+@custom-media --screen-xl (width >=theme(--breakpoint-xl));
+@custom-media --screen-2xl (width >=theme(--breakpoint-2xl));
+
+/*
+The default border color has changed to `currentColor` in Tailwind CSS v4,
+so we've added these compatibility styles to make sure everything still
+looks the same as it did with Tailwind CSS v3.
+
+If we ever want to remove these styles, we need to add an explicit border
+color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}

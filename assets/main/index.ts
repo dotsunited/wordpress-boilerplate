@@ -3,8 +3,8 @@ import '@wordpress/block-library/build-style/common.css';
 import '@wordpress/block-library/build-style/style.css';
 import '@wordpress/block-library/build-style/theme.css';
 
-// Import Tailwind CSS directives
-import './tailwind.scss';
+// Import Tailwind CSS
+import './tailwindcss/config.css';
 
 // Import fonts
 import './fonts';

@@ -1,16 +1,14 @@
-.off-canvas-menu {
-    @apply block z-[9];
+@import '../tailwindcss/config.css';
 
-    @screen md {
-        @apply hidden;
-    }
+.off-canvas-menu {
+    @apply block z-9;
 }
 
 .off-canvas-menu__control {
-    @apply size-12 flex items-center justify-center relative outline-none;
+    @apply size-12 flex items-center justify-center relative outline-hidden;
 
     &:focus {
-        @apply outline-none;
+        @apply outline-hidden;
     }
 }
 
@@ -46,7 +44,7 @@
 .off-canvas-menu__target {
     box-shadow: 0 0 50px 0 rgb(0 0 0 / 0.25);
 
-    @apply w-full fixed top-0 right-0 bg-zinc-100 transform translate-x-full;
+    @apply w-full fixed top-0 right-0 bg-zinc-100 transition-all transform translate-x-full;
 }
 
 .off-canvas-menu[aria-hidden="false"] {
