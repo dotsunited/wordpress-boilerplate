@@ -2,7 +2,7 @@
     <div class="w-full flex flex-row gap-4 justify-between items-center overflow-hidden">
         <a href="<?= esc_attr(get_home_url()); ?>" title="Back to frontpage" class="inline-block">
             <span class="screen-reader-text"><?= _x('Back to frontpage', 'logo', 'wordpress-boilerplate'); ?></span>
-            <?= wordpress_boilerplate_asset_embed('/vendor/images/logo-dotsunited.svg', 'w-36'); ?>
+            <?= wordpress_boilerplate_asset_embed('/vendor/images/logo-dotsunited.svg', ['class' => 'w-36']); ?>
         </a>
 
         <div class="off-canvas-menu" id="off-canvas-menu-target">
