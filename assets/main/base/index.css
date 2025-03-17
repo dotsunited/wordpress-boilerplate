@@ -1,11 +1,11 @@
 @import '../tailwindcss/config.css';
 
 html {
-    @apply bg-zinc-100 antialiased leading-normal;
+    @apply bg-zinc-100 antialiased leading-normal scroll-smooth scroll-pt-28;
 }
 
 body {
-    @apply bg-zinc-100 text-black font-sans;
+    @apply bg-zinc-100 text-black font-sans overflow-x-hidden;
 }
 
 .admin-bar {
