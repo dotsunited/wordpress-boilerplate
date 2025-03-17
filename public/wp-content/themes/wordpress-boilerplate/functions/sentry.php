@@ -4,7 +4,7 @@ if (class_exists('\Sentry\Options') && class_exists('\Sentry\Event')) {
     add_filter('wp_sentry_options', function (\Sentry\Options $options) {
         $options->setBeforeSendCallback( function ( \Sentry\Event $event ) {
             // Only apply filtering logic for warnings
-            if ($event->getLevel() !== \Sentry\Severity::warning()) {
+            if ($event->getLevel() !== null && !$event->getLevel()->isEqualTo(\Sentry\Severity::warning())) {
                 return $event;
             }
 
