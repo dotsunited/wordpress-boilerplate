@@ -4,6 +4,9 @@
 ### Node ###
 /node_modules/
 
+### Bun ###
+/.bun/
+
 ### Vite ###
 /vite.config.ts.*
 

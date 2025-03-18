@@ -1,4 +1,4 @@
-module.exports = function({ addUtilities, config }) {
+module.exports = function ({ addUtilities, config }) {
     const generateUtilities = (colors: { [key: string]: string | { [key: string]: string } }) => {
         const utilities: { [key: string]: { [key: string]: string } }[] = [];
 
@@ -9,7 +9,8 @@ module.exports = function({ addUtilities, config }) {
                     [`.has-${prefix}-background-color`]: { 'background-color': value },
                     [`.has-${prefix}-border-color`]: { 'border-color': value },
                 });
-            } else if (typeof value === 'object') {
+            }
+            else if (typeof value === 'object') {
                 Object.keys(value).forEach((subKey) => {
                     const subValue = value[subKey];
                     const subPrefix = `${prefix}-${subKey}`;

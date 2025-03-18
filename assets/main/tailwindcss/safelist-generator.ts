@@ -32,23 +32,25 @@ function generateSafelist(): void {
 
         function generateSafelistEntries(colorValue: any, colorPath: string[] = []) {
             if (typeof colorValue === 'object' && colorValue !== null) {
-                Object.keys(colorValue).forEach(key => {
+                Object.keys(colorValue).forEach((key) => {
                     generateSafelistEntries(colorValue[key], [...colorPath, key]);
                 });
-            } else if (typeof colorValue === 'string') {
+            }
+            else if (typeof colorValue === 'string') {
                 const colorName = colorPath.join('-');
-                patterns.forEach(pattern => {
+                patterns.forEach((pattern) => {
                     safelist.push(pattern.replace('{color}', colorName));
                 });
             }
         }
 
-        Object.keys(allColors).forEach(color => {
+        Object.keys(allColors).forEach((color) => {
             generateSafelistEntries(allColors[color], [color]);
         });
 
-        fs.writeFileSync(path.join(__dirname, 'safelist.txt'), safelist.join('\n'));
-    } catch (error) {
+        fs.writeFileSync(path.join(__dirname, 'safelist.txt'), `${safelist.join('\n')}\n`);
+    }
+    catch (error) {
         console.error('Error generating safelist:', error);
     }
 }
