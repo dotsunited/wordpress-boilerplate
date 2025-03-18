@@ -37,6 +37,7 @@ class ComposerScripts
 
         // --- Replace in files & dirs
 
+        self::replace(__DIR__ . '/.editorconfig-checker.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
