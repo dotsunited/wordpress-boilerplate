@@ -26,12 +26,12 @@ function load_textdomain_notice($domain, $name, $type) {
 
 add_action('plugins_loaded', function () {
     if (0 === \strpos(__DIR__, \str_replace(['/', '\\'], \DIRECTORY_SEPARATOR, WPMU_PLUGIN_DIR))) {
-        if (!load_muplugin_textdomain('wordpress-boilerplate', 'wordpress-boilerplate/languages')) {
-            load_textdomain_notice('wordpress-boilerplate', 'wordpress-boilerplate', 'mu-plugin');
+        if (!load_muplugin_textdomain('wordpress-boilerplate-plugin', 'wordpress-boilerplate/languages')) {
+            load_textdomain_notice('wordpress-boilerplate-plugin', 'wordpress-boilerplate-plugin', 'mu-plugin');
         }
     } else {
-        if (!load_plugin_textdomain('wordpress-boilerplate', false, 'wordpress-boilerplate/languages')) {
-            load_textdomain_notice('wordpress-boilerplate', 'wordpress-boilerplate', 'plugin');
+        if (!load_plugin_textdomain('wordpress-boilerplate-plugin', false, 'wordpress-boilerplate/languages')) {
+            load_textdomain_notice('wordpress-boilerplate-plugin', 'wordpress-boilerplate-plugin', 'plugin');
         }
     }
 });
