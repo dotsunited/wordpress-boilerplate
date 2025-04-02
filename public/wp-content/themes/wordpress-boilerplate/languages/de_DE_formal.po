@@ -1,19 +1,19 @@
-# <!=Copyright (C) 2023 Dots United GmbH
+# <!=Copyright (C) 2025 Dots United GmbH
 # This file is distributed under the same license as the wordpress-boilerplate package.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: wordpress-boilerplate 14.0.4\n"
+"Project-Id-Version: wordpress-boilerplate 15.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wordpress-"
 "boilerplate\n"
-"POT-Creation-Date: 2024-05-14 11:25:20+00:00\n"
-"PO-Revision-Date: 2024-05-14 13:25+0200\n"
+"POT-Creation-Date: 2025-04-02 12:46:16+00:00\n"
+"PO-Revision-Date: 2025-04-02 14:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE@formal\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.3\n"
+"X-Generator: Poedit 3.5\n"
 
 #: archive.php:12 search.php:19
 msgid "Permalink to %s"
@@ -76,32 +76,84 @@ msgid "Black"
 msgstr "Schwarz"
 
 #: functions/gutenberg.php:90
+msgid "Red 50"
+msgstr "Rot 50"
+
+#: functions/gutenberg.php:95
+msgid "Red 100"
+msgstr "Rot 100"
+
+#: functions/gutenberg.php:100
+msgid "Red 200"
+msgstr "Rot 200"
+
+#: functions/gutenberg.php:105
+msgid "Red 300"
+msgstr "Rot 300"
+
+#: functions/gutenberg.php:110
+msgid "Red 400"
+msgstr "Rot 400"
+
+#: functions/gutenberg.php:115
 msgid "Red 500"
 msgstr "Rot 500"
 
-#: functions/gutenberg.php:169
+#: functions/gutenberg.php:120
+msgid "Red 600"
+msgstr "Rot 600"
+
+#: functions/gutenberg.php:125
+msgid "Red 700"
+msgstr "Rot 700"
+
+#: functions/gutenberg.php:130
+msgid "Red 800"
+msgstr "Rot 800"
+
+#: functions/gutenberg.php:135
+msgid "Red 900"
+msgstr "Rot 900"
+
+#: functions/gutenberg.php:140
+msgid "Red 950"
+msgstr "Rot 950"
+
+#: functions/gutenberg.php:206
 msgid "Zinc 300 Group"
 msgstr "Zink 300 Gruppe"
 
-#: functions/theme.php:18
+#: functions/menu.php:4
 msgid "Main Menu"
 msgstr "Hauptmenü"
 
-#: functions/theme.php:21
-msgid "Sidebar"
-msgstr "Sidebar"
+#: functions/theme.php:11
+msgid "The theme \"%s\" could not find any language files."
+msgstr ""
 
-#: functions/theme.php:56
+#: functions/theme.php:51
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Ältere Beiträge"
 
-#: functions/theme.php:57
+#: functions/theme.php:52
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Neuere Beiträge <span class=\"meta-nav\">&rarr;</span>"
 
-#: functions/theme.php:95
+#: functions/theme.php:90
 msgid "Pages"
 msgstr "Seiten"
+
+#: functions/theme.php:167
+msgid "Enlarge image"
+msgstr "Bild vergrößern"
+
+#: functions/widgets.php:5
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: functions/widgets.php:14
+msgid "Footer"
+msgstr "Footer"
 
 #: search.php:8
 msgid "Search results for:"
@@ -198,7 +250,7 @@ msgstr ""
 msgid "https://dotsunited.de"
 msgstr ""
 
-#: functions/menu.php:147
+#: functions/menu.php:151
 msgctxt "button"
 msgid "Open submenu"
 msgstr "Open submenu"
@@ -215,14 +267,13 @@ msgctxt "button"
 msgid "Close navigation"
 msgstr "Navigation schließen"
 
-#: functions/widgets.php:5
-msgctxt "footer sidebar 1"
-msgid "Footer Sidebar 1"
-msgstr "Footer Sidebar 1"
-
 #: template-parts/components/header/desktop.php:2
 #: template-parts/components/header/desktop.php:3
 #: template-parts/components/header/mobile.php:4
 msgctxt "logo"
-msgid "Go back to frontpage"
-msgstr "Klicken Sie hier, um zur Startseite zurückzukehren"
+msgid "Back to frontpage"
+msgstr "Zurück zur Startseite"
+
+#~ msgctxt "footer sidebar 1"
+#~ msgid "Footer Sidebar 1"
+#~ msgstr "Footer Sidebar 1"

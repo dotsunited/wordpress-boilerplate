@@ -3,76 +3,77 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Boilerplate 15.0.1\n"
-"Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/wordpress-boilerplate\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-"
+"boilerplate\n"
 "POT-Creation-Date: 2025-04-02 12:46:20+00:00\n"
+"PO-Revision-Date: 2025-04-02 14:49+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE@formal\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: node-wp-i18n 1.2.7\n"
+"X-Generator: Poedit 3.5\n"
 
 #: modules/gutenberg/gutenberg.php:29
 msgid "Extra Small"
-msgstr ""
+msgstr "Extra Klein"
 
 #: modules/gutenberg/gutenberg.php:34
 msgid "Small"
-msgstr ""
+msgstr "Klein"
 
 #: modules/gutenberg/gutenberg.php:39
 msgid "Base"
-msgstr ""
+msgstr "Standard"
 
 #: modules/gutenberg/gutenberg.php:44
 msgid "Large"
-msgstr ""
+msgstr "Groß"
 
 #: modules/gutenberg/gutenberg.php:49
 msgid "Extra Large"
-msgstr ""
+msgstr "Extra Groß"
 
 #: modules/gutenberg/gutenberg.php:54
 msgid "2x Large"
-msgstr ""
+msgstr "2XL"
 
 #: modules/gutenberg/gutenberg.php:59
 msgid "3x Large"
-msgstr ""
+msgstr "3XL"
 
 #: modules/gutenberg/gutenberg.php:64
 msgid "4x Large"
-msgstr ""
+msgstr "4XL"
 
 #: modules/gutenberg/gutenberg.php:69
 msgid "5x Large"
-msgstr ""
+msgstr "5XL"
 
 #: modules/gutenberg/gutenberg.php:74
 msgid "6x Large"
-msgstr ""
+msgstr "6XL"
 
 #: modules/gutenberg/gutenberg.php:79
 msgid "7x Large"
-msgstr ""
+msgstr "7XL"
 
 #: modules/gutenberg/gutenberg.php:84
 msgid "8x Large"
-msgstr ""
+msgstr "8XL"
 
 #: modules/gutenberg/gutenberg.php:89
 msgid "9x Large"
-msgstr ""
+msgstr "9XL"
 
 #. Plugin Name of the plugin/theme
 msgid "WordPress Boilerplate"
-msgstr ""
+msgstr "WordPress Boilerplate"
 
 #. Description of the plugin/theme
 msgid "The main WordPress Boilerplate plugin."
-msgstr ""
+msgstr "Das WordPress Boilerplate Plugin."
 
 #. Author of the plugin/theme
 msgid "Dots United GmbH"
@@ -81,3 +82,6 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://dotsunited.de"
 msgstr ""
+
+#~ msgid "Normal"
+#~ msgstr "Normal"

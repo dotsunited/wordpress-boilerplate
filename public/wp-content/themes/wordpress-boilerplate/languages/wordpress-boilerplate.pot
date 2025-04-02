@@ -1,15 +1,15 @@
-# <!=Copyright (C) 2024 Dots United GmbH
+# <!=Copyright (C) 2025 Dots United GmbH
 # This file is distributed under the same license as the wordpress-boilerplate package.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: wordpress-boilerplate 15.0.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/wordpress-boilerplate\n"
-"POT-Creation-Date: 2024-09-25 12:12:47+00:00\n"
+"POT-Creation-Date: 2025-04-02 12:46:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: node-wp-i18n 1.2.7\n"
@@ -126,19 +126,23 @@ msgstr ""
 msgid "Main Menu"
 msgstr ""
 
-#: functions/theme.php:40
+#: functions/theme.php:11
+msgid "The theme \"%s\" could not find any language files."
+msgstr ""
+
+#: functions/theme.php:51
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: functions/theme.php:41
+#: functions/theme.php:52
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: functions/theme.php:79
+#: functions/theme.php:90
 msgid "Pages"
 msgstr ""
 
-#: functions/theme.php:134
+#: functions/theme.php:167
 msgid "Enlarge image"
 msgstr ""
 
