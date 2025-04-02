@@ -11,23 +11,24 @@
     --font-serif: 'Source Serif 4', ui-serif, Georgia, Cambria, 'Times New Roman',
         Times, serif;
 
-    --color-dotsunited-red-50: #fdf5ef;
-    --color-dotsunited-red-100: #f9e7db;
-    --color-dotsunited-red-200: #f2ccb6;
-    --color-dotsunited-red-300: #eaaa87;
-    --color-dotsunited-red-400: #e17e56;
-    --color-dotsunited-red-500: #da5e35;
-    --color-dotsunited-red-600: #c9462a;
-    --color-dotsunited-red-700: #a93525;
-    --color-dotsunited-red-800: #872d25;
-    --color-dotsunited-red-900: #6d2721;
-    --color-dotsunited-red-950: #3b120f;
+    --color-wordpress-boilerplate-red-50: #fdf5ef;
+    --color-wordpress-boilerplate-red-100: #f9e7db;
+    --color-wordpress-boilerplate-red-200: #f2ccb6;
+    --color-wordpress-boilerplate-red-300: #eaaa87;
+    --color-wordpress-boilerplate-red-400: #e17e56;
+    --color-wordpress-boilerplate-red-500: #da5e35;
+    --color-wordpress-boilerplate-red-600: #c9462a;
+    --color-wordpress-boilerplate-red-700: #a93525;
+    --color-wordpress-boilerplate-red-800: #872d25;
+    --color-wordpress-boilerplate-red-900: #6d2721;
+    --color-wordpress-boilerplate-red-950: #3b120f;
 }
 
 @utility container {
     margin-inline: auto;
     padding-inline: 1rem;
 }
+
 /* breakpoint-sm */
 @custom-media --screen-sm (width >= 40rem);
 /* breakpoint-md */

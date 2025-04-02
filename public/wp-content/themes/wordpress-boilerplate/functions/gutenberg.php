@@ -88,57 +88,57 @@ add_action('after_setup_theme', function () {
         ],
         [
             'name' => __('Red 50', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-50',
+            'slug' => 'wordpress-boilerplate-red-50',
             'color' => '#fdf5ef',
         ],
         [
             'name' => __('Red 100', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-100',
+            'slug' => 'wordpress-boilerplate-red-100',
             'color' => '#f9e7db',
         ],
         [
             'name' => __('Red 200', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-200',
+            'slug' => 'wordpress-boilerplate-red-200',
             'color' => '#f2ccb6',
         ],
         [
             'name' => __('Red 300', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-300',
+            'slug' => 'wordpress-boilerplate-red-300',
             'color' => '#eaaa87',
         ],
         [
             'name' => __('Red 400', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-400',
+            'slug' => 'wordpress-boilerplate-red-400',
             'color' => '#e17e56',
         ],
         [
             'name' => __('Red 500', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-500',
+            'slug' => 'wordpress-boilerplate-red-500',
             'color' => '#da5e35',
         ],
         [
             'name' => __('Red 600', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-600',
+            'slug' => 'wordpress-boilerplate-red-600',
             'color' => '#c9462a',
         ],
         [
             'name' => __('Red 700', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-700',
+            'slug' => 'wordpress-boilerplate-red-700',
             'color' => '#a93525',
         ],
         [
             'name' => __('Red 800', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-800',
+            'slug' => 'wordpress-boilerplate-red-800',
             'color' => '#872d25',
         ],
         [
             'name' => __('Red 900', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-900',
+            'slug' => 'wordpress-boilerplate-red-900',
             'color' => '#6d2721',
         ],
         [
             'name' => __('Red 950', 'wordpress-boilerplate'),
-            'slug' => 'dotsunited-red-950',
+            'slug' => 'wordpress-boilerplate-red-950',
             'color' => '#3b120f',
         ]
     ]);

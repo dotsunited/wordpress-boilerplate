@@ -16,7 +16,7 @@
                     transition-[height,line-height] duration-150 ease-in-out;
 
                 &:hover {
-                    @apply text-dotsunited-red-600;
+                    @apply text-wordpress-boilerplate-red-600;
                 }
 
                 @media (--screen-xl) {
@@ -32,7 +32,7 @@
         & > li.current_page_ancestor {
 
             & > a {
-                @apply text-dotsunited-red-600;
+                @apply text-wordpress-boilerplate-red-600;
             }
 
             & > .navigation__sub-menu {

@@ -71,7 +71,7 @@
                 & > li.current-page-ancestor {
 
                     & > a {
-                        @apply text-dotsunited-red-600;
+                        @apply text-wordpress-boilerplate-red-600;
                     }
                 }
             }
@@ -83,7 +83,7 @@
         & > li.current-page-ancestor {
 
             & > a {
-                @apply text-dotsunited-red-600;
+                @apply text-wordpress-boilerplate-red-600;
             }
         }
     }
