@@ -2,7 +2,7 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: WordPress Boilerplate 15.0.1\n"
+"Project-Id-Version: WordPress Boilerplate 15.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-"
 "boilerplate\n"
 "POT-Creation-Date: 2025-04-02 12:46:20+00:00\n"
