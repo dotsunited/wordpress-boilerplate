@@ -2,6 +2,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import tailwindColors from 'tailwindcss/colors';
 
+/**
+ * Generates a safelist for Tailwind CSS.
+ *
+ * This function reads the config.css file, extracts custom colors, and generates
+ * a safelist for Tailwind CSS. It then writes the safelist to a file.
+ *
+ * @returns {void}
+ */
 function generateSafelist(): void {
     const configPath = path.join(__dirname, 'config.css');
 

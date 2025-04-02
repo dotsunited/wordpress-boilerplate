@@ -28,12 +28,16 @@
     margin-inline: auto;
     padding-inline: 1rem;
 }
-
-@custom-media --screen-sm (width >=theme(--breakpoint-sm));
-@custom-media --screen-md (width >=theme(--breakpoint-md));
-@custom-media --screen-lg (width >=theme(--breakpoint-lg));
-@custom-media --screen-xl (width >=theme(--breakpoint-xl));
-@custom-media --screen-2xl (width >=theme(--breakpoint-2xl));
+/* breakpoint-sm */
+@custom-media --screen-sm (width >= 40rem);
+/* breakpoint-md */
+@custom-media --screen-md (width >= 48rem);
+/* breakpoint-lg */
+@custom-media --screen-lg (width >= 64rem);
+/* breakpoint-xl */
+@custom-media --screen-xl (width >= 80rem);
+/* breakpoint-2xl */
+@custom-media --screen-2xl (width >= 96rem);
 
 /*
 The default border color has changed to `currentColor` in Tailwind CSS v4,

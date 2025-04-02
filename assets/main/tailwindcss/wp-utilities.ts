@@ -1,3 +1,11 @@
+/**
+ * Generates Tailwind CSS utilities for WordPress colors.
+ *
+ * This module generates Tailwind CSS utilities for WordPress colors. It creates
+ * classes that apply colors to elements based on their prefixes.
+ *
+ * @module wp-utilities
+ */
 module.exports = function ({ addUtilities, config }) {
     const generateUtilities = (colors: { [key: string]: string | { [key: string]: string } }) => {
         const utilities: { [key: string]: { [key: string]: string } }[] = [];
