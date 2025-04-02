@@ -109,11 +109,19 @@ function wordpress_boilerplate_get_pages($args = '') {
     return $pages;
 }
 
-// add PhotoSwipe data attributes to gallery images
+// add PhotoSwipe data attributes to core/gallery and core/image images
 add_filter('render_block', function ($block_content, $block) {
-    if ('core/gallery' === $block['blockName']) {
+    if ($block['blockName'] === 'core/gallery' || $block['blockName'] === 'core/image') {
         $dom = new DOMDocument();
-        $dom->loadHTML($block_content, LIBXML_NOERROR);
+        libxml_use_internal_errors(true);
+        $content = htmlspecialchars_decode(htmlentities($block_content, ENT_QUOTES, 'UTF-8'));
+
+        if (empty($content)) {
+            return $block_content;
+        }
+
+        $dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors();
         $images = $dom->getElementsByTagName('a');
 
         if (!$images->length) {
@@ -126,7 +134,21 @@ add_filter('render_block', function ($block_content, $block) {
             }
 
             $img = $image->getElementsByTagName('img')->item(0);
-            $full_size_path = get_attached_file($img->getAttribute('data-id'));
+            $id = $img->getAttribute('data-id');
+
+            if (empty($id)) {
+                // Try to get ID from wp-image-{id} class name
+                $classes = $img->getAttribute('class');
+                if (preg_match('/wp-image-(\d+)/', $classes, $matches)) {
+                    $id = $matches[1];
+                }
+
+                if (empty($id)) {
+                    continue;
+                }
+            }
+
+            $full_size_path = get_attached_file($id);
 
             if ($full_size_path) {
                 $size = getimagesize($full_size_path);

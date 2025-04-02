@@ -1,7 +1,7 @@
 .wp-block-image {
     @apply my-4;
 
-    & .lightbox-trigger {
-        @apply z-10;
+    & .wp-lightbox-container {
+        @apply z-1 relative;
     }
 }

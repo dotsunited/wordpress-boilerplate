@@ -1,8 +1,8 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
-export function setup(gallery: HTMLElement) {
-    const items = gallery.querySelectorAll('a');
+export function setup(block: HTMLElement) {
+    const items = block.querySelectorAll('a');
 
     let isValid = true;
 
@@ -17,7 +17,7 @@ export function setup(gallery: HTMLElement) {
     }
 
     const lightbox = new PhotoSwipeLightbox({
-        gallery,
+        gallery: block,
         children: 'a',
         pswpModule: () => import('photoswipe'),
     });
