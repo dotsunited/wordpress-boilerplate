@@ -4,7 +4,15 @@
 * Disable auto updates
  */
 add_action('after_setup_theme', function () {
+    // Only allow minor updates for core
+    add_filter('allow_dev_auto_core_updates', '__return_false');
+    add_filter('allow_minor_auto_core_updates', '__return_true');
+    add_filter('allow_major_auto_core_updates', '__return_false');
+
+    // Disable auto updates for plugins
     add_filter('auto_update_plugin', '__return_false');
+
+    // Disable auto updates for themes
     add_filter('auto_update_theme', '__return_false');
 });
 
