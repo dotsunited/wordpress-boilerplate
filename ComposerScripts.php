@@ -40,7 +40,6 @@ class ComposerScripts
         self::replace(__DIR__ . '/.editorconfig-checker.json', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/.gitignore', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/package.json', $projectName, $projectIdentifier);
-        self::replace(__DIR__ . '/README.md.template', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/vite.config.ts', $projectName, $projectIdentifier);
         self::replace(__DIR__ . '/vite-gutenberg.config.ts', $projectName, $projectIdentifier);
 
@@ -60,9 +59,6 @@ class ComposerScripts
         // --- Cleanup
 
         unlink(__DIR__ . '/LICENSE');
-
-        unlink(__DIR__ . '/README.md');
-        rename(__DIR__ . '/README.md.template', __DIR__ . '/README.md');
 
         self::removeDir(__DIR__ . '/.docker');
 
