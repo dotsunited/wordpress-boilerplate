@@ -20,7 +20,7 @@ A Demo is available [here](http://wordpress-boilerplate.dotsunited.de/).
 
 ## Setup
 
-Create new project with:
+Create a new project with:
 
 ```bash
 composer create-project dotsunited/wordpress-boilerplate my-project
@@ -30,7 +30,7 @@ composer create-project dotsunited/wordpress-boilerplate my-project
 
 Adjust the `docker-compose.yml` to your needs using a `docker-compose.override.yml` file (<https://docs.docker.com/compose/extends/>).
 
-You can add a database dump with the filename `dump.sql.gz` or `dump.sql` which will be imported on the first run. A new user with the following credentials will be automatically added:
+You can add a database dump using a `dump.sql.gz` or `dump.sql` file which will be imported on the first run. If a database dump is present, a new user with the following credentials will be automatically added:
 
 ```bash
 Username: `localAdmin`
@@ -59,7 +59,7 @@ docker compose up -d
 
 ## Plugins
 
-> ℹ️ Automatic updates for plugins & themes are disabled by default. You can enable them by removing or commenting the corresponding module in `wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php`.
+> ℹ️ Automatic updates for plugins, themes and major core versions are disabled by default. You can enable them by removing or commenting the corresponding module inside `wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php`.
 
 If you uncommented sentry lines in `docker-compose.yml` install [WP Sentry](https://wordpress.org/plugins/wp-sentry-integration/)
 
@@ -82,5 +82,5 @@ to download webfonts from Google Fonts.
 
 ## License
 
-Copyright (c) 2015-2024 Dots United GmbH.
+Copyright (c) 2015-2025 Dots United GmbH.
 Released under the [MIT](LICENSE) license.
