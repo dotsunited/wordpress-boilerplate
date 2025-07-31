@@ -1,6 +1,6 @@
-import { ready } from 'domestique';
+import { domReady } from '@lib/domready';
 
-ready(() => {
+domReady(() => {
     const galleries = document.querySelectorAll(
         '.wp-block-gallery',
     ) as NodeListOf<HTMLElement>;

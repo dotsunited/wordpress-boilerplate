@@ -32,7 +32,6 @@
         "@tailwindcss/vite": "^4.1.11",
         "@wordpress/block-library": "^9.27.0",
         "ctrly": "^0.7.0",
-        "domestique": "^1.7.0",
         "photoswipe": "^5.4.4"
     },
     "devDependencies": {

@@ -1,12 +1,12 @@
+import { domReady } from '@lib/domready';
 import ctrly from 'ctrly/src/ctrly';
-import { ready } from 'domestique';
 
 import './style.css';
 import './style-control.css';
 import './style-target.css';
 import './style-navigation.css';
 
-ready(() => {
+domReady(() => {
     ctrly({
         selector: '.js-off-canvas-menu-control',
         closeOnScroll: true,

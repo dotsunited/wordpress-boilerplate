@@ -7,7 +7,6 @@
         "@tailwindcss/vite": "^4.1.11",
         "@wordpress/block-library": "^9.27.0",
         "ctrly": "^0.7.0",
-        "domestique": "^1.7.0",
         "photoswipe": "^5.4.4",
       },
       "devDependencies": {
@@ -623,8 +622,6 @@
     "devlop": ["devlop@1.1.0", "", { "dependencies": { "dequal": "^2.0.0" } }, "sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA=="],
 
     "diff": ["diff@4.0.2", "", {}, "sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A=="],
-
-    "domestique": ["domestique@1.7.0", "", {}, "sha512-BU3Yw5SrCbhy/mUn7+CcXfJbdA1AnMDPZQy3ffgyNdNHqgYE/CtRz24/qiXaZNuf2SLOX43gGsyaUK7eeDROKA=="],
 
     "dot-case": ["dot-case@3.0.4", "", { "dependencies": { "no-case": "^3.0.4", "tslib": "^2.0.3" } }, "sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w=="],
 

@@ -1,9 +1,18 @@
+import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
     publicDir: false,
     base: './',
+    resolve: {
+        alias: {
+            '@lib': path.resolve(__dirname, './assets/lib'),
+            '@main': path.resolve(__dirname, './assets/main'),
+            '@icons': path.resolve(__dirname, './assets/icons'),
+            '@gutenberg': path.resolve(__dirname, './assets/gutenberg'),
+        },
+    },
     build: {
         manifest: true,
         rollupOptions: {
