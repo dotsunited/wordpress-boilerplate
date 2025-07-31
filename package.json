@@ -38,6 +38,7 @@
         "@antfu/eslint-config": "^5.0.0",
         "@types/bun": "^1.2.19",
         "@types/node": "^24.1.0",
+        "domestique": "^1.7.0",
         "editorconfig-checker": "^6.1.0",
         "eslint": "^9.32.0",
         "lightningcss": "^1.30.1",
