@@ -7,7 +7,7 @@ x-common-variables: &commonEnv
 
 services:
   wordpress:
-    image: wordpress:php8.3
+    image: wordpress:php8.4
     user: 1000:1000
     restart: on-failure
     ports:
