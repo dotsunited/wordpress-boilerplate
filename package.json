@@ -1,7 +1,7 @@
 {
     "name": "@dotsunited/wordpress-boilerplate",
     "type": "module",
-    "version": "16.0.0",
+    "version": "16.0.1",
     "private": true,
     "description": "A barebones, clean and minimalist WordPress Boilerplate.",
     "author": "Dots United GmbH",
