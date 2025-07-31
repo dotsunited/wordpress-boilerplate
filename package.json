@@ -30,20 +30,20 @@
     ],
     "dependencies": {
         "@tailwindcss/vite": "^4.1.11",
-        "@wordpress/block-library": "^9.26.0",
+        "@wordpress/block-library": "^9.27.0",
         "ctrly": "^0.7.0",
         "domestique": "^1.7.0",
         "photoswipe": "^5.4.4"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^4.16.2",
-        "@types/bun": "^1.2.18",
-        "@types/node": "^22.16.2",
-        "editorconfig-checker": "^6.0.1",
-        "eslint": "^9.30.1",
+        "@antfu/eslint-config": "^5.0.0",
+        "@types/bun": "^1.2.19",
+        "@types/node": "^24.1.0",
+        "editorconfig-checker": "^6.1.0",
+        "eslint": "^9.32.0",
         "lightningcss": "^1.30.1",
         "tailwindcss": "^4.1.11",
         "typescript": "^5.8.3",
-        "vite": "^7.0.4"
+        "vite": "^7.0.6"
     }
 }
