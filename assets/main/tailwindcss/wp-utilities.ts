@@ -6,17 +6,15 @@
  *
  * @module wp-utilities
  */
-module.exports = function ({ addUtilities, config }) {
+module.exports = function ({ addUtilities, config }: { addUtilities: (utilities: { [key: string]: { [key: string]: string } }) => void; config: (key: string) => any }) {
     const generateUtilities = (colors: { [key: string]: string | { [key: string]: string } }) => {
-        const utilities: { [key: string]: { [key: string]: string } }[] = [];
+        const utilities: { [key: string]: { [key: string]: string } } = {};
 
         const generateUtility = (prefix: string, value: string | { [key: string]: string }) => {
             if (typeof value === 'string') {
-                utilities.push({
-                    [`.has-${prefix}-color`]: { color: value },
-                    [`.has-${prefix}-background-color`]: { 'background-color': value },
-                    [`.has-${prefix}-border-color`]: { 'border-color': value },
-                });
+                utilities[`.has-${prefix}-color`] = { color: value };
+                utilities[`.has-${prefix}-background-color`] = { 'background-color': value };
+                utilities[`.has-${prefix}-border-color`] = { 'border-color': value };
             }
             else if (typeof value === 'object') {
                 Object.keys(value).forEach((subKey) => {
