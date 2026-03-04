@@ -86,6 +86,7 @@ add_wordpress_admin_user () {
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, 'nickname', '${WORDPRESS_ADMIN_USER}');
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}capabilities', 'a:1:{s:13:"administrator";b:1;}');
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}user_level', 10);
+		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}rich_editing', 'true');
 		EOF
 	else
 		echo "Adding wordpress admin user to blog with id $2."
@@ -93,6 +94,7 @@ add_wordpress_admin_user () {
 		$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}${blog_id}_capabilities', 'a:1:{s:13:"administrator";b:1;}');
 		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}${blog_id}_user_level', 10);
+		INSERT INTO ${WORDPRESS_TABLE_PREFIX}usermeta (user_id, meta_key, meta_value) VALUES (${next_user_id}, '${WORDPRESS_TABLE_PREFIX}${blog_id}_rich_editing', 'true');
 		EOF
 	fi
 }
@@ -109,11 +111,13 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 	EOF
 
 	site_admins=$($DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "SELECT meta_value FROM ${WORDPRESS_TABLE_PREFIX}sitemeta WHERE meta_key = 'site_admins'")
-
-	# TODO: Add user 'localAdmin' to site_admins
-	# a:([0-9]+):{(?:i:([0-9]+);s:[0-9]+:\"\w+\";)+(})
-	# a:(\d):({(?:i:(\d);s:\d+:".+?";)+)}
-	# a:$1:$2i:$3;s:10:"localAdmin";}
+	if [ -n "$site_admins" ]; then
+		count=$(echo "$site_admins" | sed -E 's/^a:([0-9]+):.*/\1/')
+		new_count=$((count + 1))
+		admin_len=${#WORDPRESS_ADMIN_USER}
+		new_site_admins=$(echo "$site_admins" | sed -E "s/^(a:)([0-9]+)(:)(.*)(})$/\1${new_count}\3\4i:${count};s:${admin_len}:\"${WORDPRESS_ADMIN_USER}\";\5/")
+		$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s -e "UPDATE ${WORDPRESS_TABLE_PREFIX}sitemeta SET meta_value = '$(echo "$new_site_admins" | sed "s/'/''/g")' WHERE meta_key = 'site_admins'"
+	fi
 
 	blogs=()
 
@@ -161,7 +165,7 @@ if [ "$WORDPRESS_MULTISITE" -eq "1" ]; then
 			fi
 		fi
 
-		echo "Updating blog with id $id from $siteurl to http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$path)"
+		echo "Updating blog with id $id from $siteurl to http://${WORDPRESS_HOST}:${WORDPRESS_PORT}$path"
 
 		$DB_COMMAND -u"$MYSQL_USER" "$MYSQL_DATABASE" -s <<-EOF
 		UPDATE ${WORDPRESS_TABLE_PREFIX}blogs SET path = '$blogpath' WHERE blog_id = $id;
