@@ -29,20 +29,20 @@
         "not dead"
     ],
     "dependencies": {
-        "@tailwindcss/vite": "^4.1.18",
-        "@wordpress/block-library": "^9.38.0",
+        "@tailwindcss/vite": "^4.2.1",
+        "@wordpress/block-library": "^9.41.0",
         "ctrly": "^0.7.0",
         "photoswipe": "^5.4.4"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^5.4.1",
-        "@types/bun": "^1.3.6",
-        "@types/node": "^24.10.9",
+        "@antfu/eslint-config": "^7.6.1",
+        "@types/bun": "^1.3.10",
+        "@types/node": "^24.11.0",
         "domestique": "^1.7.0",
         "editorconfig-checker": "^6.1.1",
-        "eslint": "^9.39.2",
+        "eslint": "^10.0.2",
         "lightningcss": "^1.31.1",
-        "tailwindcss": "^4.1.18",
+        "tailwindcss": "^4.2.1",
         "typescript": "^5.9.3",
         "vite": "^7.3.1"
     }
