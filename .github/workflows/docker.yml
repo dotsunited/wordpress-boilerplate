@@ -3,7 +3,7 @@ name: 🐳 Build Docker images on push
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - ".docker/db/**"
 
