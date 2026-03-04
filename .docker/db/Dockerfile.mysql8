@@ -1,4 +1,4 @@
-FROM mysql:8-debian
+FROM mysql:8
 
 # Add scripts
 ADD .docker/db/scripts /docker-entrypoint-initdb.d

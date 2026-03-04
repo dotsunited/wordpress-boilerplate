@@ -15,14 +15,20 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./.docker/db/Dockerfile.mariadb11
+          - dockerfile: ./.docker/db/Dockerfile.mariadb12
             tags: |
               ghcr.io/dotsunited/wordpress-boilerplate-db:latest
               ghcr.io/dotsunited/wordpress-boilerplate-db:mariadb
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mariadb12
+          - dockerfile: ./.docker/db/Dockerfile.mariadb11
+            tags: |
               ghcr.io/dotsunited/wordpress-boilerplate-db:mariadb11
-          - dockerfile: ./.docker/db/Dockerfile.mysql8
+          - dockerfile: ./.docker/db/Dockerfile.mysql9
             tags: |
               ghcr.io/dotsunited/wordpress-boilerplate-db:mysql
+              ghcr.io/dotsunited/wordpress-boilerplate-db:mysql9
+          - dockerfile: ./.docker/db/Dockerfile.mysql8
+            tags: |
               ghcr.io/dotsunited/wordpress-boilerplate-db:mysql8
           - dockerfile: ./.docker/db/Dockerfile.mysql57
             tags: |
