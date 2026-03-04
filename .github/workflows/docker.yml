@@ -1,6 +1,7 @@
 name: 🐳 Build Docker images on push
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
