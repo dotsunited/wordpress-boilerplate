@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the wordpress-boilerplate package.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: wordpress-boilerplate 16.1.0\n"
+"Project-Id-Version: wordpress-boilerplate 17.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/wordpress-boilerplate\n"
 "POT-Creation-Date: 2026-03-04 12:58:55+00:00\n"
