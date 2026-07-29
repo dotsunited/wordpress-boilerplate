@@ -10,6 +10,6 @@ body {
 
 .admin-bar {
     & header {
-        @apply sm:top-[46px] md:top-[32px] -mb-10 sm:mb-0;
+        @apply sm:top-11.5 md:top-8 -mb-10 sm:mb-0;
     }
 }

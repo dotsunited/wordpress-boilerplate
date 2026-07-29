@@ -1,5 +1,3 @@
-/* eslint-disable unused-imports/no-unused-vars */
-/* eslint-disable no-unused-vars */
 /* eslint no-undef: 0 */
 
 const { Path, SVG } = wp.components;

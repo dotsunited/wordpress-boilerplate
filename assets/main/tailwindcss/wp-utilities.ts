@@ -15,8 +15,7 @@ module.exports = function ({ addUtilities, config }: { addUtilities: (utilities:
                 utilities[`.has-${prefix}-color`] = { color: value };
                 utilities[`.has-${prefix}-background-color`] = { 'background-color': value };
                 utilities[`.has-${prefix}-border-color`] = { 'border-color': value };
-            }
-            else if (typeof value === 'object') {
+            } else if (typeof value === 'object') {
                 Object.keys(value).forEach((subKey) => {
                     const subValue = value[subKey];
                     const subPrefix = `${prefix}-${subKey}`;

@@ -7,14 +7,13 @@
         "moduleDetection": "force",
         "jsx": "react-jsx",
         "allowJs": true,
+        "types": ["node", "bun"],
 
-        // Path mapping for aliases
-        "baseUrl": ".",
         "paths": {
-            "@lib/*": ["assets/lib/*"],
-            "@main/*": ["assets/main/*"],
-            "@icons/*": ["assets/icons/*"],
-            "@gutenberg/*": ["assets/gutenberg/*"]
+            "@lib/*": ["./assets/lib/*"],
+            "@main/*": ["./assets/main/*"],
+            "@icons/*": ["./assets/icons/*"],
+            "@gutenberg/*": ["./assets/gutenberg/*"]
         },
 
         // Bundler mode

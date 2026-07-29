@@ -43,8 +43,7 @@ function generateSafelist(): void {
                 Object.keys(colorValue).forEach((key) => {
                     generateSafelistEntries(colorValue[key], [...colorPath, key]);
                 });
-            }
-            else if (typeof colorValue === 'string') {
+            } else if (typeof colorValue === 'string') {
                 const colorName = colorPath.join('-');
                 patterns.forEach((pattern) => {
                     safelist.push(pattern.replace('{color}', colorName));
@@ -57,8 +56,7 @@ function generateSafelist(): void {
         });
 
         fs.writeFileSync(path.join(__dirname, 'safelist.txt'), `${safelist.join('\n')}\n`);
-    }
-    catch (error) {
+    } catch (error) {
         console.error('Error generating safelist:', error);
     }
 }
