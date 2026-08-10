@@ -27,7 +27,7 @@ host('wordpress-boilerplate.localhost')
     ->set('deploy_path', '/path/to/wordpress-boilerplate')
 
     ->stage('production')
-    ->set('branch', 'master')
+    ->set('branch', 'main')
 
     ->set('url', 'https://wordpress-boilerplate.localhost');
 
