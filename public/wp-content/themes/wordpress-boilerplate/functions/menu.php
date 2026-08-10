@@ -170,8 +170,6 @@ function wordpress_boilerplate_submenu_limit($items, $args) {
         }
     }
 
-    var_dump($children);
-
     return $items;
 }
 
