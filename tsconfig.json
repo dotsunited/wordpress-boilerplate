@@ -12,7 +12,6 @@
         "paths": {
             "@lib/*": ["./assets/lib/*"],
             "@main/*": ["./assets/main/*"],
-            "@icons/*": ["./assets/icons/*"],
             "@gutenberg/*": ["./assets/gutenberg/*"]
         },
 

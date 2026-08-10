@@ -18,30 +18,6 @@ add_action('wp_head', function () {
 <?php
 }, 1000);
 
-add_action('wp_footer', function () {
-    echo wordpress_boilerplate_asset_embed_from_manifest('assets/icons/img/symbol-defs.svg');
-}, 1000);
-
-function wordpress_boilerplate_asset_svg_icon($name, array $args = []) {
-    $args = wp_parse_args($args, [
-        'class' => '',
-        'aria-hidden' => 'true',
-        'role' => 'img',
-    ]);
-
-    $class = 'icon icon-' . $name;
-
-    if (!empty($args['class'])) {
-        $class .= ' ' . trim($args['class']);
-    }
-
-    /*
-     * The whitespace around `<use>` is intentional - it is a work around to a keyboard navigation bug in Safari 10.
-     * See https://core.trac.wordpress.org/ticket/38387.
-     */
-    return '<svg class="' . esc_attr($class) . '" aria-hidden="' . esc_attr($args['aria-hidden']) . '" role="' . esc_attr($args['role']) . '"> <use href="#icon-' . esc_html($name) . '" xlink:href="#icon-' . esc_html($name) . '"></use> </svg>';
-}
-
 function wordpress_boilerplate_asset_url_from_manifest($name, $type = 'file') {
     $manifest = wordpress_boilerplate_asset_manifest();
 

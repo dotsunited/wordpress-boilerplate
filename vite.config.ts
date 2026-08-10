@@ -9,7 +9,6 @@ export default defineConfig({
         alias: {
             '@lib': path.resolve(__dirname, './assets/lib'),
             '@main': path.resolve(__dirname, './assets/main'),
-            '@icons': path.resolve(__dirname, './assets/icons'),
             '@gutenberg': path.resolve(__dirname, './assets/gutenberg'),
         },
     },
@@ -18,8 +17,6 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: './assets/main',
-                icons: './assets/icons/index.css',
-                symbolDefs: './assets/icons/symbol-defs.svg',
             },
             output: {
                 entryFileNames: 'js/[name].[hash].js',
