@@ -1,5 +1,5 @@
 import { domReady } from '@lib/domready';
-import ctrly from 'ctrly/src/ctrly';
+import ctrly from 'ctrly';
 
 import './style.css';
 import './style-control.css';
