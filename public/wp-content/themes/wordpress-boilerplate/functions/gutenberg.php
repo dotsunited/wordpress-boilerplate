@@ -4,6 +4,10 @@ add_action('after_setup_theme', function () {
     // Gutenberg configuration
     // See https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
 
+    // Add support for custom editor styles.
+    add_theme_support('editor-styles');
+    add_editor_style('vendor/gutenberg/editor-styles.css');
+
     // Add support for widealign images
     add_theme_support('align-wide');
 
@@ -186,11 +190,6 @@ add_action('enqueue_block_assets', function () {
     // registered by plugins etc.
 
     // wp_dequeue_style('wp-block-library');
-});
-
-add_action('enqueue_block_editor_assets', function () {
-    // Enqueue editor UI style.
-    wp_enqueue_style('slug-editor-ui-style', get_theme_file_uri('vendor/gutenberg/editor-styles.css'), [], md5_file(get_theme_file_path('vendor/gutenberg/editor-styles.css')));
 });
 
 // Gutenberg block editor assets
