@@ -41,7 +41,7 @@ services:
       - db
 
   db:
-    image: ghcr.io/dotsunited/wordpress-boilerplate-db:latest
+    image: ghcr.io/dotsunited/wordpress-boilerplate-db:mariadb12
     restart: on-failure
     ports:
       - 3306:3306
