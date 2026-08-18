@@ -117,11 +117,11 @@ add_action('enqueue_block_editor_assets', function () {
 });
 
 add_action('enqueue_block_assets', function () {
-    if (is_admin() && !wp_script_is('wp-edit-widgets') && !wp_script_is('wp-customize-widgets')) {
+    if (is_admin()) {
         wp_enqueue_style(
             'wordpress-boilerplate-gutenberg-blocks-css',
             plugin_dir_url(__FILE__) . '/blocks/assets/blocks.css',
-            ['wp-edit-post'],
+            ['wp-edit-blocks'],
             md5_file(plugin_dir_path(__FILE__) . '/blocks/assets/blocks.css')
         );
     }
