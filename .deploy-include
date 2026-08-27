@@ -1,0 +1,5 @@
+# Include generated build output that Git does not track.
++ /wp-content/themes/wordpress-boilerplate/assets/
++ /wp-content/themes/wordpress-boilerplate/assets/**
++ /wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/
++ /wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/**

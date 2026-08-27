@@ -25,15 +25,9 @@ class ComposerScripts
 
         // --- Add Deployment
 
-        $deployment = $io->ask('Add a deployment type (<comment>ssh/ftp/NONE</comment>): ', 'none');
+        $platform = strtolower($io->ask('Add a CI deployment platform (<comment>github/gitlab/NONE</comment>): ', 'none'));
 
-        if ($deployment === 'ftp') {
-            $platform = $io->ask('Enter the platform (<comment>github/GITLAB</comment>): ', 'gitlab');
-        } else {
-            $platform = 'none';
-        }
-
-        self::setupDeployment($deployment, $platform, $projectName, $projectIdentifier);
+        self::setupDeployment($platform, $projectName, $projectIdentifier);
 
         // --- Replace in files & dirs
 
@@ -119,6 +113,11 @@ class ComposerScripts
     {
         $content = file_get_contents($file);
 
+        // Don't rewrite image name
+        $deploymentImage = 'ghcr.io/dotsunited/deploy';
+        $deploymentImagePlaceholder = '__SHARED_DEPLOYMENT_IMAGE__';
+        $content = str_replace($deploymentImage, $deploymentImagePlaceholder, $content);
+
         $content = str_ireplace(
             [
                 'wordpress boilerplate',
@@ -134,6 +133,8 @@ class ComposerScripts
             ],
             $content
         );
+
+        $content = str_replace($deploymentImagePlaceholder, $deploymentImage, $content);
 
         file_put_contents($file, $content);
     }
@@ -154,37 +155,24 @@ class ComposerScripts
         $lockFile->write($lockData);
     }
 
-    private static function setupDeployment($type, $platform, $projectName, $projectIdentifier)
+    private static function setupDeployment($platform, $projectName, $projectIdentifier)
     {
-        switch ($type) {
-            case 'ftp':
-                if ($platform === 'github') {
-                    unlink(__DIR__ . '/.gitlab-ci.ftp.dist.yml');
-                    unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
-                    unlink(__DIR__ . '/deploy.dist.php');
-                    unlink(__DIR__ . '/.github/workflows/docker.yml');
-                    self::replace(__DIR__ . '/.github/workflows/deploy.yml', $projectName, $projectIdentifier);
-                } else {
-                    unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
-                    unlink(__DIR__ . '/deploy.dist.php');
-                    rename(__DIR__ . '/.gitlab-ci.ftp.dist.yml', __DIR__ . '/.gitlab-ci.yml');
-                    self::replace(__DIR__ . '/.gitlab-ci.yml', $projectName, $projectIdentifier);
-                    self::removeDir(__DIR__ . '/.github');
-                }
+        switch ($platform) {
+            case 'github':
+                unlink(__DIR__ . '/.gitlab-ci.dist.yml');
+                unlink(__DIR__ . '/.github/workflows/docker.yml');
+                self::replace(__DIR__ . '/.github/workflows/deploy.yml', $projectName, $projectIdentifier);
                 break;
-            case 'ssh':
-                unlink(__DIR__ . '/.gitlab-ci.ftp.dist.yml');
-                rename(__DIR__ . '/.gitlab-ci.ssh.dist.yml', __DIR__ . '/.gitlab-ci.yml');
-                rename(__DIR__ . '/deploy.dist.php', __DIR__ . '/deploy.php');
+
+            case 'gitlab':
+                rename(__DIR__ . '/.gitlab-ci.dist.yml', __DIR__ . '/.gitlab-ci.yml');
                 self::replace(__DIR__ . '/.gitlab-ci.yml', $projectName, $projectIdentifier);
-                self::replace(__DIR__ . '/deploy.php', $projectName, $projectIdentifier);
                 self::removeDir(__DIR__ . '/.github');
                 break;
+
             case 'none':
             default:
-                unlink(__DIR__ . '/.gitlab-ci.ftp.dist.yml');
-                unlink(__DIR__ . '/.gitlab-ci.ssh.dist.yml');
-                unlink(__DIR__ . '/deploy.dist.php');
+                unlink(__DIR__ . '/.gitlab-ci.dist.yml');
                 self::removeDir(__DIR__ . '/.github');
                 break;
         }

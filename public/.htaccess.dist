@@ -2,6 +2,11 @@ Options -Indexes -MultiViews +FollowSymlinks
 
 ServerSignature Off
 
+# Block the deployment manifest.
+<Files "deploy.manifest.json">
+    Require all denied
+</Files>
+
 <IfModule mod_headers.c>
     Header unset X-Powered-By
 </IfModule>

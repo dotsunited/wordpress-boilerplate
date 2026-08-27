@@ -57,6 +57,49 @@ Start the Docker containers with
 docker compose up -d
 ```
 
+## Deployment
+
+The GitHub Actions and GitLab templates build the frontend and Gutenberg assets
+and deploy them with
+[`ghcr.io/dotsunited/deploy:v0`](https://github.com/dotsunited/deploy).
+See the deploy repository for all supported protocols and configuration options.
+
+Configure at least these variables for each target environment:
+
+```text
+DEPLOY_PROTOCOL
+DEPLOY_HOST
+DEPLOY_USER
+DEPLOY_REMOTE_PATH
+```
+
+For GitHub Actions, add connection values as environment variables and add
+credentials as environment secrets. The environment name is the branch name
+(`main` or `staging`). For GitLab, add the same values as CI/CD variables.
+
+The templates deploy from `./public`. The deploy image reads tracked files
+directly from Git and adds generated paths from `.deploy-include`.
+`.deploy-ignore` protects WordPress core,
+uploads, plugins, `.htaccess`, and other server-managed files. Unrelated remote
+files, themes, and plugins are not deleted.
+
+Deployment state is stored as `deploy.manifest.json`. Apply
+`public/.htaccess.dist` on the server when the destination is a web root to
+block public access to this file.
+
+To deploy a generated `vendor/` directory, remove `/vendor/**` from
+`.deploy-ignore`, add these rules to `.deploy-include`, include the directory
+in the CI artifact, and run Composer in the build job:
+
+```text
++ /vendor/
++ /vendor/**
+```
+
+```yaml
+- run: composer install --no-dev --no-interaction --prefer-dist
+```
+
 ## Plugins
 
 > ℹ️ Automatic updates for plugins, themes and major core versions are disabled by default. You can enable them by removing or commenting the corresponding module inside `wp-content/mu-plugins/wordpress-boilerplate/wordpress-boilerplate.php`.

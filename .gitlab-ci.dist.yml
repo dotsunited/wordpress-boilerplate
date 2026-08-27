@@ -1,11 +1,11 @@
 stages:
-  - 🧹 Lint
-  - 🚧 Build
-  - 🚀 Deploy
+  - lint
+  - build
+  - deploy
 
 lint:
-  stage: 🧹 Lint
-  image: imbios/bun-node:latest-22-debian
+  stage: lint
+  image: imbios/bun-node:latest-24-debian
   only:
     - main
     - staging
@@ -22,7 +22,7 @@ lint:
         - .bun/
 
 build:
-  stage: 🚧 Build
+  stage: build
   image: oven/bun:1
   only:
     - main
@@ -40,12 +40,18 @@ build:
       policy: pull
   artifacts:
     paths:
-        - public/wp-content/themes/wordpress-boilerplate/assets/
-        - public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/
+      - .deploy-include
+      - public/wp-content/themes/wordpress-boilerplate/assets/
+      - public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets/
 
 deploy:
-  stage: 🚀 Deploy
-  image: ghcr.io/dotsunited/ftp-deploy:latest
+  stage: deploy
+  image:
+    name: ghcr.io/dotsunited/deploy:v0
+  variables:
+    DEPLOY_LOCAL_PATH: ./public
+    GIT_DEPTH: "0"
+  resource_group: deploy-$CI_COMMIT_REF_NAME
   rules:
     - if: '$CI_COMMIT_REF_NAME == "main"'
       variables:
@@ -56,17 +62,4 @@ deploy:
   environment:
     name: $DEPLOY_ENV
   script:
-    - |
-      set -f
-      EXCLUDE_PARAMS=""
-      while IFS= read -r line; do
-        EXCLUDE_PARAMS="$EXCLUDE_PARAMS --exclude $line"
-      done < .ftp-deploy-ignore
-      ftp-deploy \
-        --server-dir $SERVER_DIR \
-        --local-dir $LOCAL_DIR \
-        --server $FTP_SERVER \
-        --protocol $FTP_PROTOCOL \
-        --username $FTP_USERNAME \
-        --password $FTP_PASSWORD \
-        $EXCLUDE_PARAMS
+    - deploy

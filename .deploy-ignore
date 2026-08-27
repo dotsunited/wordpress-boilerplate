@@ -1,0 +1,61 @@
+# Patterns are matched by rclone and rsync. A pattern without a leading slash
+# matches at any level; a leading slash anchors it to the deploy root.
+#
+# To deploy generated `vendor/`, remove `/vendor/**`, include it
+# in the CI artifact, and run Composer in the build job.
+
+**/.git*
+**/.git*/**
+**/node_modules/**
+.docker/**
+.github/**
+/.deploy-artifact/**
+/.deploy-include
+# Anchored: themes and plugins ship their own `assets`, `bin`, `docs` and
+# `vendor` directories, which must stay deployable.
+/assets/**
+/bin/**
+/docs/**
+/vendor/**
+*.config.cjs
+*.config.cts
+*.config.js
+*.config.ts
+.ecrc
+.editorconfig
+.deploy-ignore
+.gitignore
+.gitlab-ci.yml
+.nvmrc
+bun.lock
+composer.json
+composer.lock
+docker-compose.yml
+package.json
+tsconfig.json
+/.editorconfig-checker.json
+/ComposerScripts.php
+/LICENSE
+/README.md
+/wp-cli.yml
+
+# Shared WordPress data stays on the server. These patterns are unanchored so
+# they keep matching when the deploy root is the WordPress webroot instead of
+# the repository root.
+wp-content/uploads/**
+wp-content/cache/**
+wp-content/upgrade/**
+wp-content/upgrade-temp-backup/**
+wp-content/updraft/**
+wp-content/plugins/**
+wp-content/languages/**
+wp-admin/**
+wp-includes/**
+wp-config.php
+.htaccess
+wp-*.php
+xmlrpc.php
+license.txt
+readme.html
+/public/index.php
+/index.php

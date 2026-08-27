@@ -1,78 +1,145 @@
-name: 🚀 Deploy on push
+name: deploy on push
 
 on:
   push:
     branches: [ main, staging ]
 
+env:
+  DEPLOY_IMAGE: ghcr.io/dotsunited/deploy:v0
+
 jobs:
   lint:
-    name: 🧹 Lint
+    name: lint
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v4
+      - name: get latest code
+        uses: actions/checkout@v7
 
-      - name: 📦 Setup Bun
+      - name: set up bun
         uses: oven-sh/setup-bun@v2
 
-      - name: 📦 Install dependencies
+      - name: install dependencies
         run: bun i --frozen-lockfile --prefer-offline
 
-      - name: 🧹 Lint
+      - name: lint
         continue-on-error: true
         run: |
           bun run lint:ec
           bun run lint:es
 
   build:
-    name: 🚧 Build
+    name: build
     runs-on: ubuntu-latest
     needs: lint
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v4
+      - name: get latest code
+        uses: actions/checkout@v7
 
-      - name: 📦 Setup Bun
+      - name: set up bun
         uses: oven-sh/setup-bun@v2
 
-      - name: 📦 Install dependencies
+      - name: install dependencies
         run: bun i --frozen-lockfile --prefer-offline
 
-      - name: 🚧 Build assets
+      - name: build assets
         run: |
           bun run build
           bun run build:gutenberg
 
-      - name: 💾 Cache build assets
-        uses: actions/cache@v4
+      - name: prepare deploy artifact
+        run: |
+          set -euo pipefail
+          mkdir -p \
+            .deploy-artifact/public/wp-content/themes/wordpress-boilerplate \
+            .deploy-artifact/public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks
+          cp .deploy-include .deploy-artifact/
+          cp -a \
+            public/wp-content/themes/wordpress-boilerplate/assets \
+            .deploy-artifact/public/wp-content/themes/wordpress-boilerplate/
+          cp -a \
+            public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets \
+            .deploy-artifact/public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/
+
+      - name: upload build assets
+        uses: actions/upload-artifact@v7
         with:
-          path: |
-            ./public/wp-content/themes/wordpress-boilerplate/assets
-            ./public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets
-          key: ${{ runner.os }}-build-${{ github.sha }}
+          name: deploy-assets
+          path: .deploy-artifact
+          include-hidden-files: true
+          if-no-files-found: error
 
   deploy:
-    name: 🚀 Deploy
+    name: deploy
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      contents: read
+    concurrency:
+      group: deploy-${{ github.ref_name }}
+      cancel-in-progress: false
+    environment:
+      name: ${{ github.ref_name }}
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v4
-
-      - name: 💾 Restore build assets
-        uses: actions/cache@v4
+      - name: get latest code
+        uses: actions/checkout@v7
         with:
-          path: |
-            ./public/wp-content/themes/wordpress-boilerplate/assets
-            ./public/wp-content/mu-plugins/wordpress-boilerplate/modules/gutenberg/blocks/assets
-          key: ${{ runner.os }}-build-${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
 
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: download build assets
+        uses: actions/download-artifact@v8
         with:
-          protocol: ${{ vars.FTP_PROTOCOL }}
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ vars.FTP_PATH }}
-          local-dir: ${{ vars.LOCAL_PATH }}
+          name: deploy-assets
+          path: .deploy-artifact
+
+      - name: restore deploy artifact
+        run: |
+          cp -a .deploy-artifact/. .
+          rm -rf .deploy-artifact
+
+      - name: deploy files
+        env:
+          DEPLOY_PROTOCOL: ${{ vars.DEPLOY_PROTOCOL }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_REMOTE_PATH: ${{ vars.DEPLOY_REMOTE_PATH }}
+          DEPLOY_LOCAL_PATH: ${{ vars.DEPLOY_LOCAL_PATH || '/workspace/public' }}
+          DEPLOY_DELETE: ${{ vars.DEPLOY_DELETE || 'true' }}
+          DEPLOY_DRY_RUN: ${{ vars.DEPLOY_DRY_RUN || 'false' }}
+          DEPLOY_FTPS_MODE: ${{ vars.DEPLOY_FTPS_MODE || 'explicit' }}
+          DEPLOY_FTP_CONCURRENCY: ${{ vars.DEPLOY_FTP_CONCURRENCY || '2' }}
+          DEPLOY_FTP_INPLACE: ${{ vars.DEPLOY_FTP_INPLACE || 'true' }}
+          DEPLOY_FTP_IGNORE_TIMES: ${{ vars.DEPLOY_FTP_IGNORE_TIMES || 'auto' }}
+          DEPLOY_GIT_DIFF: ${{ vars.DEPLOY_GIT_DIFF || 'auto' }}
+          DEPLOY_MANIFEST: ${{ vars.DEPLOY_MANIFEST || 'deploy.manifest.json' }}
+          DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_SSH_INSECURE: ${{ vars.DEPLOY_SSH_INSECURE || 'false' }}
+        run: |
+          set -euo pipefail
+          docker_args=(
+            --rm
+            --mount "type=bind,source=$GITHUB_WORKSPACE,target=/workspace,readonly"
+            -e "DEPLOY_PROTOCOL=$DEPLOY_PROTOCOL"
+            -e "DEPLOY_HOST=$DEPLOY_HOST"
+            -e "DEPLOY_PORT=$DEPLOY_PORT"
+            -e "DEPLOY_USER=$DEPLOY_USER"
+            -e "DEPLOY_REMOTE_PATH=$DEPLOY_REMOTE_PATH"
+            -e "DEPLOY_LOCAL_PATH=$DEPLOY_LOCAL_PATH"
+            -e "DEPLOY_DELETE=$DEPLOY_DELETE"
+            -e "DEPLOY_DRY_RUN=$DEPLOY_DRY_RUN"
+            -e "DEPLOY_FTPS_MODE=$DEPLOY_FTPS_MODE"
+            -e "DEPLOY_FTP_CONCURRENCY=$DEPLOY_FTP_CONCURRENCY"
+            -e "DEPLOY_FTP_INPLACE=$DEPLOY_FTP_INPLACE"
+            -e "DEPLOY_FTP_IGNORE_TIMES=$DEPLOY_FTP_IGNORE_TIMES"
+            -e "DEPLOY_GIT_DIFF=$DEPLOY_GIT_DIFF"
+            -e "DEPLOY_MANIFEST=$DEPLOY_MANIFEST"
+            -e DEPLOY_PASSWORD
+            -e DEPLOY_SSH_KEY
+            -e DEPLOY_KNOWN_HOSTS
+            -e "DEPLOY_SSH_INSECURE=$DEPLOY_SSH_INSECURE"
+          )
+
+          docker run "${docker_args[@]}" "$DEPLOY_IMAGE"

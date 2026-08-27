@@ -1,4 +1,4 @@
-name: 🐳 Build Docker images on push
+name: build docker images on push
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: 🐳 Build Docker images
+    name: build docker images
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -39,18 +39,18 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v4
+      - name: get latest code
+        uses: actions/checkout@v7
 
-      - name: 🔑 Login to GitHub Container Registry
-        uses: docker/login-action@v3
+      - name: log in to github container registry
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🐳 Build and push Docker images
-        uses: docker/build-push-action@v6
+      - name: build and push docker images
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ${{ matrix.dockerfile }}
