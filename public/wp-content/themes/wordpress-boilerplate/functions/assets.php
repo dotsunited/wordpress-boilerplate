@@ -12,6 +12,18 @@ add_action('wp_head', function () {
 }, -1000);
 
 add_action('wp_head', function () {
+    $viteDevServerFile = __DIR__ . '/../.vite-dev-server';
+    $viteDevServer = 'local' === wp_get_environment_type() && is_readable($viteDevServerFile)
+        ? rtrim(trim(file_get_contents($viteDevServerFile)), '/')
+        : '';
+
+    if ($viteDevServer) {
+?>
+    <script type="module" src="<?= esc_url($viteDevServer . '/@vite/client'); ?>"></script>
+    <script type="module" src="<?= esc_url($viteDevServer . '/assets/main/index.ts'); ?>"></script>
+<?php
+        return;
+    }
 ?>
     <style><?= wordpress_boilerplate_asset_embed_from_manifest('assets/main/index.ts', 'css'); ?></style>
     <script type="module" async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('assets/main/index.ts')); ?>"></script>

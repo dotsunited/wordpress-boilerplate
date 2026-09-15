@@ -1,15 +1,34 @@
+import { rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
+const devServerHost = 'localhost';
+const devServerPort = 5174;
+const devServerOrigin = `http://${devServerHost}:${devServerPort}`;
+const devServerFile = path.resolve(import.meta.dirname, './public/wp-content/themes/wordpress-boilerplate/.vite-dev-server');
+
 export default defineConfig({
     publicDir: false,
     base: './',
+    server: {
+        host: '0.0.0.0',
+        port: devServerPort,
+        strictPort: true,
+        origin: devServerOrigin,
+        cors: {
+            origin: 'http://localhost:8080',
+        },
+        hmr: {
+            host: devServerHost,
+            port: devServerPort,
+        },
+    },
     resolve: {
         alias: {
-            '@lib': path.resolve(__dirname, './assets/lib'),
-            '@main': path.resolve(__dirname, './assets/main'),
-            '@gutenberg': path.resolve(__dirname, './assets/gutenberg'),
+            '@lib': path.resolve(import.meta.dirname, './assets/lib'),
+            '@main': path.resolve(import.meta.dirname, './assets/main'),
+            '@gutenberg': path.resolve(import.meta.dirname, './assets/gutenberg'),
         },
     },
     build: {
@@ -49,5 +68,27 @@ export default defineConfig({
     },
     plugins: [
         tailwindcss(),
+        {
+            name: 'wordpress-dev-server',
+            configureServer(server) {
+                const removeDevServerFile = () => {
+                    rmSync(devServerFile, { force: true });
+                };
+
+                const writeDevServerFile = () => {
+                    writeFileSync(devServerFile, devServerOrigin);
+                };
+
+                if (server.httpServer?.listening) {
+                    writeDevServerFile();
+                } else {
+                    server.httpServer?.once('listening', writeDevServerFile);
+                }
+                server.httpServer?.once('close', removeDevServerFile);
+                process.once('exit', removeDevServerFile);
+                process.once('SIGINT', removeDevServerFile);
+                process.once('SIGTERM', removeDevServerFile);
+            },
+        },
     ],
 });
