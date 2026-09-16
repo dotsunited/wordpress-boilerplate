@@ -31,8 +31,7 @@
     "dependencies": {
         "@tailwindcss/vite": "^4.3.3",
         "@wordpress/block-library": "^11.0.0",
-        "ctrly": "^0.7.0",
-        "photoswipe": "^5.4.4"
+        "ctrly": "^0.7.0"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^9.5.1",

@@ -16,4 +16,3 @@ import './wysiwyg';
 // Import components
 import './navigation';
 import './off-canvas-menu';
-import './photoswipe';
