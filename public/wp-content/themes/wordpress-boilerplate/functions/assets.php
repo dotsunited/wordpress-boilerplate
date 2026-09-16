@@ -11,11 +11,25 @@ add_action('wp_head', function () {
     */
 }, -1000);
 
-add_action('wp_head', function () {
+function wordpress_boilerplate_vite_dev_server() {
     $viteDevServerFile = __DIR__ . '/../.vite-dev-server';
-    $viteDevServer = 'local' === wp_get_environment_type() && is_readable($viteDevServerFile)
+
+    return 'local' === wp_get_environment_type() && is_readable($viteDevServerFile)
         ? rtrim(trim(file_get_contents($viteDevServerFile)), '/')
         : '';
+}
+
+add_action('wp_head', function () {
+    if (wordpress_boilerplate_vite_dev_server()) {
+        return;
+    }
+?>
+    <style><?= wordpress_boilerplate_asset_embed_from_manifest('assets/main/index.ts', 'css'); ?></style>
+<?php
+}, 1000);
+
+add_action('wp_footer', function () {
+    $viteDevServer = wordpress_boilerplate_vite_dev_server();
 
     if ($viteDevServer) {
 ?>
@@ -25,7 +39,6 @@ add_action('wp_head', function () {
         return;
     }
 ?>
-    <style><?= wordpress_boilerplate_asset_embed_from_manifest('assets/main/index.ts', 'css'); ?></style>
     <script type="module" async src="<?= esc_attr(wordpress_boilerplate_asset_url_from_manifest('assets/main/index.ts')); ?>"></script>
 <?php
 }, 1000);
