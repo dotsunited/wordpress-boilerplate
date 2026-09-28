@@ -30,18 +30,18 @@
     ],
     "dependencies": {
         "@tailwindcss/vite": "^4.3.3",
-        "@wordpress/block-library": "^11.0.0",
+        "@wordpress/block-library": "^11.1.0",
         "ctrly": "^0.7.0"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^9.5.1",
         "@types/bun": "^1.4.2",
-        "@types/node": "^26.5.1",
+        "@types/node": "^26.6.3",
         "editorconfig-checker": "^7.0.0",
-        "eslint": "^10.10.0",
+        "eslint": "^10.11.0",
         "lightningcss": "^1.33.0",
         "tailwindcss": "^4.3.3",
         "typescript": "^6.0.3",
-        "vite": "^8.3.0"
+        "vite": "^8.3.1"
     }
 }
